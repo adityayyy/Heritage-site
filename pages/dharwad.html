@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vijayapura — Premium Heritage Chronicle</title>
+    <title>Dharwad — Premium Heritage Chronicle</title>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
          :root {
@@ -34,6 +34,17 @@
             padding: 60px 8%;
             overflow-x: hidden;
         }
+        
+        body::after {
+            content: '';
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 9000;
+            opacity: 0.02;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+        }
+        /* Editorial Header Design */
         
         .back-btn {
             display: inline-flex;
@@ -78,6 +89,7 @@
         .header h1 span {
             color: var(--terracotta);
         }
+        /* Narrative Intro Box */
         
         .intro-chronicle {
             max-width: 850px;
@@ -102,6 +114,7 @@
             color: var(--text-muted);
             line-height: 1.8;
         }
+        /* One-by-One Alternating Layout */
         
         .heritage-flow {
             display: flex;
@@ -123,6 +136,7 @@
         .heritage-item:nth-child(even) .item-gallery-wrapper {
             order: 2;
         }
+        /* Smooth Pure CSS Slider Component */
         
         .item-gallery-wrapper {
             position: relative;
@@ -145,6 +159,7 @@
             object-fit: cover;
             display: block;
         }
+        /* Staggered animation offsets per card to avoid uniform sliding transitions */
         
         .heritage-item:nth-child(2n) .slider-container {
             animation-delay: 2s;
@@ -176,6 +191,7 @@
                 transform: translateX(0%);
             }
         }
+        /* Content Elements */
         
         .item-details {
             display: flex;
@@ -200,6 +216,7 @@
             line-height: 1.2;
             letter-spacing: 1px;
         }
+        /* Read More History System */
         
         .history-wrapper {
             margin-bottom: 25px;
@@ -258,6 +275,7 @@
         .history-wrapper.expanded .read-more-trigger::after {
             content: ' -';
         }
+        /* Utility Grid Information Box */
         
         .utility-grid {
             display: grid;
@@ -296,6 +314,7 @@
             opacity: 0.8;
             text-decoration: underline;
         }
+        /* Infrastructure Badges */
         
         .badge {
             display: inline-block;
@@ -318,6 +337,7 @@
             color: #e74c3c;
             border: 1px solid rgba(231, 76, 60, 0.2);
         }
+        /* Responsive Adjustments */
         
         @media (max-width: 1100px) {
             body {
@@ -339,21 +359,21 @@
             }
         }
     </style>
-<link rel="stylesheet" href="responsive.css">
+<link rel="stylesheet" href="../responsive.css">
 </head>
 
 <body>
 
-    <a href="go-heritage.html" class="back-btn">← Back to Dashboard</a>
+    <a href="../go-heritage.html" class="back-btn">← Back to Dashboard</a>
 
     <div class="header">
-        <h1>VIJAYAPURA <span>CHRONICLES</span></h1>
+        <h1>DHARWAD <span>CHRONICLES</span></h1>
     </div>
 
     <div class="intro-chronicle">
-        <h2>The Islamic Renaissance & Deccani Architecture</h2>
-        <p>Vijayapura (formerly Bijapur) reached its historic peak under the sovereign rule of the Adil Shahi Dynasty (1489–1686). The capital evolved into an opulent crossroads of Deccani culture, fine arts, and mathematical masonry. Its iconic monuments
-            feature sophisticated multi-centered arches, hanging stone brackets, and world-renowned masonry domes that pushed the limits of medieval structural engineering.</p>
+        <h2>History of the Scholarly Hub</h2>
+        <p>Dharwad functioned historically as a major gateway between the Malnad hills and northern Deccan plains. Ruled across centuries by the Chalukyas, the Adil Shahis, and later emerging as a crucial learning seat under British administrative eras,
+            it evolved a legendary legacy in Hindustani classical music, literature, and historic stone design variants.</p>
     </div>
 
     <div class="heritage-flow">
@@ -361,26 +381,27 @@
         <div class="heritage-item">
             <div class="item-gallery-wrapper">
                 <div class="slider-container">
-                    <img src="https://i.pinimg.com/736x/fe/78/f9/fe78f9c33b84a51dcfa00e9ed177f2d4.jpg" alt="Gol Gumbaz Monumental Facade">
-                    <img src="https://images.unsplash.com/photo-1596176530529-78163a4f7af2?w=800" alt="Whispering Gallery Architectural Interior">
-                    <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=800" alt="Corner Minaret Turrets Profile">
+                    <img src="https://i.pinimg.com/1200x/5b/5c/2c/5b5c2c9d65722d0614276354c12fdedb.jpg" alt="Chandramouleshwara Temple Facade">
+                    <img src="https://images.unsplash.com/photo-1596176530529-78163a4f7af2?w=800" alt="Polished Chalukyan Pillars">
+                    <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=800" alt="Intricate Doorways Frame">
                 </div>
             </div>
             <div class="item-details">
                 <span class="item-index">01 / 10</span>
-                <h3 class="item-title">Gol Gumbaz</h3>
+                <h3 class="item-title">Chandramouleshwara Temple</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
-                        The grand final resting place of Mohammed Adil Shah, featuring a colossal brick and mortar structural dome that stands as one of the largest unsupported masonry spans in human history.
+                        A beautiful 900-year-old Western Chalukyan architectural monument located in Unkal, featuring a unique four-sided door design framework and highly polished stone pillars.
                     </p>
                     <div class="history-extended">
                         <p>
-                            Completed in 1656 AD by architect Yaqut of Dabul, this massive cube structure spans 44 meters in external diameter without a single supporting pillar or central pillar node. The load is structurally transferred down through intersecting stone arches.
+                            Dating back to the late 11th or early 12th century during the reign of the Western Chalukyas, this structural masterpiece is dedicated to Lord Shiva. Built using fine-grained gray-green soapstone (chloritic schist), it represents the pinnacle of Chalukyan
+                            experimentation with multi-directional temple layouts. Unlike standard square or rectangular shrines, its floor plan features dynamic projections and recesses that create stunning lighting variations throughout the day.
                         </p>
                         <p>
-                            High within the dome chamber lies the famous "Whispering Gallery." Due to the precise acoustics of the semi-spherical wall geometry, a single low whisper echoes distinctly eleven times across the vast room, and the softest sounds carry clearly across
-                            the entire space.
+                            The main sanctuary houses a Chaturmukha Linga (a four-faced Shiva manifestation), matching the architectural motif of four entry doors facing north, south, east, and west. The circular stone pillars inside the main assembly hall were turned on primitive
+                            mechanical lathes, resulting in a glass-like finish that still reflects light effortlessly after nine centuries of exposure to elements.
                         </p>
                     </div>
                     <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
@@ -389,204 +410,11 @@
                 <div class="utility-grid">
                     <div class="util-meta">
                         <h4>Location</h4>
-                        <p><a href="https://maps.google.com/?q=Gol+Gumbaz+Vijayapura" target="_blank">Gol Gumbaz Road, Vijayapura</a></p>
+                        <p><a href="https://maps.google.com/?q=Chandramouleshwara+Temple+Unkal" target="_blank">Unkal, Hubli-Dharwad Complex</a></p>
                     </div>
                     <div class="util-meta">
                         <h4>Washrooms</h4>
-                        <p><span class="badge badge-yes">Available In Complex Lot</span></p>
-                    </div>
-                    <div class="util-meta">
-                        <h4>Logistics & Entry</h4>
-                        <p>10:00 AM – 5:00 PM | ₹25 Entry Fee</p>
-                    </div>
-                    <div class="util-meta">
-                        <h4>Recommended Hotels</h4>
-                        <p>The Fern Residency Vijayapura, Hotel Sabala Heritage, Hotel Pearl</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="heritage-item">
-            <div class="item-gallery-wrapper">
-                <div class="slider-container">
-                    <img src="https://images.unsplash.com/photo-1596176530529-78163a4f7af2?w=800" alt="Ibrahim Rauza Symmetric View">
-                    <img src="https://images.unsplash.com/photo-1584551246679-0daf3d275d0f?w=800" alt="Ornate Stone Carvings Detail">
-                    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800" alt="Mosque Arches Architecture">
-                </div>
-            </div>
-            <div class="item-details">
-                <span class="item-index">02 / 10</span>
-                <h3 class="item-title">Ibrahim Rauza</h3>
-
-                <div class="history-wrapper">
-                    <p class="history-base">
-                        Often called the 'Taj Mahal of the Deccan,' this highly detailed funerary complex houses Ibrahim Adil Shah II and his queen across symmetrical, elevated twin stone platforms.
-                    </p>
-                    <div class="history-extended">
-                        <p>
-                            Designed by Persian architect Malik Sandal, this complex features a grand mosque on one side and a mausoleum on the other, balanced above a beautiful central fountain garden. It is renowned for its delicate stone lace panels and carved calligraphic scripts
-                            from the Quran.
-                        </p>
-                        <p>
-                            The structural chambers feature unique, completely flat stone ceilings made from stone slabs held together with strong, lime mortar joints. This masterwork of balance survived intact while withstanding centuries of seismic activity.
-                        </p>
-                    </div>
-                    <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
-                </div>
-
-                <div class="utility-grid">
-                    <div class="util-meta">
-                        <h4>Location</h4>
-                        <p><a href="https://maps.google.com/?q=Ibrahim+Rauza+Vijayapura" target="_blank">Patel Nagar, Western Grid, Vijayapura</a></p>
-                    </div>
-                    <div class="util-meta">
-                        <h4>Washrooms</h4>
-                        <p><span class="badge badge-yes">Available (ASI Enclosure)</span></p>
-                    </div>
-                    <div class="util-meta">
-                        <h4>Logistics & Entry</h4>
-                        <p>6:00 AM – 6:00 PM | ₹25 Standard Entry</p>
-                    </div>
-                    <div class="util-meta">
-                        <h4>Recommended Hotels</h4>
-                        <p>Hotel Town Palace, KSTDC Mayura Adil Shahi</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="heritage-item">
-            <div class="item-gallery-wrapper">
-                <div class="slider-container">
-                    <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=800" alt="Jama Masjid Great Onion Dome">
-                    <img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=800" alt="Mihrab Golden Inlays View">
-                    <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=800" alt="Symmetrical Arcaded Courtyard">
-                </div>
-            </div>
-            <div class="item-details">
-                <span class="item-index">03 / 10</span>
-                <h3 class="item-title">Jama Masjid</h3>
-
-                <div class="history-wrapper">
-                    <p class="history-base">
-                        One of the first formal congregational mosques built in the Deccan, showcasing classic structural proportions, arcaded bays, and a striking onion dome.
-                    </p>
-                    <div class="history-extended">
-                        <p>
-                            Commissioned by Ali Adil Shah I following his military campaigns in 1576 AD, this vast mosque covers more than 54,000 square feet. The massive floor plan is neatly divided into 225 individual prayer squares inlaid in black stone.
-                        </p>
-                        <p>
-                            The central mihrab (prayer niche) features beautiful, layered golden decorations added later by Sultan Mohammed Adil Shah. It includes intricate calligraphic text, depictions of hanging lamps, and floral patterns.
-                        </p>
-                    </div>
-                    <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
-                </div>
-
-                <div class="utility-grid">
-                    <div class="util-meta">
-                        <h4>Location</h4>
-                        <p><a href="https://maps.google.com/?q=Jama+Masjid+Vijayapura" target="_blank">Jami Masjid Road, Old Quarters</a></p>
-                    </div>
-                    <div class="util-meta">
-                        <h4>Washrooms</h4>
-                        <p><span class="badge badge-yes">Available In Prayer Court</span></p>
-                    </div>
-                    <div class="util-meta">
-                        <h4>Logistics & Entry</h4>
-                        <p>6:00 AM – 7:00 PM | Free Admission</p>
-                    </div>
-                    <div class="util-meta">
-                        <h4>Recommended Hotels</h4>
-                        <p>Hotel Sagar Deluxe, The Fern Residency</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="heritage-item">
-            <div class="item-gallery-wrapper">
-                <div class="slider-container">
-                    <img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=800" alt="Asar Mahal Facade Pools">
-                    <img src="https://images.unsplash.com/photo-1541963463532-d68292c34b19?w=800" alt="Teakwood Columns Close Up">
-                    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800" alt="Upper Floor Royal Sanctuary">
-                </div>
-            </div>
-            <div class="item-details">
-                <span class="item-index">04 / 10</span>
-                <h3 class="item-title">Asar Mahal</h3>
-
-                <div class="history-wrapper">
-                    <p class="history-base">
-                        Built in 1646 to serve as a high hall of justice, this palace sits overlooking a large, scenic structural pool basin.
-                    </p>
-                    <div class="history-extended">
-                        <p>
-                            Originally known as the Adalat Mahal, the building was later renamed after it became a sacred repository housing two verified hairs from the beard of Prophet Muhammad. The front veranda is supported by four tall, solid teak wood columns.
-                        </p>
-                        <p>
-                            The upper rooms feature rare interior frescoes and painted walls showcasing seventeenth-century cross-cultural styles, illustrating close trading links between the kingdom and the courts of Europe and Persia.
-                        </p>
-                    </div>
-                    <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
-                </div>
-
-                <div class="utility-grid">
-                    <div class="util-meta">
-                        <h4>Location</h4>
-                        <p><a href="https://maps.google.com/?q=Asar+Mahal+Vijayapura" target="_blank">Citadel Enclosure East, Vijayapura</a></p>
-                    </div>
-                    <div class="util-meta">
-                        <h4>Washrooms</h4>
-                        <p><span class="badge badge-no">Basic Amenities Nearby</span></p>
-                    </div>
-                    <div class="util-meta">
-                        <h4>Logistics & Entry</h4>
-                        <p>8:00 AM – 6:00 PM | Free Entry (Strict Dress Codes)</p>
-                    </div>
-                    <div class="util-meta">
-                        <h4>Recommended Hotels</h4>
-                        <p>Hotel Navaratna International, KSTDC Mayura</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="heritage-item">
-            <div class="item-gallery-wrapper">
-                <div class="slider-container">
-                    <img src="https://images.unsplash.com/photo-1605649487212-47bdab064df7?w=800" alt="Bara Kaman Stone Arches">
-                    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800" alt="Intersecting Arch Shadows">
-                    <img src="https://images.unsplash.com/photo-1596176530529-78163a4f7af2?w=800" alt="Elevated Tomb Masonry Structure">
-                </div>
-            </div>
-            <div class="item-details">
-                <span class="item-index">05 / 10</span>
-                <h3 class="item-title">Bara Kaman</h3>
-
-                <div class="history-wrapper">
-                    <p class="history-base">
-                        The striking, unfinished stone mausoleum of Ali Adil Shah II, comprising an impressive series of interlocking stone arches open to the sky.
-                    </p>
-                    <div class="history-extended">
-                        <p>
-                            Begun in 1672 AD, this monument was planned to feature twelve grand concentric stone arches arranged horizontally and vertically around the royal tomb. The building plan was designed so its completed shadow would fall across the dome of the Gol Gumbaz.
-                        </p>
-                        <p>
-                            Construction was halted following the tragic assassination of the Sultan by his own family relatives, leaving these giant arches standing as a beautifully stark monument to unfinished imperial ambitions.
-                        </p>
-                    </div>
-                    <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
-                </div>
-
-                <div class="utility-grid">
-                    <div class="util-meta">
-                        <h4>Location</h4>
-                        <p><a href="https://maps.google.com/?q=Bara+Kaman+Vijayapura" target="_blank">Bara Kaman Lane, Central Quarters</a></p>
-                    </div>
-                    <div class="util-meta">
-                        <h4>Washrooms</h4>
-                        <p><span class="badge badge-no">No Facilities inside Gate</span></p>
+                        <p><span class="badge badge-yes">Available Near Main Entry Gate</span></p>
                     </div>
                     <div class="util-meta">
                         <h4>Logistics & Entry</h4>
@@ -594,7 +422,7 @@
                     </div>
                     <div class="util-meta">
                         <h4>Recommended Hotels</h4>
-                        <p>Hotel Town Palace, The Fern Residency</p>
+                        <p>The Denisson, Hotel Naveen (Unkal Lake), Fortune Park Airport Road</p>
                     </div>
                 </div>
             </div>
@@ -603,25 +431,227 @@
         <div class="heritage-item">
             <div class="item-gallery-wrapper">
                 <div class="slider-container">
-                    <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=800" alt="Gagan Mahal Central Archway">
-                    <img src="https://images.unsplash.com/photo-1584551246679-0daf3d275d0f?w=800" alt="Audience Hall Ruined Terraces">
-                    <img src="https://images.unsplash.com/photo-1596176530529-78163a4f7af2?w=800" alt="Citadel Gardens Bordering">
+                    <img src="https://images.unsplash.com/photo-1596176530529-78163a4f7af2?w=800" alt="Siddharoodha Main Courtyard">
+                    <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=800" alt="Spiritual Assembly Gathering Halls">
+                    <img src="https://images.unsplash.com/photo-1605649487212-47bdab064df7?w=800" alt="Historic Samadhi Shrine">
+                </div>
+            </div>
+            <div class="item-details">
+                <span class="item-index">02 / 10</span>
+                <h3 class="item-title">Siddharoodha Math Complex</h3>
+
+                <div class="history-wrapper">
+                    <p class="history-base">
+                        A vast spiritual and historical center housing monolithic assembly spaces, built to honor the life and egalitarian philosophical activities of Saint Siddharoodha Swamy.
+                    </p>
+                    <div class="history-extended">
+                        <p>
+                            Sri Siddharoodha Swamy (1836–1929) was an extraordinary ascetic who chose Hubli-Dharwad as his primary home to spread Advaita Vedanta philosophy. He spent his life actively speaking out against caste-based discrimination, teaching that spiritual realization
+                            should be completely open to everyone regardless of background or identity. The institution grew around his humble mud cottage, eventually transforming into a sprawling, vibrant stone monastic complex.
+                        </p>
+                        <p>
+                            In 1924, Mahatma Gandhi visited this ashram to seek the Swamy’s counsel during the Indian independence movement, cementing its place within modern history. Today, the central Samadhi temple features a prominent multi-tiered tower decorated with classic
+                            stucco work. The complex continues to run massive community kitchens (Dasoha), serving free meals to thousands of daily travelers and seekers.
+                        </p>
+                    </div>
+                    <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
+                </div>
+
+                <div class="utility-grid">
+                    <div class="util-meta">
+                        <h4>Location</h4>
+                        <p><a href="https://maps.google.com/?q=Siddharoodha+Math+Hubli" target="_blank">Old Hubli Junction Area</a></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Washrooms</h4>
+                        <p><span class="badge badge-yes">Multiple blocks inside ashram lawns</span></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Logistics & Entry</h4>
+                        <p>6:00 AM – 8:30 PM | Free Entry (Prasadam Served Daily)</p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Recommended Hotels</h4>
+                        <p>Hotel Hans, Clarks Inn Airport Road, Hotel Metropolis</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="heritage-item">
+            <div class="item-gallery-wrapper">
+                <div class="slider-container">
+                    <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=800" alt="Karnatak College Colonial Central Dome">
+                    <img src="https://images.unsplash.com/photo-1584551246679-0daf3d275d0f?w=800" alt="Red Brick Verandas Arcade">
+                    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800" alt="Historic Institutional Quadrangle">
+                </div>
+            </div>
+            <div class="item-details">
+                <span class="item-index">03 / 10</span>
+                <h3 class="item-title">Karnatak College Building</h3>
+
+                <div class="history-wrapper">
+                    <p class="history-base">
+                        A majestic early 20th-century colonial brick structure featuring an elegant central dome, originally designed to serve as a regional railway administrative headquarters.
+                    </p>
+                    <div class="history-extended">
+                        <p>
+                            Constructed in the late 1880s by the Southern Mahratta Railway Company, this sprawling building was meant to anchor British rail transport across the Deccan plains. However, the administrative plans shifted, and the complex was handed over to the education
+                            department. In 1917, it opened its doors as Karnatak College, fulfilling a long-standing community demand for a top-tier educational institution in northern Karnataka.
+                        </p>
+                        <p>
+                            The architecture stands out as a pristine example of Indo-Saracenic and classic British institutional styles, featuring long open verandas, thick stone arches, and deep red brickwork engineered to keep the interior cool during harsh summer months. Over
+                            the past century, this iconic campus has nurtured generations of premier writers, artists, politicians, and scientists, transforming Dharwad into a famous educational hub.
+                        </p>
+                    </div>
+                    <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
+                </div>
+
+                <div class="utility-grid">
+                    <div class="util-meta">
+                        <h4>Location</h4>
+                        <p><a href="https://maps.google.com/?q=Karnatak+College+Dharwad" target="_blank">College Road, Dharwad Center</a></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Washrooms</h4>
+                        <p><span class="badge badge-yes">Available in Main Academic Block</span></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Logistics & Entry</h4>
+                        <p>10:00 AM – 5:00 PM (Closed Sundays) | Free Admission</p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Recommended Hotels</h4>
+                        <p>Mayur Aditya Resort, Central Park Dharwad, Brindavan Residency</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="heritage-item">
+            <div class="item-gallery-wrapper">
+                <div class="slider-container">
+                    <img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=800" alt="Amruteshwara Temple Annigeri">
+                    <img src="https://images.unsplash.com/photo-1598977123418-45f04b6168ba?w=800" alt="Detailed Soapstone Pillar Carvings">
+                    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800" alt="Roof Shingles and Sculpted Kirtimukhas">
+                </div>
+            </div>
+            <div class="item-details">
+                <span class="item-index">04 / 10</span>
+                <h3 class="item-title">Amruteshwara Temple (Annigeri)</h3>
+
+                <div class="history-wrapper">
+                    <p class="history-base">
+                        Constructed entirely out of deep black soapstone by the Western Chalukyas, this prototype temple features 76 highly detailed pillars and historic inscriptions.
+                    </p>
+                    <div class="history-extended">
+                        <p>
+                            Built around 1050 AD during the golden age of King Someshvara I, the Amruteshwara Temple at Annigeri served as the direct design prototype for the grander architectural marvels later built at Gadag, Lakkundi, and Itagi. It marks the precise historical
+                            transition point from earlier Badami Chalukyan stone layouts to more complex, decorative styles.
+                        </p>
+                        <p>
+                            The structure is supported by 76 large pillars, each adorned with miniature carvings of dynamic deities, mythical animals, and stories from ancient Epics. The site also holds over 20 foundational stone inscriptions written in old Kannada script. These
+                            records offer a fascinating look into the medieval political shifts, trade guilds, and royal donations that shaped the economic life of the Dharwad district.
+                        </p>
+                    </div>
+                    <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
+                </div>
+
+                <div class="utility-grid">
+                    <div class="util-meta">
+                        <h4>Location</h4>
+                        <p><a href="https://maps.google.com/?q=Amruteshwara+Temple+Annigeri" target="_blank">Annigeri Town, 35km from Hubli</a></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Washrooms</h4>
+                        <p><span class="badge badge-yes">Available near ASI caretaker booth</span></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Logistics & Entry</h4>
+                        <p>8:00 AM – 5:30 PM | Free Entry</p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Recommended Hotels</h4>
+                        <p>Transit options in Hubli City, KSTDC Maurya Lakkundi (Nearby)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="heritage-item">
+            <div class="item-gallery-wrapper">
+                <div class="slider-container">
+                    <img src="https://images.unsplash.com/photo-1605649487212-47bdab064df7?w=800" alt="Dharwad Fort Bastion Gate">
+                    <img src="https://images.unsplash.com/photo-1584551246679-0daf3d275d0f?w=800" alt="Laterite Fort Wall Segments">
+                    <img src="https://images.unsplash.com/photo-1596176530529-78163a4f7af2?w=800" alt="Archway Detail and Royal Insignia">
+                </div>
+            </div>
+            <div class="item-details">
+                <span class="item-index">05 / 10</span>
+                <h3 class="item-title">Dharwad Fort Gate Site</h3>
+
+                <div class="history-wrapper">
+                    <p class="history-base">
+                        The historical stone gateway remains of a fortified complex constructed under late Adil Shahi supervision and subsequently reinforced by Maratha governors.
+                    </p>
+                    <div class="history-extended">
+                        <p>
+                            The Dharwad Fort was originally constructed in 1403 AD by a local commander named Dhar Rao, under the oversight of the Vijayanagara Empire. Following the empire's decline, the fort became a highly contested strategic asset. It was expanded by the Sultanate
+                            of Bijapur (Adil Shahis), captured by the Maratha empire under Shivaji Maharaj in 1678, modified by Haider Ali and Tipu Sultan, and eventually taken over by the British East India Company in 1791.
+                        </p>
+                        <p>
+                            This historic outpost witnessed the famous rebellion led by Baba Saheb of Nargund and Kittur Rani Channamma’s forces against British colonial expansion. While much of the inner residential fort walls were dismantled during later town planning, the remaining
+                            massive stone gateway bastions and heavy iron arches still stand as a proud architectural reminder of Dharwad's military importance.
+                        </p>
+                    </div>
+                    <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
+                </div>
+
+                <div class="utility-grid">
+                    <div class="util-meta">
+                        <h4>Location</h4>
+                        <p><a href="https://maps.google.com/?q=Dharwad+Fort+Area" target="_blank">Fort Road, Close to Civil Courts</a></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Washrooms</h4>
+                        <p><span class="badge badge-no">No public restrooms on immediate site</span></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Logistics & Entry</h4>
+                        <p>All Day Access | Free Public Landmark</p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Recommended Hotels</h4>
+                        <p>Hotel Hoysala, President Hotel, Mayur Aditya Hubli-Dharwad</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="heritage-item">
+            <div class="item-gallery-wrapper">
+                <div class="slider-container">
+                    <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=800" alt="Shambulinga Temple Kundgol">
+                    <img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=800" alt="Ceiling Slabs Carvings">
+                    <img src="https://images.unsplash.com/photo-1541963463532-d68292c34b19?w=800" alt="Polished Pillars of the Sabha Mandapa">
                 </div>
             </div>
             <div class="item-details">
                 <span class="item-index">06 / 10</span>
-                <h3 class="item-title">Gagan Mahal</h3>
+                <h3 class="item-title">Shambulinga Temple (Kundgol)</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
-                        A historic royal palace built in 1561, dominated by a massive central archway that spans over 20 meters across, serving as a grand open audience hall.
+                        An outstanding 11th-century Chalukyan stone structure displaying exceptionally fine mythological reliefs along its massive interior ceiling slabs.
                     </p>
                     <div class="history-extended">
                         <p>
-                            Commissioned by Ali Adil Shah I, this dual-purpose complex functioned as both a royal palace home and an open-air public audience hall (Durbar Enclosure). The main arch allowed visitors outside to view the royal assemblies clearly.
+                            Located in the historic town of Kundgol, this temple was built in the late 11th century using dark chloritic schist stone. It is dedicated to Shiva and stands out as a pristine example of Western Chalukyan court art, which directly influenced the later,
+                            hyper-detailed Hoysala style.
                         </p>
                         <p>
-                            This hall witnessed a major turning point in history in 1686 AD, when the final Adil Shahi ruler, the young Sikandar Adil Shah, was brought in silver chains before Emperor Aurangzeb, marking the end of the kingdom's independence.
+                            The central assembly hall (Sabha Mandapa) features beautiful lathe-turned pillars that hold up massive, intricately carved ceiling panels. These panels depict Shiva dancing the Tandava, surrounded by the solar system, musical ensembles, and guardians
+                            of the eight cardinal directions (Ashta Dikpalakas). Kundgol holds another unique historical legacy: it served as the birthplace of the Kirana Gharana, where music legends like Sawai Gandharva and Pandit Bhimsen Joshi trained.
                         </p>
                     </div>
                     <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
@@ -630,19 +660,19 @@
                 <div class="utility-grid">
                     <div class="util-meta">
                         <h4>Location</h4>
-                        <p><a href="https://maps.google.com/?q=Gagan+Mahal+Vijayapura" target="_blank">Citadel Grounds Center, Vijayapura</a></p>
+                        <p><a href="https://maps.google.com/?q=Shambulinga+Temple+Kundgol" target="_blank">Kundgol Town, 20km South of Hubli</a></p>
                     </div>
                     <div class="util-meta">
                         <h4>Washrooms</h4>
-                        <p><span class="badge badge-yes">Available In Park Grounds</span></p>
+                        <p><span class="badge badge-yes">Basic setup inside temple garden</span></p>
                     </div>
                     <div class="util-meta">
                         <h4>Logistics & Entry</h4>
-                        <p>8:00 AM – 6:00 PM | Free Entry</p>
+                        <p>7:00 AM – 6:00 PM | Free Entry</p>
                     </div>
                     <div class="util-meta">
                         <h4>Recommended Hotels</h4>
-                        <p>Hotel Malligi Variant, Clarks Inn Axis Vijayapura</p>
+                        <p>Hubli City Center Hotels (Hans, Gateway, Metropolis)</p>
                     </div>
                 </div>
             </div>
@@ -651,25 +681,26 @@
         <div class="heritage-item">
             <div class="item-gallery-wrapper">
                 <div class="slider-container">
-                    <img src="https://images.unsplash.com/photo-1584551246679-0daf3d275d0f?w=800" alt="Malik e Maidan Cannon Close Up">
-                    <img src="https://images.unsplash.com/photo-1598977123418-45f04b6168ba?w=800" alt="Lion Head Muzzle Detail">
-                    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800" alt="Sherza Burj Bastion View">
+                    <img src="https://images.unsplash.com/photo-1584551246679-0daf3d275d0f?w=800" alt="All Saints Church Gothic Exterior">
+                    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800" alt="Timber Gable Ceiling Beams">
+                    <img src="https://images.unsplash.com/photo-1596176530529-78163a4f7af2?w=800" alt="Stained Glass Altar Windows">
                 </div>
             </div>
             <div class="item-details">
                 <span class="item-index">07 / 10</span>
-                <h3 class="item-title">Malik-e-Maidan Cannon</h3>
+                <h3 class="item-title">All Saints Church</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
-                        A massive 55-ton medieval cannon cast from high-grade gunmetal, featuring a detailed muzzle shaped like a lion devouring an elephant.
+                        An elegant colonial-era gabled-roof church built by British administrators in 1888, crafted using local teakwood timber beams and laterite masonry blocks.
                     </p>
                     <div class="history-extended">
                         <p>
-                            Cast in Ahmadnagar in 1549 AD by Persian engineer Muhammad Bin Hasan, this giant cannon was captured as a trophy of war. It sits atop the elevated Sherza Burj (Lion Bastion) defense point.
+                            Consecrated in 1888 to serve the growing spiritual needs of British military officers, railway staff, and administrative workers stationed in the Dharwad residency area, this quiet church reflects the simple beauty of English village church designs.
                         </p>
                         <p>
-                            The metal casting is engineered from a unique alloy that remains cool to the touch even under the blazing summer sun. When tapped, the barrel resonates with a long, clear sound like a temple bell.
+                            The structural layout features a classic expansive nave supported by thick, seasoned teakwood beams sourced from the nearby forests of Malnad. The walls are built from local laterite blocks covered in lime plaster. The original altar section still keeps
+                            its beautiful stained-glass windows imported from England, which cast vibrant colorful patterns across the timber pews during morning services.
                         </p>
                     </div>
                     <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
@@ -678,19 +709,19 @@
                 <div class="utility-grid">
                     <div class="util-meta">
                         <h4>Location</h4>
-                        <p><a href="https://maps.google.com/?q=Malik-e-Maidan+Vijayapura" target="_blank">Sherza Burj Fort Line, Western Wall</a></p>
+                        <p><a href="https://maps.google.com/?q=All+Saints+Church+Dharwad" target="_blank">Near Corporation Offices, Dharwad</a></p>
                     </div>
                     <div class="util-meta">
                         <h4>Washrooms</h4>
-                        <p><span class="badge badge-no">No Facilities on Bastion</span></p>
+                        <p><span class="badge badge-yes">Available in Church Community Center</span></p>
                     </div>
                     <div class="util-meta">
                         <h4>Logistics & Entry</h4>
-                        <p>9:00 AM – 6:00 PM | ₹10 Ticket</p>
+                        <p>9:00 AM – 1:00 PM | Free Entry (Services on Sundays)</p>
                     </div>
                     <div class="util-meta">
                         <h4>Recommended Hotels</h4>
-                        <p>Hotel Sabala Heritage, KSTDC Mayura Adil Shahi</p>
+                        <p>Hotel Dharwad Inn, Central Park, Hoysala Inn</p>
                     </div>
                 </div>
             </div>
@@ -699,25 +730,27 @@
         <div class="heritage-item">
             <div class="item-gallery-wrapper">
                 <div class="slider-container">
-                    <img src="https://images.unsplash.com/photo-1598977123418-45f04b6168ba?w=800" alt="Mehtar Mahal Ornate Gateway">
-                    <img src="https://images.unsplash.com/photo-1541963463532-d68292c34b19?w=800" alt="Stone Chain Brackets Close Up">
-                    <img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=800" alt="Upper Balcony Plaster Details">
+                    <img src="https://images.unsplash.com/photo-1598977123418-45f04b6168ba?w=800" alt="Asar Mahal Facade">
+                    <img src="https://images.unsplash.com/photo-1569336415962-a4bd9f69cd83?w=800" alt="Persian Style Pillars Arches">
+                    <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=800" alt="Inner Sanctuary Vaults">
                 </div>
             </div>
             <div class="item-details">
                 <span class="item-index">08 / 10</span>
-                <h3 class="item-title">Mehtar Mahal Gateway</h3>
+                <h3 class="item-title">Asar Mahal (Dharwad)</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
-                        An elegant three-story gateway displaying incredibly delicate stone brackets carved in the likeness of hanging chains, leading into a mosque sanctuary.
+                        A compact, historic medieval repository hall built in the late 17th century by Adil Shahi officers to preserve sacred civic artifacts and host local courts.
                     </p>
                     <div class="history-extended">
                         <p>
-                            Dating to 1620 AD, this structure was built using funds provided to a court sweeper (Mehtar), who used the wealth to build this remarkably detailed architectural monument.
+                            Built under the direction of Bijapur Sultanate governors before the region transitioned to Maratha control, the Asar Mahal was designed as a sacred civic space. It was used to house holy relics, display historical items, and host the high courts of justice
+                            presided over by local Islamic judges (Qazis).
                         </p>
                         <p>
-                            The stone brackets support overhanging balconies carved with fine details that make the solid granite look like delicate wood or ivory work.
+                            The architecture features a unique blending of Persian style elements with Deccan stone engineering. The upper level is supported by tall wooden pillars, creating an open veranda that overlooks a manicured courtyard. Inside, fragments of original floral
+                            wall frescoes can still be seen, showing the artistic tastes of the late medieval elite before British urban developments changed the landscape.
                         </p>
                     </div>
                     <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
@@ -726,19 +759,19 @@
                 <div class="utility-grid">
                     <div class="util-meta">
                         <h4>Location</h4>
-                        <p><a href="https://maps.google.com/?q=Mehtar+Mahal+Vijayapura" target="_blank">Lala Bazar Axis, Old Town</a></p>
+                        <p><a href="https://maps.google.com/?q=Asar+Mahal+Dharwad" target="_blank">Near Old Fort Lines, Dharwad</a></p>
                     </div>
                     <div class="util-meta">
                         <h4>Washrooms</h4>
-                        <p><span class="badge badge-no">Restricted Access Nearby</span></p>
+                        <p><span class="badge badge-no">No public restrooms inside hall grounds</span></p>
                     </div>
                     <div class="util-meta">
                         <h4>Logistics & Entry</h4>
-                        <p>8:00 AM – 6:00 PM | Free Admission</p>
+                        <p>9:00 AM – 5:00 PM | Free Entry</p>
                     </div>
                     <div class="util-meta">
                         <h4>Recommended Hotels</h4>
-                        <p>The Fern Residency, Hotel Pearl</p>
+                        <p>Mayur Aditya Resort, Central Park Dharwad</p>
                     </div>
                 </div>
             </div>
@@ -747,25 +780,27 @@
         <div class="heritage-item">
             <div class="item-gallery-wrapper">
                 <div class="slider-container">
-                    <img src="https://images.unsplash.com/photo-1541963463532-d68292c34b19?w=800" alt="Taj Bawdi Stepwell Archway">
-                    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800" alt="Water Reservoir Inner Track">
-                    <img src="https://images.unsplash.com/photo-1605649487212-47bdab064df7?w=800" alt="Rest Houses Arch Array">
+                    <img src="https://images.unsplash.com/photo-1541963463532-d68292c34b19?w=800" alt="Venkateshwara Temple Sathoda">
+                    <img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=800" alt="Carved Timber Wall Panels">
+                    <img src="https://images.unsplash.com/photo-1596176530529-78163a4f7af2?w=800" alt="Ancient Sanctum Stone Gate">
                 </div>
             </div>
             <div class="item-details">
                 <span class="item-index">09 / 10</span>
-                <h3 class="item-title">Taj Bawdi</h3>
+                <h3 class="item-title">Venkateshwara Temple (Sathoda)</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
-                        A monumental public water reservoir built in 1620 to honor Queen Taj Sultana, framed by a grand structural arch gateway.
+                        An ancient village temple built from stone and wood, preserving early style wooden carvings and unique regional icons.
                     </p>
                     <div class="history-extended">
                         <p>
-                            Engineered by Malik Sandal, this massive stepwell is flanked by two grand wings of stone rest houses meant for traveling caravans and merchants, highlighting the well-planned urban design of the old capital.
+                            Tucked away in the quiet village of Sathoda within the Dharwad district, this humble temple represents the rural style of community worship centers that existed alongside grand royal projects. Built in the late medieval period, it served as a focal point
+                            for the religious and cultural life of the surrounding agricultural villages.
                         </p>
                         <p>
-                            The main pool spans over 223 feet on each side. It was designed as a key water source connected to subterranean canal networks that fed freshwater across the city's residential quarters.
+                            The temple stands out for its well-preserved timber framing. The roof and main hall supports are carved from durable local jackwood, featuring detailed reliefs of guardian motifs, floral patterns, and figures of deities. The primary stone deity inside
+                            reflects an early iconographical style, making this rural sanctuary an important site for historians studying the evolutionary development of temple art outside of mainstream royal courts.
                         </p>
                     </div>
                     <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
@@ -774,19 +809,19 @@
                 <div class="utility-grid">
                     <div class="util-meta">
                         <h4>Location</h4>
-                        <p><a href="https://maps.google.com/?q=Taj+Bawdi+Vijayapura" target="_blank">Madakhala Road, Western Outer Line</a></p>
+                        <p><a href="https://maps.google.com/?q=Sathoda+Venkateshwara+Temple+Dharwad" target="_blank">Sathoda Village, Dharwad Rural Outskirts</a></p>
                     </div>
                     <div class="util-meta">
                         <h4>Washrooms</h4>
-                        <p><span class="badge badge-no">No Facilities inside Gates</span></p>
+                        <p><span class="badge badge-no">Basic village arrangements only</span></p>
                     </div>
                     <div class="util-meta">
                         <h4>Logistics & Entry</h4>
-                        <p>All Day Access | Free Admission</p>
+                        <p>6:00 AM – 7:00 PM | Free Entry</p>
                     </div>
                     <div class="util-meta">
                         <h4>Recommended Hotels</h4>
-                        <p>Hotel Town Palace, KSTDC Mayura Adil Shahi</p>
+                        <p>Transit hotels in Dharwad City (Hoysala, Central Park)</p>
                     </div>
                 </div>
             </div>
@@ -795,25 +830,28 @@
         <div class="heritage-item">
             <div class="item-gallery-wrapper">
                 <div class="slider-container">
-                    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800" alt="Citadel Walls and Moats">
-                    <img src="https://images.unsplash.com/photo-1541963463532-d68292c34b19?w=800" alt="Fortification Bastions Loop">
-                    <img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=800" alt="Massive Stone Gateways View">
+                    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800" alt="Navalgund Jamkhalam Weavers">
+                    <img src="https://images.unsplash.com/photo-1541963463532-d68292c34b19?w=800" alt="Geometric Carpet Loom Mechanics">
+                    <img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=800" alt="Vibrant Finished Jamkhalam Rugs">
                 </div>
             </div>
             <div class="item-details">
                 <span class="item-index">10 / 10</span>
-                <h3 class="item-title">Vijayapura Citadel Walls</h3>
+                <h3 class="item-title">Navalgund Weaving Clusters</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
-                        A massive system of defensive stone battlements, bastions, and deep moats that run for more than ten kilometers around the historic old city center.
+                        The historic home of geographically-tagged (GI) Jamkhalam floor rugs, meticulously hand-woven here using traditional pit loom systems.
                     </p>
                     <div class="history-extended">
                         <p>
-                            Built by Yusuf Adil Shah and strengthened by successive rulers, the massive stone walls feature 96 heavy artillery bastions and five fortified main gateway arches guarded by double-walled entry tracks.
+                            The art of weaving Navalgund Jamkhalam rugs dates back to the 16th century, brought to the region by a group of master weavers from the pathan community who migrated during the rule of the Ali Adil Shah Sultanate. They set up specialized pit looms in
+                            Navalgund town, creating a world-renowned weaving center.
                         </p>
                         <p>
-                            The outer walls are surrounded by a deep, stone-lined moat that was historically filled with water and crocodiles to protect the rich royal citadel against Mughal military forces.
+                            Woven entirely by hand on traditional pit looms, these famous rugs feature bold geometric patterns, stylized bird motifs (like peacocks), and rich contrasting colors. Because of their exceptional durability and unique design style, Navalgund Jamkhalam
+                            carpets were granted India's prestigious Geographical Indication (GI) status. Visiting the active weaving clusters offers a rare, hands-on look at a living craft tradition that has been passed down directly through families
+                            for generations.
                         </p>
                     </div>
                     <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
@@ -822,19 +860,19 @@
                 <div class="utility-grid">
                     <div class="util-meta">
                         <h4>Location</h4>
-                        <p><a href="https://maps.google.com/?q=Bijapur+Fort+Vijayapura" target="_blank">Circular Ring Road Track, Vijayapura</a></p>
+                        <p><a href="https://maps.google.com/?q=Navalgund+Weaving+Clusters" target="_blank">Navalgund Artisan Area, 38km from Hubli</a></p>
                     </div>
                     <div class="util-meta">
                         <h4>Washrooms</h4>
-                        <p><span class="badge badge-no">No Facilities on Site</span></p>
+                        <p><span class="badge badge-yes">Available inside community cooperative centers</span></p>
                     </div>
                     <div class="util-meta">
                         <h4>Logistics & Entry</h4>
-                        <p>All Day Access | Free Admission</p>
+                        <p>9:00 AM – 6:00 PM | Free Admission to Workshop Areas</p>
                     </div>
                     <div class="util-meta">
                         <h4>Recommended Hotels</h4>
-                        <p>The Fern Residency Vijayapura, Hotel Town Palace</p>
+                        <p>Hubli Commercial Center hotels, local municipal transit lodges</p>
                     </div>
                 </div>
             </div>

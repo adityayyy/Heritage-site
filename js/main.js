@@ -370,11 +370,11 @@
         // === RENDER CITIES ===
         const citiesGrid = document.getElementById('citiesGrid');
         cities.forEach(c => {
-            // Convert city name to lowercase filename (e.g., "Mysuru" -> "mysuru.html", "utter kannada" -> "utter-kannada.html")
+            // Convert city name to lowercase filename (e.g., "Mysuru" -> "mysurupages/.html", "utter kannada" -> "utter-kannadapages/.html")
             const targetPage = c.name.toLowerCase().replace(/\s+/g, '-');
 
             citiesGrid.innerHTML += `
-    <div class="city-card" style="background-image:url('${c.img}')" onclick="window.location.href='${targetPage}.html'">
+    <div class="city-card" style="background-image:url('${c.img}')" onclick="window.location.href='pages/${targetPage}.html'">
       <div class="city-card-content">
         <div class="city-name">${c.name}</div>
         <div class="city-count">${c.count}</div>
@@ -495,7 +495,7 @@
         // === CHATBOT ===
         function toggleChatbot() {
             if (window.matchMedia('(max-width: 900px)').matches) {
-                const chatWindow = window.open('chat.html', 'goHeritageChat', 'width=420,height=640,resizable=yes,scrollbars=yes');
+                const chatWindow = window.open('pages/chatpages/.html', 'goHeritageChat', 'width=420,height=640,resizable=yes,scrollbars=yes');
                 if (chatWindow) return;
             }
             document.getElementById('chatbot').classList.toggle('open');

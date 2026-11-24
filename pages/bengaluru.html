@@ -4,17 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Udupi — Premium Heritage Chronicle</title>
+    <title>Bengaluru — Premium Heritage Chronicle</title>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
          :root {
-            --terracotta: #E8651A;
-            --gold: #C9A84C;
-            --bg-dark: #080C12;
-            --card-dark: #0D1420;
-            --border-glow: rgba(201, 168, 76, 0.15);
-            --text-light: #F0EDE8;
-            --text-muted: rgba(240, 237, 232, 0.55);
+            --terracotta: #D46A43;
+            --gold: #D4AF37;
+            --bg-dark: #0A0F18;
+            --card-dark: #121A2A;
+            --border-glow: rgba(212, 175, 55, 0.12);
+            --text-light: #F4F6F9;
+            --text-muted: #8E9AAF;
         }
         
         *,
@@ -32,8 +32,8 @@
             font-weight: 300;
             line-height: 1.6;
             padding: 60px 8%;
-            overflow-x: hidden;
         }
+        /* Editorial Header Design */
         
         .back-btn {
             display: inline-flex;
@@ -78,6 +78,7 @@
         .header h1 span {
             color: var(--terracotta);
         }
+        /* Narrative Intro Box */
         
         .intro-chronicle {
             max-width: 850px;
@@ -85,7 +86,7 @@
             text-align: center;
             background: var(--card-dark);
             padding: 40px;
-            border-radius: 4px;
+            border-radius: 6px;
             border: 1px solid var(--border-glow);
         }
         
@@ -102,6 +103,7 @@
             color: var(--text-muted);
             line-height: 1.8;
         }
+        /* One-by-One Alternating Layout */
         
         .heritage-flow {
             display: flex;
@@ -123,13 +125,14 @@
         .heritage-item:nth-child(even) .item-gallery-wrapper {
             order: 2;
         }
+        /* Smooth Pure CSS Slider Component */
         
         .item-gallery-wrapper {
             position: relative;
             width: 100%;
-            border-radius: 4px;
+            border-radius: 6px;
             overflow: hidden;
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
             border: 1px solid rgba(255, 255, 255, 0.05);
         }
         
@@ -141,10 +144,11 @@
         
         .slider-container img {
             width: 33.333%;
-            height: 520px;
+            height: 500px;
             object-fit: cover;
             display: block;
         }
+        /* Unique staggered animation offsets per card to avoid uniform sliding */
         
         .heritage-item:nth-child(2n) .slider-container {
             animation-delay: 2s;
@@ -176,6 +180,7 @@
                 transform: translateX(0%);
             }
         }
+        /* Content Elements */
         
         .item-details {
             display: flex;
@@ -200,6 +205,7 @@
             line-height: 1.2;
             letter-spacing: 1px;
         }
+        /* Read More History System */
         
         .history-wrapper {
             margin-bottom: 25px;
@@ -225,7 +231,8 @@
         }
         
         .history-wrapper.expanded .history-extended {
-            max-height: 1200px;
+            max-height: 1000px;
+            /* high enough threshold for layout flow */
             transition: max-height 0.8s cubic-bezier(0.9, 0, 0.1, 1);
         }
         
@@ -240,7 +247,7 @@
             font-weight: 600;
             letter-spacing: 2px;
             cursor: pointer;
-            margin-top: 12px;
+            margin-top: 10px;
             padding: 4px 0;
             text-transform: uppercase;
             transition: color 0.3s;
@@ -258,6 +265,7 @@
         .history-wrapper.expanded .read-more-trigger::after {
             content: ' -';
         }
+        /* Utility Grid Information Box */
         
         .utility-grid {
             display: grid;
@@ -265,7 +273,7 @@
             gap: 22px;
             background: var(--card-dark);
             padding: 24px;
-            border-radius: 4px;
+            border-radius: 6px;
             border: 1px solid var(--border-glow);
             margin-top: 15px;
         }
@@ -281,7 +289,7 @@
         
         .util-meta p {
             font-size: 13.5px;
-            color: #F0EDE8;
+            color: #E1E6ED;
             font-weight: 400;
         }
         
@@ -296,6 +304,7 @@
             opacity: 0.8;
             text-decoration: underline;
         }
+        /* Infrastructure Badges */
         
         .badge {
             display: inline-block;
@@ -318,6 +327,7 @@
             color: #e74c3c;
             border: 1px solid rgba(231, 76, 60, 0.2);
         }
+        /* Responsive Systems */
         
         @media (max-width: 1100px) {
             body {
@@ -339,48 +349,51 @@
             }
         }
     </style>
-<link rel="stylesheet" href="responsive.css">
+<link rel="stylesheet" href="../responsive.css">
 </head>
 
 <body>
 
-    <a href="go-heritage.html" class="back-btn">← Back to Dashboard</a>
+    <a href="../go-heritage.html" class="back-btn">← Back to Dashboard</a>
 
     <div class="header">
-        <h1>UDUPI <span>CHRONICLES</span></h1>
+        <h1>BENGALURU <span>CHRONICLES</span></h1>
     </div>
 
     <div class="intro-chronicle">
-        <h2>The Cradle of Dvaita Philosophy & Coastal Heritage</h2>
-        <p>Nestled beautifully between the mist-shrouded Western Ghats and the vast Arabian Sea, Udupi stands as a renowned spiritual capital and historical stronghold of coastal Karnataka. Shaped deeply by the 13th-century philosopher Sri Madhvacharya,
-            the region became the birthplace of Dvaita Vedanta and classical Udupi cuisine. Beyond its sacred temples, it preserves ancient coastal fortresses, vibrant folk traditions like Yakshagana and Bhuta Kola, and extraordinary geological landmarks.</p>
+        <h2>The Architectural Legacy of the Silicon Capital</h2>
+        <p>Founded in 1537 by Kempe Gowda I, a visionary feudatory chieftain under the Vijayanagara Empire, Bengaluru emerged from a simple mud-fort outpost into a sprawling epicentre of dynasty rule, colonial strategy, and architectural grandeur. It evolved
+            dynamically across centuries through the defensive fortifications of Hyder Ali, the sophisticated aesthetics of Tipu Sultan, the majestic statecraft of the Wadiyar Monarchy, and the vast urban planning of the British Raj. This premium guide
+            catalogues the city's top 10 heritage coordinates, blending historical depth with modern explorer logistics.</p>
     </div>
 
     <div class="heritage-flow">
 
+        <!-- SITE 1: BANGALORE PALACE -->
         <div class="heritage-item">
             <div class="item-gallery-wrapper">
                 <div class="slider-container">
-                    <img src="https://images.unsplash.com/photo-1605649487212-47bdab064df7?w=800" alt="Sri Krishna Mutt Temple Entrance">
-                    <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=800" alt="Madswa Sarovara Temple Tank">
-                    <img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=800" alt="Kanakana Kindi Window Details">
+                    <img src="https://i.pinimg.com/736x/c6/da/0e/c6da0e75e1fb850b021c9b87682d4c5b.jpg" alt="Bangalore Palace Exterior Windsor Style">
+                    <img src="https://i.pinimg.com/736x/86/9d/d8/869dd8e2c0e246ca5d4980ce0cdb240d.jpg" alt="Bangalore Palace Courtyard Architecture">
+                    <img src="https://i1-e.pinimg.com/1200x/f0/a3/a8/f0a3a88745dae1312c9283404acd77b3.jpg" alt="Bangalore Palace Intricate Woodwork Interiors">
                 </div>
             </div>
             <div class="item-details">
                 <span class="item-index">01 / 10</span>
-                <h3 class="item-title">Sri Krishna Mutt</h3>
+                <h3 class="item-title">Bangalore Palace</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
-                        An ancient, highly revered pilgrimage center founded in the 13th century by the saint Sri Madhvacharya, famous for its unique worship system managed by the eight historic Ashta Mutts.
+                        Commissioned in 1874 and finalized in 1887, the Bangalore Palace represents an extraordinary structural monument bought by Maharaja Chamarajendra Wadiyar X from Rev. J. Garrett. The architectural masterwork was intentionally stylized to evoke the grandeur
+                        of Windsor Castle in England.
                     </p>
                     <div class="history-extended">
                         <p>
-                            Unlike traditional Hindu temples, the main deity of Lord Krishna here is viewed exclusively through a beautifully carved nine-holed silver-plated inner window known as the 'Kanakana Kindi'.
+                            The property features fortified granite towers, crenellated parapets, and classic Gothic windows. Inside, the palace reveals elegant Victorian details, Spanish bench tiles, expansive ballroom mirrors, and exquisite relief paintings.
                         </p>
                         <p>
-                            According to local lore, the low-caste devotee Kanakadasa was denied entry into the temple. Overwhelmed by his pure devotion, the icon of Lord Krishna turned around to face the back wall, breaking open a stone crack to grant him sight of the deity. The
-                            temple complex also features the pristine Madhva Sarovara pond and ancient chariot collection squares.
+                            Beyond its exterior aesthetics, the palace functions as a living archive for the Wadiyar Dynasty. Its iconic open courtyard on the ground level features vibrant blue ceramic tiling, while the upper level houses the majestic Durbar Hall with massive ornate
+                            support pillars and mechanical manual fans.
                         </p>
                     </div>
                     <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
@@ -389,47 +402,50 @@
                 <div class="utility-grid">
                     <div class="util-meta">
                         <h4>Location</h4>
-                        <p><a href="https://maps.google.com/?q=Mahabaleshwar+Temple+Gokarna0" target="_blank">Car Street, Temple Square, Udupi</a></p>
+                        <p><a href="https://maps.google.com/?q=Bangalore+Palace" target="_blank">Vasanth Nagar, Central Bengaluru</a></p>
                     </div>
                     <div class="util-meta">
                         <h4>Washrooms</h4>
-                        <p><span class="badge badge-yes">Available In Pilgrim Block</span></p>
+                        <p><span class="badge badge-yes">Available On-site</span></p>
                     </div>
                     <div class="util-meta">
                         <h4>Logistics & Entry</h4>
-                        <p>5:00 AM – 9:00 PM | Free Entry (Traditional Attire)</p>
+                        <p>10:00 AM – 5:30 PM | ₹230 (Ind) / ₹460 (Int)</p>
                     </div>
                     <div class="util-meta">
-                        <h4>Recommended Hotels</h4>
-                        <p>Hotel Dial Too, Paradise Isle Beach Resort, Kediyoor Hotels</p>
+                        <h4>Premium Stays Nearby</h4>
+                        <p>ITC Windsor, Shangri-La Hotel, Taj West End</p>
                     </div>
                 </div>
             </div>
         </div>
 
+        <!-- SITE 2: TIPU SULTAN'S SUMMER PALACE -->
         <div class="heritage-item">
             <div class="item-gallery-wrapper">
                 <div class="slider-container">
-                    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800" alt="Basaltic Rock Formations St Marys Island">
-                    <img src="https://images.unsplash.com/photo-1541963463532-d68292c34b19?w=800" alt="Hexagonal Column Georock View">
-                    <img src="https://images.unsplash.com/photo-1596176530529-78163a4f7af2?w=800" alt="Island Turquoise Coastline">
+                    <img src="https://i.pinimg.com/1200x/09/93/67/0993678661dab40687432eef89f1148a.jpg" alt="Tipu Sultan Palace Rosewood Structure">
+                    <img src="https://i.pinimg.com/736x/76/04/0a/76040ab629c643de8121dc3044d8c219.jpg" alt="Ornate Indo-Islamic Arches">
+                    <img src="https://i.pinimg.com/736x/fd/59/ab/fd59abd0ed2c977f2b0cd7d097780363.jpg" alt="Palace Terraces View">
                 </div>
             </div>
             <div class="item-details">
                 <span class="item-index">02 / 10</span>
-                <h3 class="item-title">St. Mary's Island</h3>
+                <h3 class="item-title">Tipu Sultan's Summer Palace</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
-                        A world-class National Geological Monument consisting of four distinct islands famous for their rare, volcanic pillar hexagonal basaltic rock formations.
+                        Commenced under the administration of Hyder Ali in 1781 and completed under Tipu Sultan in 1791, this structure stands as an exemplary model of secular Indo-Islamic civic design. The building was historically titled 'Rash-e-Jannat', signifying the 'Envy
+                        of Heaven'.
                     </p>
                     <div class="history-extended">
                         <p>
-                            Scientific studies trace these unique columnar basalt rocks back to sub-volcanic activity that occurred around 88 million years ago, when Madagascar was still attached to the Indian subcontinent before drifting away.
+                            The double-storied palace structure is constructed entirely of seasoned French rosewood and premium local teakwood. It rests securely upon a raised stone podium, utilizing tall fluted pillars and beautiful scalloped arches that distribute upper floor
+                            loads without using structural iron or stone reinforcement beams.
                         </p>
                         <p>
-                            Historical legends state that Vasco da Gama landed on these specific rocky shores in 1498 AD during his historic voyage, raising a cross and dedicating the small island to Mother Mary (calling it 'O Padrão de Santa Maria') before continuing down toward
-                            Calicut.
+                            The walls feature intricate floral frescoes directly painted onto plaster, presenting a serene visual texture. The upper rooms house private balconies or Zenana quarters, where Tipu Sultan conducted administrative state affairs alongside his closest ministers
+                            away from the heavy heat.
                         </p>
                     </div>
                     <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
@@ -438,47 +454,49 @@
                 <div class="utility-grid">
                     <div class="util-meta">
                         <h4>Location</h4>
-                        <p><a href="https://maps.google.com/?q=Mahabaleshwar+Temple+Gokarna1" target="_blank">Malpe Coastline (Access via Ferry), Udupi</a></p>
+                        <p><a href="https://maps.google.com/?q=Tipu+Sultan+Summer+Palace" target="_blank">Chamrajpet, South Bengaluru</a></p>
                     </div>
                     <div class="util-meta">
                         <h4>Washrooms</h4>
-                        <p><span class="badge badge-yes">Basic eco-toilets on Island</span></p>
+                        <p><span class="badge badge-yes">Available (ASI Managed)</span></p>
                     </div>
                     <div class="util-meta">
                         <h4>Logistics & Entry</h4>
-                        <p>9:30 AM – 5:30 PM | ₹400 Boat Ride Fee</p>
+                        <p>8:30 AM – 5:30 PM | ₹20 (Ind) / ₹250 (Int)</p>
                     </div>
                     <div class="util-meta">
-                        <h4>Recommended Hotels</h4>
-                        <p>Paradise Isle Beach Resort, Malpe Sea Front Cottage</p>
+                        <h4>Premium Stays Nearby</h4>
+                        <p>The Grand Magrath Hotel, ITC Gardenia</p>
                     </div>
                 </div>
             </div>
         </div>
 
+        <!-- SITE 3: BULL TEMPLE (BASAVANAGUDI) -->
         <div class="heritage-item">
             <div class="item-gallery-wrapper">
                 <div class="slider-container">
-                    <img src="https://images.unsplash.com/photo-1584551246679-0daf3d275d0f?w=800" alt="Anantheshwara Gaja Prishta Architecture">
-                    <img src="https://images.unsplash.com/photo-1598977123418-45f04b6168ba?w=800" alt="Chandramouleshwara Stone Shrines">
-                    <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=800" alt="Alun Chalukya Inscription Panels">
+                    <img src="https://i.pinimg.com/1200x/d7/d8/9b/d7d89be4571248cc2adc03e458321317.jpg" alt="Bull Temple Entrance Vimana">
+                    <img src="https://i.pinimg.com/736x/44/d3/20/44d320faad4e8a3516f5524d2d2fcc76.jpg" alt="Giant Monolithic Nandi Idol">
+                    <img src="https://i.pinimg.com/1200x/c7/83/8b/c7838b7b62fa69fc0d5f1f63b3d506ea.jpg" alt="Basavanagudi Hillside Steps">
                 </div>
             </div>
             <div class="item-details">
                 <span class="item-index">03 / 10</span>
-                <h3 class="item-title">Anantheshwara Temples</h3>
+                <h3 class="item-title">Bull Temple (Basavanagudi)</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
-                        The oldest architectural structure in Udupi, dating back over 1,000 years to the Alupa Dynasty, built with a unique apsidal structure.
+                        Constructed in 1537 by the city founder Kempe Gowda I, the Dodda Basavana Gudi is dedicated to Lord Shiva's mount, Nandi. The temple forms the cultural anchor point of the ancient Basavanagudi settlement, preserving classic Dravidian styles.
                     </p>
                     <div class="history-extended">
                         <p>
-                            Predating the Krishna Mutt by several centuries, this structural stone complex is designed in the rare 'Gaja-Prishta' style (resembling the back profile of a resting elephant), typical of early Chalukyan design influences.
+                            The central marvel is the colossal monolithic Nandi, carved directly out of a single continuous granite boulder. It measures 4.5 metres in height and 6.5 metres in length. Over centuries, the surface has gained a charcoal-black hue due to regular applications
+                            of therapeutic charcoal oil and coconut fat by temple priests.
                         </p>
                         <p>
-                            It was under these historic temple verandas that Sri Madhvacharya taught his pupils, wrote his philosophical commentaries, and vanished from human sight from his stone seat to retire into the upper Himalayas. It stands adjacent to the Chandramouleshwara
-                            temple dedicated to Lord Shiva.
+                            Legend states that the temple was built to pacify a wild bull that routinely damaged local groundnut crops. To this day, the area hosts the annual 'Kadalekai Parishe' (Groundnut Fair), where local farming groups present their first seasonal harvest directly
+                            to the sacred deity.
                         </p>
                     </div>
                     <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
@@ -487,46 +505,49 @@
                 <div class="utility-grid">
                     <div class="util-meta">
                         <h4>Location</h4>
-                        <p><a href="https://maps.google.com/?q=Mahabaleshwar+Temple+Gokarna2" target="_blank">Core Temple Square, Central Udupi</a></p>
+                        <p><a href="https://maps.google.com/?q=Bull+Temple+Basavanagudi" target="_blank">Bull Temple Road, Basavanagudi</a></p>
                     </div>
                     <div class="util-meta">
                         <h4>Washrooms</h4>
-                        <p><span class="badge badge-no">No Facilities inside Gate</span></p>
+                        <p><span class="badge badge-no">Limited Facilities</span></p>
                     </div>
                     <div class="util-meta">
                         <h4>Logistics & Entry</h4>
-                        <p>6:00 AM – 8:30 PM | Free Admission</p>
+                        <p>6:00 AM – 8:00 PM | Free Entry</p>
                     </div>
                     <div class="util-meta">
-                        <h4>Recommended Hotels</h4>
-                        <p>Hotel Green Park Suites, Samanvay Boutique Hotel</p>
+                        <h4>Premium Stays Nearby</h4>
+                        <p>La Marvella, SFO Hotel & Suites, Adarsh Hamilton</p>
                     </div>
                 </div>
             </div>
         </div>
 
+        <!-- SITE 4: SOMESHWARA TEMPLE (ULSOOR) -->
         <div class="heritage-item">
             <div class="item-gallery-wrapper">
                 <div class="slider-container">
-                    <img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=800" alt="Barkur Fort Ruined Gateways">
-                    <img src="https://images.unsplash.com/photo-1541963463532-d68292c34b19?w=800" alt="Kathale Basadi Jain Pillars">
-                    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800" alt="Alupa Hero Stones Inscriptions">
+                    <img src="https://i.pinimg.com/736x/c3/3d/68/c33d68d8f8dd25f292dbc386984804dc.jpg" alt="Someshwara Temple Rajagopuram">
+                    <img src="https://i.pinimg.com/1200x/4c/97/fb/4c97fb0b31a76355243378d377a67d76.jpg" alt="Vijayanagara Pillars and Carvings">
+                    <img src="https://i.pinimg.com/736x/42/6b/9e/426b9e6d36713c49bc0e0b054394f77a.jpg" alt="Ulsoor Ancient Temple Mandapa">
                 </div>
             </div>
             <div class="item-details">
                 <span class="item-index">04 / 10</span>
-                <h3 class="item-title">Barkur Royal Ruins</h3>
+                <h3 class="item-title">Someshwara Temple (Ulsoor)</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
-                        The historic medieval capital of the Alupa Kingdom and a major commercial port settlement containing remnants of forts and stone temples.
+                        Dating back to the historic Chola Dynasty rule, the Halasuru Someshwara Temple stands proudly as one of Bengaluru's oldest standing religious complexes. Significant structural expansions were layered over the site during the 16th-century Vijayanagara
+                        period.
                     </p>
                     <div class="history-extended">
                         <p>
-                            Barkur was a highly strategic administrative center featuring ten separate residential sectors ('Keris'). It later served as an international sea trading hub under the protection of the Vijayanagara Empire.
+                            The architecture features a tall, imposing Rajagopuram (entrance tower) that displays miniature relief statues of deities. Upon entering the inner compound, visitors meet the open assembly hall or 'Mukha Mandapa', supported by forty massive granite columns.
                         </p>
                         <p>
-                            The standout monument here is the 'Kathale Basadi' (Dark Jain Temple), which features solid stone lintels and early Kannada inscription blocks. Nearby rest the ruins of the Barkur Fort, showing defensive earthen ramparts and ancient deep-water stepwells.
+                            These specific structural columns display detailed carvings of animals, mythological guardians, and scenes from ancient scripts. The temple grounds also house a sacred stepwell, or 'Kalyani', historically used to supply pristine water for temple rituals
+                            and festival gatherings.
                         </p>
                     </div>
                     <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
@@ -535,46 +556,49 @@
                 <div class="utility-grid">
                     <div class="util-meta">
                         <h4>Location</h4>
-                        <p><a href="https://maps.google.com/?q=Mahabaleshwar+Temple+Gokarna3" target="_blank">Barkur Town Axis, 16km North of Udupi</a></p>
+                        <p><a href="https://maps.google.com/?q=Someshwara+Temple+Ulsoor" target="_blank">Ulsoor, Near MG Road Network</a></p>
                     </div>
                     <div class="util-meta">
                         <h4>Washrooms</h4>
-                        <p><span class="badge badge-no">Basic Amenities in Town Market</span></p>
+                        <p><span class="badge badge-no">Restricted Access</span></p>
                     </div>
                     <div class="util-meta">
                         <h4>Logistics & Entry</h4>
-                        <p>8:00 AM – 6:00 PM | Free Entry</p>
+                        <p>6:00 AM – 7:00 PM | Free Entry</p>
                     </div>
                     <div class="util-meta">
-                        <h4>Recommended Hotels</h4>
-                        <p>Local homestays or luxury hotels in nearby Brahmavar</p>
+                        <h4>Premium Stays Nearby</h4>
+                        <p>The Oberoi Bengaluru, Taj MG Road, Conrad Bengaluru</p>
                     </div>
                 </div>
             </div>
         </div>
 
+        <!-- SITE 5: BANGALORE FORT -->
         <div class="heritage-item">
             <div class="item-gallery-wrapper">
                 <div class="slider-container">
-                    <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=800" alt="Restored Timber Architecture Houses">
-                    <img src="https://images.unsplash.com/photo-1584551246679-0daf3d275d0f?w=800" alt="Traditional Coastal Courtyards">
-                    <img src="https://images.unsplash.com/photo-1596176530529-78163a4f7af2?w=800" alt="Museum Antiquities Interior">
+                    <img src="https://i.pinimg.com/736x/7e/53/93/7e5393dbb996a0e7c784f73e2f41be71.jpg" alt="Bangalore Fort Granite Gates">
+                    <img src="https://i.pinimg.com/1200x/3a/b7/81/3ab7818473a35eae9943f1c3312c58aa.jpg" alt="Fortification Bastions Remaining">
+                    <img src="https://i.pinimg.com/1200x/b1/4c/53/b14c5344ec20d4bd454f30f1db0f0df6.jpg" alt="Anglo Mysore Battle Site Marks">
                 </div>
             </div>
             <div class="item-details">
                 <span class="item-index">05 / 10</span>
-                <h3 class="item-title">Hasta Shilpa Heritage Village</h3>
+                <h3 class="item-title">Bangalore Fort</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
-                        An extraordinary open-air museum village featuring nearly thirty traditional timber mansions and shrines carefully saved and rebuilt from across coastal Karnataka.
+                        Initiated in 1537 as a fortified mud settlement by Kempe Gowda I, this strategic military stronghold was meticulously reconstructed into a robust stone fortress by Hyder Ali in 1761. It served as a vital defense asset during the intense Anglo-Mysore Wars.
                     </p>
                     <div class="history-extended">
                         <p>
-                            Envisioned and created by passionate preservationist Vijayanath Shenoy, this multi-acre site functions as a living archive of traditional architecture that was otherwise facing destruction due to modernization.
+                            The fortress once spanned an extensive perimeter across the city center, featuring strong defense bastions and heavy wooden gates. During the historic Siege of Bangalore in 1791, British forces under Lord Cornwallis breached the northern gate after heavy
+                            fighting.
                         </p>
                         <p>
-                            Each house—including the multi-tier Kukkanoor Mansion, early Kamal Mahal setups, and ancient trading shops—was carefully taken down piece by piece, cataloged, and accurately rebuilt with its original wooden pillars, clay roof tiles, and interior fixtures.
+                            Today, the Delhi Gate and its adjacent stone bastions are the primary structures still standing. The remaining gate section showcases intricate Islamic-style plaster decorations, deep iron spikes designed to halt war elephants, and solid granite wall
+                            reliefs.
                         </p>
                     </div>
                     <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
@@ -583,46 +607,49 @@
                 <div class="utility-grid">
                     <div class="util-meta">
                         <h4>Location</h4>
-                        <p><a href="https://maps.google.com/?q=Mahabaleshwar+Temple+Gokarna4" target="_blank">Ananth Nagar, Manipal Ridge, Udupi</a></p>
+                        <p><a href="https://maps.google.com/?q=Bangalore+Fort" target="_blank">Kalasipalyam, Near KR Market</a></p>
                     </div>
                     <div class="util-meta">
                         <h4>Washrooms</h4>
-                        <p><span class="badge badge-yes">Available In Administration Gate</span></p>
+                        <p><span class="badge badge-yes">Available (ASI Public)</span></p>
                     </div>
                     <div class="util-meta">
                         <h4>Logistics & Entry</h4>
-                        <p>10:00 AM – 5:00 PM | ₹300 Ticket (Closed Mondays)</p>
+                        <p>8:30 AM – 5:30 PM | ₹20 Entry Fee</p>
                     </div>
                     <div class="util-meta">
-                        <h4>Recommended Hotels</h4>
-                        <p>Fortune Inn Valley View, Country Inn & Suites Manipal</p>
+                        <h4>Premium Stays Nearby</h4>
+                        <p>The Ritz-Carlton, JW Marriott Hotel Bengaluru</p>
                     </div>
                 </div>
             </div>
         </div>
 
+        <!-- SITE 6: LALBAGH GLASS HOUSE -->
         <div class="heritage-item">
             <div class="item-gallery-wrapper">
                 <div class="slider-container">
-                    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800" alt="Kapu Beach Lighthouse Rocky Ridge">
-                    <img src="https://images.unsplash.com/photo-1541963463532-d68292c34b19?w=800" alt="Lighthouse Spiral Lantern Deck">
-                    <img src="https://images.unsplash.com/photo-1605649487212-47bdab064df7?w=800" alt="Sunset View over Rocky Outcrop">
+                    <img src="https://i.pinimg.com/1200x/e5/1f/9e/e51f9eb683c0bea4d3f94023689ebd28.jpg" alt="Lalbagh Glass House Victorian Structure">
+                    <img src="https://i.pinimg.com/1200x/25/ef/92/25ef92f4f8724d98d0a4b2f457787db6.jpg" alt="Lalbagh Botanical Gardens Lake">
+                    <img src="https://i.pinimg.com/736x/a3/3b/17/a33b172f86edc9e68090beed744ff559.jpg" alt="Lalbagh Flower Show Arena">
                 </div>
             </div>
             <div class="item-details">
                 <span class="item-index">06 / 10</span>
-                <h3 class="item-title">Kapu Lighthouse</h3>
+                <h3 class="item-title">Lalbagh Glass House</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
-                        A historic 27-meter tall maritime lighthouse tower built in 1901 by British engineers over a massive, rugged black rock outcrop right on the beachline.
+                        The historic Lalbagh Botanical Garden grounds were first mapped out by Hyder Ali in 1760. Its central crown jewel, the majestic iron-and-glass conservatory, was built in 1889 under the direction of superintendent John Cameron to honour Prince Albert Victor.
                     </p>
                     <div class="history-extended">
                         <p>
-                            For well over a century, this lighthouse has flashed its powerful warning lights across the treacherous coastal rocks of Kapu to guide merchant ships sailing through the Arabian Sea route.
+                            Inspired directly by the architecture of London's Crystal Palace, the cast-iron frame components were prefabricated in Glasgow, Scotland, by Walter Macfarlane & Co. and assembled on-site. The structure uses an advanced layout to maximize natural ambient
+                            light without trapping dangerous levels of tropical solar heat.
                         </p>
                         <p>
-                            Visitors can climb up the winding internal stone steps to reach the top balcony room. This spot offers panoramic views of the coast, old Portuguese fort outlines, and the nearby Mariamma temples.
+                            The Glass House serves as the main venue for the city's historic bi-annual flower shows during Republic Day and Independence Day week. The surrounding park preserves ancient trees, an engineered Chamaraja Wadiyar statue monument, and a 3-billion-year-old
+                            geological rock formation.
                         </p>
                     </div>
                     <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
@@ -631,46 +658,47 @@
                 <div class="utility-grid">
                     <div class="util-meta">
                         <h4>Location</h4>
-                        <p><a href="https://maps.google.com/?q=Mahabaleshwar+Temple+Gokarna5" target="_blank">Padu Village Coast, Kapu, Udupi</a></p>
+                        <p><a href="https://maps.google.com/?q=Lalbagh+Glass+House" target="_blank">Mavalli, South Central Central</a></p>
                     </div>
                     <div class="util-meta">
                         <h4>Washrooms</h4>
-                        <p><span class="badge badge-yes">Available In Beach Park Complex</span></p>
+                        <p><span class="badge badge-yes">Multiple Garden Units</span></p>
                     </div>
                     <div class="util-meta">
                         <h4>Logistics & Entry</h4>
-                        <p>4:00 PM – 6:00 PM Tower Access | ₹25 Entry Fee</p>
+                        <p>6:00 AM – 7:00 PM | ₹25 Entry Fee</p>
                     </div>
                     <div class="util-meta">
-                        <h4>Recommended Hotels</h4>
-                        <p>Cresta Resort Kapu, Blue Matsya Beach Villa</p>
+                        <h4>Premium Stays Nearby</h4>
+                        <p>ITC Gardenia, Grand Mercure, The Paul Bangalore</p>
                     </div>
                 </div>
             </div>
         </div>
 
+        <!-- SITE 7: MAYO HALL -->
         <div class="heritage-item">
             <div class="item-gallery-wrapper">
                 <div class="slider-container">
-                    <img src="https://images.unsplash.com/photo-1584551246679-0daf3d275d0f?w=800" alt="Pajaka Kshetra Ancestral Sanctuary">
-                    <img src="https://images.unsplash.com/photo-1598977123418-45f04b6168ba?w=800" alt="Sacred Stone Footprints Relic">
-                    <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=800" alt="Kunjaru Durga Hill Silhouette">
+                    <img src="https://i.pinimg.com/736x/8c/e1/8e/8ce18ec36ce15616fcb8c44e10c98a17.jpg" alt="Mayo Hall Neoclassical Facade">
+                    <img src="https://i.pinimg.com/1200x/b6/b9/8a/b6b98a0cb14831850049c9c4dd21fadd.jpg" alt="Mayo Hall Clocktower Arches">
+                    <img src="https://i.pinimg.com/736x/19/5c/80/195c8041608d2df2a1a1910523b85dc7.jpg" alt="Cantonment British Era Buildings">
                 </div>
             </div>
             <div class="item-details">
                 <span class="item-index">07 / 10</span>
-                <h3 class="item-title">Pajaka Kshetra</h3>
+                <h3 class="item-title">Mayo Hall</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
-                        The documented 13th-century ancestral home and birthplace of Sri Madhvacharya, preserved as a sacred heritage sanctuary.
+                        Completed in 1883, Mayo Hall stands as a prominent monument of mid-Victorian neoclassical administrative architecture. It was constructed to honor the memory of the fourth Viceroy of India, Lord Mayo, following his assassination in 1872.
                     </p>
                     <div class="history-extended">
                         <p>
-                            The site carefully preserves the traditional farmhouse building where the philosopher spent his early childhood. It includes a stone-slab matha complex and the four ancient stepwells he filled simultaneously using his spiritual stick.
+                            The structure features crisp architectural symmetry, multi-tiered archways, Italian chandeliers, and solid wooden flooring. Its prominent clock tower provides clear views across the historic British cantonment layout, balancing the local skyline.
                         </p>
                         <p>
-                            A key highlight is a small shrine that houses the clear stone footprints of the saint. It stands right at the base of the scenic Kunjaru Durga Hill, an ancient vantage point topped by a historic temple dedicated to Adi Shakti.
+                            The upper levels originally functioned as a public meeting space and library, while the ground floors housed municipal offices and courtroom benches. Today, it stands as an important institutional landmark, anchoring the commercial landscape of MG Road.
                         </p>
                     </div>
                     <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
@@ -679,46 +707,48 @@
                 <div class="utility-grid">
                     <div class="util-meta">
                         <h4>Location</h4>
-                        <p><a href="https://maps.google.com/?q=Mahabaleshwar+Temple+Gokarna6" target="_blank">Pajaka Village Road, 12km South of Udupi</a></p>
+                        <p><a href="https://maps.google.com/?q=Mayo+Hall+Bangalore" target="_blank">MG Road Axis, Central Cantonment</a></p>
                     </div>
                     <div class="util-meta">
                         <h4>Washrooms</h4>
-                        <p><span class="badge badge-yes">Available In Bhojan Shala Enclosure</span></p>
+                        <p><span class="badge badge-no">Government Staff Only</span></p>
                     </div>
                     <div class="util-meta">
                         <h4>Logistics & Entry</h4>
-                        <p>6:30 AM – 7:30 PM | Free Admission</p>
+                        <p>9:00 AM – 6:30 PM | Free Entry</p>
                     </div>
                     <div class="util-meta">
-                        <h4>Recommended Hotels</h4>
-                        <p>Hotel Century Executive, White Lotus Hotel</p>
+                        <h4>Premium Stays Nearby</h4>
+                        <p>The Park Bangalore, Hyatt Centric MG Road</p>
                     </div>
                 </div>
             </div>
         </div>
 
+        <!-- SITE 8: ST. MARK'S CATHEDRAL -->
         <div class="heritage-item">
             <div class="item-gallery-wrapper">
                 <div class="slider-container">
-                    <img src="https://images.unsplash.com/photo-1598977123418-45f04b6168ba?w=800" alt="Karkala Gommateshwara Giant Monolith">
-                    <img src="https://images.unsplash.com/photo-1541963463532-d68292c34b19?w=800" alt="Chaturmukha Basadi Symmetrical Pillars">
-                    <img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=800" alt="Granite Rock Ridge Topography">
+                    <img src="https://i.pinimg.com/1200x/a6/e3/91/a6e391bcb9c900fcab14745d2a27113e.jpg" alt="St Marks Cathedral Elegant Dome">
+                    <img src="https://i.pinimg.com/1200x/22/f3/a6/22f3a6d5ad6f27082046f38d19a7bc85.jpg" alt="Cathedral Stained Glass Windows">
+                    <img src="https://i.pinimg.com/736x/8b/29/60/8b2960b79525e9693a0aba7cb7a3ad9f.jpg" alt="Cathedral Quiet Inner Nave">
                 </div>
             </div>
             <div class="item-details">
                 <span class="item-index">08 / 10</span>
-                <h3 class="item-title">Karkala Jain Monuments</h3>
+                <h3 class="item-title">St. Mark's Cathedral</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
-                        A major medieval Jain heritage center featuring a massive 42-foot single-stone statue of Lord Bahubali alongside a symmetrical four-faced granite basadi.
+                        Consecrated in 1816 and significantly expanded in 1927 following a major fire, St. Mark's Cathedral stands as the oldest Anglican church foundation in the city. The architectural styling draws inspiration from London's famous 17th-century St. Paul's Cathedral.
                     </p>
                     <div class="history-extended">
                         <p>
-                            Consecrated in 1432 AD by the Bhairarasa feudatory rulers, the giant monolithic statue of Gommateshwara stands atop a steep granite hill ridge. It is the second tallest monolith of its kind in Karnataka.
+                            The building features an elegant English Baroque design, a grand dome structure, and a beautifully curved sanctuary area. The main nave is lined with finely carved woodwork benches, memorial brass plaques from the British colonial era, and imported stained-glass
+                            displays.
                         </p>
                         <p>
-                            Directly facing the hill lies the beautiful Chaturmukha Basadi (Four-faced Temple), completed entirely from finely cut granite blocks. It features 108 matching stone pillars and completely symmetrical doorways opening toward the cardinal points.
+                            The cathedral grounds offer a peaceful retreat from the busy city streets outside. Its architectural design, complete with acoustic vaulting, ensures clear sound distribution for choir performances and weekly community gatherings.
                         </p>
                     </div>
                     <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
@@ -727,116 +757,120 @@
                 <div class="utility-grid">
                     <div class="util-meta">
                         <h4>Location</h4>
-                        <p><a href="https://maps.google.com/?q=Mahabaleshwar+Temple+Gokarna7" target="_blank">Basadi Hill Track, Karkala, Udupi District</a></p>
+                        <p><a href="https://maps.google.com/?q=St+Marks+Cathedral+Bangalore" target="_blank">MG Road / Cubbon Road Corner</a></p>
                     </div>
                     <div class="util-meta">
                         <h4>Washrooms</h4>
-                        <p><span class="badge badge-yes">Available In ASI Office Steps</span></p>
+                        <p><span class="badge badge-yes">Available In Compound</span></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Logistics & Entry</h4>
+                        <p>9:00 AM – 5:00 PM | Free Admission</p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Premium Stays Nearby</h4>
+                        <p>JW Marriott, Citrus Hotels, The Oberoi</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SITE 9: GOVERNMENT MUSEUM -->
+        <div class="heritage-item">
+            <div class="item-gallery-wrapper">
+                <div class="slider-container">
+                    <img src="https://i.pinimg.com/1200x/8c/e5/f4/8ce5f497722ccad8b1200d8199647298.jpg" alt="Government Museum Red Facade">
+                    <img src="https://i.pinimg.com/1200x/a0/29/69/a02969bce4ae148513727a4e669d081e.jpg" alt="Ancient Inscriptions Halmidi Exhibit">
+                    <img src="https://i.pinimg.com/1200x/79/69/99/7969991c28c2c7f3253fc0b1a8ed3c74.jpg" alt="Archaeological Sculpture Galleries">
+                </div>
+            </div>
+            <div class="item-details">
+                <span class="item-index">09 / 10</span>
+                <h3 class="item-title">Government Museum</h3>
+
+                <div class="history-wrapper">
+                    <p class="history-base">
+                        Established in 1865 under the guidance of surgeon Edward Balfour and moved to its current location in 1877, this institution is one of the oldest public museums in India. The building was designed by colonial architect Richard Sankey in a Neo-Classical
+                        style.
+                    </p>
+                    <div class="history-extended">
+                        <p>
+                            The museum features a prominent deep terracotta-red facade with elegant white columns. Its galleries house two floors of archaeological treasures, including ancient jewelry, delicate miniature paintings, and stone sculptures from the Hoysala and Vijayanagara
+                            periods.
+                        </p>
+                        <p>
+                            The museum's prized exhibit is the original Halmidi Inscription, the earliest known document written in the Kannada language, dating back to 450 AD. This artifact provides valuable insights into the early political and literary history of the region.
+                        </p>
+                    </div>
+                    <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
+                </div>
+
+                <div class="utility-grid">
+                    <div class="util-meta">
+                        <h4>Location</h4>
+                        <p><a href="https://maps.google.com/?q=Government+Museum+Bangalore" target="_blank">Kasturba Road, Near Cubbon Park</a></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Washrooms</h4>
+                        <p><span class="badge badge-yes">Available (Complex Ground)</span></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Logistics & Entry</h4>
+                        <p>10:00 AM – 5:00 PM | ₹20 Entry Ticket</p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Premium Stays Nearby</h4>
+                        <p>JW Marriott Hotel, Adarsh Hamilton, ITC Windsor</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SITE 10: BEGUR NAGESHWARA TEMPLE -->
+        <div class="heritage-item">
+            <div class="item-gallery-wrapper">
+                <div class="slider-container">
+                    <img src="https://i1-e.pinimg.com/1200x/42/b6/d9/42b6d9955831f20da4c387412be4a9ad.jpg" alt="Begur Nageshwara Old Stone Temple">
+                    <img src="https://i.pinimg.com/1200x/e2/23/9a/e2239a8c733de9cb30279ca0e3dfb27e.jpg" alt="Ganga Dynasty Stone Epigraphs">
+                    <img src="https://i1-e.pinimg.com/1200x/0b/fd/01/0bfd0153a32804f76e45be75dfe149ab.jpg" alt="Sacred Precincts Begur Village">
+                </div>
+            </div>
+            <div class="item-details">
+                <span class="item-index">10 / 10</span>
+                <h3 class="item-title">Begur Nageshwara Temple</h3>
+
+                <div class="history-wrapper">
+                    <p class="history-base">
+                        Constructed by the Western Ganga Dynasty during the 9th and 10th centuries, the Panchakuta Nageshwara Temple complex is a key site for tracking the city's early history. It features rare structural and artistic designs from that era.
+                    </p>
+                    <div class="history-extended">
+                        <p>
+                            The complex consists of five separate shrines built from local gray granite stone. The low ceilings, heavy pillars, and simple stone roofs showcase early structural techniques that predated the more complex architectural styles of later centuries.
+                        </p>
+                        <p>
+                            The site gained major historical importance after researchers discovered a 9th-century stone epigraph written in old Kannada. This inscription contains the earliest known written record of the name 'Bengaluru', noting a historic battle fought in the area
+                            over a millennium ago.
+                        </p>
+                    </div>
+                    <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
+                </div>
+
+                <div class="utility-grid">
+                    <div class="util-meta">
+                        <h4>Location</h4>
+                        <p><a href="https://maps.google.com/?q=Begur+Nageshwara+Temple" target="_blank">Begur Village, Off Hosur Highway</a></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Washrooms</h4>
+                        <p><span class="badge badge-no">Basic / Local Only</span></p>
                     </div>
                     <div class="util-meta">
                         <h4>Logistics & Entry</h4>
                         <p>6:00 AM – 6:00 PM | Free Entry</p>
                     </div>
                     <div class="util-meta">
-                        <h4>Recommended Hotels</h4>
-                        <p>Hotel Swagath, Saffron Leaf Resort Karkala</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="heritage-item">
-            <div class="item-gallery-wrapper">
-                <div class="slider-container">
-                    <img src="https://images.unsplash.com/photo-1541963463532-d68292c34b19?w=800" alt="Varanga Lake Temple Center">
-                    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800" alt="Wooden Boat Ferry Transit">
-                    <img src="https://images.unsplash.com/photo-1605649487212-47bdab064df7?w=800" alt="Neminatha Basadi Outer Courtyard">
-                </div>
-            </div>
-            <div class="item-details">
-                <span class="item-index">09 / 10</span>
-                <h3 class="item-title">Varanga Lake Basadi</h3>
-
-                <div class="history-wrapper">
-                    <p class="history-base">
-                        A peaceful 800-year-old Jain pilgrim site famous for its unique layout centered entirely within a pristine natural lake filled with water lilies.
-                    </p>
-                    <div class="history-extended">
-                        <p>
-                            Accessible exclusively by a short wooden boat ferry, the Kere Basadi (Lake Temple) is a square-plan chaturmukha structure dedicated to four separate Tirthankaras: Parsvanatha, Neminatha, Ananthanatha, and Santinatha.
-                        </p>
-                        <p>
-                            The peaceful surrounding waters mirror the ancient stone architecture and the backdrop of the Western Ghats mountain ridges, making it a masterpiece of early eco-sensitive architecture.
-                        </p>
-                    </div>
-                    <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
-                </div>
-
-                <div class="utility-grid">
-                    <div class="util-meta">
-                        <h4>Location</h4>
-                        <p><a href="https://maps.google.com/?q=Mahabaleshwar+Temple+Gokarna8" target="_blank">Varanga Village Track, Karkala-Hebri Axis</a></p>
-                    </div>
-                    <div class="util-meta">
-                        <h4>Washrooms</h4>
-                        <p><span class="badge badge-no">Basic Facilities at Mainland Gate</span></p>
-                    </div>
-                    <div class="util-meta">
-                        <h4>Logistics & Entry</h4>
-                        <p>8:30 AM – 5:00 PM | ₹50 Boat Token Fee</p>
-                    </div>
-                    <div class="util-meta">
-                        <h4>Recommended Hotels</h4>
-                        <p>Wild Woods Spa & Resort, local eco-lodges near Hebri</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="heritage-item">
-            <div class="item-gallery-wrapper">
-                <div class="slider-container">
-                    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800" alt="Savira Kambada Basadi Front View">
-                    <img src="https://images.unsplash.com/photo-1541963463532-d68292c34b19?w=800" alt="Intricate Pillar Carvings Rows">
-                    <img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=800" alt="Mahasthambha Stone Pillar Profile">
-                </div>
-            </div>
-            <div class="item-details">
-                <span class="item-index">10 / 10</span>
-                <h3 class="item-title">Savira Kambada Basadi</h3>
-
-                <div class="history-wrapper">
-                    <p class="history-base">
-                        A spectacular 15th-century Jain temple renowned for its 1,000 uniquely carved stone pillars where no two carvings are identical.
-                    </p>
-                    <div class="history-extended">
-                        <p>
-                            Built under the patronage of the local Chowta rulers in 1430 AD, this large three-story granite monument is dedicated to Chandranatha. It features a stunning 15-meter tall monolithic pillar ('Manasthambha') at its entrance.
-                        </p>
-                        <p>
-                            The deep stone pillars display a fascinating blend of local Jain themes alongside carvings of Chinese dragons, African giraffes, and Arab traders. These diverse designs highlight the wide-ranging global maritime trade links enjoyed by coastal Karnataka
-                            during the medieval era.
-                        </p>
-                    </div>
-                    <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
-                </div>
-
-                <div class="utility-grid">
-                    <div class="util-meta">
-                        <h4>Location</h4>
-                        <p><a href="https://maps.google.com/?q=Mahabaleshwar+Temple+Gokarna9" target="_blank">Basadi Road, Moodabidri Border Corridor</a></p>
-                    </div>
-                    <div class="util-meta">
-                        <h4>Washrooms</h4>
-                        <p><span class="badge badge-yes">Available In Exterior Campus Block</span></p>
-                    </div>
-                    <div class="util-meta">
-                        <h4>Logistics & Entry</h4>
-                        <p>9:00 AM – 6:00 PM | Free Entry</p>
-                    </div>
-                    <div class="util-meta">
-                        <h4>Recommended Hotels</h4>
-                        <p>Hotel Sagar Deluxe, Jupiter International Moodabidri</p>
+                        <h4>Premium Stays Nearby</h4>
+                        <p>The Leela Palace, Grand Mercure Koramangala</p>
                     </div>
                 </div>
             </div>
@@ -848,14 +882,19 @@
         function toggleHistory(button) {
             const wrapper = button.closest('.history-wrapper');
             wrapper.classList.toggle('expanded');
+
             if (wrapper.classList.contains('expanded')) {
                 button.textContent = "Read Less";
             } else {
                 button.textContent = "Read More";
+                // Smoothly scroll back to the top of the item if it's out of view
+                wrapper.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'nearest'
+                });
             }
         }
     </script>
-
 </body>
 
 </html>

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hassan — Premium Hoysala Heritage Chronicle</title>
+    <title>Mysuru — Premium Cultural Heritage Chronicle</title>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
          :root {
@@ -358,50 +358,101 @@
                 font-size: 44px;
             }
         }
+
+        .item-gallery-wrapper {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.view-360-container {
+    position: relative;
+    width: 100%;
+    height: 450px; /* Change this height if your layout needs it taller/shorter */
+}
+
+.view-360-container iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+    cursor: grab;
+}
+
+.view-360-container iframe:active {
+    cursor: grabbing;
+}
+
+.drag-hint {
+    position: absolute;
+    bottom: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.75);
+    color: #fff;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-family: sans-serif;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 2;
+}
+
+.view-360-container:hover .drag-hint {
+    opacity: 0;
+}
     </style>
-<link rel="stylesheet" href="responsive.css">
+<link rel="stylesheet" href="../responsive.css">
 </head>
 
 <body>
 
-    <a href="go-heritage.html" class="back-btn">← Back to Dashboard</a>
+    <a href="../go-heritage.html" class="back-btn">← Back to Dashboard</a>
 
     <div class="header">
-        <h1>HASSAN <span>CHRONICLES</span></h1>
+        <h1>MYSURU <span>HERITAGE</span></h1>
     </div>
 
     <div class="intro-chronicle">
-        <h2>History of the Hoysala Empire</h2>
-        <p>Hassan is the ancestral heartland of the Hoysala Empire (10th–14th centuries). Rulers here utilized soft chloritic schist (soapstone) to pioneer an incredibly intricate form of architecture. The sculptural works at Belur and Halebidu represent
-            a pinnacle of stone design, featuring detail that mirrors woodcarving.</p>
+        <h2>History of the Cultural Jewel</h2>
+        <p>Mysuru served as the capital of the historic Kingdom of Mysore for nearly six centuries under the legendary Wadiyar Dynasty. Famed for patronizing fine arts, exquisite silk weaving, and grand architecture, it evolved under rulers like Raja Wadiyar
+            and the progressive visionaries of the 20th century into the cultural capital of modern Karnataka.</p>
     </div>
 
     <div class="heritage-flow">
 
         <div class="heritage-item">
             <div class="item-gallery-wrapper">
-                <div class="slider-container">
-                    <img src="https://i.pinimg.com/736x/75/46/24/754624727774dc03241f0edb32c1cd76.jpg" alt="Chennakeshava Temple Main View">
-                    <img src="https://images.unsplash.com/photo-1596176530529-78163a4f7af2?w=800" alt="Madanika Bracket Figures Close Up">
-                    <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=800" alt="Ornate Stepped Entrance">
-                </div>
-            </div>
+    <div class="view-360-container">
+        <span class="drag-hint">🖱️ Click & drag to explore 360°</span>
+        <iframe 
+            src="https://www.google.com/maps/embed?pb=!4v1795185797228!6m8!1m7!1sCAoSFkNJSE0wb2dLRUlDQWdJQ0czSU9aWUE.!2m2!1d12.30531859273884!2d76.65450389460526!3f262.90829594942613!4f0.12078044011370537!5f0.7820865974627469" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="strict-origin-when-cross-origin">
+        </iframe>
+    </div>
+</div>
             <div class="item-details">
                 <span class="item-index">01 / 10</span>
-                <h3 class="item-title">Chennakeshava Temple (Belur)</h3>
+                <h3 class="item-title">Mysore Palace (Amba Vilas)</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
-                        Commissioned in 1117 AD by King Vishnuvardhana, this temple features complex bracket figures (Madanikas) carved with incredible detail out of fine soapstone.
+                        An outstanding masterpiece of Indo-Saracenic architectural engineering designed by British architect Henry Irwin, lit spectacularly by over 97,000 lightbulbs during festivals.
                     </p>
                     <div class="history-extended">
                         <p>
-                            The Chennakeshava Temple was constructed on the banks of the Yagachi River to commemorate King Vishnuvardhana’s definitive military victories over the Cholas at Talakad. Taking over 103 years and three generations of royal supervision to complete, it
-                            marks the dynamic shift of the Hoysala dynasty away from their origins as hill chiefs toward structural supremacy in Southern India.
+                            The original palace was a grand wooden structure that accidentally caught fire during the wedding celebrations of Princess Jayalakshmani in 1897. Following this disaster, Maharani Kempananjammanni Vani Vilas Sanndhiana, acting as regent, commissioned
+                            the renowned British architect Henry Irwin to design a new palace that would be completely fireproof and represent the global status of the state.
                         </p>
                         <p>
-                            The exterior wall layout features horizontal rows of storytelling friezes containing thousands of elephants, lions, and equestrian units, where no two animals are carved identically. The famous bracket figures, or Madanikas, are angled gracefully beneath
-                            the roof lines, capturing idealized women executing classical dance forms, looking into mirrors, or handling exotic birds with realism that mirrors refined woodwork.
+                            Completed in 1912, the new Amba Vilas Palace mixed Hindu, Islamic, Rajput, and Gothic architectural styles into a massive three-story stone building. It contains magnificent stained glass ceilings imported from Scotland, intricately carved rosewood doors,
+                            inlaid marble floors, and local historic paintings. The palace stands as a grand tribute to the creative vision and administration of the Wadiyar Dynasty.
                         </p>
                     </div>
                     <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
@@ -410,19 +461,19 @@
                 <div class="utility-grid">
                     <div class="util-meta">
                         <h4>Location</h4>
-                        <p><a href="https://maps.google.com/?q=Chennakeshava+Temple+Belur" target="_blank">Belur Town Center, Hassan District</a></p>
+                        <p><a href="https://maps.google.com/?q=Mysore+Palace" target="_blank">Sayyaji Rao Road, Agrahara, Mysuru Center</a></p>
                     </div>
                     <div class="util-meta">
                         <h4>Washrooms</h4>
-                        <p><span class="badge badge-yes">Available near tourism kiosk office</span></p>
+                        <p><span class="badge badge-yes">Available inside the main security courtyard</span></p>
                     </div>
                     <div class="util-meta">
                         <h4>Logistics & Entry</h4>
-                        <p>7:30 AM – 7:30 PM | Free Admission</p>
+                        <p>10:00 AM – 5:30 PM | ₹70 Admission Fee</p>
                     </div>
                     <div class="util-meta">
                         <h4>Recommended Hotels</h4>
-                        <p>KSTDC Hotel Mayur Velapuri, Vishnu Regency, Hoysala Village Resort</p>
+                        <p>Radisson Blu Plaza Mysuru, Grand Mercure Mysore, Southern Star</p>
                     </div>
                 </div>
             </div>
@@ -431,28 +482,27 @@
         <div class="heritage-item">
             <div class="item-gallery-wrapper">
                 <div class="slider-container">
-                    <img src="https://images.unsplash.com/photo-1596176530529-78163a4f7af2?w=800" alt="Hoysaleswara Temple Front">
-                    <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=800" alt="Star Shaped Platform Foundation">
-                    <img src="https://images.unsplash.com/photo-1605649487212-47bdab064df7?w=800" alt="Monolithic Nandi Mantapa">
+                    <img src="https://images.unsplash.com/photo-1590050752117-238cb0fb12b1?w=800" alt="Jaganmohan Palace Exterior View">
+                    <img src="https://images.unsplash.com/photo-1561361530-211ce63a8010?w=800" alt="Jaganmohan Art Gallery Exhibition">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800" alt="Intricate Carved Wooden Entrances">
                 </div>
             </div>
             <div class="item-details">
                 <span class="item-index">02 / 10</span>
-                <h3 class="item-title">Hoysaleswara Temple (Halebidu)</h3>
+                <h3 class="item-title">Jaganmohan Palace</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
-                        A grand double temple layout mounted on a complex star-shaped base platform, bordered by miles of descriptive stone friezes showing mythical creatures.
+                        Built in 1861 as an alternate royal residence, it features a wonderful traditional wooden structure and now operates as a world-class art library gallery.
                     </p>
                     <div class="history-extended">
                         <p>
-                            Originally known as Dorasamudra, Halebidu served as the imperial capital of the Hoysala Empire. The construction of this temple began around 1121 AD under King Vishnuvardhana and was funded by wealthy civic merchants led by Ketamalla. It stands as the
-                            largest structural monument dedicated to Shiva built by the Hoysala kingdom.
+                            When the old wooden main palace was destroyed by fire in 1897, Jaganmohan Palace became the primary residence for the royal family while construction began on the new Amba Vilas Palace. This building is famous for its intricate three-story wooden framework
+                            and a massive frontage decorated with carvings of Hindu deities and royal processions.
                         </p>
                         <p>
-                            The double-shrine framework houses two large lingas named Hoysaleswara and Shantaleswara, honoring the King and Queen Shantala Devi. The structure is built entirely on a Jagati (star-shaped platform) that amplifies its external surface area, allowing
-                            artists to carve complex multi-layered scenes from the Ramayana, Mahabharata, and Bhagavata Purana. Despite being attacked and partially damaged during regional conflicts in the early 14th century, its deeply undercut stone
-                            friezes remain some of the finest examples of sculptural art in the world.
+                            In 1915, under the direction of Maharaja Krishnaraja Wadiyar IV, the palace was converted into a public art gallery. It holds an exceptional collection of over 2,000 classic paintings, including legendary original artworks by Raja Ravi Varma. It also
+                            showcases historic musical instruments, rare coins, weapons, and unique historical exhibits that document the life of the kingdom.
                         </p>
                     </div>
                     <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
@@ -461,19 +511,19 @@
                 <div class="utility-grid">
                     <div class="util-meta">
                         <h4>Location</h4>
-                        <p><a href="https://maps.google.com/?q=Hoysaleswara+Temple+Halebidu" target="_blank">Halebidu Heritage Enclave, Hassan</a></p>
+                        <p><a href="https://maps.google.com/?q=Jaganmohan+Palace" target="_blank">Jobaiah Road, Subbarayanakere, Chamrajpura, Mysuru</a></p>
                     </div>
                     <div class="util-meta">
                         <h4>Washrooms</h4>
-                        <p><span class="badge badge-yes">Available in public lawn amenities block</span></p>
+                        <p><span class="badge badge-yes">Available inside the ground-floor visitor complex</span></p>
                     </div>
                     <div class="util-meta">
                         <h4>Logistics & Entry</h4>
-                        <p>6:30 AM – 6:30 PM | Free Entry (Museum fee extra)</p>
+                        <p>10:00 AM – 5:00 PM | ₹40 Entry Fee</p>
                     </div>
                     <div class="util-meta">
                         <h4>Recommended Hotels</h4>
-                        <p>KSTDC Hotel Mayur Shantala, Quality Inn Premium Hassan</p>
+                        <p>Metropole Mysore, Treebo Trend Spektrum Suites, Hotel Mayura Hoysala</p>
                     </div>
                 </div>
             </div>
@@ -482,27 +532,27 @@
         <div class="heritage-item">
             <div class="item-gallery-wrapper">
                 <div class="slider-container">
-                    <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=800" alt="Vindhyagiri Hill Steps View">
-                    <img src="https://images.unsplash.com/photo-1584551246679-0daf3d275d0f?w=800" alt="Monolithic Statue of Lord Bahubali">
-                    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800" alt="Granite Shrines and Pillars">
+                    <img src="https://images.unsplash.com/photo-1561361530-211ce63a8010?w=800" alt="Chamundi Hills Tower View">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800" alt="Monolithic Nandi Bull Sculpture">
+                    <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800" alt="Temple Sacred Entrance Threshold">
                 </div>
             </div>
             <div class="item-details">
                 <span class="item-index">03 / 10</span>
-                <h3 class="item-title">Shravanabelagola Gommateshwara</h3>
+                <h3 class="item-title">Chamundeshwari Temple</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
-                        Home to a massive 17.5-meter monolithic statue of Lord Bahubali, carved in 981 AD atop the steep granite slopes of Vindhyagiri hill.
+                        Perched atop Chamundi Hills, this ancient temple dating back to the 12th century features a towering Dravidian gopuram that looks over the valley plains.
                     </p>
                     <div class="history-extended">
                         <p>
-                            Shravanabelagola has remained a vital spiritual center for Jainism for over two millennia. It is famously known as the location where Chandragupta Maurya, the founder of the Mauryan Empire, spent his final days as an ascetic. The colossus of Lord Bahubali
-                            was commissioned by Chavundaraya, a brilliant military commander and prime minister under the Western Ganga Dynasty.
+                            Dedicated to Goddess Chamundeshwari, the fierce form of Shakti who defeated the demon king Mahishasura, this sacred hill shrine has been central to regional spiritual traditions for generations. The temple started as a simple shrine under the Hoysala
+                            rulers in the 12th century, and was later expanded by the Vijayanagara empire and the Wadiyar kings.
                         </p>
                         <p>
-                            Carved from a single large outcropping of gray granite, the statue perfectly represents the Kayotsarga (meditative standing posture) of Jain saints, showing creeping vines wrapping around the limbs to symbolize complete detachment from the physical world.
-                            Every 12 years, the site hosts the grand Mahamastakabhisheka festival, drawing massive crowds to watch the monument be ritually bathed in milk, sugarcane juice, saffron paste, and powdered sandalwood.
+                            In 1827, Maharaja Krishnaraja Wadiyar III funded a major renovation, building the iconic 7-tier, 40-meter-tall Dravidian entrance tower (gopuram) topped with golden finials. Halfway up the stone steps of the hill sits a magnificent, massive monolithic
+                            sculpture of the Nandi bull, carved from a single granite rock in 1659, which remains a landmark of historical stone craftsmanship.
                         </p>
                     </div>
                     <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
@@ -511,19 +561,19 @@
                 <div class="utility-grid">
                     <div class="util-meta">
                         <h4>Location</h4>
-                        <p><a href="https://maps.google.com/?q=Shravanabelagola+Gommateshwara" target="_blank">Shravanabelagola Town Center, Hassan</a></p>
+                        <p><a href="https://maps.google.com/?q=Chamundeshwari+Temple" target="_blank">Chamundi Hill Top, Mysuru Outskirts</a></p>
                     </div>
                     <div class="util-meta">
                         <h4>Washrooms</h4>
-                        <p><span class="badge badge-yes">Available at base and midway resting spot</span></p>
+                        <p><span class="badge badge-yes">Available near the multi-level parking complex</span></p>
                     </div>
                     <div class="util-meta">
                         <h4>Logistics & Entry</h4>
-                        <p>6:30 AM – 6:00 PM | Free Entry (Requires climbing 600+ steps)</p>
+                        <p>7:30 AM – 9:00 PM | Free General Entry (Paid special queues available)</p>
                     </div>
                     <div class="util-meta">
                         <h4>Recommended Hotels</h4>
-                        <p>Hotel Raghu Residency, SDM Jain Dharamshala Guest Houses</p>
+                        <p>The Windflower Resort & Spa, Fortune JP Palace, silent Shores Resort</p>
                     </div>
                 </div>
             </div>
@@ -532,27 +582,27 @@
         <div class="heritage-item">
             <div class="item-gallery-wrapper">
                 <div class="slider-container">
-                    <img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=800" alt="Kedareswara Temple Side Profile">
-                    <img src="https://images.unsplash.com/photo-1598977123418-45f04b6168ba?w=800" alt="Trikuta Shrine Shikhara Structure">
-                    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800" alt="Hoysala Emblem Sculptures">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800" alt="St Philomena Neo Gothic Spires">
+                    <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800" alt="Altar and Crypt view inside">
+                    <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=800" alt="Stained Glass Window Panels Close">
                 </div>
             </div>
             <div class="item-details">
                 <span class="item-index">04 / 10</span>
-                <h3 class="item-title">Kedareswara Temple (Halebidu)</h3>
+                <h3 class="item-title">St. Philomena's Church</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
-                        An elegant soapstone temple built by King Veera Ballala II and his queen Ketaladevi, featuring exceptional high-relief historical and mythological panels.
+                        One of the tallest cathedrals in South Asia, featuring breathtaking Neo-Gothic architectural towers inspired directly by Germany's famous Cologne Cathedral.
                     </p>
                     <div class="history-extended">
                         <p>
-                            Located just a short walk from the main Hoysaleswara compound, the Kedareswara Temple was constructed around 1220 AD during the prosperous reign of King Veera Ballala II. Built as a classic Trikuta (triple-shrine) structure, it features an ornate central
-                            assembly space connecting three separate sacred sanctuaries.
+                            St. Philomena's Church is a beautiful symbol of religious harmony and inclusive patronage in old Mysuru. Built in 1936 under the direction of Maharaja Krishnaraja Wadiyar IV, the cathedral was designed by a French architect named Daly to serve the city's
+                            growing Christian community.
                         </p>
                         <p>
-                            The temple sits on a raised platform, with exterior walls adorned with detailed stone carvings. The lower friezes display crisp, naturalistic rows of marching elephants, charging horses, and scrolling floral vines. Above these, large wall panels depict
-                            major Hindu deities, including a famous, hyper-detailed carving of Lord Shiva holding the crescent moon and lifting Mount Kailash.
+                            The cathedral features two massive 53-meter towers that define the city skyline, built using a classic cross-shaped layout. The main hall is adorned with delicate stained-glass windows imported from France, which depict key scenes from the life of Christ.
+                            Beneath the grand altar lies a sacred underground crypt that holds a historic relic of Saint Philomena, drawing visitors from all walks of life.
                         </p>
                     </div>
                     <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
@@ -561,19 +611,19 @@
                 <div class="utility-grid">
                     <div class="util-meta">
                         <h4>Location</h4>
-                        <p><a href="https://maps.google.com/?q=Kedareswara+Temple+Halebidu" target="_blank">Close to Hoysaleswara Compound, Halebidu</a></p>
+                        <p><a href="https://maps.google.com/?q=St.+Philomena's+Church" target="_blank">Lashkar Mohalla, Ashoka Road, Mysuru</a></p>
                     </div>
                     <div class="util-meta">
                         <h4>Washrooms</h4>
-                        <p><span class="badge badge-no">Restrooms located in main compound nearby</span></p>
+                        <p><span class="badge badge-yes">Available at the back corner of the church yard</span></p>
                     </div>
                     <div class="util-meta">
                         <h4>Logistics & Entry</h4>
-                        <p>8:00 AM – 5:30 PM | Free Entry</p>
+                        <p>5:00 AM – 6:00 PM | Free Entry</p>
                     </div>
                     <div class="util-meta">
                         <h4>Recommended Hotels</h4>
-                        <p>KSTDC Hotel Mayur Shantala, Mayur Velapuri Belur</p>
+                        <p>Roopa Elite, Hotel Mayura Riverview Srirangapatna, Golden Landmark</p>
                     </div>
                 </div>
             </div>
@@ -582,27 +632,27 @@
         <div class="heritage-item">
             <div class="item-gallery-wrapper">
                 <div class="slider-container">
-                    <img src="https://images.unsplash.com/photo-1605649487212-47bdab064df7?w=800" alt="Lakshmi Devi Temple Doddagaddavalli">
-                    <img src="https://images.unsplash.com/photo-1584551246679-0daf3d275d0f?w=800" alt="Chatuskuta Four Shrines Layout">
-                    <img src="https://images.unsplash.com/photo-1596176530529-78163a4f7af2?w=800" alt="Bhairava and Kalika Stone Relic">
+                    <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800" alt="Lalitha Mahal Palace Exterior">
+                    <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=800" alt="Grand Dining Hall and Chandeliers">
+                    <img src="https://images.unsplash.com/photo-1598977123418-45f04b6168ba?w=800" alt="Staircases and Italian Marble Pillar">
                 </div>
             </div>
             <div class="item-details">
                 <span class="item-index">05 / 10</span>
-                <h3 class="item-title">Lakshmi Devi Temple (Doddagaddavalli)</h3>
+                <h3 class="item-title">Lalitha Mahal Palace</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
-                        One of the earliest structural Hoysala building layouts, featuring four distinct functional sanctuaries interconnected inside a serene rural coconut grove.
+                        Built in 1921 by Maharaja Krishnaraja Wadiyar IV, its majestic pure white dome is modeled after St. Paul's Cathedral in London.
                     </p>
                     <div class="history-extended">
                         <p>
-                            Built in 1114 AD by a prominent royal merchant named Kullahana Rahuta and his wife Sahaja Devi, this temple predates the grand monuments at Belur and Halebidu. It is an extremely rare Chatuskuta (four-shrine) layout, with four separate sanctuaries facing
-                            the cardinal directions, all linked to a central common hall (Maha Mandapa).
+                            Set amidst expansive manicured lawns near the base of Chamundi Hills, the Lalitha Mahal Palace was built in 1921 specifically to host the Viceroy of India and other prominent European guests of the state. Designed by the visionary architect E.W. Fritchley,
+                            the building features an elegant layout with twin rows of grand columns.
                         </p>
                         <p>
-                            Unlike later, hyper-decorated Hoysala structures, this temple retains a simpler, cleaner stone style on its outer walls, paired with distinct, steep roof towers (Shikharas). The main eastern shrine is dedicated to Lakshmi Devi, holding a beautifully carved
-                            stone icon of the goddess with her attendants. Another sanctuary houses a striking, dramatic image of Goddess Kali, surrounded by carved spirits, providing a fascinating look into early Hoysala spiritual traditions.
+                            The interior is a showcase of European luxury, featuring a magnificent grand staircase made of imported Italian marble, tall crystal chandeliers, and premium wood paneling. The palace's grand ballroom has been converted into a historic dining room, allowing
+                            visitors to experience the stately elegance of Mysuru's old royal court.
                         </p>
                     </div>
                     <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
@@ -611,19 +661,19 @@
                 <div class="utility-grid">
                     <div class="util-meta">
                         <h4>Location</h4>
-                        <p><a href="https://maps.google.com/?q=Lakshmi+Devi+Temple+Doddagaddavalli" target="_blank">Doddagaddavalli Village, 16km from Hassan Town</a></p>
+                        <p><a href="https://maps.google.com/?q=Lalitha+Mahal+Palace" target="_blank">Lalitha Mahal Palace Road, Siddhartha Layout, Mysuru</a></p>
                     </div>
                     <div class="util-meta">
                         <h4>Washrooms</h4>
-                        <p><span class="badge badge-no">No public restrooms on immediate site</span></p>
+                        <p><span class="badge badge-yes">Available inside the main heritage hotel lobby</span></p>
                     </div>
                     <div class="util-meta">
                         <h4>Logistics & Entry</h4>
-                        <p>8:00 AM – 6:00 PM | Free Public Landmark</p>
+                        <p>10:00 AM – 6:00 PM | ₹100 Visitor Entry Fee</p>
                     </div>
                     <div class="util-meta">
                         <h4>Recommended Hotels</h4>
-                        <p>Suvarna Regency, Hotel Hassan Ashriya, Ruchi Peerless Hassan</p>
+                        <p>Lalitha Mahal Palace Heritage Hotel, Jal Mahal Resort, Royal Orchid Brindavan</p>
                     </div>
                 </div>
             </div>
@@ -632,27 +682,27 @@
         <div class="heritage-item">
             <div class="item-gallery-wrapper">
                 <div class="slider-container">
-                    <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=800" alt="Shettihalli Church Submerged View">
-                    <img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=800" alt="Gothic Roof Arches Ruins">
-                    <img src="https://images.unsplash.com/photo-1541963463532-d68292c34b19?w=800" alt="Dry Season Skeletal Church Structure">
+                    <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=800" alt="Srirangapatna Fort Moat Walls">
+                    <img src="https://images.unsplash.com/photo-1598977123418-45f04b6168ba?w=800" alt="Tipu Sultan Death Place Memorial">
+                    <img src="https://images.unsplash.com/photo-1541963463532-d68292c34b19?w=800" alt="Colonel Baillie Dungeon Vaults">
                 </div>
             </div>
             <div class="item-details">
                 <span class="item-index">06 / 10</span>
-                <h3 class="item-title">Shettihalli Rosary Church</h3>
+                <h3 class="item-title">Srirangapatna Fort</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
-                        A striking Gothic church built by French missionaries in the 1860s, which gets partially submerged in the Hemavati River reservoir every monsoon season.
+                        Located just outside Mysuru, this historic island fortress served as the military heart of Tipu Sultan's empire and a major center of Anglo-Mysore history.
                     </p>
                     <div class="history-extended">
                         <p>
-                            Constructed by French Roman Catholic missionaries led by Father Abbe Dubois, this church was built using an elegant Gothic design, featuring tall pointed arches, mortar, and brick masonry. It served as the center of a thriving local village community
-                            for nearly a century.
+                            Srirangapatna Fort is a massive island stronghold naturally protected by the split waters of the Kaveri River. Founded in 1454 by the regional ruler Timmanna Nayaka, it was later fortified using advanced French engineering under Haider Ali and his son,
+                            Tipu Sultan, making it one of India's strongest fortresses.
                         </p>
                         <p>
-                            In the 1960s, the government constructed the Gorur Dam across the Hemavati River to control regional irrigation, requiring the resettlement of all surrounding villages. The church building was left behind. Today, it presents a spectacular sight: completely
-                            surrounded by deep water during the peak monsoon, and emerging as a beautiful, weathered skeletal ruin during the dry summer months, attracting heritage enthusiasts and photographers alike.
+                            The fort was the site of the historic fourth Anglo-Mysore War in 1799, which ended with the fall of Tipu Sultan and reshaped the history of southern India. The complex contains the old armory vaults, the deep Colonel Baillie Dungeon where British prisoners
+                            were held, and the historic spot where Tipu Sultan fought his final battle, making it an essential site for understanding the region's military history.
                         </p>
                     </div>
                     <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
@@ -661,19 +711,19 @@
                 <div class="utility-grid">
                     <div class="util-meta">
                         <h4>Location</h4>
-                        <p><a href="https://maps.google.com/?q=Shettihalli+Rosary+Church" target="_blank">Shettihalli Village Bank, Gorur Reservoir Outskirts</a></p>
+                        <p><a href="https://maps.google.com/?q=Srirangapatna+Fort" target="_blank">Srirangapatna Island Town, Mandya District Border</a></p>
                     </div>
                     <div class="util-meta">
                         <h4>Washrooms</h4>
-                        <p><span class="badge badge-no">No public facilities available on the banks</span></p>
+                        <p><span class="badge badge-yes">Available near the central railway station entry plaza</span></p>
                     </div>
                     <div class="util-meta">
                         <h4>Logistics & Entry</h4>
-                        <p>6:00 AM – 6:00 PM | Free Entry (Coracle boat rides available in monsoon)</p>
+                        <p>8:00 AM – 6:00 PM | ₹20 Entry Fee</p>
                     </div>
                     <div class="util-meta">
                         <h4>Recommended Hotels</h4>
-                        <p>Hassan Center Hotels (Pavanputra, Mallige Residency)</p>
+                        <p>Amblee Holiday Resort, KSTDC Mayura Riverview Srirangapatna</p>
                     </div>
                 </div>
             </div>
@@ -682,27 +732,27 @@
         <div class="heritage-item">
             <div class="item-gallery-wrapper">
                 <div class="slider-container">
-                    <img src="https://images.unsplash.com/photo-1584551246679-0daf3d275d0f?w=800" alt="Ishvara Temple Arasikere">
-                    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800" alt="16 Pointed Star Porch Mandapa">
-                    <img src="https://images.unsplash.com/photo-1596176530529-78163a4f7af2?w=800" alt="Domed Inner Ceiling Carvings">
+                    <img src="https://images.unsplash.com/photo-1598977123418-45f04b6168ba?w=800" alt="Somnathpur Star Shape Foundation">
+                    <img src="https://images.unsplash.com/photo-1541963463532-d68292c34b19?w=800" alt="Intricate Soapstone Carved Shrines">
+                    <img src="https://images.unsplash.com/photo-1569336415962-a4bd9f69cd83?w=800" alt="Ceiling Ornate Carving Panels">
                 </div>
             </div>
             <div class="item-details">
                 <span class="item-index">07 / 10</span>
-                <h3 class="item-title">Ishvara Temple (Arasikere)</h3>
+                <h3 class="item-title">Keshava Temple (Somnathpur)</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
-                        A complex Hoysala creation featuring a unique 16-pointed star-shaped porch platform hall structure that showcases advanced geometry.
+                        A magnificent Hoysala triple-shrine temple consecrated in 1268, featuring extraordinary, detailed star-shaped geometric stone carvings.
                     </p>
                     <div class="history-extended">
                         <p>
-                            Dating back to 1220 AD during the reign of Hoysala King Veera Ballala II, this temple is dedicated to Lord Shiva and stands as one of the most structurally complex projects undertaken by the dynasty's master builders. It showcases an incredible engineering
-                            feat that pushes the limits of soapstone construction.
+                            Commissioned by Somanatha Dandanayaka, a high-ranking military commander under Hoysala King Narasimha III, this temple stands as a supreme example of historic soapstone architecture. The temple is built on a raised star-shaped platform and features three
+                            separate shrines dedicated to the forms of Krishna: Keshava, Janardhana, and Venugopala.
                         </p>
                         <p>
-                            The defining feature of this temple is its magnificent open assembly porch (Sabha Mandapa), built as a perfect 16-pointed star. The interior ceiling of this porch forms an intricate stone dome, divided into multi-tiered concentric circles covered in detailed
-                            carvings of loops, floral designs, and traditional motifs. The main inner sanctum connects to a closed hall, demonstrating the incredible spatial planning of the medieval era.
+                            Every surface of the temple walls is adorned with detailed bands of carvings depicting rows of charging elephants, cavalry riders, scenes from ancient epics, and delicate floral patterns. The ceilings feature deep, layered dome carvings that look like
+                            opening lotus blossoms, showcasing the unmatched precision of medieval stone carvers.
                         </p>
                     </div>
                     <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
@@ -711,19 +761,19 @@
                 <div class="utility-grid">
                     <div class="util-meta">
                         <h4>Location</h4>
-                        <p><a href="https://maps.google.com/?q=Ishvara+Temple+Arasikere" target="_blank">Arasikere Town Center, Northern Hassan</a></p>
+                        <p><a href="https://maps.google.com/?q=Keshava+Temple+Somnathpur" target="_blank">Somnathpur Village, 38km East of Mysuru City</a></p>
                     </div>
                     <div class="util-meta">
                         <h4>Washrooms</h4>
-                        <p><span class="badge badge-yes">Basic facilities near side entry garden</span></p>
+                        <p><span class="badge badge-yes">Available inside the ASI tourist reception center</span></p>
                     </div>
                     <div class="util-meta">
                         <h4>Logistics & Entry</h4>
-                        <p>8:00 AM – 5:30 PM | Free Admission</p>
+                        <p>9:00 AM – 5:30 PM | ₹25 Entry Fee</p>
                     </div>
                     <div class="util-meta">
                         <h4>Recommended Hotels</h4>
-                        <p>Nisarga Residency Arasikere, direct transit options from Hassan Center</p>
+                        <p>Tents N Trails Coorg, Heritage Homestays Talakad, Radisson Blu Mysuru</p>
                     </div>
                 </div>
             </div>
@@ -732,27 +782,27 @@
         <div class="heritage-item">
             <div class="item-gallery-wrapper">
                 <div class="slider-container">
-                    <img src="https://images.unsplash.com/photo-1598977123418-45f04b6168ba?w=800" alt="Bucheshvara Temple Exterior">
-                    <img src="https://images.unsplash.com/photo-1569336415962-a4bd9f69cd83?w=800" alt="Twin Dvikuta Shrine Symmetry">
-                    <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=800" alt="Saraswati and Bhairava High Reliefs">
+                    <img src="https://images.unsplash.com/photo-1541963463532-d68292c34b19?w=800" alt="Jayalakshmi Vilas Front Porch">
+                    <img src="https://images.unsplash.com/photo-1569336415962-a4bd9f69cd83?w=800" alt="Folklore Museum Artefacts Hall">
+                    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800" alt="Ornate Corinthian Pillar Columns">
                 </div>
             </div>
             <div class="item-details">
                 <span class="item-index">08 / 10</span>
-                <h3 class="item-title">Bucheshvara Temple (Koravangala)</h3>
+                <h3 class="item-title">Jayalakshmi Vilas Mansion</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
-                        A beautifully symmetrical twin temple built in 1173 AD by a high-ranking officer to celebrate King Veera Ballala II's ascension to the throne.
+                        Constructed in 1905 for Princess Jayalakshmani, this massive heritage complex contains over 300 ornate rooms filled with rare regional folk artifacts.
                     </p>
                     <div class="history-extended">
                         <p>
-                            The Bucheshvara Temple at Koravangala was built by a wealthy Hoysala officer named Buchiraja, who belonged to a prominent family of administrative officials. Constructed to celebrate the historic coronation of King Veera Ballala II, the temple stands
-                            out for its balanced architectural proportions.
+                            Built in 1905 by Maharaja Chamarajendra Wadiyar X for his eldest daughter, Princess Jayalakshmani, this mansion was designed to harmonize with the rolling hills of Kukkarahalli Lake. The building features grand Corinthian columns, decorated plaster borders,
+                            and beautiful internal courtyards with carved wooden pillars.
                         </p>
                         <p>
-                            Designed as a balanced Dvikuta (twin-shrine) structure, the two primary sanctuaries face each other across a common central seating space. One shrine contains a Shiva Linga, while the opposite sanctuary is dedicated to Surya, the Sun God. The temple features
-                            beautiful lathe-turned pillars and thick wall panels adorned with deeply carved depictions of deities, including a famous, exceptionally detailed carving of Goddess Saraswati playing the veena.
+                            In 2002, the structure was carefully restored by the University of Mysore using funding from the Infosys Foundation. It now houses an exceptional folklore museum that displays thousands of rare artifacts, including traditional shadow puppets, ceremonial
+                            regional costumes, large wooden processional carts, and ancient tools, preserving the folk heritage of Karnataka.
                         </p>
                     </div>
                     <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
@@ -761,19 +811,19 @@
                 <div class="utility-grid">
                     <div class="util-meta">
                         <h4>Location</h4>
-                        <p><a href="https://maps.google.com/?q=Bucheshvara+Temple+Koravangala" target="_blank">Koravangala Village, 12km North-East of Hassan</a></p>
+                        <p><a href="https://maps.google.com/?q=Jayalakshmi+Vilas+Mansion" target="_blank">Manasagangotri University Campus, Bogadi Road, Mysuru</a></p>
                     </div>
                     <div class="util-meta">
                         <h4>Washrooms</h4>
-                        <p><span class="badge badge-no">No public restrooms inside village grounds</span></p>
+                        <p><span class="badge badge-yes">Available inside the University Postgraduate Center block</span></p>
                     </div>
                     <div class="util-meta">
                         <h4>Logistics & Entry</h4>
-                        <p>8:00 AM – 6:00 PM | Free Entry</p>
+                        <p>10:00 AM – 5:00 PM | ₹20 Entry Fee (Closed on Sundays)</p>
                     </div>
                     <div class="util-meta">
                         <h4>Recommended Hotels</h4>
-                        <p>Hassan Premium city choices (The Palguni, Raama Grand)</p>
+                        <p>The Premier Hotel, Fairfield by Marriott, Royal Orchid Metropole</p>
                     </div>
                 </div>
             </div>
@@ -782,27 +832,27 @@
         <div class="heritage-item">
             <div class="item-gallery-wrapper">
                 <div class="slider-container">
-                    <img src="https://images.unsplash.com/photo-1541963463532-d68292c34b19?w=800" alt="Twin Temples of Mosale Side by Side">
-                    <img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=800" alt="Intact Decorative Shikhara Roof Towers">
-                    <img src="https://images.unsplash.com/photo-1596176530529-78163a4f7af2?w=800" alt="Garuda and Lotus Ceiling Medallions">
+                    <img src="https://images.unsplash.com/photo-1569336415962-a4bd9f69cd83?w=800" alt="Cheluvamba Mansion Palatial Gables">
+                    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800" alt="Manicured Research Center Gardens">
+                    <img src="https://images.unsplash.com/photo-1590050752117-238cb0fb12b1?w=800" alt="Arched Administrative Colonnades">
                 </div>
             </div>
             <div class="item-details">
                 <span class="item-index">09 / 10</span>
-                <h3 class="item-title">Nagesvhara-Chennakeshava (Mosale)</h3>
+                <h3 class="item-title">Cheluvamba Mansion</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
-                        Two classic Hoysala structures positioned directly side-by-side, showcasing perfectly intact decorative roof towers and intricate stucco work.
+                        An elegant palace designed for the third daughter of Maharaja Chamarajendra Wadiyar, now functioning as a premier national research facility.
                     </p>
                     <div class="history-extended">
                         <p>
-                            Located in the historic village of Mosale, these twin temples were constructed during the early 13th century under the patronage of King Veera Ballala II. They represent a rare, perfectly matching pair of temples built directly parallel to each other,
-                            sharing identical architectural dimensions.
+                            The Cheluvamba Mansion was built in 1911 as a grand residence for Princess Cheluvajammanni. Surrounded by expansive botanical gardens, the building features elegant stone columns, majestic entrance gates, and broad terraces designed to keep the interiors
+                            cool throughout the year.
                         </p>
                         <p>
-                            The southern structure is the Nagesvara Temple, dedicated to Lord Shiva, while the northern structure is the Chennakeshava Temple, dedicated to Lord Vishnu. This layout beautifully reflects the harmony between different spiritual traditions during the
-                            Hoysala golden age. Both temples have perfectly preserved stone towers (Shikharas), topped with decorative elements that show the unparalleled craftsmanship of the era's royal architects.
+                            Shortly after independence, the royal family transitioned the estate to the Government of India. Today, it serves as the central headquarters for the Central Food Technological Research Institute (CFTRI). While the inside rooms are reserved for scientific
+                            research, the grand exterior stands as a proud example of early 20th-century royal residential architecture.
                         </p>
                     </div>
                     <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
@@ -811,19 +861,19 @@
                 <div class="utility-grid">
                     <div class="util-meta">
                         <h4>Location</h4>
-                        <p><a href="https://maps.google.com/?q=Mosale+Twin+Temples+Hassan" target="_blank">Mosale Village, 14km South of Hassan Town</a></p>
+                        <p><a href="https://maps.google.com/?q=CFTRI+Mysore" target="_blank">CFTRI Campus, near Mysuru Junction Railway Station</a></p>
                     </div>
                     <div class="util-meta">
                         <h4>Washrooms</h4>
-                        <p><span class="badge badge-no">Basic local village arrangements only</span></p>
+                        <p><span class="badge badge-no">No public access inside the active research campus</span></p>
                     </div>
                     <div class="util-meta">
                         <h4>Logistics & Entry</h4>
-                        <p>8:00 AM – 5:30 PM | Free Entry</p>
+                        <p>Active Scientific Facility | External views from the perimeter roads only</p>
                     </div>
                     <div class="util-meta">
                         <h4>Recommended Hotels</h4>
-                        <p>Transit hotels in Hassan City (Hoysala Village Resort, Casino Comfort)</p>
+                        <p>Hotel MB International, Treebo Trend Royal Horizon, Radisson Blu</p>
                     </div>
                 </div>
             </div>
@@ -832,26 +882,27 @@
         <div class="heritage-item">
             <div class="item-gallery-wrapper">
                 <div class="slider-container">
-                    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800" alt="Hassanamba Entrance Gate Towers">
-                    <img src="https://images.unsplash.com/photo-1541963463532-d68292c34b19?w=800" alt="Devotees Courtyard Enclosure">
-                    <img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=800" alt="Inner Shrine Decorative Hangings">
+                    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800" alt="Brindavan Gardens Fountain Terraces">
+                    <img src="https://images.unsplash.com/photo-1590050752117-238cb0fb12b1?w=800" alt="Musical Fountain Night Show">
+                    <img src="https://images.unsplash.com/photo-1561361530-211ce63a8010?w=800" alt="KRS Dam Granite Sluice Gates">
                 </div>
             </div>
             <div class="item-details">
                 <span class="item-index">10 / 10</span>
-                <h3 class="item-title">Hassanamba Temple</h3>
+                <h3 class="item-title">Brindavan Gardens Fountain Complex</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
-                        An unusual, historic temple complex that opens to devotees exclusively for a few specific days during the annual Deepavali festival.
+                        Adjoining the historic KRS Dam, these symmetrical terraced gardens were engineered alongside early 20th-century water systems.
                     </p>
                     <div class="history-extended">
                         <p>
-                            Dating back to the 12th century, the Hassanamba Temple was built under the patronage of the late Hoysala kings. The temple is dedicated to Goddess Hassanamba, the presiding deity of Hassan town, which was named in her honor.
+                            The creation of Brindavan Gardens was envisioned by Sir Mirza Ismail, the visionary Diwan of Mysore, to complement the massive Krishna Raja Sagara (KRS) Dam built by pioneering engineer Sir M. Visvesvaraya. Inspired by traditional Mughal layouts, construction
+                            on the terraced gardens began in 1927 and was completed in 1932.
                         </p>
                         <p>
-                            The temple has a unique custom: the inner sanctum doors are opened just once a year, during the Deepavali festival in October/November, and are closed immediately after the celebrations end. According to local lore, a traditional ghee lamp lit at closing
-                            time continues to burn effortlessly, and offerings of fresh flowers remain perfectly preserved until the doors are opened the following year, attracting hundreds of thousands of pilgrims during its brief, vibrant opening season.
+                            The gardens feature a series of three symmetrical terraces with water fountains powered by the natural pressure of the dam. The park is famous for its pioneering musical fountain show, which combines synchronized water jets, music, and colorful lights,
+                            representing the progressive landscape engineering and civic vision of early modern Mysuru.
                         </p>
                     </div>
                     <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
@@ -860,19 +911,19 @@
                 <div class="utility-grid">
                     <div class="util-meta">
                         <h4>Location</h4>
-                        <p><a href="https://maps.google.com/?q=Hassanamba+Temple+Hassan" target="_blank">Fort Road Area, Hassan Proper</a></p>
+                        <p><a href="https://maps.google.com/?q=Brindavan+Gardens" target="_blank">KRS Dam Road, Krishna Raja Sagar, Mandya District</a></p>
                     </div>
                     <div class="util-meta">
                         <h4>Washrooms</h4>
-                        <p><span class="badge badge-yes">Large temporary facilities added during festival season</span></p>
+                        <p><span class="badge badge-yes">Available near the main ticket booths and the northern boat deck</span></p>
                     </div>
                     <div class="util-meta">
                         <h4>Logistics & Entry</h4>
-                        <p>Opens annually for Deepavali | Free admission (Paid fast-track queue available)</p>
+                        <p>6:30 AM – 9:00 PM | ₹50 Entry Fee (Fountain show starts after sunset)</p>
                     </div>
                     <div class="util-meta">
                         <h4>Recommended Hotels</h4>
-                        <p>Hotel Mayura International, Raama Grand, Southern Star Hassan</p>
+                        <p>Royal Orchid Brindavan Garden Palace, KSTDC Hotel Mayura KRS</p>
                     </div>
                 </div>
             </div>
