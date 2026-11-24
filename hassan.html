@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hassan — Premium Hoysala Heritage Chronicle</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+         :root {
+            --terracotta: #E8651A;
+            --gold: #C9A84C;
+            --bg-dark: #080C12;
+            --card-dark: #0D1420;
+            --border-glow: rgba(201, 168, 76, 0.15);
+            --text-light: #F0EDE8;
+            --text-muted: rgba(240, 237, 232, 0.55);
+        }
+        
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            background: var(--bg-dark);
+            color: var(--text-light);
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 300;
+            line-height: 1.6;
+            padding: 60px 8%;
+            overflow-x: hidden;
+        }
+        
+        body::after {
+            content: '';
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 9000;
+            opacity: 0.02;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+        }
+        /* Editorial Header Design */
+        
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            color: var(--terracotta);
+            text-decoration: none;
+            font-size: 12px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 50px;
+            font-weight: 600;
+            transition: transform 0.3s ease;
+        }
+        
+        .back-btn:hover {
+            transform: translateX(-5px);
+        }
+        
+        .header {
+            margin-bottom: 60px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .header::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: var(--gold);
+            margin: 30px auto 0;
+        }
+        
+        .header h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 60px;
+            font-weight: 700;
+            letter-spacing: 5px;
+            line-height: 1.1;
+        }
+        
+        .header h1 span {
+            color: var(--terracotta);
+        }
+        /* Narrative Intro Box */
+        
+        .intro-chronicle {
+            max-width: 850px;
+            margin: 0 auto 100px;
+            text-align: center;
+            background: var(--card-dark);
+            padding: 40px;
+            border-radius: 4px;
+            border: 1px solid var(--border-glow);
+        }
+        
+        .intro-chronicle h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 24px;
+            color: var(--gold);
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+        
+        .intro-chronicle p {
+            font-size: 15px;
+            color: var(--text-muted);
+            line-height: 1.8;
+        }
+        /* One-by-One Alternating Layout */
+        
+        .heritage-flow {
+            display: flex;
+            flex-direction: column;
+            gap: 140px;
+        }
+        
+        .heritage-item {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 70px;
+            align-items: flex-start;
+        }
+        
+        .heritage-item:nth-child(even) {
+            grid-template-columns: 0.9fr 1.1fr;
+        }
+        
+        .heritage-item:nth-child(even) .item-gallery-wrapper {
+            order: 2;
+        }
+        /* Smooth Pure CSS Slider Component */
+        
+        .item-gallery-wrapper {
+            position: relative;
+            width: 100%;
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .slider-container {
+            display: flex;
+            width: 300%;
+            animation: slideShow 16s infinite ease-in-out;
+        }
+        
+        .slider-container img {
+            width: 33.333%;
+            height: 520px;
+            object-fit: cover;
+            display: block;
+        }
+        /* Staggered animation offsets per card to avoid uniform transitions */
+        
+        .heritage-item:nth-child(2n) .slider-container {
+            animation-delay: 2s;
+        }
+        
+        .heritage-item:nth-child(3n) .slider-container {
+            animation-delay: 4s;
+        }
+        
+        .heritage-item:nth-child(4n) .slider-container {
+            animation-delay: 6s;
+        }
+        
+        @keyframes slideShow {
+            0%,
+            25% {
+                transform: translateX(0%);
+            }
+            30%,
+            55% {
+                transform: translateX(-33.333%);
+            }
+            60%,
+            90% {
+                transform: translateX(-66.666%);
+            }
+            95%,
+            100% {
+                transform: translateX(0%);
+            }
+        }
+        /* Content Elements */
+        
+        .item-details {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .item-index {
+            font-family: 'Cinzel', serif;
+            font-size: 14px;
+            color: var(--terracotta);
+            font-weight: 700;
+            margin-bottom: 12px;
+            letter-spacing: 3px;
+        }
+        
+        .item-title {
+            font-family: 'Cinzel', serif;
+            font-size: 34px;
+            font-weight: 600;
+            margin-bottom: 18px;
+            color: #FFF;
+            line-height: 1.2;
+            letter-spacing: 1px;
+        }
+        /* Read More History System */
+        
+        .history-wrapper {
+            margin-bottom: 25px;
+        }
+        
+        .history-base {
+            color: var(--text-muted);
+            font-size: 15px;
+            line-height: 1.8;
+        }
+        
+        .history-extended {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s cubic-bezier(0, 1, 0, 1);
+            color: var(--text-muted);
+            font-size: 15px;
+            line-height: 1.8;
+        }
+        
+        .history-extended p {
+            margin-top: 12px;
+        }
+        
+        .history-wrapper.expanded .history-extended {
+            max-height: 1200px;
+            transition: max-height 0.8s cubic-bezier(0.9, 0, 0.1, 1);
+        }
+        
+        .read-more-trigger {
+            display: inline-flex;
+            align-items: center;
+            background: none;
+            border: none;
+            color: var(--gold);
+            font-family: 'Cinzel', serif;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            cursor: pointer;
+            margin-top: 12px;
+            padding: 4px 0;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+        
+        .read-more-trigger:hover {
+            color: var(--terracotta);
+        }
+        
+        .read-more-trigger::after {
+            content: ' +';
+            font-weight: bold;
+        }
+        
+        .history-wrapper.expanded .read-more-trigger::after {
+            content: ' -';
+        }
+        /* Utility Grid Information Box */
+        
+        .utility-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 22px;
+            background: var(--card-dark);
+            padding: 24px;
+            border-radius: 4px;
+            border: 1px solid var(--border-glow);
+            margin-top: 15px;
+        }
+        
+        .util-meta h4 {
+            font-family: 'Cinzel', serif;
+            font-size: 11px;
+            text-transform: uppercase;
+            color: var(--gold);
+            letter-spacing: 1.5px;
+            margin-bottom: 6px;
+        }
+        
+        .util-meta p {
+            font-size: 13.5px;
+            color: #F0EDE8;
+            font-weight: 400;
+        }
+        
+        .util-meta a {
+            color: var(--terracotta);
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.2s;
+        }
+        
+        .util-meta a:hover {
+            opacity: 0.8;
+            text-decoration: underline;
+        }
+        /* Infrastructure Badges */
+        
+        .badge {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .badge-yes {
+            background: rgba(46, 204, 113, 0.12);
+            color: #2ecc71;
+            border: 1px solid rgba(46, 204, 113, 0.2);
+        }
+        
+        .badge-no {
+            background: rgba(231, 76, 60, 0.12);
+            color: #e74c3c;
+            border: 1px solid rgba(231, 76, 60, 0.2);
+        }
+        /* Responsive Adjustments */
+        
+        @media (max-width: 1100px) {
+            body {
+                padding: 50px 4%;
+            }
+            .heritage-item,
+            .heritage-item:nth-child(even) {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .heritage-item:nth-child(even) .item-gallery-wrapper {
+                order: 0;
+            }
+            .slider-container img {
+                height: 380px;
+            }
+            .header h1 {
+                font-size: 44px;
+            }
+        }
+    </style>
+<link rel="stylesheet" href="responsive.css">
+</head>
+
+<body>
+
+    <a href="go-heritage.html" class="back-btn">← Back to Dashboard</a>
+
+    <div class="header">
+        <h1>HASSAN <span>CHRONICLES</span></h1>
+    </div>
+
+    <div class="intro-chronicle">
+        <h2>History of the Hoysala Empire</h2>
+        <p>Hassan is the ancestral heartland of the Hoysala Empire (10th–14th centuries). Rulers here utilized soft chloritic schist (soapstone) to pioneer an incredibly intricate form of architecture. The sculptural works at Belur and Halebidu represent
+            a pinnacle of stone design, featuring detail that mirrors woodcarving.</p>
+    </div>
+
+    <div class="heritage-flow">
+
+        <div class="heritage-item">
+            <div class="item-gallery-wrapper">
+                <div class="slider-container">
+                    <img src="https://i.pinimg.com/736x/75/46/24/754624727774dc03241f0edb32c1cd76.jpg" alt="Chennakeshava Temple Main View">
+                    <img src="https://images.unsplash.com/photo-1596176530529-78163a4f7af2?w=800" alt="Madanika Bracket Figures Close Up">
+                    <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=800" alt="Ornate Stepped Entrance">
+                </div>
+            </div>
+            <div class="item-details">
+                <span class="item-index">01 / 10</span>
+                <h3 class="item-title">Chennakeshava Temple (Belur)</h3>
+
+                <div class="history-wrapper">
+                    <p class="history-base">
+                        Commissioned in 1117 AD by King Vishnuvardhana, this temple features complex bracket figures (Madanikas) carved with incredible detail out of fine soapstone.
+                    </p>
+                    <div class="history-extended">
+                        <p>
+                            The Chennakeshava Temple was constructed on the banks of the Yagachi River to commemorate King Vishnuvardhana’s definitive military victories over the Cholas at Talakad. Taking over 103 years and three generations of royal supervision to complete, it
+                            marks the dynamic shift of the Hoysala dynasty away from their origins as hill chiefs toward structural supremacy in Southern India.
+                        </p>
+                        <p>
+                            The exterior wall layout features horizontal rows of storytelling friezes containing thousands of elephants, lions, and equestrian units, where no two animals are carved identically. The famous bracket figures, or Madanikas, are angled gracefully beneath
+                            the roof lines, capturing idealized women executing classical dance forms, looking into mirrors, or handling exotic birds with realism that mirrors refined woodwork.
+                        </p>
+                    </div>
+                    <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
+                </div>
+
+                <div class="utility-grid">
+                    <div class="util-meta">
+                        <h4>Location</h4>
+                        <p><a href="https://maps.google.com/?q=Chennakeshava+Temple+Belur" target="_blank">Belur Town Center, Hassan District</a></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Washrooms</h4>
+                        <p><span class="badge badge-yes">Available near tourism kiosk office</span></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Logistics & Entry</h4>
+                        <p>7:30 AM – 7:30 PM | Free Admission</p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Recommended Hotels</h4>
+                        <p>KSTDC Hotel Mayur Velapuri, Vishnu Regency, Hoysala Village Resort</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="heritage-item">
+            <div class="item-gallery-wrapper">
+                <div class="slider-container">
+                    <img src="https://images.unsplash.com/photo-1596176530529-78163a4f7af2?w=800" alt="Hoysaleswara Temple Front">
+                    <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=800" alt="Star Shaped Platform Foundation">
+                    <img src="https://images.unsplash.com/photo-1605649487212-47bdab064df7?w=800" alt="Monolithic Nandi Mantapa">
+                </div>
+            </div>
+            <div class="item-details">
+                <span class="item-index">02 / 10</span>
+                <h3 class="item-title">Hoysaleswara Temple (Halebidu)</h3>
+
+                <div class="history-wrapper">
+                    <p class="history-base">
+                        A grand double temple layout mounted on a complex star-shaped base platform, bordered by miles of descriptive stone friezes showing mythical creatures.
+                    </p>
+                    <div class="history-extended">
+                        <p>
+                            Originally known as Dorasamudra, Halebidu served as the imperial capital of the Hoysala Empire. The construction of this temple began around 1121 AD under King Vishnuvardhana and was funded by wealthy civic merchants led by Ketamalla. It stands as the
+                            largest structural monument dedicated to Shiva built by the Hoysala kingdom.
+                        </p>
+                        <p>
+                            The double-shrine framework houses two large lingas named Hoysaleswara and Shantaleswara, honoring the King and Queen Shantala Devi. The structure is built entirely on a Jagati (star-shaped platform) that amplifies its external surface area, allowing
+                            artists to carve complex multi-layered scenes from the Ramayana, Mahabharata, and Bhagavata Purana. Despite being attacked and partially damaged during regional conflicts in the early 14th century, its deeply undercut stone
+                            friezes remain some of the finest examples of sculptural art in the world.
+                        </p>
+                    </div>
+                    <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
+                </div>
+
+                <div class="utility-grid">
+                    <div class="util-meta">
+                        <h4>Location</h4>
+                        <p><a href="https://maps.google.com/?q=Hoysaleswara+Temple+Halebidu" target="_blank">Halebidu Heritage Enclave, Hassan</a></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Washrooms</h4>
+                        <p><span class="badge badge-yes">Available in public lawn amenities block</span></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Logistics & Entry</h4>
+                        <p>6:30 AM – 6:30 PM | Free Entry (Museum fee extra)</p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Recommended Hotels</h4>
+                        <p>KSTDC Hotel Mayur Shantala, Quality Inn Premium Hassan</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="heritage-item">
+            <div class="item-gallery-wrapper">
+                <div class="slider-container">
+                    <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=800" alt="Vindhyagiri Hill Steps View">
+                    <img src="https://images.unsplash.com/photo-1584551246679-0daf3d275d0f?w=800" alt="Monolithic Statue of Lord Bahubali">
+                    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800" alt="Granite Shrines and Pillars">
+                </div>
+            </div>
+            <div class="item-details">
+                <span class="item-index">03 / 10</span>
+                <h3 class="item-title">Shravanabelagola Gommateshwara</h3>
+
+                <div class="history-wrapper">
+                    <p class="history-base">
+                        Home to a massive 17.5-meter monolithic statue of Lord Bahubali, carved in 981 AD atop the steep granite slopes of Vindhyagiri hill.
+                    </p>
+                    <div class="history-extended">
+                        <p>
+                            Shravanabelagola has remained a vital spiritual center for Jainism for over two millennia. It is famously known as the location where Chandragupta Maurya, the founder of the Mauryan Empire, spent his final days as an ascetic. The colossus of Lord Bahubali
+                            was commissioned by Chavundaraya, a brilliant military commander and prime minister under the Western Ganga Dynasty.
+                        </p>
+                        <p>
+                            Carved from a single large outcropping of gray granite, the statue perfectly represents the Kayotsarga (meditative standing posture) of Jain saints, showing creeping vines wrapping around the limbs to symbolize complete detachment from the physical world.
+                            Every 12 years, the site hosts the grand Mahamastakabhisheka festival, drawing massive crowds to watch the monument be ritually bathed in milk, sugarcane juice, saffron paste, and powdered sandalwood.
+                        </p>
+                    </div>
+                    <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
+                </div>
+
+                <div class="utility-grid">
+                    <div class="util-meta">
+                        <h4>Location</h4>
+                        <p><a href="https://maps.google.com/?q=Shravanabelagola+Gommateshwara" target="_blank">Shravanabelagola Town Center, Hassan</a></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Washrooms</h4>
+                        <p><span class="badge badge-yes">Available at base and midway resting spot</span></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Logistics & Entry</h4>
+                        <p>6:30 AM – 6:00 PM | Free Entry (Requires climbing 600+ steps)</p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Recommended Hotels</h4>
+                        <p>Hotel Raghu Residency, SDM Jain Dharamshala Guest Houses</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="heritage-item">
+            <div class="item-gallery-wrapper">
+                <div class="slider-container">
+                    <img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=800" alt="Kedareswara Temple Side Profile">
+                    <img src="https://images.unsplash.com/photo-1598977123418-45f04b6168ba?w=800" alt="Trikuta Shrine Shikhara Structure">
+                    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800" alt="Hoysala Emblem Sculptures">
+                </div>
+            </div>
+            <div class="item-details">
+                <span class="item-index">04 / 10</span>
+                <h3 class="item-title">Kedareswara Temple (Halebidu)</h3>
+
+                <div class="history-wrapper">
+                    <p class="history-base">
+                        An elegant soapstone temple built by King Veera Ballala II and his queen Ketaladevi, featuring exceptional high-relief historical and mythological panels.
+                    </p>
+                    <div class="history-extended">
+                        <p>
+                            Located just a short walk from the main Hoysaleswara compound, the Kedareswara Temple was constructed around 1220 AD during the prosperous reign of King Veera Ballala II. Built as a classic Trikuta (triple-shrine) structure, it features an ornate central
+                            assembly space connecting three separate sacred sanctuaries.
+                        </p>
+                        <p>
+                            The temple sits on a raised platform, with exterior walls adorned with detailed stone carvings. The lower friezes display crisp, naturalistic rows of marching elephants, charging horses, and scrolling floral vines. Above these, large wall panels depict
+                            major Hindu deities, including a famous, hyper-detailed carving of Lord Shiva holding the crescent moon and lifting Mount Kailash.
+                        </p>
+                    </div>
+                    <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
+                </div>
+
+                <div class="utility-grid">
+                    <div class="util-meta">
+                        <h4>Location</h4>
+                        <p><a href="https://maps.google.com/?q=Kedareswara+Temple+Halebidu" target="_blank">Close to Hoysaleswara Compound, Halebidu</a></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Washrooms</h4>
+                        <p><span class="badge badge-no">Restrooms located in main compound nearby</span></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Logistics & Entry</h4>
+                        <p>8:00 AM – 5:30 PM | Free Entry</p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Recommended Hotels</h4>
+                        <p>KSTDC Hotel Mayur Shantala, Mayur Velapuri Belur</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="heritage-item">
+            <div class="item-gallery-wrapper">
+                <div class="slider-container">
+                    <img src="https://images.unsplash.com/photo-1605649487212-47bdab064df7?w=800" alt="Lakshmi Devi Temple Doddagaddavalli">
+                    <img src="https://images.unsplash.com/photo-1584551246679-0daf3d275d0f?w=800" alt="Chatuskuta Four Shrines Layout">
+                    <img src="https://images.unsplash.com/photo-1596176530529-78163a4f7af2?w=800" alt="Bhairava and Kalika Stone Relic">
+                </div>
+            </div>
+            <div class="item-details">
+                <span class="item-index">05 / 10</span>
+                <h3 class="item-title">Lakshmi Devi Temple (Doddagaddavalli)</h3>
+
+                <div class="history-wrapper">
+                    <p class="history-base">
+                        One of the earliest structural Hoysala building layouts, featuring four distinct functional sanctuaries interconnected inside a serene rural coconut grove.
+                    </p>
+                    <div class="history-extended">
+                        <p>
+                            Built in 1114 AD by a prominent royal merchant named Kullahana Rahuta and his wife Sahaja Devi, this temple predates the grand monuments at Belur and Halebidu. It is an extremely rare Chatuskuta (four-shrine) layout, with four separate sanctuaries facing
+                            the cardinal directions, all linked to a central common hall (Maha Mandapa).
+                        </p>
+                        <p>
+                            Unlike later, hyper-decorated Hoysala structures, this temple retains a simpler, cleaner stone style on its outer walls, paired with distinct, steep roof towers (Shikharas). The main eastern shrine is dedicated to Lakshmi Devi, holding a beautifully carved
+                            stone icon of the goddess with her attendants. Another sanctuary houses a striking, dramatic image of Goddess Kali, surrounded by carved spirits, providing a fascinating look into early Hoysala spiritual traditions.
+                        </p>
+                    </div>
+                    <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
+                </div>
+
+                <div class="utility-grid">
+                    <div class="util-meta">
+                        <h4>Location</h4>
+                        <p><a href="https://maps.google.com/?q=Lakshmi+Devi+Temple+Doddagaddavalli" target="_blank">Doddagaddavalli Village, 16km from Hassan Town</a></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Washrooms</h4>
+                        <p><span class="badge badge-no">No public restrooms on immediate site</span></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Logistics & Entry</h4>
+                        <p>8:00 AM – 6:00 PM | Free Public Landmark</p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Recommended Hotels</h4>
+                        <p>Suvarna Regency, Hotel Hassan Ashriya, Ruchi Peerless Hassan</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="heritage-item">
+            <div class="item-gallery-wrapper">
+                <div class="slider-container">
+                    <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=800" alt="Shettihalli Church Submerged View">
+                    <img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=800" alt="Gothic Roof Arches Ruins">
+                    <img src="https://images.unsplash.com/photo-1541963463532-d68292c34b19?w=800" alt="Dry Season Skeletal Church Structure">
+                </div>
+            </div>
+            <div class="item-details">
+                <span class="item-index">06 / 10</span>
+                <h3 class="item-title">Shettihalli Rosary Church</h3>
+
+                <div class="history-wrapper">
+                    <p class="history-base">
+                        A striking Gothic church built by French missionaries in the 1860s, which gets partially submerged in the Hemavati River reservoir every monsoon season.
+                    </p>
+                    <div class="history-extended">
+                        <p>
+                            Constructed by French Roman Catholic missionaries led by Father Abbe Dubois, this church was built using an elegant Gothic design, featuring tall pointed arches, mortar, and brick masonry. It served as the center of a thriving local village community
+                            for nearly a century.
+                        </p>
+                        <p>
+                            In the 1960s, the government constructed the Gorur Dam across the Hemavati River to control regional irrigation, requiring the resettlement of all surrounding villages. The church building was left behind. Today, it presents a spectacular sight: completely
+                            surrounded by deep water during the peak monsoon, and emerging as a beautiful, weathered skeletal ruin during the dry summer months, attracting heritage enthusiasts and photographers alike.
+                        </p>
+                    </div>
+                    <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
+                </div>
+
+                <div class="utility-grid">
+                    <div class="util-meta">
+                        <h4>Location</h4>
+                        <p><a href="https://maps.google.com/?q=Shettihalli+Rosary+Church" target="_blank">Shettihalli Village Bank, Gorur Reservoir Outskirts</a></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Washrooms</h4>
+                        <p><span class="badge badge-no">No public facilities available on the banks</span></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Logistics & Entry</h4>
+                        <p>6:00 AM – 6:00 PM | Free Entry (Coracle boat rides available in monsoon)</p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Recommended Hotels</h4>
+                        <p>Hassan Center Hotels (Pavanputra, Mallige Residency)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="heritage-item">
+            <div class="item-gallery-wrapper">
+                <div class="slider-container">
+                    <img src="https://images.unsplash.com/photo-1584551246679-0daf3d275d0f?w=800" alt="Ishvara Temple Arasikere">
+                    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800" alt="16 Pointed Star Porch Mandapa">
+                    <img src="https://images.unsplash.com/photo-1596176530529-78163a4f7af2?w=800" alt="Domed Inner Ceiling Carvings">
+                </div>
+            </div>
+            <div class="item-details">
+                <span class="item-index">07 / 10</span>
+                <h3 class="item-title">Ishvara Temple (Arasikere)</h3>
+
+                <div class="history-wrapper">
+                    <p class="history-base">
+                        A complex Hoysala creation featuring a unique 16-pointed star-shaped porch platform hall structure that showcases advanced geometry.
+                    </p>
+                    <div class="history-extended">
+                        <p>
+                            Dating back to 1220 AD during the reign of Hoysala King Veera Ballala II, this temple is dedicated to Lord Shiva and stands as one of the most structurally complex projects undertaken by the dynasty's master builders. It showcases an incredible engineering
+                            feat that pushes the limits of soapstone construction.
+                        </p>
+                        <p>
+                            The defining feature of this temple is its magnificent open assembly porch (Sabha Mandapa), built as a perfect 16-pointed star. The interior ceiling of this porch forms an intricate stone dome, divided into multi-tiered concentric circles covered in detailed
+                            carvings of loops, floral designs, and traditional motifs. The main inner sanctum connects to a closed hall, demonstrating the incredible spatial planning of the medieval era.
+                        </p>
+                    </div>
+                    <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
+                </div>
+
+                <div class="utility-grid">
+                    <div class="util-meta">
+                        <h4>Location</h4>
+                        <p><a href="https://maps.google.com/?q=Ishvara+Temple+Arasikere" target="_blank">Arasikere Town Center, Northern Hassan</a></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Washrooms</h4>
+                        <p><span class="badge badge-yes">Basic facilities near side entry garden</span></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Logistics & Entry</h4>
+                        <p>8:00 AM – 5:30 PM | Free Admission</p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Recommended Hotels</h4>
+                        <p>Nisarga Residency Arasikere, direct transit options from Hassan Center</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="heritage-item">
+            <div class="item-gallery-wrapper">
+                <div class="slider-container">
+                    <img src="https://images.unsplash.com/photo-1598977123418-45f04b6168ba?w=800" alt="Bucheshvara Temple Exterior">
+                    <img src="https://images.unsplash.com/photo-1569336415962-a4bd9f69cd83?w=800" alt="Twin Dvikuta Shrine Symmetry">
+                    <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=800" alt="Saraswati and Bhairava High Reliefs">
+                </div>
+            </div>
+            <div class="item-details">
+                <span class="item-index">08 / 10</span>
+                <h3 class="item-title">Bucheshvara Temple (Koravangala)</h3>
+
+                <div class="history-wrapper">
+                    <p class="history-base">
+                        A beautifully symmetrical twin temple built in 1173 AD by a high-ranking officer to celebrate King Veera Ballala II's ascension to the throne.
+                    </p>
+                    <div class="history-extended">
+                        <p>
+                            The Bucheshvara Temple at Koravangala was built by a wealthy Hoysala officer named Buchiraja, who belonged to a prominent family of administrative officials. Constructed to celebrate the historic coronation of King Veera Ballala II, the temple stands
+                            out for its balanced architectural proportions.
+                        </p>
+                        <p>
+                            Designed as a balanced Dvikuta (twin-shrine) structure, the two primary sanctuaries face each other across a common central seating space. One shrine contains a Shiva Linga, while the opposite sanctuary is dedicated to Surya, the Sun God. The temple features
+                            beautiful lathe-turned pillars and thick wall panels adorned with deeply carved depictions of deities, including a famous, exceptionally detailed carving of Goddess Saraswati playing the veena.
+                        </p>
+                    </div>
+                    <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
+                </div>
+
+                <div class="utility-grid">
+                    <div class="util-meta">
+                        <h4>Location</h4>
+                        <p><a href="https://maps.google.com/?q=Bucheshvara+Temple+Koravangala" target="_blank">Koravangala Village, 12km North-East of Hassan</a></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Washrooms</h4>
+                        <p><span class="badge badge-no">No public restrooms inside village grounds</span></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Logistics & Entry</h4>
+                        <p>8:00 AM – 6:00 PM | Free Entry</p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Recommended Hotels</h4>
+                        <p>Hassan Premium city choices (The Palguni, Raama Grand)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="heritage-item">
+            <div class="item-gallery-wrapper">
+                <div class="slider-container">
+                    <img src="https://images.unsplash.com/photo-1541963463532-d68292c34b19?w=800" alt="Twin Temples of Mosale Side by Side">
+                    <img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=800" alt="Intact Decorative Shikhara Roof Towers">
+                    <img src="https://images.unsplash.com/photo-1596176530529-78163a4f7af2?w=800" alt="Garuda and Lotus Ceiling Medallions">
+                </div>
+            </div>
+            <div class="item-details">
+                <span class="item-index">09 / 10</span>
+                <h3 class="item-title">Nagesvhara-Chennakeshava (Mosale)</h3>
+
+                <div class="history-wrapper">
+                    <p class="history-base">
+                        Two classic Hoysala structures positioned directly side-by-side, showcasing perfectly intact decorative roof towers and intricate stucco work.
+                    </p>
+                    <div class="history-extended">
+                        <p>
+                            Located in the historic village of Mosale, these twin temples were constructed during the early 13th century under the patronage of King Veera Ballala II. They represent a rare, perfectly matching pair of temples built directly parallel to each other,
+                            sharing identical architectural dimensions.
+                        </p>
+                        <p>
+                            The southern structure is the Nagesvara Temple, dedicated to Lord Shiva, while the northern structure is the Chennakeshava Temple, dedicated to Lord Vishnu. This layout beautifully reflects the harmony between different spiritual traditions during the
+                            Hoysala golden age. Both temples have perfectly preserved stone towers (Shikharas), topped with decorative elements that show the unparalleled craftsmanship of the era's royal architects.
+                        </p>
+                    </div>
+                    <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
+                </div>
+
+                <div class="utility-grid">
+                    <div class="util-meta">
+                        <h4>Location</h4>
+                        <p><a href="https://maps.google.com/?q=Mosale+Twin+Temples+Hassan" target="_blank">Mosale Village, 14km South of Hassan Town</a></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Washrooms</h4>
+                        <p><span class="badge badge-no">Basic local village arrangements only</span></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Logistics & Entry</h4>
+                        <p>8:00 AM – 5:30 PM | Free Entry</p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Recommended Hotels</h4>
+                        <p>Transit hotels in Hassan City (Hoysala Village Resort, Casino Comfort)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="heritage-item">
+            <div class="item-gallery-wrapper">
+                <div class="slider-container">
+                    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800" alt="Hassanamba Entrance Gate Towers">
+                    <img src="https://images.unsplash.com/photo-1541963463532-d68292c34b19?w=800" alt="Devotees Courtyard Enclosure">
+                    <img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=800" alt="Inner Shrine Decorative Hangings">
+                </div>
+            </div>
+            <div class="item-details">
+                <span class="item-index">10 / 10</span>
+                <h3 class="item-title">Hassanamba Temple</h3>
+
+                <div class="history-wrapper">
+                    <p class="history-base">
+                        An unusual, historic temple complex that opens to devotees exclusively for a few specific days during the annual Deepavali festival.
+                    </p>
+                    <div class="history-extended">
+                        <p>
+                            Dating back to the 12th century, the Hassanamba Temple was built under the patronage of the late Hoysala kings. The temple is dedicated to Goddess Hassanamba, the presiding deity of Hassan town, which was named in her honor.
+                        </p>
+                        <p>
+                            The temple has a unique custom: the inner sanctum doors are opened just once a year, during the Deepavali festival in October/November, and are closed immediately after the celebrations end. According to local lore, a traditional ghee lamp lit at closing
+                            time continues to burn effortlessly, and offerings of fresh flowers remain perfectly preserved until the doors are opened the following year, attracting hundreds of thousands of pilgrims during its brief, vibrant opening season.
+                        </p>
+                    </div>
+                    <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
+                </div>
+
+                <div class="utility-grid">
+                    <div class="util-meta">
+                        <h4>Location</h4>
+                        <p><a href="https://maps.google.com/?q=Hassanamba+Temple+Hassan" target="_blank">Fort Road Area, Hassan Proper</a></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Washrooms</h4>
+                        <p><span class="badge badge-yes">Large temporary facilities added during festival season</span></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Logistics & Entry</h4>
+                        <p>Opens annually for Deepavali | Free admission (Paid fast-track queue available)</p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Recommended Hotels</h4>
+                        <p>Hotel Mayura International, Raama Grand, Southern Star Hassan</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function toggleHistory(button) {
+            const wrapper = button.closest('.history-wrapper');
+            wrapper.classList.toggle('expanded');
+            if (wrapper.classList.contains('expanded')) {
+                button.textContent = "Read Less";
+            } else {
+                button.textContent = "Read More";
+            }
+        }
+    </script>
+
+</body>
+
+</html>

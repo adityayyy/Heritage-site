@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vijayapura — Premium Heritage Chronicle</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+         :root {
+            --terracotta: #E8651A;
+            --gold: #C9A84C;
+            --bg-dark: #080C12;
+            --card-dark: #0D1420;
+            --border-glow: rgba(201, 168, 76, 0.15);
+            --text-light: #F0EDE8;
+            --text-muted: rgba(240, 237, 232, 0.55);
+        }
+        
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            background: var(--bg-dark);
+            color: var(--text-light);
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 300;
+            line-height: 1.6;
+            padding: 60px 8%;
+            overflow-x: hidden;
+        }
+        
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            color: var(--terracotta);
+            text-decoration: none;
+            font-size: 12px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 50px;
+            font-weight: 600;
+            transition: transform 0.3s ease;
+        }
+        
+        .back-btn:hover {
+            transform: translateX(-5px);
+        }
+        
+        .header {
+            margin-bottom: 60px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .header::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: var(--gold);
+            margin: 30px auto 0;
+        }
+        
+        .header h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 60px;
+            font-weight: 700;
+            letter-spacing: 5px;
+            line-height: 1.1;
+        }
+        
+        .header h1 span {
+            color: var(--terracotta);
+        }
+        
+        .intro-chronicle {
+            max-width: 850px;
+            margin: 0 auto 100px;
+            text-align: center;
+            background: var(--card-dark);
+            padding: 40px;
+            border-radius: 4px;
+            border: 1px solid var(--border-glow);
+        }
+        
+        .intro-chronicle h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 24px;
+            color: var(--gold);
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+        
+        .intro-chronicle p {
+            font-size: 15px;
+            color: var(--text-muted);
+            line-height: 1.8;
+        }
+        
+        .heritage-flow {
+            display: flex;
+            flex-direction: column;
+            gap: 140px;
+        }
+        
+        .heritage-item {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 70px;
+            align-items: flex-start;
+        }
+        
+        .heritage-item:nth-child(even) {
+            grid-template-columns: 0.9fr 1.1fr;
+        }
+        
+        .heritage-item:nth-child(even) .item-gallery-wrapper {
+            order: 2;
+        }
+        
+        .item-gallery-wrapper {
+            position: relative;
+            width: 100%;
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .slider-container {
+            display: flex;
+            width: 300%;
+            animation: slideShow 16s infinite ease-in-out;
+        }
+        
+        .slider-container img {
+            width: 33.333%;
+            height: 520px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .heritage-item:nth-child(2n) .slider-container {
+            animation-delay: 2s;
+        }
+        
+        .heritage-item:nth-child(3n) .slider-container {
+            animation-delay: 4s;
+        }
+        
+        .heritage-item:nth-child(4n) .slider-container {
+            animation-delay: 6s;
+        }
+        
+        @keyframes slideShow {
+            0%,
+            25% {
+                transform: translateX(0%);
+            }
+            30%,
+            55% {
+                transform: translateX(-33.333%);
+            }
+            60%,
+            90% {
+                transform: translateX(-66.666%);
+            }
+            95%,
+            100% {
+                transform: translateX(0%);
+            }
+        }
+        
+        .item-details {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .item-index {
+            font-family: 'Cinzel', serif;
+            font-size: 14px;
+            color: var(--terracotta);
+            font-weight: 700;
+            margin-bottom: 12px;
+            letter-spacing: 3px;
+        }
+        
+        .item-title {
+            font-family: 'Cinzel', serif;
+            font-size: 34px;
+            font-weight: 600;
+            margin-bottom: 18px;
+            color: #FFF;
+            line-height: 1.2;
+            letter-spacing: 1px;
+        }
+        
+        .history-wrapper {
+            margin-bottom: 25px;
+        }
+        
+        .history-base {
+            color: var(--text-muted);
+            font-size: 15px;
+            line-height: 1.8;
+        }
+        
+        .history-extended {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s cubic-bezier(0, 1, 0, 1);
+            color: var(--text-muted);
+            font-size: 15px;
+            line-height: 1.8;
+        }
+        
+        .history-extended p {
+            margin-top: 12px;
+        }
+        
+        .history-wrapper.expanded .history-extended {
+            max-height: 1200px;
+            transition: max-height 0.8s cubic-bezier(0.9, 0, 0.1, 1);
+        }
+        
+        .read-more-trigger {
+            display: inline-flex;
+            align-items: center;
+            background: none;
+            border: none;
+            color: var(--gold);
+            font-family: 'Cinzel', serif;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            cursor: pointer;
+            margin-top: 12px;
+            padding: 4px 0;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+        
+        .read-more-trigger:hover {
+            color: var(--terracotta);
+        }
+        
+        .read-more-trigger::after {
+            content: ' +';
+            font-weight: bold;
+        }
+        
+        .history-wrapper.expanded .read-more-trigger::after {
+            content: ' -';
+        }
+        
+        .utility-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 22px;
+            background: var(--card-dark);
+            padding: 24px;
+            border-radius: 4px;
+            border: 1px solid var(--border-glow);
+            margin-top: 15px;
+        }
+        
+        .util-meta h4 {
+            font-family: 'Cinzel', serif;
+            font-size: 11px;
+            text-transform: uppercase;
+            color: var(--gold);
+            letter-spacing: 1.5px;
+            margin-bottom: 6px;
+        }
+        
+        .util-meta p {
+            font-size: 13.5px;
+            color: #F0EDE8;
+            font-weight: 400;
+        }
+        
+        .util-meta a {
+            color: var(--terracotta);
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.2s;
+        }
+        
+        .util-meta a:hover {
+            opacity: 0.8;
+            text-decoration: underline;
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .badge-yes {
+            background: rgba(46, 204, 113, 0.12);
+            color: #2ecc71;
+            border: 1px solid rgba(46, 204, 113, 0.2);
+        }
+        
+        .badge-no {
+            background: rgba(231, 76, 60, 0.12);
+            color: #e74c3c;
+            border: 1px solid rgba(231, 76, 60, 0.2);
+        }
+        
+        @media (max-width: 1100px) {
+            body {
+                padding: 50px 4%;
+            }
+            .heritage-item,
+            .heritage-item:nth-child(even) {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .heritage-item:nth-child(even) .item-gallery-wrapper {
+                order: 0;
+            }
+            .slider-container img {
+                height: 380px;
+            }
+            .header h1 {
+                font-size: 44px;
+            }
+        }
+    </style>
+<link rel="stylesheet" href="responsive.css">
+</head>
+
+<body>
+
+    <a href="go-heritage.html" class="back-btn">← Back to Dashboard</a>
+
+    <div class="header">
+        <h1>VIJAYAPURA <span>CHRONICLES</span></h1>
+    </div>
+
+    <div class="intro-chronicle">
+        <h2>The Islamic Renaissance & Deccani Architecture</h2>
+        <p>Vijayapura (formerly Bijapur) reached its historic peak under the sovereign rule of the Adil Shahi Dynasty (1489–1686). The capital evolved into an opulent crossroads of Deccani culture, fine arts, and mathematical masonry. Its iconic monuments
+            feature sophisticated multi-centered arches, hanging stone brackets, and world-renowned masonry domes that pushed the limits of medieval structural engineering.</p>
+    </div>
+
+    <div class="heritage-flow">
+
+        <div class="heritage-item">
+            <div class="item-gallery-wrapper">
+                <div class="slider-container">
+                    <img src="https://i.pinimg.com/736x/fe/78/f9/fe78f9c33b84a51dcfa00e9ed177f2d4.jpg" alt="Gol Gumbaz Monumental Facade">
+                    <img src="https://images.unsplash.com/photo-1596176530529-78163a4f7af2?w=800" alt="Whispering Gallery Architectural Interior">
+                    <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=800" alt="Corner Minaret Turrets Profile">
+                </div>
+            </div>
+            <div class="item-details">
+                <span class="item-index">01 / 10</span>
+                <h3 class="item-title">Gol Gumbaz</h3>
+
+                <div class="history-wrapper">
+                    <p class="history-base">
+                        The grand final resting place of Mohammed Adil Shah, featuring a colossal brick and mortar structural dome that stands as one of the largest unsupported masonry spans in human history.
+                    </p>
+                    <div class="history-extended">
+                        <p>
+                            Completed in 1656 AD by architect Yaqut of Dabul, this massive cube structure spans 44 meters in external diameter without a single supporting pillar or central pillar node. The load is structurally transferred down through intersecting stone arches.
+                        </p>
+                        <p>
+                            High within the dome chamber lies the famous "Whispering Gallery." Due to the precise acoustics of the semi-spherical wall geometry, a single low whisper echoes distinctly eleven times across the vast room, and the softest sounds carry clearly across
+                            the entire space.
+                        </p>
+                    </div>
+                    <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
+                </div>
+
+                <div class="utility-grid">
+                    <div class="util-meta">
+                        <h4>Location</h4>
+                        <p><a href="https://maps.google.com/?q=Gol+Gumbaz+Vijayapura" target="_blank">Gol Gumbaz Road, Vijayapura</a></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Washrooms</h4>
+                        <p><span class="badge badge-yes">Available In Complex Lot</span></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Logistics & Entry</h4>
+                        <p>10:00 AM – 5:00 PM | ₹25 Entry Fee</p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Recommended Hotels</h4>
+                        <p>The Fern Residency Vijayapura, Hotel Sabala Heritage, Hotel Pearl</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="heritage-item">
+            <div class="item-gallery-wrapper">
+                <div class="slider-container">
+                    <img src="https://images.unsplash.com/photo-1596176530529-78163a4f7af2?w=800" alt="Ibrahim Rauza Symmetric View">
+                    <img src="https://images.unsplash.com/photo-1584551246679-0daf3d275d0f?w=800" alt="Ornate Stone Carvings Detail">
+                    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800" alt="Mosque Arches Architecture">
+                </div>
+            </div>
+            <div class="item-details">
+                <span class="item-index">02 / 10</span>
+                <h3 class="item-title">Ibrahim Rauza</h3>
+
+                <div class="history-wrapper">
+                    <p class="history-base">
+                        Often called the 'Taj Mahal of the Deccan,' this highly detailed funerary complex houses Ibrahim Adil Shah II and his queen across symmetrical, elevated twin stone platforms.
+                    </p>
+                    <div class="history-extended">
+                        <p>
+                            Designed by Persian architect Malik Sandal, this complex features a grand mosque on one side and a mausoleum on the other, balanced above a beautiful central fountain garden. It is renowned for its delicate stone lace panels and carved calligraphic scripts
+                            from the Quran.
+                        </p>
+                        <p>
+                            The structural chambers feature unique, completely flat stone ceilings made from stone slabs held together with strong, lime mortar joints. This masterwork of balance survived intact while withstanding centuries of seismic activity.
+                        </p>
+                    </div>
+                    <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
+                </div>
+
+                <div class="utility-grid">
+                    <div class="util-meta">
+                        <h4>Location</h4>
+                        <p><a href="https://maps.google.com/?q=Ibrahim+Rauza+Vijayapura" target="_blank">Patel Nagar, Western Grid, Vijayapura</a></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Washrooms</h4>
+                        <p><span class="badge badge-yes">Available (ASI Enclosure)</span></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Logistics & Entry</h4>
+                        <p>6:00 AM – 6:00 PM | ₹25 Standard Entry</p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Recommended Hotels</h4>
+                        <p>Hotel Town Palace, KSTDC Mayura Adil Shahi</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="heritage-item">
+            <div class="item-gallery-wrapper">
+                <div class="slider-container">
+                    <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=800" alt="Jama Masjid Great Onion Dome">
+                    <img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=800" alt="Mihrab Golden Inlays View">
+                    <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=800" alt="Symmetrical Arcaded Courtyard">
+                </div>
+            </div>
+            <div class="item-details">
+                <span class="item-index">03 / 10</span>
+                <h3 class="item-title">Jama Masjid</h3>
+
+                <div class="history-wrapper">
+                    <p class="history-base">
+                        One of the first formal congregational mosques built in the Deccan, showcasing classic structural proportions, arcaded bays, and a striking onion dome.
+                    </p>
+                    <div class="history-extended">
+                        <p>
+                            Commissioned by Ali Adil Shah I following his military campaigns in 1576 AD, this vast mosque covers more than 54,000 square feet. The massive floor plan is neatly divided into 225 individual prayer squares inlaid in black stone.
+                        </p>
+                        <p>
+                            The central mihrab (prayer niche) features beautiful, layered golden decorations added later by Sultan Mohammed Adil Shah. It includes intricate calligraphic text, depictions of hanging lamps, and floral patterns.
+                        </p>
+                    </div>
+                    <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
+                </div>
+
+                <div class="utility-grid">
+                    <div class="util-meta">
+                        <h4>Location</h4>
+                        <p><a href="https://maps.google.com/?q=Jama+Masjid+Vijayapura" target="_blank">Jami Masjid Road, Old Quarters</a></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Washrooms</h4>
+                        <p><span class="badge badge-yes">Available In Prayer Court</span></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Logistics & Entry</h4>
+                        <p>6:00 AM – 7:00 PM | Free Admission</p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Recommended Hotels</h4>
+                        <p>Hotel Sagar Deluxe, The Fern Residency</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="heritage-item">
+            <div class="item-gallery-wrapper">
+                <div class="slider-container">
+                    <img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=800" alt="Asar Mahal Facade Pools">
+                    <img src="https://images.unsplash.com/photo-1541963463532-d68292c34b19?w=800" alt="Teakwood Columns Close Up">
+                    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800" alt="Upper Floor Royal Sanctuary">
+                </div>
+            </div>
+            <div class="item-details">
+                <span class="item-index">04 / 10</span>
+                <h3 class="item-title">Asar Mahal</h3>
+
+                <div class="history-wrapper">
+                    <p class="history-base">
+                        Built in 1646 to serve as a high hall of justice, this palace sits overlooking a large, scenic structural pool basin.
+                    </p>
+                    <div class="history-extended">
+                        <p>
+                            Originally known as the Adalat Mahal, the building was later renamed after it became a sacred repository housing two verified hairs from the beard of Prophet Muhammad. The front veranda is supported by four tall, solid teak wood columns.
+                        </p>
+                        <p>
+                            The upper rooms feature rare interior frescoes and painted walls showcasing seventeenth-century cross-cultural styles, illustrating close trading links between the kingdom and the courts of Europe and Persia.
+                        </p>
+                    </div>
+                    <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
+                </div>
+
+                <div class="utility-grid">
+                    <div class="util-meta">
+                        <h4>Location</h4>
+                        <p><a href="https://maps.google.com/?q=Asar+Mahal+Vijayapura" target="_blank">Citadel Enclosure East, Vijayapura</a></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Washrooms</h4>
+                        <p><span class="badge badge-no">Basic Amenities Nearby</span></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Logistics & Entry</h4>
+                        <p>8:00 AM – 6:00 PM | Free Entry (Strict Dress Codes)</p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Recommended Hotels</h4>
+                        <p>Hotel Navaratna International, KSTDC Mayura</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="heritage-item">
+            <div class="item-gallery-wrapper">
+                <div class="slider-container">
+                    <img src="https://images.unsplash.com/photo-1605649487212-47bdab064df7?w=800" alt="Bara Kaman Stone Arches">
+                    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800" alt="Intersecting Arch Shadows">
+                    <img src="https://images.unsplash.com/photo-1596176530529-78163a4f7af2?w=800" alt="Elevated Tomb Masonry Structure">
+                </div>
+            </div>
+            <div class="item-details">
+                <span class="item-index">05 / 10</span>
+                <h3 class="item-title">Bara Kaman</h3>
+
+                <div class="history-wrapper">
+                    <p class="history-base">
+                        The striking, unfinished stone mausoleum of Ali Adil Shah II, comprising an impressive series of interlocking stone arches open to the sky.
+                    </p>
+                    <div class="history-extended">
+                        <p>
+                            Begun in 1672 AD, this monument was planned to feature twelve grand concentric stone arches arranged horizontally and vertically around the royal tomb. The building plan was designed so its completed shadow would fall across the dome of the Gol Gumbaz.
+                        </p>
+                        <p>
+                            Construction was halted following the tragic assassination of the Sultan by his own family relatives, leaving these giant arches standing as a beautifully stark monument to unfinished imperial ambitions.
+                        </p>
+                    </div>
+                    <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
+                </div>
+
+                <div class="utility-grid">
+                    <div class="util-meta">
+                        <h4>Location</h4>
+                        <p><a href="https://maps.google.com/?q=Bara+Kaman+Vijayapura" target="_blank">Bara Kaman Lane, Central Quarters</a></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Washrooms</h4>
+                        <p><span class="badge badge-no">No Facilities inside Gate</span></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Logistics & Entry</h4>
+                        <p>6:00 AM – 6:00 PM | Free Admission</p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Recommended Hotels</h4>
+                        <p>Hotel Town Palace, The Fern Residency</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="heritage-item">
+            <div class="item-gallery-wrapper">
+                <div class="slider-container">
+                    <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=800" alt="Gagan Mahal Central Archway">
+                    <img src="https://images.unsplash.com/photo-1584551246679-0daf3d275d0f?w=800" alt="Audience Hall Ruined Terraces">
+                    <img src="https://images.unsplash.com/photo-1596176530529-78163a4f7af2?w=800" alt="Citadel Gardens Bordering">
+                </div>
+            </div>
+            <div class="item-details">
+                <span class="item-index">06 / 10</span>
+                <h3 class="item-title">Gagan Mahal</h3>
+
+                <div class="history-wrapper">
+                    <p class="history-base">
+                        A historic royal palace built in 1561, dominated by a massive central archway that spans over 20 meters across, serving as a grand open audience hall.
+                    </p>
+                    <div class="history-extended">
+                        <p>
+                            Commissioned by Ali Adil Shah I, this dual-purpose complex functioned as both a royal palace home and an open-air public audience hall (Durbar Enclosure). The main arch allowed visitors outside to view the royal assemblies clearly.
+                        </p>
+                        <p>
+                            This hall witnessed a major turning point in history in 1686 AD, when the final Adil Shahi ruler, the young Sikandar Adil Shah, was brought in silver chains before Emperor Aurangzeb, marking the end of the kingdom's independence.
+                        </p>
+                    </div>
+                    <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
+                </div>
+
+                <div class="utility-grid">
+                    <div class="util-meta">
+                        <h4>Location</h4>
+                        <p><a href="https://maps.google.com/?q=Gagan+Mahal+Vijayapura" target="_blank">Citadel Grounds Center, Vijayapura</a></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Washrooms</h4>
+                        <p><span class="badge badge-yes">Available In Park Grounds</span></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Logistics & Entry</h4>
+                        <p>8:00 AM – 6:00 PM | Free Entry</p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Recommended Hotels</h4>
+                        <p>Hotel Malligi Variant, Clarks Inn Axis Vijayapura</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="heritage-item">
+            <div class="item-gallery-wrapper">
+                <div class="slider-container">
+                    <img src="https://images.unsplash.com/photo-1584551246679-0daf3d275d0f?w=800" alt="Malik e Maidan Cannon Close Up">
+                    <img src="https://images.unsplash.com/photo-1598977123418-45f04b6168ba?w=800" alt="Lion Head Muzzle Detail">
+                    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800" alt="Sherza Burj Bastion View">
+                </div>
+            </div>
+            <div class="item-details">
+                <span class="item-index">07 / 10</span>
+                <h3 class="item-title">Malik-e-Maidan Cannon</h3>
+
+                <div class="history-wrapper">
+                    <p class="history-base">
+                        A massive 55-ton medieval cannon cast from high-grade gunmetal, featuring a detailed muzzle shaped like a lion devouring an elephant.
+                    </p>
+                    <div class="history-extended">
+                        <p>
+                            Cast in Ahmadnagar in 1549 AD by Persian engineer Muhammad Bin Hasan, this giant cannon was captured as a trophy of war. It sits atop the elevated Sherza Burj (Lion Bastion) defense point.
+                        </p>
+                        <p>
+                            The metal casting is engineered from a unique alloy that remains cool to the touch even under the blazing summer sun. When tapped, the barrel resonates with a long, clear sound like a temple bell.
+                        </p>
+                    </div>
+                    <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
+                </div>
+
+                <div class="utility-grid">
+                    <div class="util-meta">
+                        <h4>Location</h4>
+                        <p><a href="https://maps.google.com/?q=Malik-e-Maidan+Vijayapura" target="_blank">Sherza Burj Fort Line, Western Wall</a></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Washrooms</h4>
+                        <p><span class="badge badge-no">No Facilities on Bastion</span></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Logistics & Entry</h4>
+                        <p>9:00 AM – 6:00 PM | ₹10 Ticket</p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Recommended Hotels</h4>
+                        <p>Hotel Sabala Heritage, KSTDC Mayura Adil Shahi</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="heritage-item">
+            <div class="item-gallery-wrapper">
+                <div class="slider-container">
+                    <img src="https://images.unsplash.com/photo-1598977123418-45f04b6168ba?w=800" alt="Mehtar Mahal Ornate Gateway">
+                    <img src="https://images.unsplash.com/photo-1541963463532-d68292c34b19?w=800" alt="Stone Chain Brackets Close Up">
+                    <img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=800" alt="Upper Balcony Plaster Details">
+                </div>
+            </div>
+            <div class="item-details">
+                <span class="item-index">08 / 10</span>
+                <h3 class="item-title">Mehtar Mahal Gateway</h3>
+
+                <div class="history-wrapper">
+                    <p class="history-base">
+                        An elegant three-story gateway displaying incredibly delicate stone brackets carved in the likeness of hanging chains, leading into a mosque sanctuary.
+                    </p>
+                    <div class="history-extended">
+                        <p>
+                            Dating to 1620 AD, this structure was built using funds provided to a court sweeper (Mehtar), who used the wealth to build this remarkably detailed architectural monument.
+                        </p>
+                        <p>
+                            The stone brackets support overhanging balconies carved with fine details that make the solid granite look like delicate wood or ivory work.
+                        </p>
+                    </div>
+                    <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
+                </div>
+
+                <div class="utility-grid">
+                    <div class="util-meta">
+                        <h4>Location</h4>
+                        <p><a href="https://maps.google.com/?q=Mehtar+Mahal+Vijayapura" target="_blank">Lala Bazar Axis, Old Town</a></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Washrooms</h4>
+                        <p><span class="badge badge-no">Restricted Access Nearby</span></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Logistics & Entry</h4>
+                        <p>8:00 AM – 6:00 PM | Free Admission</p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Recommended Hotels</h4>
+                        <p>The Fern Residency, Hotel Pearl</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="heritage-item">
+            <div class="item-gallery-wrapper">
+                <div class="slider-container">
+                    <img src="https://images.unsplash.com/photo-1541963463532-d68292c34b19?w=800" alt="Taj Bawdi Stepwell Archway">
+                    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800" alt="Water Reservoir Inner Track">
+                    <img src="https://images.unsplash.com/photo-1605649487212-47bdab064df7?w=800" alt="Rest Houses Arch Array">
+                </div>
+            </div>
+            <div class="item-details">
+                <span class="item-index">09 / 10</span>
+                <h3 class="item-title">Taj Bawdi</h3>
+
+                <div class="history-wrapper">
+                    <p class="history-base">
+                        A monumental public water reservoir built in 1620 to honor Queen Taj Sultana, framed by a grand structural arch gateway.
+                    </p>
+                    <div class="history-extended">
+                        <p>
+                            Engineered by Malik Sandal, this massive stepwell is flanked by two grand wings of stone rest houses meant for traveling caravans and merchants, highlighting the well-planned urban design of the old capital.
+                        </p>
+                        <p>
+                            The main pool spans over 223 feet on each side. It was designed as a key water source connected to subterranean canal networks that fed freshwater across the city's residential quarters.
+                        </p>
+                    </div>
+                    <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
+                </div>
+
+                <div class="utility-grid">
+                    <div class="util-meta">
+                        <h4>Location</h4>
+                        <p><a href="https://maps.google.com/?q=Taj+Bawdi+Vijayapura" target="_blank">Madakhala Road, Western Outer Line</a></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Washrooms</h4>
+                        <p><span class="badge badge-no">No Facilities inside Gates</span></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Logistics & Entry</h4>
+                        <p>All Day Access | Free Admission</p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Recommended Hotels</h4>
+                        <p>Hotel Town Palace, KSTDC Mayura Adil Shahi</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="heritage-item">
+            <div class="item-gallery-wrapper">
+                <div class="slider-container">
+                    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800" alt="Citadel Walls and Moats">
+                    <img src="https://images.unsplash.com/photo-1541963463532-d68292c34b19?w=800" alt="Fortification Bastions Loop">
+                    <img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=800" alt="Massive Stone Gateways View">
+                </div>
+            </div>
+            <div class="item-details">
+                <span class="item-index">10 / 10</span>
+                <h3 class="item-title">Vijayapura Citadel Walls</h3>
+
+                <div class="history-wrapper">
+                    <p class="history-base">
+                        A massive system of defensive stone battlements, bastions, and deep moats that run for more than ten kilometers around the historic old city center.
+                    </p>
+                    <div class="history-extended">
+                        <p>
+                            Built by Yusuf Adil Shah and strengthened by successive rulers, the massive stone walls feature 96 heavy artillery bastions and five fortified main gateway arches guarded by double-walled entry tracks.
+                        </p>
+                        <p>
+                            The outer walls are surrounded by a deep, stone-lined moat that was historically filled with water and crocodiles to protect the rich royal citadel against Mughal military forces.
+                        </p>
+                    </div>
+                    <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
+                </div>
+
+                <div class="utility-grid">
+                    <div class="util-meta">
+                        <h4>Location</h4>
+                        <p><a href="https://maps.google.com/?q=Bijapur+Fort+Vijayapura" target="_blank">Circular Ring Road Track, Vijayapura</a></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Washrooms</h4>
+                        <p><span class="badge badge-no">No Facilities on Site</span></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Logistics & Entry</h4>
+                        <p>All Day Access | Free Admission</p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Recommended Hotels</h4>
+                        <p>The Fern Residency Vijayapura, Hotel Town Palace</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function toggleHistory(button) {
+            const wrapper = button.closest('.history-wrapper');
+            wrapper.classList.toggle('expanded');
+            if (wrapper.classList.contains('expanded')) {
+                button.textContent = "Read Less";
+            } else {
+                button.textContent = "Read More";
+            }
+        }
+    </script>
+
+</body>
+
+</html>

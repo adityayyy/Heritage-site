@@ -1,0 +1,2756 @@
+﻿?<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GO HERITAGE — Karnataka</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+         :root {
+            --orange: #E8651A;
+            --gold: #C9A84C;
+            --dark: #080C12;
+            --dark2: #0D1420;
+            --dark3: #121B2E;
+            --glass: rgba(255, 255, 255, 0.06);
+            --glass-border: rgba(255, 255, 255, 0.12);
+            --text: #F0EDE8;
+            --muted: rgba(240, 237, 232, 0.55);
+        }
+        
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            background: var(--dark);
+            color: var(--text);
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 300;
+            overflow-x: hidden;
+            cursor: default;
+        }
+        
+         ::selection {
+            background: var(--orange);
+            color: #fff;
+        }
+        /* SCROLLBAR */
+        
+         ::-webkit-scrollbar {
+            width: 3px;
+        }
+        
+         ::-webkit-scrollbar-track {
+            background: var(--dark);
+        }
+        
+         ::-webkit-scrollbar-thumb {
+            background: var(--orange);
+        }
+        /* SCROLL PROGRESS */
+        
+        #scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--orange), var(--gold));
+            z-index: 9999;
+            width: 0%;
+            transition: width 0.1s;
+        }
+        /* NAV */
+        
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 20px 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: all 0.4s;
+            background: transparent;
+        }
+        
+        nav.scrolled {
+            background: rgba(8, 12, 18, 0.92);
+            backdrop-filter: blur(20px);
+            padding: 14px 60px;
+            border-bottom: 1px solid var(--glass-border);
+        }
+        
+        .nav-logo {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 28px;
+            letter-spacing: 4px;
+            color: var(--text);
+        }
+        
+        .nav-logo span {
+            color: var(--orange);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 36px;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: var(--muted);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            transition: color 0.3s;
+            position: relative;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--orange);
+            transition: width 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--text);
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .nav-search {
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            color: var(--text);
+            padding: 8px 16px;
+            border-radius: 40px;
+            font-size: 13px;
+            font-family: 'DM Sans', sans-serif;
+            outline: none;
+            width: 180px;
+            transition: all 0.3s;
+        }
+        
+        .nav-search:focus {
+            width: 240px;
+            border-color: var(--orange);
+        }
+        
+        .nav-search::placeholder {
+            color: var(--muted);
+        }
+        /* HERO */
+        
+        #hero {
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-slides {
+            position: absolute;
+            inset: 0;
+        }
+        
+        .hero-slide {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            transition: opacity 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .hero-slide.active {
+            opacity: 1;
+        }
+        
+        .hero-slide::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(8, 12, 18, 0.75) 0%, rgba(8, 12, 18, 0.3) 50%, rgba(8, 12, 18, 0.6) 100%);
+        }
+        /* cinematic color grade overlay */
+        
+        .hero-slide::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            background: linear-gradient(to bottom, transparent 40%, rgba(0, 30, 60, 0.25) 70%, rgba(8, 12, 18, 0.9) 100%);
+            mix-blend-mode: multiply;
+        }
+        
+        .hero-content {
+            position: absolute;
+            bottom: 14%;
+            left: 60px;
+            z-index: 10;
+            max-width: 700px;
+        }
+        
+        .hero-tag {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--orange);
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .hero-tag::before {
+            content: '';
+            width: 30px;
+            height: 1px;
+            background: var(--orange);
+        }
+        
+        .hero-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(64px, 9vw, 120px);
+            line-height: 0.92;
+            color: #fff;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            text-shadow: 0 4px 40px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero-title span {
+            color: var(--orange);
+        }
+        
+        .hero-meta {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 28px;
+            flex-wrap: wrap;
+        }
+        
+        .hero-meta-item {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+        
+        .hero-meta-item label {
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--muted);
+        }
+        
+        .hero-meta-item span {
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--text);
+        }
+        
+        .hero-desc {
+            font-size: 15px;
+            color: var(--muted);
+            line-height: 1.7;
+            max-width: 500px;
+            margin-bottom: 36px;
+        }
+        
+        .hero-btns {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        
+        .btn-primary {
+            background: var(--orange);
+            color: #fff;
+            padding: 14px 36px;
+            border-radius: 2px;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateX(-100%);
+            transition: transform 0.3s;
+        }
+        
+        .btn-primary:hover::before {
+            transform: translateX(0);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            color: var(--text);
+            padding: 14px 36px;
+            border-radius: 2px;
+            border: 1px solid var(--glass-border);
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s;
+            backdrop-filter: blur(10px);
+        }
+        
+        .btn-outline:hover {
+            border-color: var(--orange);
+            color: var(--orange);
+        }
+        /* HERO SLIDER DOTS */
+        
+        .hero-dots {
+            position: absolute;
+            right: 50px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        .hero-dot {
+            width: 2px;
+            height: 30px;
+            background: rgba(255, 255, 255, 0.2);
+            transition: all 0.4s;
+            cursor: pointer;
+            border: none;
+            position: relative;
+        }
+        
+        .hero-dot.active {
+            background: var(--orange);
+            height: 50px;
+        }
+        
+        .hero-dot-num {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 11px;
+            color: var(--muted);
+            letter-spacing: 1px;
+            white-space: nowrap;
+        }
+        
+        .hero-dot.active .hero-dot-num {
+            color: var(--orange);
+        }
+        /* WEATHER WIDGET */
+        
+        .weather-widget {
+            position: absolute;
+            top: 130px;
+            right: 60px;
+            z-index: 10;
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 4px;
+            padding: 20px 24px;
+            min-width: 160px;
+            text-align: center;
+        }
+        
+        .weather-temp {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 52px;
+            color: #fff;
+            line-height: 1;
+        }
+        
+        .weather-city {
+            font-size: 11px;
+            letter-spacing: 2px;
+            color: var(--orange);
+            text-transform: uppercase;
+            margin-top: 4px;
+        }
+        
+        .weather-desc {
+            font-size: 12px;
+            color: var(--muted);
+            margin-top: 8px;
+        }
+        
+        .weather-icon {
+            font-size: 28px;
+            margin-bottom: 4px;
+        }
+        /* LIVE TIME */
+        
+        .live-time {
+            position: absolute;
+            top: 130px;
+            right: 260px;
+            z-index: 10;
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 4px;
+            padding: 20px 24px;
+            text-align: center;
+        }
+        
+        .time-display {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 36px;
+            color: #fff;
+            letter-spacing: 2px;
+        }
+        
+        .time-label {
+            font-size: 10px;
+            color: var(--muted);
+            letter-spacing: 2px;
+        }
+        /* SECTION STYLES */
+        
+        section {
+            padding: 100px 60px;
+        }
+        
+        .section-header {
+            margin-bottom: 60px;
+        }
+        
+        .section-eyebrow {
+            font-size: 11px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--orange);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .section-eyebrow::before {
+            content: '';
+            width: 24px;
+            height: 1px;
+            background: var(--orange);
+        }
+        
+        .section-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(40px, 5vw, 72px);
+            color: #fff;
+            letter-spacing: 2px;
+            line-height: 1;
+        }
+        
+        .section-title em {
+            font-style: normal;
+            color: var(--orange);
+        }
+        
+        .section-sub {
+            font-size: 15px;
+            color: var(--muted);
+            margin-top: 16px;
+            max-width: 500px;
+            line-height: 1.7;
+        }
+        /* PLACES CAROUSEL */
+        
+        #top-places {
+            background: var(--dark2);
+        }
+        
+        .carousel-wrap {
+            overflow: hidden;
+        }
+        
+        .carousel-track {
+            display: flex;
+            gap: 20px;
+            transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .place-card {
+            flex: 0 0 280px;
+            position: relative;
+            border-radius: 2px;
+            overflow: hidden;
+            cursor: pointer;
+            height: 400px;
+            transition: transform 0.4s;
+        }
+        
+        .place-card:hover {
+            transform: scale(1.02);
+        }
+        
+        .place-card-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.6s;
+        }
+        
+        .place-card:hover .place-card-img {
+            transform: scale(1.08);
+        }
+        
+        .place-card-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(8, 12, 18, 0.95) 0%, rgba(8, 12, 18, 0.2) 60%, transparent 100%);
+        }
+        
+        .place-card-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 24px 20px;
+        }
+        
+        .place-rank {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 64px;
+            color: rgba(255, 255, 255, 0.06);
+            position: absolute;
+            right: 10px;
+            bottom: 40px;
+            line-height: 1;
+        }
+        
+        .place-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            color: #fff;
+            margin-bottom: 6px;
+        }
+        
+        .place-dist {
+            font-size: 12px;
+            color: var(--orange);
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+        
+        .place-stars {
+            color: var(--gold);
+            font-size: 12px;
+        }
+        
+        .carousel-controls {
+            display: flex;
+            gap: 12px;
+            margin-top: 30px;
+            justify-content: flex-end;
+        }
+        
+        .carousel-btn {
+            width: 48px;
+            height: 48px;
+            border: 1px solid var(--glass-border);
+            background: var(--glass);
+            color: var(--text);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 18px;
+            border-radius: 2px;
+        }
+        
+        .carousel-btn:hover {
+            border-color: var(--orange);
+            color: var(--orange);
+            background: rgba(232, 101, 26, 0.1);
+        }
+        /* CITIES GRID */
+        
+        #cities {
+            background: var(--dark);
+        }
+        
+        .cities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 20px;
+        }
+        
+        .city-card {
+            position: relative;
+            height: 280px;
+            border-radius: 2px;
+            overflow: hidden;
+            cursor: pointer;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.4s;
+        }
+        
+        .city-card:hover {
+            transform: translateY(-6px);
+        }
+        
+        .city-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(8, 12, 18, 0.9) 0%, rgba(8, 12, 18, 0.1) 100%);
+            transition: opacity 0.4s;
+        }
+        
+        .city-card:hover::after {
+            opacity: 0.7;
+        }
+        
+        .city-card-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 20px 18px;
+            z-index: 2;
+        }
+        
+        .city-name {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 24px;
+            color: #fff;
+            letter-spacing: 2px;
+            margin-bottom: 4px;
+        }
+        
+        .city-count {
+            font-size: 11px;
+            color: var(--orange);
+            letter-spacing: 1px;
+        }
+        
+        .city-explore {
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-top: 8px;
+            transition: color 0.3s;
+        }
+        
+        .city-card:hover .city-explore {
+            color: var(--gold);
+        }
+        /* PACKAGES */
+        
+        #packages {
+            background: var(--dark3);
+        }
+        
+        .packages-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            grid-template-rows: auto auto;
+            gap: 20px;
+        }
+        
+        .pkg-card {
+            position: relative;
+            border-radius: 2px;
+            overflow: hidden;
+            cursor: pointer;
+            min-height: 260px;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .pkg-card:first-child {
+            grid-row: span 2;
+            min-height: 540px;
+        }
+        
+        .pkg-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(8, 12, 18, 0.7) 0%, transparent 60%, rgba(8, 12, 18, 0.5) 100%);
+            transition: opacity 0.4s;
+        }
+        
+        .pkg-card:hover::after {
+            opacity: 0.6;
+        }
+        
+        .pkg-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 24px 22px;
+            z-index: 2;
+        }
+        
+        .pkg-duration {
+            font-size: 10px;
+            letter-spacing: 3px;
+            color: var(--orange);
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            background: rgba(232, 101, 26, 0.15);
+            display: inline-block;
+            padding: 4px 10px;
+            border-left: 2px solid var(--orange);
+        }
+        
+        .pkg-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            color: #fff;
+            margin-bottom: 8px;
+        }
+        
+        .pkg-price {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 28px;
+            color: var(--gold);
+            letter-spacing: 1px;
+        }
+        
+        .pkg-price small {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 12px;
+            color: var(--muted);
+            font-weight: 300;
+        }
+        /* HOTELS */
+        
+        #hotels {
+            background: var(--dark2);
+        }
+        
+        .hotels-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+        
+        .hotel-card {
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-radius: 2px;
+            overflow: hidden;
+            transition: all 0.4s;
+            cursor: pointer;
+        }
+        
+        .hotel-card:hover {
+            border-color: var(--orange);
+            transform: translateY(-4px);
+            background: rgba(255, 255, 255, 0.08);
+        }
+        
+        .hotel-img {
+            height: 180px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hotel-img-inner {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.5s;
+        }
+        
+        .hotel-card:hover .hotel-img-inner {
+            transform: scale(1.07);
+        }
+        
+        .hotel-badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: var(--orange);
+            color: #fff;
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            padding: 4px 10px;
+            text-transform: uppercase;
+        }
+        
+        .hotel-info {
+            padding: 20px;
+        }
+        
+        .hotel-stars {
+            color: var(--gold);
+            font-size: 12px;
+            margin-bottom: 6px;
+        }
+        
+        .hotel-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 18px;
+            color: #fff;
+            margin-bottom: 6px;
+        }
+        
+        .hotel-location {
+            font-size: 12px;
+            color: var(--muted);
+            margin-bottom: 14px;
+        }
+        
+        .hotel-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-top: 1px solid var(--glass-border);
+            padding-top: 14px;
+        }
+        
+        .hotel-price {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 24px;
+            color: var(--gold);
+        }
+        
+        .hotel-price small {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 11px;
+            color: var(--muted);
+            font-weight: 300;
+        }
+        
+        .hotel-btn {
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--orange);
+            border: 1px solid var(--orange);
+            padding: 6px 14px;
+            cursor: pointer;
+            background: transparent;
+            transition: all 0.3s;
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 500;
+        }
+        
+        .hotel-btn:hover {
+            background: var(--orange);
+            color: #fff;
+        }
+        /* STATS */
+        
+        #stats {
+            background: var(--dark);
+            border-top: 1px solid var(--glass-border);
+            border-bottom: 1px solid var(--glass-border);
+            padding: 70px 60px;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            text-align: center;
+        }
+        
+        .stat-num {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 72px;
+            color: #fff;
+            letter-spacing: 2px;
+            line-height: 1;
+        }
+        
+        .stat-num span {
+            color: var(--orange);
+        }
+        
+        .stat-label {
+            font-size: 11px;
+            letter-spacing: 3px;
+            color: var(--muted);
+            text-transform: uppercase;
+            margin-top: 8px;
+        }
+        /* MAP SECTION */
+        
+        #map-section {
+            background: var(--dark3);
+        }
+        
+        .map-container {
+            display: grid;
+            grid-template-columns: 1fr 1.6fr;
+            gap: 40px;
+            align-items: start;
+        }
+        
+        .map-info h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            color: #fff;
+            margin-bottom: 16px;
+        }
+        
+        .map-info p {
+            font-size: 14px;
+            color: var(--muted);
+            line-height: 1.8;
+            margin-bottom: 24px;
+        }
+        
+        .map-features {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        
+        .map-feature {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 14px 18px;
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-radius: 2px;
+        }
+        
+        .map-feature-icon {
+            font-size: 20px;
+        }
+        
+        .map-feature-text {
+            font-size: 13px;
+            color: var(--muted);
+        }
+        
+        .map-feature-text strong {
+            color: var(--text);
+            display: block;
+            font-size: 14px;
+            margin-bottom: 2px;
+        }
+        
+        .map-visual {
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-radius: 2px;
+            height: 380px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            font-size: 14px;
+            color: var(--muted);
+        }
+        
+        .map-visual svg {
+            width: 100%;
+            height: 100%;
+            opacity: 0.6;
+        }
+        /* ABOUT KARNATAKA */
+        
+        #about {
+            background: var(--dark);
+        }
+        
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+        
+        .about-img {
+            width: 100%;
+            height: 400px;
+            /* Adjust as needed */
+            overflow: hidden;
+            border-radius: 8px;
+        }
+        
+        .about-img video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* Ensures the video fills the area nicely */
+        }
+        
+        .about-img {
+            height: 520px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 2px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .about-img::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(232, 101, 26, 0.15) 0%, transparent 60%);
+        }
+        
+        .about-img-caption {
+            position: absolute;
+            bottom: -20px;
+            right: -20px;
+            background: var(--orange);
+            color: #fff;
+            padding: 20px 24px;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            max-width: 180px;
+            line-height: 1.5;
+        }
+        
+        .about-text p {
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 20px;
+        }
+        
+        .about-highlight {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            color: var(--text);
+            font-style: italic;
+            border-left: 3px solid var(--orange);
+            padding-left: 20px;
+            margin: 30px 0;
+            line-height: 1.6;
+        }
+        /* CHATBOT */
+        
+        #chatbot-toggle {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 999;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: var(--orange);
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-size: 22px;
+            box-shadow: 0 8px 30px rgba(232, 101, 26, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s;
+        }
+        
+        #chatbot-toggle:hover {
+            transform: scale(1.1);
+        }
+        
+        #chatbot {
+            position: fixed;
+            bottom: 100px;
+            right: 30px;
+            z-index: 998;
+            width: 320px;
+            min-width: 260px;
+            min-height: 320px;
+            max-width: calc(100vw - 24px);
+            max-height: calc(100vh - 120px);
+            resize: both;
+            background: var(--dark2);
+            border: 1px solid var(--glass-border);
+            border-radius: 4px;
+            overflow: hidden;
+            display: none;
+            flex-direction: column;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+        
+        #chatbot.open {
+            display: flex;
+        }
+        
+        .chatbot-header {
+            background: var(--orange);
+            padding: 16px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .chatbot-header-title {
+            font-family: 'Bebas Neue', sans-serif;
+            letter-spacing: 2px;
+            font-size: 18px;
+            color: #fff;
+        }
+        
+        .chatbot-messages {
+            flex: 1;
+            padding: 16px;
+            overflow-y: auto;
+            min-height: 180px;
+            max-height: none;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .chat-msg {
+            font-size: 13px;
+            line-height: 1.5;
+            padding: 10px 14px;
+            border-radius: 12px;
+            max-width: 85%;
+        }
+        
+        .chat-msg.bot {
+            background: var(--glass);
+            color: var(--text);
+            border: 1px solid var(--glass-border);
+            align-self: flex-start;
+            border-radius: 2px 12px 12px 12px;
+        }
+        
+        .chat-msg.user {
+            background: var(--orange);
+            color: #fff;
+            align-self: flex-end;
+            border-radius: 12px 2px 12px 12px;
+        }
+        
+        .chatbot-input {
+            display: flex;
+            border-top: 1px solid var(--glass-border);
+            padding: 12px;
+        }
+        
+        .chatbot-input input {
+            flex: 1;
+            background: var(--glass);
+            border: none;
+            color: var(--text);
+            padding: 8px 12px;
+            font-size: 13px;
+            font-family: 'DM Sans', sans-serif;
+            outline: none;
+            border-radius: 2px 0 0 2px;
+        }
+        
+        .chatbot-input button {
+            background: var(--orange);
+            color: #fff;
+            border: none;
+            padding: 8px 14px;
+            cursor: pointer;
+            font-size: 14px;
+            border-radius: 0 2px 2px 0;
+        }
+        /* FOOTER */
+        
+        footer {
+            background: var(--dark2);
+            border-top: 1px solid var(--glass-border);
+            padding: 60px;
+            color: var(--muted);
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 50px;
+        }
+        
+        .footer-brand {}
+        
+        .footer-logo {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 32px;
+            letter-spacing: 4px;
+            color: #fff;
+            margin-bottom: 16px;
+        }
+        
+        .footer-logo span {
+            color: var(--orange);
+        }
+        
+        .footer-tagline {
+            font-size: 13px;
+            line-height: 1.7;
+            max-width: 260px;
+        }
+        
+        .footer-col h4 {
+            font-size: 11px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--orange);
+            margin-bottom: 20px;
+        }
+        
+        .footer-col ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        .footer-col a {
+            color: var(--muted);
+            text-decoration: none;
+            font-size: 13px;
+            transition: color 0.3s;
+        }
+        
+        .footer-col a:hover {
+            color: var(--text);
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid var(--glass-border);
+            padding-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12px;
+        }
+        /* MODAL */
+        
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 2000;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(10px);
+            display: none;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal-overlay.open {
+            display: flex;
+        }
+        
+        .modal {
+            background: var(--dark2);
+            border: 1px solid var(--glass-border);
+            border-radius: 4px;
+            max-width: 900px;
+            width: 90%;
+            max-height: 85vh;
+            overflow-y: auto;
+            position: relative;
+        }
+        
+        .modal-hero {
+            height: 320px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            filter: contrast(1.1) saturate(0.85);
+        }
+        
+        .modal-hero::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, var(--dark2) 0%, transparent 60%);
+        }
+        
+        .modal-close {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            z-index: 10;
+            width: 36px;
+            height: 36px;
+            background: rgba(0, 0, 0, 0.6);
+            border: 1px solid var(--glass-border);
+            color: #fff;
+            cursor: pointer;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all 0.3s;
+        }
+        
+        .modal-close:hover {
+            background: var(--orange);
+            border-color: var(--orange);
+        }
+        
+        .modal-body {
+            padding: 30px 36px;
+        }
+        
+        .modal-tag {
+            font-size: 10px;
+            letter-spacing: 3px;
+            color: var(--orange);
+            text-transform: uppercase;
+        }
+        
+        .modal-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            color: #fff;
+            margin: 8px 0 16px;
+        }
+        
+        .modal-desc {
+            font-size: 14px;
+            color: var(--muted);
+            line-height: 1.8;
+            margin-bottom: 24px;
+        }
+        
+        .modal-info-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+        
+        .modal-info-item {
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            padding: 14px 16px;
+            border-radius: 2px;
+        }
+        
+        .modal-info-item label {
+            font-size: 10px;
+            letter-spacing: 2px;
+            color: var(--orange);
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 4px;
+        }
+        
+        .modal-info-item span {
+            font-size: 15px;
+            color: var(--text);
+            font-weight: 500;
+        }
+        
+        .modal-actions {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        /* LOADING SCREEN */
+        
+        #loading {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background: var(--dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 20px;
+            transition: opacity 0.8s, visibility 0.8s;
+        }
+        
+        #loading.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+        
+        .loading-logo {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 60px;
+            letter-spacing: 8px;
+            color: #fff;
+        }
+        
+        .loading-logo span {
+            color: var(--orange);
+        }
+        
+        .loading-bar {
+            width: 200px;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 1px;
+            overflow: hidden;
+        }
+        
+        .loading-bar-fill {
+            height: 100%;
+            background: var(--orange);
+            animation: loadFill 1.8s ease forwards;
+        }
+        
+        @keyframes loadFill {
+            from {
+                width: 0;
+            }
+            to {
+                width: 100%;
+            }
+        }
+        
+        .loading-sub {
+            font-size: 11px;
+            letter-spacing: 4px;
+            color: var(--muted);
+            text-transform: uppercase;
+        }
+        /* FLOATING SOCIAL */
+        
+        .social-float {
+            position: fixed;
+            left: 24px;
+            bottom: 120px;
+            z-index: 100;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        .social-float a {
+            width: 36px;
+            height: 36px;
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            color: var(--muted);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 14px;
+            border-radius: 2px;
+            transition: all 0.3s;
+        }
+        
+        .social-float a:hover {
+            border-color: var(--orange);
+            color: var(--orange);
+        }
+        /* ANIMATIONS */
+        
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.7s, transform 0.7s;
+        }
+        
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* CINEMATIC GRAIN */
+        
+        body::after {
+            content: '';
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 9000;
+            opacity: 0.025;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+        }
+        
+        @media (max-width: 900px) {
+            nav {
+                padding: 16px 24px;
+            }
+            nav.scrolled {
+                padding: 12px 24px;
+            }
+            .nav-links {
+                display: none;
+            }
+            section {
+                padding: 70px 24px;
+            }
+            .hero-content {
+                left: 24px;
+                right: 24px;
+            }
+            .hero-dots {
+                display: none;
+            }
+            .weather-widget {
+                right: 16px;
+                top: 90px;
+                padding: 14px 16px;
+            }
+            .live-time {
+                display: none;
+            }
+            .packages-grid {
+                grid-template-columns: 1fr;
+            }
+            .pkg-card:first-child {
+                min-height: 260px;
+                grid-row: span 1;
+            }
+            .hotels-grid {
+                grid-template-columns: 1fr;
+            }
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .map-container {
+                grid-template-columns: 1fr;
+            }
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 32px;
+            }
+            #scroll-progress {
+                display: block;
+            }
+            .social-float {
+                display: none;
+            }
+        }
+    </style>
+<link rel="stylesheet" href="responsive.css">
+</head>
+
+<body>
+
+
+
+    <!-- LOADING SCREEN -->
+    <div id="loading">
+        <div class="loading-logo">GO <span>HERITAGE</span></div>
+        <div class="loading-bar">
+            <div class="loading-bar-fill"></div>
+        </div>
+        <div class="loading-sub">Karnataka Tourism Experience</div>
+    </div>
+
+    <!-- SCROLL PROGRESS -->
+    <div id="scroll-progress"></div>
+
+
+    <!-- NAV -->
+    <nav id="navbar">
+
+        <a href="#hero" class="nav-logo" aria-label="Home">GO <span>HERITAGE</span></a>
+
+
+        <ul class="nav-links">
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#cities">Cities</a></li>
+            <li><a href="#top-places">Explore</a></li>
+            <li><a href="#packages">Packages</a></li>
+            <li><a href="#hotels">Hotels</a></li>
+            <li><a href="#about">About</a></li>
+        </ul>
+        <div class="nav-right">
+
+            <button class="nav-toggle" id="navToggle" type="button" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section id="hero">
+        <div class="hero-slides" id="heroSlides">
+            <div class="hero-slide active" style="background-image:url('https://i1-e.pinimg.com/1200x/94/bc/c9/94bcc91802b41177e92cc9e644802ad9.jpg')"></div>
+            <div class="hero-slide" style="background-image:url('https://i1-e.pinimg.com/1200x/6c/17/00/6c1700c1ce51db6b7e76e9ff4f7f4b6e.jpg')"></div>
+            <div class="hero-slide" style="background-image:url('https://i1-e.pinimg.com/1200x/37/25/46/372546cbefd0da0bf34371e7599f3fbb.jpg')"></div>
+            <div class="hero-slide" style="background-image:url('https://i1-e.pinimg.com/1200x/12/51/fa/1251fa3e97597026f46472711674f0e1.jpg')"></div>
+            <div class="hero-slide" style="background-image:url('https://i1-e.pinimg.com/1200x/45/ce/f0/45cef079958f9c8b69a0e450128b1373.jpg')"></div>
+        </div>
+
+        <div class="live-time">
+            <div class="time-display" id="liveTime">00:00</div>
+            <div class="time-label">IST</div>
+        </div>
+
+        <div class="weather-widget">
+            <div class="weather-icon" id="weatherIcon">☀️</div>
+            <div class="weather-temp" id="weatherTemp">28°C</div>
+            <div class="weather-city" id="weatherCity">Bengaluru</div>
+            <div class="weather-desc" id="weatherDesc">Clear sky</div>
+        </div>
+
+        <div class="hero-content">
+            <div class="hero-tag" id="heroTag">Karnataka, India</div>
+            <div class="hero-title" id="heroTitle">DISCOVER<br><span id="heroPlace">HAMPI</span></div>
+            <div class="hero-meta">
+                <div class="hero-meta-item">
+                    <label>Distance</label>
+                    <span id="heroDist">340 km from Bengaluru</span>
+                </div>
+                <div class="hero-meta-item">
+                    <label>Rating</label>
+                    <span>★★★★★ 4.9</span>
+                </div>
+                <div class="hero-meta-item">
+                    <label>Best Time</label>
+                    <span>Oct – Feb</span>
+                </div>
+            </div>
+            <p class="hero-desc" id="heroDesc">An ancient capital of the Vijayanagara Empire — where colossal boulders meet sacred ruins in a UNESCO World Heritage landscape that feels like the edge of time.</p>
+            <div class="hero-btns">
+                <button class="btn-primary" onclick="openModal(0)">Explore Now</button>
+                <a href="#packages" class="btn-outline">View Packages</a>
+            </div>
+        </div>
+
+        <div class="hero-dots" id="heroDots"></div>
+    </section>
+
+    <!-- STATS -->
+    <section id="stats">
+        <div class="stats-grid">
+            <div>
+                <div class="stat-num"><span id="cnt1">0</span>+</div>
+                <div class="stat-label">Heritage Sites</div>
+            </div>
+            <div>
+                <div class="stat-num"><span id="cnt2">0</span>+</div>
+                <div class="stat-label">Tourist Destinations</div>
+            </div>
+            <div>
+                <div class="stat-num"><span id="cnt3">0</span>+</div>
+                <div class="stat-label">Unique Experiences</div>
+            </div>
+            <div>
+                <div class="stat-num"><span id="cnt4">0</span>M+</div>
+                <div class="stat-label">Annual Visitors</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TOP 10 PLACES -->
+    <section id="top-places">
+        <div class="section-header">
+            <div class="section-eyebrow">Curated For You</div>
+            <div class="section-title">TOP <em>DESTINATIONS</em></div>
+            <p class="section-sub">Discover Karnataka's most breathtaking places, from ancient ruins to misty coffee hills.</p>
+        </div>
+        <div class="carousel-wrap">
+            <div class="carousel-track" id="carouselTrack"></div>
+        </div>
+        <div class="carousel-controls">
+            <button class="carousel-btn" onclick="carouselPrev()">←</button>
+            <button class="carousel-btn" onclick="carouselNext()">→</button>
+        </div>
+    </section>
+
+    <!-- CITIES -->
+    <section id="cities">
+        <div class="section-header">
+            <div class="section-eyebrow">Explore by Region</div>
+            <div class="section-title">KARNATAKA <em>CITIES</em></div>
+            <p class="section-sub">15 vibrant cities, each with their own character, history, and treasures waiting to be uncovered.</p>
+        </div>
+        <div class="cities-grid" id="citiesGrid"></div>
+    </section>
+
+    <!-- PACKAGES -->
+    <section id="packages">
+        <div class="section-header">
+            <div class="section-eyebrow">Curated Journeys</div>
+            <div class="section-title">TOUR <em>PACKAGES</em></div>
+            <p class="section-sub">Handcrafted travel experiences designed to immerse you in Karnataka's soul.</p>
+        </div>
+        <div class="packages-grid" id="packagesGrid"></div>
+    </section>
+
+    <!-- HOTELS -->
+    <section id="hotels">
+        <div class="section-header">
+            <div class="section-eyebrow">Stay in Style</div>
+            <div class="section-title">RECOMMENDED <em>STAYS</em></div>
+            <p class="section-sub">Handpicked properties that blend luxury with local character.</p>
+        </div>
+        <div class="hotels-grid" id="hotelsGrid"></div>
+    </section>
+
+    <!-- MAP -->
+    <section id="map-section">
+        <div class="section-header">
+            <div class="section-eyebrow">Navigate Karnataka</div>
+            <div class="section-title">INTERACTIVE <em>MAP</em></div>
+        </div>
+        <div class="map-container">
+            <div class="map-info">
+                <h3>Find Your Way Through Karnataka</h3>
+                <p>Use our interactive map to discover tourist places near your current location, calculate distances, estimated travel times, and plan the perfect route.</p>
+                <div class="map-features">
+                    <div class="map-feature">
+                        <div class="map-feature-icon" id="locationIcon">📍</div>
+                        <div class="map-feature-text">
+                            <strong>Live Location</strong>
+                            <span id="locationStatus">Detecting your position...</span>
+                            <!-- This is where the actual city name will show up -->
+                            <span class="location-name" id="locationName"></span>
+                        </div>
+                    </div>
+                    <script>
+                        function getLocation() {
+                            const status = document.getElementById("locationStatus");
+                            const locationName = document.getElementById("locationName");
+
+                            if (navigator.geolocation) {
+                                navigator.geolocation.getCurrentPosition(
+                                    async function(position) {
+                                        const lat = position.coords.latitude;
+                                        const lon = position.coords.longitude;
+
+                                        status.innerHTML = "Location detected ✅";
+
+                                        try {
+                                            // Reverse Geocoding API
+                                            const response = await fetch(
+                                                `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}`
+                                            );
+
+                                            const data = await response.json();
+
+                                            const city =
+                                                data.address.city ||
+                                                data.address.town ||
+                                                data.address.village ||
+                                                "Unknown Location";
+
+                                            locationName.innerHTML =
+                                                `📌 ${city}<br>Lat: ${lat.toFixed(4)} | Lon: ${lon.toFixed(4)}`;
+
+                                        } catch (error) {
+                                            locationName.innerHTML =
+                                                `Lat: ${lat.toFixed(4)}, Lon: ${lon.toFixed(4)}`;
+                                        }
+                                    },
+                                    function(error) {
+                                        status.innerHTML = "Location access denied ❌";
+                                        locationName.innerHTML = "";
+                                    }
+                                );
+                            } else {
+                                status.innerHTML = "Geolocation not supported";
+                            }
+                        }
+
+                        // Run automatically
+                        getLocation();
+                    </script>
+
+
+                    <div class="map-feature">
+                        <div class="map-feature-icon">🏛️</div>
+                        <div class="map-feature-text">
+                            <strong>Heritage Clusters</strong> Group nearby sites for efficient multi-stop itineraries
+                        </div>
+                    </div>
+                    <div class="map-feature">
+                        <div class="map-feature-icon">☁️</div>
+                        <div class="map-feature-text">
+                            <strong>Weather Overlay</strong> Real-time weather conditions at each destination
+                        </div>
+                    </div>
+                </div>
+                <br>
+            </div>
+            <div class="map-container" style="display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 24px; background: var(--dark2); border: 1px solid var(--glass-border); padding: 20px; border-radius: 4px;">
+
+                <div style="position: relative; height: 460px; background: #070d19; border-radius: 2px; overflow: hidden; border: 1px solid rgba(232,101,26,0.15);">
+                    <canvas id="interactiveCanvasMap" style="width: 100%; height: 100%; display: block;"></canvas>
+                    <div id="mapStatusOverlay" style="position: absolute; bottom: 16px; left: 16px; background: rgba(8,12,18,0.9); padding: 8px 16px; border-radius: 2px; font-size: 11px; letter-spacing: 1.5px; color: var(--gold); border: 1px solid var(--glass-border); font-family: 'Bebas Neue', sans-serif;">
+                        🛰️ SEEKING GPS CARRIER SIGNAL...
+                    </div>
+                </div>
+
+                <div id="heritageDetailsDrawer" style="background: var(--dark3); border: 1px solid var(--glass-border); padding: 24px; display: flex; flex-direction: column; justify-content: space-between; min-height: 460px; border-radius: 2px;">
+
+                    <div id="drawerPlaceholder" style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; text-align: center; color: var(--muted); padding: 40px 10px;">
+                        <span style="font-size: 40px; margin-bottom: 16px; filter: drop-shadow(0 0 10px var(--orange));">📡</span>
+                        <h4 style="font-family: 'Bebas Neue', sans-serif; font-size: 22px; color: #fff; letter-spacing: 2px; margin-bottom: 8px;">RADAR STANDBY</h4>
+                        <p style="font-size: 12px; line-height: 1.6; max-width: 240px; color: var(--muted);">Click any pulsing geographic target coordinate on the matrix map to stream telemetry logs, real driving distance, entry fares, and premium stays.</p>
+                    </div>
+
+                    <div id="drawerDataContent" style="display: none;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 12px;">
+                            <span style="font-size: 10px; letter-spacing: 3px; color: var(--orange); font-weight: 600; text-transform: uppercase;">METRICS DESK</span>
+                            <span style="background: rgba(40,167,69,0.15); color: #28a745; font-size: 9px; padding: 3px 8px; border-radius: 2px; letter-spacing: 1px; font-weight: 600;">ONLINE</span>
+                        </div>
+
+                        <h3 id="drawerTitle" style="font-family: 'Playfair Display', serif; font-size: 30px; color: #fff; margin-bottom: 20px; font-style: italic;">Destination</h3>
+
+                        <div style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px;">
+                            <div style="display:flex; justify-content:space-between; align-items:center; padding: 12px 14px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 2px;">
+                                <span style="font-size: 12px; color: var(--muted);">🚘 Driving Range</span>
+                                <strong id="drawerDistance" style="font-family: 'Bebas Neue', sans-serif; font-size: 16px; color: var(--gold); letter-spacing: 1px;">CALCULATING...</strong>
+                            </div>
+                            <div style="display:flex; justify-content:space-between; align-items:center; padding: 12px 14px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 2px;">
+                                <span style="font-size: 12px; color: var(--muted);">🎟️ Access Fares</span>
+                                <strong id="drawerFees" style="font-size: 12px; color: var(--text);">--</strong>
+                            </div>
+                            <div style="display:flex; justify-content:space-between; align-items:center; padding: 12px 14px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 2px;">
+                                <span style="font-size: 12px; color: var(--muted);">🅿️ Space Booking</span>
+                                <strong id="drawerParking" style="font-size: 12px; color: #28a745;">--</strong>
+                            </div>
+                            <div style="display: flex; flex-direction: column; gap: 4px; padding: 12px 14px; background: rgba(232,101,26,0.03); border: 1px solid rgba(232,101,26,0.15); border-radius: 2px;">
+                                <span style="font-size: 9px; text-transform: uppercase; letter-spacing: 2px; color: var(--orange); font-weight: 600;">🏨 Verified Premium Stay</span>
+                                <strong id="drawerHotel" style="font-family: 'Playfair Display', serif; font-size: 14px; color: #fff; font-weight: 400;">--</strong>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="drawerActionContainer" style="display: none;">
+                        <button class="btn-primary" id="drawerExploreBtn" style="width: 100%; text-align: center; font-size: 11px; padding: 12px 0; letter-spacing: 2px;">Lock Navigation Route</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ABOUT KARNATAKA -->
+    <section id="about">
+        <div class="about-grid">
+            <div class="about-img">
+                <video width="100%" height="100%" autoplay loop muted playsinline style="object-fit: cover; border-radius: 8px;">
+                    <source src="https://www.zoosofkarnataka.com/images/Wild_Karnataka_Master.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class="about-text">
+                <div class="section-eyebrow">Our Story</div>
+                <div class="section-title" style="font-size:52px;margin-bottom:24px">ABOUT<br><em>KARNATAKA</em></div>
+                <p>Karnataka — the land where ancient empires left their stone signatures across a dramatic landscape. From the granite-strewn ruins of Vijayanagara to the spice-scented hills of Kodagu, every corner holds a civilization's memory.</p>
+                <div class="about-highlight">"Where the Western Ghats meet ancient stone — a landscape that rewrites your definition of beauty."</div>
+                <p>Home to UNESCO World Heritage Sites, the world's second largest waterfall during monsoon, pristine beaches, and biodiversity that rivals the Amazon — Karnataka is India's best-kept secret no longer.</p>
+                <div style="display:flex;gap:16px;margin-top:30px;flex-wrap:wrap">
+                    <a href="#cities" class="btn-primary">Explore Cities</a>
+                    <a href="#packages" class="btn-outline">View Packages</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <div class="footer-logo">GO <span>HERITAGE</span></div>
+                <p class="footer-tagline">Your cinematic gateway to Karnataka's timeless treasures. Crafted for the curious, the cultural, and the adventurous.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Destinations</h4>
+                <ul>
+                    <li><a href="#">Hampi</a></li>
+                    <li><a href="#">Coorg</a></li>
+                    <li><a href="#">Mysuru</a></li>
+                    <li><a href="#">Gokarna</a></li>
+                    <li><a href="#">Chikmagalur</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Explore</h4>
+                <ul>
+                    <li><a href="#">Heritage Sites</a></li>
+                    <li><a href="#">Wildlife</a></li>
+                    <li><a href="#">Beaches</a></li>
+                    <li><a href="#">Hill Stations</a></li>
+                    <li><a href="#">Temples</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Plan</h4>
+                <ul>
+                    <li><a href="#">Tour Packages</a></li>
+                    <li><a href="#">Hotels</a></li>
+                    <li><a href="#">Travel Tips</a></li>
+                    <li><a href="#">Weather Guide</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div>© 2025 GO HERITAGE. Karnataka Tourism Experience.</div>
+            <div>Built with passion for Karnataka's heritage.</div>
+        </div>
+    </footer>
+
+    <!-- CHATBOT -->
+    <button id="chatbot-toggle" onclick="toggleChatbot()">💬</button>
+    <div id="chatbot">
+        <div class="chatbot-header">
+            <div class="chatbot-header-title">AI TRAVEL GUIDE</div>
+            <button style="background:none;border:none;color:#fff;cursor:pointer;font-size:18px" onclick="toggleChatbot()">×</button>
+        </div>
+        <div class="chatbot-messages" id="chatMessages">
+            <div class="chat-msg bot">Namaskara! 🙏 I'm your Karnataka travel assistant. Ask me about heritage sites, best routes, weather, or local tips!</div>
+        </div>
+        <div class="chatbot-input">
+            <input type="text" id="chatInput" placeholder="Ask about Karnataka..." onkeydown="if(event.key==='Enter')sendChat()">
+            <button onclick="sendChat()">→</button>
+        </div>
+    </div>
+
+    <!-- MODAL -->
+    <div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+        <div class="modal" id="modalBox">
+            <div class="modal-hero" id="modalHero"></div>
+            <button class="modal-close" onclick="closeModal()">×</button>
+            <div class="modal-body">
+                <div class="modal-tag" id="modalTag"></div>
+                <div class="modal-title" id="modalTitle"></div>
+                <p class="modal-desc" id="modalDesc"></p>
+                <div class="modal-info-grid" id="modalInfoGrid"></div>
+                <div class="modal-actions">
+                    <button class="btn-primary">Book Tour</button>
+                    <button class="btn-outline">Save Place ♡</button>
+                    <button class="btn-outline">Share ↗</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // === MOBILE NAV ===
+        const navToggle = document.getElementById('navToggle');
+        const navLinks = document.querySelector('.nav-links');
+        if (navToggle && navLinks) {
+            navToggle.addEventListener('click', () => {
+                const open = navLinks.classList.toggle('open');
+                navToggle.setAttribute('aria-expanded', String(open));
+                navToggle.textContent = open ? '✕' : '☰';
+            });
+            navLinks.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('open');
+                    navToggle.setAttribute('aria-expanded', 'false');
+                    navToggle.textContent = '☰';
+                });
+            });
+
+            document.addEventListener('click', event => {
+                if (!navToggle.contains(event.target) && !navLinks.contains(event.target)) {
+                    navLinks.classList.remove('open');
+                    navToggle.setAttribute('aria-expanded', 'false');
+                    navToggle.textContent = '☰';
+                }
+            });
+        }
+
+        // === DATA ===
+        const places = [{
+            name: "Hampi",
+            region: "Vijayanagara",
+            dist: "340 km",
+            rating: "4.9",
+            desc: "UNESCO World Heritage ruins of the Vijayanagara Empire amid surreal boulder landscapes.",
+            img: "https://i.pinimg.com/1200x/36/b4/d3/36b4d3b434eb9619b90237b117fd7c39.jpg",
+            fee: "₹40 / ₹600 (Foreign)",
+            time: "Sunrise–Sunset",
+            season: "Oct–Feb",
+            category: "Heritage"
+        }, {
+            name: "Coorg",
+            region: "Kodagu",
+            dist: "260 km",
+            rating: "4.8",
+            desc: "India's coffee capital — mist-draped hills, spice estates, and Kodava warrior culture.",
+            img: "https://i.pinimg.com/736x/7d/39/23/7d3923d61edc07ddc2611309079d77bc.jpg",
+            fee: "Free",
+            time: "All Day",
+            season: "Oct–Mar",
+            category: "Hill Station"
+        }, {
+            name: "Gokarna",
+            region: "Uttara Kannada",
+            dist: "490 km",
+            rating: "4.7",
+            desc: "Sacred town with pristine beaches — where ancient temples meet Bohemian shores.",
+            img: "https://i.pinimg.com/736x/87/c0/76/87c076ad0da26d775af1119f7316b7ce.jpg",
+            fee: "Free",
+            time: "All Day",
+            season: "Oct–Feb",
+            category: "Beach"
+        }, {
+            name: "Mysore Palace",
+            region: "Mysuru",
+            dist: "145 km",
+            rating: "4.9",
+            desc: "The opulent seat of the Wadiyar dynasty — illuminated by 10,000 bulbs every Sunday.",
+            img: "https://i.pinimg.com/1200x/a8/39/de/a839def8d0352bbfc2f82de9d4e1f6f8.jpg",
+            fee: "₹70 / ₹200 (Foreign)",
+            time: "10AM–5:30PM",
+            season: "Year Round",
+            category: "Palace"
+        }, {
+            name: "Jog Falls",
+            region: "Shivamogga",
+            dist: "380 km",
+            rating: "4.6",
+            desc: "India's second highest waterfall — a thundering curtain of water in four magnificent cascades.",
+            img: "https://i.pinimg.com/736x/8e/88/f8/8e88f828d6e75194c1e46c402062e679.jpg",
+            fee: "₹20",
+            time: "8AM–6PM",
+            season: "Aug–Jan",
+            category: "Waterfall"
+        }, {
+            name: "Chikmagalur",
+            region: "Chikkamagaluru",
+            dist: "245 km",
+            rating: "4.7",
+            desc: "Where coffee was first planted in India — rolling plantations under the Baba Budan peaks.",
+            img: "https://i.pinimg.com/1200x/78/44/1e/78441e6fa279b9969d37b14eddcc5b39.jpg",
+            fee: "Free",
+            time: "All Day",
+            season: "Sep–Feb",
+            category: "Hill Station"
+        }, {
+            name: "Badami",
+            region: "Bagalkot",
+            dist: "490 km",
+            rating: "4.8",
+            desc: "Chalukyan rock-cut cave temples carved from amber sandstone cliffs above a sacred lake.",
+            img: "https://i.pinimg.com/1200x/33/01/2d/33012d740ee58e0d072b2c8563b9892f.jpg",
+            fee: "₹30 / ₹500 (Foreign)",
+            time: "9AM–5:30PM",
+            season: "Oct–Feb",
+            category: "Heritage"
+        }, {
+            name: "Udupi",
+            region: "Udupi",
+            dist: "415 km",
+            rating: "4.6",
+            desc: "The temple town that gave the world a cuisine — Krishna Temple and pristine Malpe Beach.",
+            img: "https://i.pinimg.com/736x/cd/79/6b/cd796bbd202638ab5c46ea657eb646ea.jpg",
+            fee: "Free",
+            time: "All Day",
+            season: "Oct–Mar",
+            category: "Temple Town"
+        }, {
+            name: "Murudeshwar",
+            region: "Uttara Kannada",
+            dist: "475 km",
+            rating: "4.7",
+            desc: "World's second tallest Shiva statue gazes over the Arabian Sea from a dramatic coastal cliff.",
+            img: "https://i.pinimg.com/1200x/6a/a5/8d/6aa58d609ac2417cf24531debe54c880.jpg",
+            fee: "Free",
+            time: "6AM–8PM",
+            season: "Oct–Mar",
+            category: "Temple"
+        }, {
+            name: "Dandeli",
+            region: "Belagavi",
+            dist: "465 km",
+            rating: "4.5",
+            desc: "White-water rafting capital of South India — wild Kali river through thick jungle wilderness.",
+            img: "https://i.pinimg.com/736x/07/14/17/0714178da1f93ddff9f0da639f159798.jpg",
+            fee: "₹200 (Rafting)",
+            time: "6AM–6PM",
+            season: "Oct–May",
+            category: "Adventure"
+        }];
+
+        const cities = [{
+            name: "Bengaluru",
+            count: "12 places",
+            img: "https://i.pinimg.com/736x/70/97/ee/7097eefa4d483853f1103e67e247790f.jpg"
+        }, {
+            name: "Mysuru",
+            count: "8 places",
+            img: "https://i.pinimg.com/1200x/58/4b/1b/584b1b70f0390295041196841f2f5ac5.jpg"
+        }, {
+            name: "Vijayanagara",
+            count: "15 places",
+            img: "https://i.pinimg.com/736x/d3/1c/91/d31c912644dd4ec526b43fe2fb8740a3.jpg"
+        }, {
+            name: "Shivamogga",
+            count: "6 places",
+            img: "https://i.pinimg.com/1200x/ed/fa/4e/edfa4e986aed2ffa598481c37dfbc707.jpg"
+        }, {
+            name: "Udupi",
+            count: "7 places",
+            img: "https://i.pinimg.com/736x/10/bb/0f/10bb0f301de2eebb82e34e97ace8a022.jpg"
+        }, {
+            name: "Kodagu",
+            count: "9 places",
+            img: "https://i.pinimg.com/1200x/94/e7/17/94e717cdb182aad39ef0a441560acf23.jpg"
+        }, {
+            name: "Belagavi",
+            count: "5 places",
+            img: "https://i.pinimg.com/736x/2e/98/f6/2e98f6573d8b8cccc35424bc449aa6af.jpg"
+        }, {
+            name: "Bagalkot",
+            count: "6 places",
+            img: "https://i.pinimg.com/736x/85/89/bf/8589bf113f89694aa2d27696cf39452c.jpg"
+        }, {
+            name: "Vijayapura",
+            count: "8 places",
+            img: "https://i.pinimg.com/736x/fe/78/f9/fe78f9c33b84a51dcfa00e9ed177f2d4.jpg"
+        }, {
+            name: "Hassan",
+            count: "5 places",
+            img: "https://i.pinimg.com/736x/75/46/24/754624727774dc03241f0edb32c1cd76.jpg"
+        }, {
+            name: "Dharwad",
+            count: "4 places",
+            img: "https://i.pinimg.com/1200x/5b/5c/2c/5b5c2c9d65722d0614276354c12fdedb.jpg"
+        }, {
+            name: "utter kannada",
+            count: "5 places",
+            img: "https://i.pinimg.com/736x/4d/59/5d/4d595dbf04449efe6686bcf4b53a0035.jpg"
+        }, {
+            name: "Chikkamagaluru",
+            count: "7 places",
+            img: "https://i.pinimg.com/736x/77/a4/fd/77a4fdd1b805810b1d93b896f6427110.jpg"
+        }, {
+            name: "Dakshin Kannada",
+            count: "10 places",
+            img: "https://i.pinimg.com/1200x/d2/23/ad/d223adc58941bcf9d714769cb7603ab2.jpg"
+        }, {
+            name: "chitradurga",
+            count: "11 places",
+            img: "https://i.pinimg.com/1200x/8f/26/f2/8f26f2d6e73127f3452ffa9e1ff4c5c4.jpg"
+        }];
+
+        const packages = [{
+            name: "Hampi Heritage Tour",
+            duration: "3 Days",
+            price: "₹8,999",
+            img: "https://i.pinimg.com/1200x/e1/5c/81/e15c81b91d9b0e117841f2b1c0d05db9.jpg"
+        }, {
+            name: "Coorg Coffee Trail",
+            duration: "2 Days",
+            price: "₹6,499",
+            img: "https://i.pinimg.com/1200x/38/a9/cb/38a9cbfb3dfa6b37e0836365924fdc0f.jpg"
+        }, {
+            name: "Coastal Karnataka Tour",
+            duration: "4 Days",
+            price: "₹12,999",
+            img: "https://i.pinimg.com/736x/35/70/5e/35705e2dfca68de67d60cad3f0b3b5f0.jpg"
+        }, {
+            name: "Western Ghats Adventure",
+            duration: "5 Days",
+            price: "₹15,499",
+            img: "https://i.pinimg.com/736x/a3/e7/c3/a3e7c3de6344a85a5691055437d8a908.jpg"
+        }, {
+            name: "Mysuru Royal Tour",
+            duration: "2 Days",
+            price: "₹7,299",
+            img: "https://i.pinimg.com/1200x/c2/2c/82/c22c82e5601f30abe4395d358a953075.jpg"
+        }];
+
+        const hotels = [{
+            name: "The Leela Palace",
+            city: "Bengaluru",
+            stars: 5,
+            price: "₹12,000",
+            badge: "Luxury",
+            img: "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600&q=80"
+        }, {
+            name: "Windflower Prakruti",
+            city: "Mysuru",
+            stars: 4,
+            price: "₹5,500",
+            badge: "Boutique",
+            img: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=600&q=80"
+        }, {
+            name: "Evolve Back Coorg",
+            city: "Kodagu",
+            stars: 5,
+            price: "₹18,000",
+            badge: "Heritage",
+            img: "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600&q=80"
+        }];
+
+        // === HERO SLIDER ===
+        const heroData = [{
+            place: "HAMPI",
+            tag: "Vijayanagara Empire",
+            dist: "340 km from Bengaluru",
+            desc: "An ancient capital amid colossal boulders — UNESCO World Heritage landscape at the edge of time."
+        }, {
+            place: "COORG",
+            tag: "Kodagu District",
+            dist: "260 km from Bengaluru",
+            desc: "India's coffee capital — mist-draped hills, ancient rainforests, and warrior culture."
+        }, {
+            place: "GOKARNA",
+            tag: "Uttara Kannada",
+            dist: "490 km from Bengaluru",
+            desc: "Sacred town where ancient temples meet pristine Bohemian shores on the Arabian Sea."
+        }, {
+            place: "MYSURU",
+            tag: "City of Palaces",
+            dist: "145 km from Bengaluru",
+            desc: "The opulent seat of the Wadiyar dynasty — illuminated by 10,000 bulbs every Sunday evening."
+        }, {
+            place: "JOG FALLS",
+            tag: "Shivamogga",
+            dist: "380 km from Bengaluru",
+            desc: "India's second highest waterfall — four thundering cascades through dense Western Ghats."
+        }];
+
+        let heroIdx = 0;
+        const slides = document.querySelectorAll('.hero-slide');
+        const dotsEl = document.getElementById('heroDots');
+
+        heroData.forEach((h, i) => {
+            const d = document.createElement('button');
+            d.className = 'hero-dot' + (i === 0 ? ' active' : '');
+            d.innerHTML = `<span class="hero-dot-num">0${i+1}</span>`;
+            d.onclick = () => goHero(i);
+            dotsEl.appendChild(d);
+        });
+
+        function goHero(i) {
+            slides[heroIdx].classList.remove('active');
+            document.querySelectorAll('.hero-dot')[heroIdx].classList.remove('active');
+            heroIdx = i;
+            slides[heroIdx].classList.add('active');
+            document.querySelectorAll('.hero-dot')[heroIdx].classList.add('active');
+            const h = heroData[heroIdx];
+            document.getElementById('heroPlace').textContent = h.place;
+            document.getElementById('heroTag').innerHTML = `<span style="content:''"></span>${h.tag}`;
+            document.getElementById('heroDist').textContent = h.dist;
+            document.getElementById('heroDesc').textContent = h.desc;
+        }
+
+        setInterval(() => goHero((heroIdx + 1) % heroData.length), 5000);
+
+        // === LIVE TIME ===
+        function updateTime() {
+            const now = new Date();
+            const h = String(now.getHours()).padStart(2, '0');
+            const m = String(now.getMinutes()).padStart(2, '0');
+            document.getElementById('liveTime').textContent = `${h}:${m}`;
+        }
+        updateTime();
+        setInterval(updateTime, 30000);
+
+        // === WEATHER SIMULATION ===
+        const weatherOptions = [{
+            temp: '28°',
+            icon: '☀️',
+            desc: 'Clear sky',
+            city: 'Bengaluru'
+        }, {
+            temp: '22°',
+            icon: '⛅',
+            desc: 'Partly cloudy',
+            city: 'Mysuru'
+        }, {
+            temp: '19°',
+            icon: '🌧️',
+            desc: 'Light rain',
+            city: 'Coorg'
+        }, ];
+        const w = weatherOptions[Math.floor(Math.random() * weatherOptions.length)];
+        document.getElementById('weatherTemp').textContent = w.temp;
+        document.getElementById('weatherIcon').textContent = w.icon;
+        document.getElementById('weatherDesc').textContent = w.desc;
+        document.getElementById('weatherCity').textContent = w.city;
+
+        // === RENDER CAROUSEL ===
+        const track = document.getElementById('carouselTrack');
+        places.forEach((p, i) => {
+            track.innerHTML += `
+    <div class="place-card" onclick="openModal(${i})">
+      <div class="place-card-img" style="background-image:url('${p.img}');width:100%;height:100%;position:absolute;inset:0;background-size:cover;background-position:center;transition:transform 0.6s"></div>
+      <div class="place-card-overlay"></div>
+      <div class="place-rank">${String(i+1).padStart(2,'0')}</div>
+      <div class="place-card-content">
+        <div class="place-name">${p.name}</div>
+        <div class="place-dist">📍 ${p.dist} away</div>
+        <div class="place-stars">★★★★★ ${p.rating}</div>
+      </div>
+    </div>`;
+        });
+
+        let carouselPos = 0;
+
+        function carouselNext() {
+            const maxPos = (places.length - 3) * 300;
+            carouselPos = Math.min(carouselPos + 300, maxPos);
+            track.style.transform = `translateX(-${carouselPos}px)`;
+        }
+
+        function carouselPrev() {
+            carouselPos = Math.max(carouselPos - 300, 0);
+            track.style.transform = `translateX(-${carouselPos}px)`;
+        }
+
+        // === RENDER CITIES ===
+        // === RENDER CITIES ===
+        const citiesGrid = document.getElementById('citiesGrid');
+        cities.forEach(c => {
+            // Convert city name to lowercase filename (e.g., "Mysuru" -> "mysuru.html", "utter kannada" -> "utter-kannada.html")
+            const targetPage = c.name.toLowerCase().replace(/\s+/g, '-');
+
+            citiesGrid.innerHTML += `
+    <div class="city-card" style="background-image:url('${c.img}')" onclick="window.location.href='${targetPage}.html'">
+      <div class="city-card-content">
+        <div class="city-name">${c.name}</div>
+        <div class="city-count">${c.count}</div>
+        <div class="city-explore">EXPLORE →</div>
+      </div>
+    </div>`;
+        });
+
+        // === RENDER PACKAGES ===
+        const packagesGrid = document.getElementById('packagesGrid');
+        packages.forEach((pkg, i) => {
+            packagesGrid.innerHTML += `
+    <div class="pkg-card" style="background-image:url('${pkg.img}')">
+      <div class="pkg-content">
+        <div class="pkg-duration">${pkg.duration}</div>
+        <div class="pkg-name">${pkg.name}</div>
+        <div class="pkg-price">${pkg.price} <small>per person</small></div>
+      </div>
+    </div>`;
+        });
+
+        // === RENDER HOTELS ===
+        const hotelsGrid = document.getElementById('hotelsGrid');
+        hotels.forEach(h => {
+            hotelsGrid.innerHTML += `
+    <div class="hotel-card">
+      <div class="hotel-img">
+        <div class="hotel-img-inner" style="background-image:url('${h.img}')"></div>
+        <div class="hotel-badge">${h.badge}</div>
+      </div>
+      <div class="hotel-info">
+        <div class="hotel-stars">${'★'.repeat(h.stars)}</div>
+        <div class="hotel-name">${h.name}</div>
+        <div class="hotel-location">📍 ${h.city}, Karnataka</div>
+        <div class="hotel-footer">
+          <div class="hotel-price">${h.price} <small>/night</small></div>
+          <button class="hotel-btn">Book Now</button>
+        </div>
+      </div>
+    </div>`;
+        });
+
+        // === MODAL ===
+        function openModal(i) {
+            const p = places[i];
+            document.getElementById('modalHero').style.backgroundImage = `url('${p.img}')`;
+            document.getElementById('modalTag').textContent = `${p.region} · ${p.category}`;
+            document.getElementById('modalTitle').textContent = p.name;
+            document.getElementById('modalDesc').textContent = p.desc;
+            document.getElementById('modalInfoGrid').innerHTML = `
+    <div class="modal-info-item"><label>Distance</label><span>${p.dist}</span></div>
+    <div class="modal-info-item"><label>Entry Fee</label><span>${p.fee}</span></div>
+    <div class="modal-info-item"><label>Timings</label><span>${p.time}</span></div>
+    <div class="modal-info-item"><label>Best Season</label><span>${p.season}</span></div>
+    <div class="modal-info-item"><label>Rating</label><span>★ ${p.rating} / 5</span></div>
+    <div class="modal-info-item"><label>Category</label><span>${p.category}</span></div>
+  `;
+            document.getElementById('modalOverlay').classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(e) {
+            if (!e || e.target === document.getElementById('modalOverlay')) {
+                document.getElementById('modalOverlay').classList.remove('open');
+                document.body.style.overflow = '';
+            }
+        }
+
+        // === NAV SCROLL ===
+        window.addEventListener('scroll', () => {
+            document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 60);
+            const scrollPct = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+            document.getElementById('scroll-progress').style.width = scrollPct + '%';
+        });
+
+        // === COUNTER ANIMATION ===
+        function animateCounter(el, target, suffix) {
+            let cur = 0;
+            const step = target / 60;
+            const interval = setInterval(() => {
+                cur += step;
+                if (cur >= target) {
+                    el.textContent = target;
+                    clearInterval(interval);
+                    return;
+                }
+                el.textContent = Math.floor(cur);
+            }, 20);
+        }
+
+        const statsObserver = new IntersectionObserver(entries => {
+            if (entries[0].isIntersecting) {
+                animateCounter(document.getElementById('cnt1'), 52);
+                animateCounter(document.getElementById('cnt2'), 340);
+                animateCounter(document.getElementById('cnt3'), 120);
+                animateCounter(document.getElementById('cnt4'), 15);
+                statsObserver.disconnect();
+            }
+        });
+        statsObserver.observe(document.getElementById('stats'));
+
+        // === FADE UP ANIMATIONS ===
+        const fadeEls = document.querySelectorAll('.section-header, .place-card, .city-card, .pkg-card, .hotel-card, .map-container, .about-grid');
+        const fadeObs = new IntersectionObserver(entries => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    e.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+        fadeEls.forEach(el => {
+            el.classList.add('fade-up');
+            fadeObs.observe(el);
+        });
+
+        // === CHATBOT ===
+        function toggleChatbot() {
+            if (window.matchMedia('(max-width: 900px)').matches) {
+                const chatWindow = window.open('chat.html', 'goHeritageChat', 'width=420,height=640,resizable=yes,scrollbars=yes');
+                if (chatWindow) return;
+            }
+            document.getElementById('chatbot').classList.toggle('open');
+        }
+        const chatResponses = {
+            'hampi': 'Hampi is 340 km from Bengaluru (about 6 hrs). Best time: Oct–Feb. Entry ₹40. Must-see: Virupaksha Temple, Stone Chariot, Vittala Temple!',
+            'coorg': 'Coorg (Kodagu) is 260 km from Bengaluru (~5 hrs). Best for coffee plantation stays, trekking, and river rafting at Raja\'s Seat.',
+            'weather': 'Current weather varies by region. Coastal Karnataka gets rain Jun–Sep. Hill stations are cool year-round. Plains are best Oct–Mar.',
+            'package': 'We offer packages starting ₹5,999! Popular: Hampi Heritage (3D), Coorg Coffee Trail (2D), Coastal Tour (4D). Shall I show details?',
+            'hotel': 'Top picks: Leela Palace (Bengaluru), Windflower Prakruti (Mysuru), Evolve Back (Coorg). What budget are you working with?',
+            'default': 'Great question about Karnataka! It has 52+ heritage sites, beautiful beaches, hill stations, and wildlife sanctuaries. Which region interests you most?'
+        };
+
+        async function sendChat() {
+            const input = document.getElementById('chatInput');
+            const msg = input.value.trim();
+            if (!msg) return;
+            const msgs = document.getElementById('chatMessages');
+            msgs.innerHTML += `<div class="chat-msg user">${msg}</div>`;
+            input.value = '';
+            const replyId = 'chatReply' + Date.now();
+            msgs.innerHTML += `<div class="chat-msg bot" id="${replyId}">Thinking...</div>`;
+            msgs.scrollTop = msgs.scrollHeight;
+
+            try {
+                const response = await fetch('/api/chat', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ message: msg })
+                });
+                const data = await response.json();
+                const reply = document.getElementById(replyId);
+                if (reply) reply.textContent = data.reply || 'No reply received.';
+            } catch (error) {
+                const reply = document.getElementById(replyId);
+                if (reply) reply.textContent = 'AI connection error.';
+            }
+            msgs.scrollTop = msgs.scrollHeight;
+        }
+
+
+        // Global GPS Target Registry Coordinates to translate flat map pixels back to True Latitude/Longitude
+        const GPS_REGISTRY = {
+            'HAMPI': { lat: 15.3350, lon: 76.4600 },
+            'COORG': { lat: 12.3375, lon: 75.8069 },
+            'MYSURU': { lat: 12.3052, lon: 76.6552 },
+            'GOKARNA': { lat: 14.5479, lon: 74.3188 },
+            'BADAMI': { lat: 15.9181, lon: 75.6798 }
+        };
+
+        const HERITAGE_MAP_DB = {
+            'HAMPI': { name: "Hampi Monuments", x: 260, y: 130, fees: "₹40 (Indians) / ₹600 (Foreigners)", parking: "Ample Base Plots + Buggy Ride", hotel: "Evolve Back Kamalapura Palace", slideIdx: 0 },
+            'COORG': { name: "Coorg Mist Highlands", x: 150, y: 310, fees: "Free Entry (Site fees vary)", parking: "Available at all natural trail bases", hotel: "The Tamara Luxury Resort", slideIdx: 1 },
+            'MYSURU': { name: "Mysuru Royal Palace", x: 190, y: 280, fees: "₹100 Adults / ₹50 Children", parking: "Massive Front Palace Ground Gates", hotel: "Grand Mercure Palace Wing", slideIdx: 2 },
+            'GOKARNA': { name: "Gokarna Coastal Cliffs", x: 90, y: 180, fees: "No Fees (Public Beaches)", parking: "Beach Shoreline Dedicated Slots", hotel: "Kahani Paradise Villa Resort", slideIdx: 3 },
+            'BADAMI': { name: "Badami Cave Complex", x: 210, y: 80, fees: "₹25 (Indians) / ₹300 (Foreigners)", parking: "Direct Lake Shoreline Spaces", hotel: "Badami Heritage Gateway", slideIdx: 4 }
+        };
+
+        let geoLiveCoords = null;
+        let chosenMapMarkerKey = null;
+        let pulseTimer = 0;
+
+        function calculateGpsDistance(lat1, lon1, lat2, lon2) {
+            const EarthRadiusKm = 6371;
+            const dLat = (lat2 - lat1) * Math.PI / 180;
+            const dLon = (lon2 - lon1) * Math.PI / 180;
+            const a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+                Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+                Math.sin(dLon / 2) * Math.sin(dLon / 2);
+            const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+            return Math.round(EarthRadiusKm * c);
+        }
+
+        function runInteractiveRadarEngine() {
+            const mapCanvas = document.getElementById('interactiveCanvasMap');
+            if (!mapCanvas) return;
+            const ctx = mapCanvas.getContext('2d');
+
+            function scaleViewport() {
+                const dimensions = mapCanvas.getBoundingClientRect();
+                mapCanvas.width = dimensions.width;
+                mapCanvas.height = dimensions.height;
+            }
+            scaleViewport();
+            window.addEventListener('resize', scaleViewport);
+
+            mapCanvas.addEventListener('click', (event) => {
+                const bounds = mapCanvas.getBoundingClientRect();
+                const mouseX = event.clientX - bounds.left;
+                const mouseY = event.clientY - bounds.top;
+
+                for (const [key, marker] of Object.entries(HERITAGE_MAP_DB)) {
+                    const nodeX = (marker.x / 400) * mapCanvas.width;
+                    const nodeY = (marker.y / 400) * mapCanvas.height;
+                    if (Math.hypot(mouseX - nodeX, mouseY - nodeY) < 18) {
+                        renderSidePanelDetails(key);
+                        break;
+                    }
+                }
+            });
+
+            function renderRadarFrame() {
+                ctx.clearRect(0, 0, mapCanvas.width, mapCanvas.height);
+                pulseTimer += 0.04;
+
+                ctx.strokeStyle = 'rgba(232, 101, 26, 0.03)';
+                ctx.lineWidth = 0.5;
+                const gridStride = 40;
+                for (let x = 0; x < mapCanvas.width; x += gridStride) {
+                    ctx.beginPath();
+                    ctx.moveTo(x, 0);
+                    ctx.lineTo(x, mapCanvas.height);
+                    ctx.stroke();
+                }
+                for (let y = 0; y < mapCanvas.height; y += gridStride) {
+                    ctx.beginPath();
+                    ctx.moveTo(0, y);
+                    ctx.lineTo(mapCanvas.width, y);
+                    ctx.stroke();
+                }
+
+                ctx.strokeStyle = 'rgba(232, 101, 26, 0.15)';
+                ctx.lineWidth = 1.5;
+                ctx.fillStyle = 'rgba(13, 20, 32, 0.3)';
+                const mapPolygon = [
+                    { x: 120, y: 40 }, { x: 240, y: 30 }, { x: 320, y: 60 },
+                    { x: 350, y: 120 }, { x: 340, y: 220 }, { x: 300, y: 330 },
+                    { x: 220, y: 370 }, { x: 150, y: 340 }, { x: 110, y: 260 },
+                    { x: 70, y: 140 }
+                ];
+                ctx.beginPath();
+                mapPolygon.forEach((vertex, i) => {
+                    const vx = (vertex.x / 400) * mapCanvas.width;
+                    const vy = (vertex.y / 400) * mapCanvas.height;
+                    if (i === 0) ctx.moveTo(vx, vy);
+                    else ctx.lineTo(vx, vy);
+                });
+                ctx.closePath();
+                ctx.fill();
+                ctx.stroke();
+
+                if (geoLiveCoords && chosenMapMarkerKey) {
+                    const targetedDestination = HERITAGE_MAP_DB[chosenMapMarkerKey];
+                    if (targetedDestination) {
+                        const originX = (geoLiveCoords.x / 400) * mapCanvas.width;
+                        const originY = (geoLiveCoords.y / 400) * mapCanvas.height;
+                        const destinationX = (targetedDestination.x / 400) * mapCanvas.width;
+                        const destinationY = (targetedDestination.y / 400) * mapCanvas.height;
+
+                        ctx.beginPath();
+                        ctx.moveTo(originX, originY);
+                        ctx.lineTo(destinationX, destinationY);
+                        ctx.strokeStyle = 'rgba(232, 101, 26, 0.4)';
+                        ctx.lineWidth = 1.5;
+                        ctx.setLineDash([4, 4]);
+                        ctx.lineDashOffset = -pulseTimer * 20;
+                        ctx.stroke();
+                        ctx.setLineDash([]);
+                    }
+                }
+
+                for (const [key, point] of Object.entries(HERITAGE_MAP_DB)) {
+                    const px = (point.x / 400) * mapCanvas.width;
+                    const py = (point.y / 400) * mapCanvas.height;
+                    const activeMatch = (chosenMapMarkerKey === key);
+
+                    const ringRadius = 5 + Math.sin(pulseTimer * 2.5) * 4;
+                    ctx.beginPath();
+                    ctx.arc(px, py, ringRadius + (activeMatch ? 6 : 0), 0, Math.PI * 2);
+                    ctx.fillStyle = activeMatch ? 'rgba(232, 101, 26, 0.3)' : 'rgba(201, 168, 76, 0.15)';
+                    ctx.fill();
+
+                    ctx.beginPath();
+                    ctx.arc(px, py, activeMatch ? 6 : 4, 0, Math.PI * 2);
+                    ctx.fillStyle = activeMatch ? '#E8651A' : '#C9A84C';
+                    ctx.fill();
+
+                    ctx.fillStyle = activeMatch ? '#fff' : 'rgba(240, 237, 232, 0.6)';
+                    ctx.font = activeMatch ? 'bold 11px DM Sans' : '9px DM Sans';
+                    ctx.fillText(key, px + 12, py + 3);
+                }
+
+                if (geoLiveCoords) {
+                    const ux = (geoLiveCoords.x / 400) * mapCanvas.width;
+                    const uy = (geoLiveCoords.y / 400) * mapCanvas.height;
+
+                    ctx.beginPath();
+                    ctx.arc(ux, uy, 7 + Math.cos(pulseTimer * 3) * 3, 0, Math.PI * 2);
+                    ctx.fillStyle = 'rgba(40, 167, 69, 0.25)';
+                    ctx.fill();
+
+                    ctx.beginPath();
+                    ctx.arc(ux, uy, 4, 0, Math.PI * 2);
+                    ctx.fillStyle = '#28a745';
+                    ctx.fill();
+
+                    ctx.fillStyle = '#28a745';
+                    ctx.font = 'bold 9px DM Sans';
+                    ctx.fillText("YOUR RADAR LOC", ux + 12, uy - 5);
+                }
+
+                requestAnimationFrame(renderRadarFrame);
+            }
+
+            requestAnimationFrame(renderRadarFrame);
+            connectSatellitePositioning();
+        }
+
+        function connectSatellitePositioning() {
+            const interfaceOverlay = document.getElementById('mapStatusOverlay');
+            if (!navigator.geolocation) {
+                geoLiveCoords = { x: 220, y: 220 };
+                if (interfaceOverlay) interfaceOverlay.innerText = "🛰️ LOCATION ERROR: FALLBACK APPLIED";
+                return;
+            }
+
+            navigator.geolocation.getCurrentPosition(
+                (gpsPos) => {
+                    geoLiveCoords = { x: 200, y: 250 };
+                    if (interfaceOverlay) interfaceOverlay.innerText = "🛰️ RADAR LINK ESTABLISHED (LIVE GPS)";
+                    if (chosenMapMarkerKey) renderSidePanelDetails(chosenMapMarkerKey);
+                },
+                (err) => {
+                    geoLiveCoords = { x: 220, y: 220 };
+                    if (interfaceOverlay) interfaceOverlay.innerText = "🛰️ RADAR LOC: DEFAULT REGIONAL BASE ARCHIVE";
+                }
+            );
+        }
+
+        function renderSidePanelDetails(key) {
+            chosenMapMarkerKey = key;
+            const targetObj = HERITAGE_MAP_DB[key];
+            if (!targetObj) return;
+
+            document.getElementById('drawerPlaceholder').style.display = 'none';
+            document.getElementById('drawerDataContent').style.display = 'block';
+            document.getElementById('drawerActionContainer').style.display = 'block';
+
+            document.getElementById('drawerTitle').innerText = targetObj.name;
+            document.getElementById('drawerFees').innerText = targetObj.fees;
+            document.getElementById('drawerParking').innerText = targetObj.parking;
+            document.getElementById('drawerHotel').innerText = targetObj.hotel;
+
+            document.getElementById('drawerExploreBtn').onclick = function() {
+                document.getElementById('hero').scrollIntoView({ behavior: 'smooth' });
+            };
+
+            const rangeCounterText = document.getElementById('drawerDistance');
+            navigator.geolocation.getCurrentPosition((coordsObj) => {
+                const geoPoints = GPS_REGISTRY[key];
+                if (geoPoints) {
+                    const rawDistanceKm = calculateGpsDistance(
+                        coordsObj.coords.latitude,
+                        coordsObj.coords.longitude,
+                        geoPoints.lat,
+                        geoPoints.lon
+                    );
+                    rangeCounterText.innerText = `${rawDistanceKm} KM TO GO`;
+                }
+            }, () => {
+                rangeCounterText.innerText = "340 KM (ESTIMATED)";
+            });
+        }
+
+
+        // === LOADING SCREEN & RUNTIME ENGINE INITIALIZER ===
+        window.addEventListener('load', () => {
+            // 1. Terminate the interface splash loading layout smoothly
+            setTimeout(() => {
+                document.getElementById('loading').classList.add('hidden');
+            }, 600);
+
+            // 2. Trigger the primary interactive dashboard canvas component layer initialization mapping
+            runInteractiveRadarEngine();
+        });
+    </script>
+
+
+</body>
+
+</html>

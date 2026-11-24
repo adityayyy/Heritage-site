@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chikkamagaluru — Premium Heritage Chronicle</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+         :root {
+            --terracotta: #E8651A;
+            --gold: #C9A84C;
+            --bg-dark: #080C12;
+            --card-dark: #0D1420;
+            --border-glow: rgba(201, 168, 76, 0.15);
+            --text-light: #F0EDE8;
+            --text-muted: rgba(240, 237, 232, 0.55);
+        }
+        
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            background: var(--bg-dark);
+            color: var(--text-light);
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 300;
+            line-height: 1.6;
+            padding: 60px 8%;
+            overflow-x: hidden;
+        }
+        /* Editorial Header Design */
+        
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            color: var(--terracotta);
+            text-decoration: none;
+            font-size: 12px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 50px;
+            font-weight: 600;
+            transition: transform 0.3s ease;
+        }
+        
+        .back-btn:hover {
+            transform: translateX(-5px);
+        }
+        
+        .header {
+            margin-bottom: 60px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .header::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: var(--gold);
+            margin: 30px auto 0;
+        }
+        
+        .header h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 60px;
+            font-weight: 700;
+            letter-spacing: 5px;
+            line-height: 1.1;
+        }
+        
+        .header h1 span {
+            color: var(--terracotta);
+        }
+        /* Narrative Intro Box */
+        
+        .intro-chronicle {
+            max-width: 850px;
+            margin: 0 auto 100px;
+            text-align: center;
+            background: var(--card-dark);
+            padding: 40px;
+            border-radius: 4px;
+            border: 1px solid var(--border-glow);
+        }
+        
+        .intro-chronicle h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 24px;
+            color: var(--gold);
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+        
+        .intro-chronicle p {
+            font-size: 15px;
+            color: var(--text-muted);
+            line-height: 1.8;
+        }
+        /* One-by-One Alternating Layout */
+        
+        .heritage-flow {
+            display: flex;
+            flex-direction: column;
+            gap: 140px;
+        }
+        
+        .heritage-item {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 70px;
+            align-items: flex-start;
+        }
+        
+        .heritage-item:nth-child(even) {
+            grid-template-columns: 0.9fr 1.1fr;
+        }
+        
+        .heritage-item:nth-child(even) .item-gallery-wrapper {
+            order: 2;
+        }
+        /* Smooth Pure CSS Slider Component */
+        
+        .item-gallery-wrapper {
+            position: relative;
+            width: 100%;
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .slider-container {
+            display: flex;
+            width: 300%;
+            animation: slideShow 16s infinite ease-in-out;
+        }
+        
+        .slider-container img {
+            width: 33.333%;
+            height: 520px;
+            object-fit: cover;
+            display: block;
+        }
+        /* Staggered animation offsets per card to avoid uniform sliding */
+        
+        .heritage-item:nth-child(2n) .slider-container {
+            animation-delay: 2s;
+        }
+        
+        .heritage-item:nth-child(3n) .slider-container {
+            animation-delay: 4s;
+        }
+        
+        .heritage-item:nth-child(4n) .slider-container {
+            animation-delay: 6s;
+        }
+        
+        @keyframes slideShow {
+            0%,
+            25% {
+                transform: translateX(0%);
+            }
+            30%,
+            55% {
+                transform: translateX(-33.333%);
+            }
+            60%,
+            90% {
+                transform: translateX(-66.666%);
+            }
+            95%,
+            100% {
+                transform: translateX(0%);
+            }
+        }
+        /* Content Elements */
+        
+        .item-details {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .item-index {
+            font-family: 'Cinzel', serif;
+            font-size: 14px;
+            color: var(--terracotta);
+            font-weight: 700;
+            margin-bottom: 12px;
+            letter-spacing: 3px;
+        }
+        
+        .item-title {
+            font-family: 'Cinzel', serif;
+            font-size: 34px;
+            font-weight: 600;
+            margin-bottom: 18px;
+            color: #FFF;
+            line-height: 1.2;
+            letter-spacing: 1px;
+        }
+        /* Read More History System */
+        
+        .history-wrapper {
+            margin-bottom: 25px;
+        }
+        
+        .history-base {
+            color: var(--text-muted);
+            font-size: 15px;
+            line-height: 1.8;
+        }
+        
+        .history-extended {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s cubic-bezier(0, 1, 0, 1);
+            color: var(--text-muted);
+            font-size: 15px;
+            line-height: 1.8;
+        }
+        
+        .history-extended p {
+            margin-top: 12px;
+        }
+        
+        .history-wrapper.expanded .history-extended {
+            max-height: 1200px;
+            transition: max-height 0.8s cubic-bezier(0.9, 0, 0.1, 1);
+        }
+        
+        .read-more-trigger {
+            display: inline-flex;
+            align-items: center;
+            background: none;
+            border: none;
+            color: var(--gold);
+            font-family: 'Cinzel', serif;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            cursor: pointer;
+            margin-top: 12px;
+            padding: 4px 0;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+        
+        .read-more-trigger:hover {
+            color: var(--terracotta);
+        }
+        
+        .read-more-trigger::after {
+            content: ' +';
+            font-weight: bold;
+        }
+        
+        .history-wrapper.expanded .read-more-trigger::after {
+            content: ' -';
+        }
+        /* Utility Grid Information Box */
+        
+        .utility-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 22px;
+            background: var(--card-dark);
+            padding: 24px;
+            border-radius: 4px;
+            border: 1px solid var(--border-glow);
+            margin-top: 15px;
+        }
+        
+        .util-meta h4 {
+            font-family: 'Cinzel', serif;
+            font-size: 11px;
+            text-transform: uppercase;
+            color: var(--gold);
+            letter-spacing: 1.5px;
+            margin-bottom: 6px;
+        }
+        
+        .util-meta p {
+            font-size: 13.5px;
+            color: #F0EDE8;
+            font-weight: 400;
+        }
+        
+        .util-meta a {
+            color: var(--terracotta);
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.2s;
+        }
+        
+        .util-meta a:hover {
+            opacity: 0.8;
+            text-decoration: underline;
+        }
+        /* Infrastructure Badges */
+        
+        .badge {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .badge-yes {
+            background: rgba(46, 204, 113, 0.12);
+            color: #2ecc71;
+            border: 1px solid rgba(46, 204, 113, 0.2);
+        }
+        
+        .badge-no {
+            background: rgba(231, 76, 60, 0.12);
+            color: #e74c3c;
+            border: 1px solid rgba(231, 76, 60, 0.2);
+        }
+        /* Responsive Systems */
+        
+        @media (max-width: 1100px) {
+            body {
+                padding: 50px 4%;
+            }
+            .heritage-item,
+            .heritage-item:nth-child(even) {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .heritage-item:nth-child(even) .item-gallery-wrapper {
+                order: 0;
+            }
+            .slider-container img {
+                height: 380px;
+            }
+            .header h1 {
+                font-size: 44px;
+            }
+        }
+    </style>
+<link rel="stylesheet" href="responsive.css">
+</head>
+
+<body>
+
+    <a href="go-heritage.html" class="back-btn">← Back to Dashboard</a>
+
+    <div class="header">
+        <h1>CHIKKAMAGALURU <span>CHRONICLES</span></h1>
+    </div>
+
+    <div class="intro-chronicle">
+        <h2>History of the Coffee Cradle</h2>
+        <p>Chikkamagaluru is famed as the cradle of coffee in India, where the saint Baba Budan first planted seven coffee beans smuggled from Yemen in 1670. Beyond its plantations, the region contains deep roots tied to the early foundations of the Hoysala
+            Empire and holds spectacular high-elevation stone mountain shrines, architectural marvels, and deep monastic lineages.</p>
+    </div>
+
+    <div class="heritage-flow">
+
+        <div class="heritage-item">
+            <div class="item-gallery-wrapper">
+                <div class="slider-container">
+                    <img src="https://i.pinimg.com/1200x/78/44/1e/78441e6fa279b9969d37b14eddcc5b39.jpg" alt="Vidyashankara Temple Side Profile">
+                    <img src="https://images.unsplash.com/photo-1596176530529-78163a4f7af2?w=800" alt="Vidyashankara Zodiac Columns">
+                    <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=800" alt="Sringeri Riverfront View">
+                </div>
+            </div>
+            <div class="item-details">
+                <span class="item-index">01 / 10</span>
+                <h3 class="item-title">Vidyashankara Temple (Sringeri)</h3>
+
+                <div class="history-wrapper">
+                    <p class="history-base">
+                        A spectacular 14th-century temple blending Hoysala and Vijayanagara architectural designs, engineered with 12 foundational zodiac pillars designed with astronomical precision.
+                    </p>
+                    <div class="history-extended">
+                        <p>
+                            Built in 1338 AD to commemorate Vidyatirtha, the revered guru of the founders of the Vijayanagara Empire (Harihara and Bukka), this monument is a triumph of mathematical stonecraft. The structure stands entirely on an elevated golden-ratio plinth overlooking
+                            the clear waters of the Tunga River.
+                        </p>
+                        <p>
+                            The most defining feature is the assembly hall's twelve pillars, each representing a sign of the zodiac (Rasis). The builders calculated their positions so precisely that the morning rays of the sun hit the exact pillar corresponding to the current solar
+                            month. The temple's curved apsidal layout borrows heavily from early Buddhist chaitya patterns, showcasing a transition from soapstone carvings to granite monuments.
+                        </p>
+                    </div>
+                    <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
+                </div>
+
+                <div class="utility-grid">
+                    <div class="util-meta">
+                        <h4>Location</h4>
+                        <p><a href="https://maps.google.com/?q=Sringeri+Sharada+Peetham+Chikkamagaluru" target="_blank">Harihara Street, Sringeri</a></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Washrooms</h4>
+                        <p><span class="badge badge-yes">Available Near Entry</span></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Logistics & Entry</h4>
+                        <p>6:00 AM – 8:30 PM | Free Entry</p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Recommended Hotels</h4>
+                        <p>Sharada Comforts, Hotel Advaita Linger, Vidvath Residency</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="heritage-item">
+            <div class="item-gallery-wrapper">
+                <div class="slider-container">
+                    <img src="https://images.unsplash.com/photo-1596176530529-78163a4f7af2?w=800" alt="Amrutesvara Temple Main Vimana">
+                    <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=800" alt="Amrutapura Intricate Soapstone Wall">
+                    <img src="https://images.unsplash.com/photo-1605649487212-47bdab064df7?w=800" alt="Hoysala Emblem Panel">
+                </div>
+            </div>
+            <div class="item-details">
+                <span class="item-index">02 / 10</span>
+                <h3 class="item-title">Amrutesvara Temple (Amrutapura)</h3>
+
+                <div class="history-wrapper">
+                    <p class="history-base">
+                        An outstanding soapstone monument built in 1196 AD under Hoysala supervision, featuring an open hall wrapped completely in fine narratively carved panels.
+                    </p>
+                    <div class="history-extended">
+                        <p>
+                            Commissioned by Amrutheshwara Dandanayaka, a prominent commander under the Hoysala King Veera Ballala II, this temple is a brilliant display of chloritic schist (soapstone) architecture. It follows a star-shaped layout, which increases the external wall
+                            surface area to allow for continuous bands of micro-sculptures.
+                        </p>
+                        <p>
+                            The exterior walls feature 140 meticulously detailed panels illustrating episodes from the Indian epics. The sequence includes the birth and exploits of Lord Krishna along the northern wall, followed by a detailed progression of the Mahabharata and Ramayana
+                            stories, carved with such delicate precision that even the reins of horses and expressions of soldiers remain perfectly legible centuries later.
+                        </p>
+                    </div>
+                    <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
+                </div>
+
+                <div class="utility-grid">
+                    <div class="util-meta">
+                        <h4>Location</h4>
+                        <p><a href="https://maps.google.com/?q=Amrutesvara+Temple+Amrutapura" target="_blank">Tarikere Taluk, Amrutapura</a></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Washrooms</h4>
+                        <p><span class="badge badge-yes">Available (ASI Managed)</span></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Logistics & Entry</h4>
+                        <p>8:00 AM – 6:00 PM | Free Entry</p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Recommended Hotels</h4>
+                        <p>The Gateway Hotel (Chikkamagaluru), Tarikere Town Lodges</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="heritage-item">
+            <div class="item-gallery-wrapper">
+                <div class="slider-container">
+                    <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=800" alt="Baba Budangiri Mountain Ridge">
+                    <img src="https://images.unsplash.com/photo-1584551246679-0daf3d275d0f?w=800" alt="Ancient Cave Entrance">
+                    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800" alt="High Elevation Hills Fog">
+                </div>
+            </div>
+            <div class="item-details">
+                <span class="item-index">03 / 10</span>
+                <h3 class="item-title">Baba Budangiri Shrine</h3>
+
+                <div class="history-wrapper">
+                    <p class="history-base">
+                        An ancient, revered cave shrine nestled high in the Western Ghats, celebrated as a historic pilgrimage spot honoring both Sufi saint Baba Budan and Guru Dattatreya.
+                    </p>
+                    <div class="history-extended">
+                        <p>
+                            Historically known as Chandra Drona Parvatha due to its natural crescent shape, this high-altitude range is deeply significant to Indian agricultural and spiritual history. In 1670 AD, the Sufi saint Baba Budan returned from a pilgrimage to Mecca, bringing
+                            seven fertile coffee seeds hidden in his robes. He planted them on these slopes, establishing India's very first coffee plantation.
+                        </p>
+                        <p>
+                            The central destination is a dark, underground cave shrine. It is uniquely shared by both Hindu and Muslim communities, who revere it as the residence of Guru Dattatreya and Hazrat Dada Hayat Mir Qalandar, making it a prominent symbol of regional syncretic
+                            heritage.
+                        </p>
+                    </div>
+                    <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
+                </div>
+
+                <div class="utility-grid">
+                    <div class="util-meta">
+                        <h4>Location</h4>
+                        <p><a href="https://maps.google.com/?q=Baba+Budangiri+Chikkamagaluru" target="_blank">Baba Budan Giri Range</a></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Washrooms</h4>
+                        <p><span class="badge badge-yes">Available Near Checkpoint</span></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Logistics & Entry</h4>
+                        <p>6:00 AM – 6:00 PM | Free Entry</p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Recommended Hotels</h4>
+                        <p>Trivik Hotels, Java Rain Resort, Siri Nature Roost</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="heritage-item">
+            <div class="item-gallery-wrapper">
+                <div class="slider-container">
+                    <img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=800" alt="Veera Narayana Temple Trikuta Front">
+                    <img src="https://images.unsplash.com/photo-1598977123418-45f04b6168ba?w=800" alt="Polished Lathe Turned Columns">
+                    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800" alt="Ornate Guardian Elephants">
+                </div>
+            </div>
+            <div class="item-details">
+                <span class="item-index">04 / 10</span>
+                <h3 class="item-title">Veera Narayana Temple (Belavadi)</h3>
+
+                <div class="history-wrapper">
+                    <p class="history-base">
+                        A massive trikuta (three-shrine) Hoysala complex, showcasing a grand assembly hall fitted with over 108 polished, lathe-turned stone columns.
+                    </p>
+                    <div class="history-extended">
+                        <p>
+                            Constructed in the early 13th century by King Veera Ballala II, Belavadi is mentioned in the epic Mahabharata as Ekachakra Nagara, the legendary site where the Pandava prince Bhima defeated the demon Bakasura. Architecturally, it stands out for its exceptional
+                            scale and balanced layout.
+                        </p>
+                        <p>
+                            The long, covered complex connects three separate shrines dedicated to Veera Narayana, Venugopala, and Yoganarasimha. The central sabhamandapa (gathering hall) is supported by bell-shaped, mirror-polished stone columns that look metallic. Each pillar
+                            was turned on primitive lathe systems to achieve a smooth finish that reflects the light filtering through the stone screens.
+                        </p>
+                    </div>
+                    <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
+                </div>
+
+                <div class="utility-grid">
+                    <div class="util-meta">
+                        <h4>Location</h4>
+                        <p><a href="https://maps.google.com/?q=Veera+Narayana+Temple+Belavadi" target="_blank">Belavadi Village, Halebidu Road</a></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Washrooms</h4>
+                        <p><span class="badge badge-no">Basic Facilities Only</span></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Logistics & Entry</h4>
+                        <p>8:00 AM – 5:30 PM | Free Entry</p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Recommended Hotels</h4>
+                        <p>Hoysala Village Resort, Royal Orchid Halebidu</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="heritage-item">
+            <div class="item-gallery-wrapper">
+                <div class="slider-container">
+                    <img src="https://images.unsplash.com/photo-1605649487212-47bdab064df7?w=800" alt="Sringeri Peetham Gate Enclosure">
+                    <img src="https://images.unsplash.com/photo-1584551246679-0daf3d275d0f?w=800" alt="Tunga River Bridge and Shrines">
+                    <img src="https://images.unsplash.com/photo-1596176530529-78163a4f7af2?w=800" alt="Sacred Golden Sharamba Idol">
+                </div>
+            </div>
+            <div class="item-details">
+                <span class="item-index">05 / 10</span>
+                <h3 class="item-title">Sringeri Sharada Peetham</h3>
+
+                <div class="history-wrapper">
+                    <p class="history-base">
+                        The first monastic center established by Adi Shankaracharya in the 8th century, set along the banks of the Tunga River as a prominent seat of Advaita Vedanta philosophy.
+                    </p>
+                    <div class="history-extended">
+                        <p>
+                            Legend states that when Adi Shankaracharya walked along the Tunga River, he witnessed a remarkable sight: a cobra holding its hood open like an umbrella to shield a spawning frog from the blistering heat. Moved by this display of natural harmony, he chose
+                            this peaceful spot to establish his first southern monastery.
+                        </p>
+                        <p>
+                            The complex contains the ancient Sharadamba Temple, which originally housed a sandalwood idol of the deity that was later replaced with a gold statue during the Vijayanagara period. The center has preserved ancient palm-leaf manuscripts and traditional
+                            Vedic teaching methodologies for over twelve centuries without interruption.
+                        </p>
+                    </div>
+                    <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
+                </div>
+
+                <div class="utility-grid">
+                    <div class="util-meta">
+                        <h4>Location</h4>
+                        <p><a href="https://maps.google.com/?q=Sringeri+Sharada+Peetham" target="_blank">Sringeri Town Center</a></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Washrooms</h4>
+                        <p><span class="badge badge-yes">Available (Math Complex)</span></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Logistics & Entry</h4>
+                        <p>6:00 AM – 9:00 PM | Free Entry</p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Recommended Hotels</h4>
+                        <p>Muth Lodging Dormitories, Sharada Comforts</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="heritage-item">
+            <div class="item-gallery-wrapper">
+                <div class="slider-container">
+                    <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=800" alt="Kodanda Rama Temple Entrance Structure">
+                    <img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=800" alt="Dravidian Gopuram Details">
+                    <img src="https://images.unsplash.com/photo-1541963463532-d68292c34b19?w=800" alt="Ancient Stone Inscription Slab">
+                </div>
+            </div>
+            <div class="item-details">
+                <span class="item-index">06 / 10</span>
+                <h3 class="item-title">Kodanda Rama Temple (Hiremagalur)</h3>
+
+                <div class="history-wrapper">
+                    <p class="history-base">
+                        An ancient shrine featuring a unique arrangement of historical idols, displaying early Dravidian stonework with Hoysala and Chola modifications.
+                    </p>
+                    <div class="history-extended">
+                        <p>
+                            According to regional records, this site was where the warrior Parasurama requested to see Lord Rama's wedding ceremony. Consequently, the temple's central sanctum displays a distinct iconographic layout: Sita is placed on Rama's right side instead of
+                            the traditional left, and Lakshmana stands to his left holding his bow.
+                        </p>
+                        <p>
+                            The structural core dates back to the Chola and Hoysala periods, while the grand open assembly porch was added during subsequent Vijayanagara renovations. The temple keeps local epigraphical stone slabs that detail land grants awarded by medieval rulers
+                            to support the upkeep of this sanctuary.
+                        </p>
+                    </div>
+                    <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
+                </div>
+
+                <div class="utility-grid">
+                    <div class="util-meta">
+                        <h4>Location</h4>
+                        <p><a href="https://maps.google.com/?q=Kodanda+Rama+Temple+Hiremagalur" target="_blank">Hiremagalur Suburb, Chikkamagaluru</a></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Washrooms</h4>
+                        <p><span class="badge badge-no">No Public Toilets Inside</span></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Logistics & Entry</h4>
+                        <p>6:00 AM – 7:30 PM | Free Entry</p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Recommended Hotels</h4>
+                        <p>Hotel Grand Bee, Planters Court, Treebo Trend Zisva</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="heritage-item">
+            <div class="item-gallery-wrapper">
+                <div class="slider-container">
+                    <img src="https://images.unsplash.com/photo-1584551246679-0daf3d275d0f?w=800" alt="Kallathigiri Waterfall Cascade">
+                    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800" alt="Rock-Cut Shrines in Waterfall Cleft">
+                    <img src="https://images.unsplash.com/photo-1596176530529-78163a4f7af2?w=800" alt="Vijayanagara Bas Relief Sculptures">
+                </div>
+            </div>
+            <div class="item-details">
+                <span class="item-index">07 / 10</span>
+                <h3 class="item-title">Kallathigiri Cave Temple</h3>
+
+                <div class="history-wrapper">
+                    <p class="history-base">
+                        An ancient cave temple built into a natural rock face directly behind a cascading waterfall, featuring stone carvings from the Vijayanagara era.
+                    </p>
+                    <div class="history-extended">
+                        <p>
+                            Also known as Kalhatti Falls, this destination seamlessly integrates natural water landscapes with early religious architecture. Local tradition links the site to the Vedic sage Agastya, who is said to have spent long periods in meditation within these
+                            rocky clefts.
+                        </p>
+                        <p>
+                            The temple structures are built into the cliff side, where the waterfall drops 122 meters across the rocks. Worshippers pass through the natural spray to reach a small stone shrine featuring three guardian elephant carvings attributed to late Vijayanagara
+                            stonecraft.
+                        </p>
+                    </div>
+                    <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
+                </div>
+
+                <div class="utility-grid">
+                    <div class="util-meta">
+                        <h4>Location</h4>
+                        <p><a href="https://maps.google.com/?q=Kalhatti+Falls+Chikkamagaluru" target="_blank">Kallathipura, Tarikere Environs</a></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Washrooms</h4>
+                        <p><span class="badge badge-yes">Available Near Eco-Counter</span></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Logistics & Entry</h4>
+                        <p>7:00 AM – 6:00 PM | Free Entry</p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Recommended Hotels</h4>
+                        <p>Kemmangundi Hill Resort (KSTDC), Z Point Homestays</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="heritage-item">
+            <div class="item-gallery-wrapper">
+                <div class="slider-container">
+                    <img src="https://images.unsplash.com/photo-1598977123418-45f04b6168ba?w=800" alt="Balehonnur Shrimath Front Facade">
+                    <img src="https://images.unsplash.com/photo-1569336415962-a4bd9f69cd83?w=800" alt="Bhadra Riverfront Steps">
+                    <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=800" alt="Ceremonial Golden Ornaments">
+                </div>
+            </div>
+            <div class="item-details">
+                <span class="item-index">08 / 10</span>
+                <h3 class="item-title">Balehonnur Shrimath</h3>
+
+                <div class="history-wrapper">
+                    <p class="history-base">
+                        One of the oldest religious seats of the Veerashaiva community, situated on the banks of the Bhadra River and holding historical gold-plated artifacts.
+                    </p>
+                    <div class="history-extended">
+                        <p>
+                            The Sri Rambhapuri Peetha at Balehonnur is historically recognized as one of the five foundational monastic centers (Pancha Peethas) of Veerashaivism in India. Its origins trace back to the early medieval period, established by the saint Renukacharya.
+                        </p>
+                        <p>
+                            The monastery contains an ornate temple dedicated to Veerabhadra, featuring rows of detailed stone carvings. It houses a collection of copperplate inscriptions, palm-leaf manuscripts, and gold-plated processional ornaments gifted by regional Hoysala,
+                            Keladi, and Mysore rulers over centuries of continuous institutional influence.
+                        </p>
+                    </div>
+                    <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
+                </div>
+
+                <div class="utility-grid">
+                    <div class="util-meta">
+                        <h4>Location</h4>
+                        <p><a href="https://maps.google.com/?q=Balehonnur+Math+Chikkamagaluru" target="_blank">Narasimharajapura Road, Balehonnur</a></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Washrooms</h4>
+                        <p><span class="badge badge-yes">Available (Pilgrim Center)</span></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Logistics & Entry</h4>
+                        <p>6:00 AM – 8:00 PM | Free Entry</p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Recommended Hotels</h4>
+                        <p>Riverwoods Homestay, Balehonnur Town Residency</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="heritage-item">
+            <div class="item-gallery-wrapper">
+                <div class="slider-container">
+                    <img src="https://images.unsplash.com/photo-1541963463532-d68292c34b19?w=800" alt="Horanadu Temple Gopuram Front">
+                    <img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=800" alt="Inner Courtyard Wood Architecture">
+                    <img src="https://images.unsplash.com/photo-1596176530529-78163a4f7af2?w=800" alt="Malnad Hills Landscape Surroundings">
+                </div>
+            </div>
+            <div class="item-details">
+                <span class="item-index">09 / 10</span>
+                <h3 class="item-title">Horanadu Annapoorneshwari</h3>
+
+                <div class="history-wrapper">
+                    <p class="history-base">
+                        An ancient shrine set deep in the hills, housing a prominent standing golden statue of Goddess Annapoorneshwari.
+                    </p>
+                    <div class="history-extended">
+                        <p>
+                            Formally named Sri Adishaktyatmaka Annapoorneshwari Ammanavara Temple, this site has records of continuous worship dating back to the late 8th century, established by sage Agastya. The temple is located in a high valley surrounded by dense forests and
+                            hills.
+                        </p>
+                        <p>
+                            The main sanctuary houses a golden image of the deity holding a ritual ladle and vessel, representing eternal nourishment. Following a long-standing tradition of hospitality, the temple community provides complimentary multi-course vegetarian meals and
+                            accommodation to every visitor who makes the journey across the mountain passes.
+                        </p>
+                    </div>
+                    <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
+                </div>
+
+                <div class="utility-grid">
+                    <div class="util-meta">
+                        <h4>Location</h4>
+                        <p><a href="https://maps.google.com/?q=Horanadu+Annapoorneshwari+Temple" target="_blank">Mudigere Taluk, Horanadu</a></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Washrooms</h4>
+                        <p><span class="badge badge-yes">Available (Annadasana Complex)</span></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Logistics & Entry</h4>
+                        <p>6:30 AM – 9:00 PM | Free Admission</p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Recommended Hotels</h4>
+                        <p>Sri Kshethra Lodges, Bhagavati Atithi Gruha, Shayadri Residency</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="heritage-item">
+            <div class="item-gallery-wrapper">
+                <div class="slider-container">
+                    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800" alt="Angadi Ruins Temple Clearing">
+                    <img src="https://images.unsplash.com/photo-1541963463532-d68292c34b19?w=800" alt="Vasantha Parameshwari Broken Sculptures">
+                    <img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=800" alt="Hoysala Birthplace Commemorative Plaque">
+                </div>
+            </div>
+            <div class="item-details">
+                <span class="item-index">10 / 10</span>
+                <h3 class="item-title">Angadi Hoysala Temple Site</h3>
+
+                <div class="history-wrapper">
+                    <p class="history-base">
+                        The historical birthplace of the Hoysala Dynasty, containing early stone ruins and the temple site where the legendary founder Sala struck down a mythical tiger.
+                    </p>
+                    <div class="history-extended">
+                        <p>
+                            Historically known as Sasakapura, this quiet valley is where the Hoysala empire began. According to ancient inscriptions, the young warrior Sala was studying here under a Jain guru when a wild tiger attacked their temple sanctuary. The guru called out
+                            "Poy Sala!" (meaning "Strike, Sala!"). Sala killed the predator, and the phrase became the name of the new dynasty.
+                        </p>
+                        <p>
+                            The dynamic encounter became the royal stone emblem seen on every subsequent Hoysala monument. Today, the secluded site contains the preserved ruins of several 10th-century temples dedicated to Vasantha Parameshwari, Chennakesava, and Mallikarjuna, showcasing
+                            the earliest experiments in soft soapstone carving.
+                        </p>
+                    </div>
+                    <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
+                </div>
+
+                <div class="utility-grid">
+                    <div class="util-meta">
+                        <h4>Location</h4>
+                        <p><a href="https://maps.google.com/?q=Angadi+Hoysala+Temple+Site" target="_blank">Angadi Village, Mudigere Sector</a></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Washrooms</h4>
+                        <p><span class="badge badge-no">No Facilities on Hill</span></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Logistics & Entry</h4>
+                        <p>8:00 AM – 5:00 PM | Free Admission</p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Recommended Hotels</h4>
+                        <p>Mudigere Town Homestays, Flameback Lodges</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function toggleHistory(button) {
+            const wrapper = button.closest('.history-wrapper');
+            wrapper.classList.toggle('expanded');
+            if (wrapper.classList.contains('expanded')) {
+                button.textContent = "Read Less";
+            } else {
+                button.textContent = "Read More";
+            }
+        }
+    </script>
+
+</body>
+
+</html>

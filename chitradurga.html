@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chitradurga — Premium Heritage Chronicle</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+         :root {
+            --terracotta: #E8651A;
+            --gold: #C9A84C;
+            --bg-dark: #080C12;
+            --card-dark: #0D1420;
+            --border-glow: rgba(201, 168, 76, 0.15);
+            --text-light: #F0EDE8;
+            --text-muted: rgba(240, 237, 232, 0.55);
+        }
+        
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            background: var(--bg-dark);
+            color: var(--text-light);
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 300;
+            line-height: 1.6;
+            padding: 60px 8%;
+            overflow-x: hidden;
+        }
+        /* Editorial Header Design */
+        
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            color: var(--terracotta);
+            text-decoration: none;
+            font-size: 12px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 50px;
+            font-weight: 600;
+            transition: transform 0.3s ease;
+        }
+        
+        .back-btn:hover {
+            transform: translateX(-5px);
+        }
+        
+        .header {
+            margin-bottom: 60px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .header::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: var(--gold);
+            margin: 30px auto 0;
+        }
+        
+        .header h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 60px;
+            font-weight: 700;
+            letter-spacing: 5px;
+            line-height: 1.1;
+        }
+        
+        .header h1 span {
+            color: var(--terracotta);
+        }
+        /* Narrative Intro Box */
+        
+        .intro-chronicle {
+            max-width: 850px;
+            margin: 0 auto 100px;
+            text-align: center;
+            background: var(--card-dark);
+            padding: 40px;
+            border-radius: 4px;
+            border: 1px solid var(--border-glow);
+        }
+        
+        .intro-chronicle h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 24px;
+            color: var(--gold);
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+        
+        .intro-chronicle p {
+            font-size: 15px;
+            color: var(--text-muted);
+            line-height: 1.8;
+        }
+        /* One-by-One Alternating Layout */
+        
+        .heritage-flow {
+            display: flex;
+            flex-direction: column;
+            gap: 140px;
+        }
+        
+        .heritage-item {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 70px;
+            align-items: flex-start;
+        }
+        
+        .heritage-item:nth-child(even) {
+            grid-template-columns: 0.9fr 1.1fr;
+        }
+        
+        .heritage-item:nth-child(even) .item-gallery-wrapper {
+            order: 2;
+        }
+        /* Smooth Pure CSS Slider Component */
+        
+        .item-gallery-wrapper {
+            position: relative;
+            width: 100%;
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .slider-container {
+            display: flex;
+            width: 300%;
+            animation: slideShow 16s infinite ease-in-out;
+        }
+        
+        .slider-container img {
+            width: 33.333%;
+            height: 520px;
+            object-fit: cover;
+            display: block;
+        }
+        /* Staggered animation offsets per card to avoid uniform sliding */
+        
+        .heritage-item:nth-child(2n) .slider-container {
+            animation-delay: 2s;
+        }
+        
+        .heritage-item:nth-child(3n) .slider-container {
+            animation-delay: 4s;
+        }
+        
+        .heritage-item:nth-child(4n) .slider-container {
+            animation-delay: 6s;
+        }
+        
+        @keyframes slideShow {
+            0%,
+            25% {
+                transform: translateX(0%);
+            }
+            30%,
+            55% {
+                transform: translateX(-33.333%);
+            }
+            60%,
+            90% {
+                transform: translateX(-66.666%);
+            }
+            95%,
+            100% {
+                transform: translateX(0%);
+            }
+        }
+        /* Content Elements */
+        
+        .item-details {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .item-index {
+            font-family: 'Cinzel', serif;
+            font-size: 14px;
+            color: var(--terracotta);
+            font-weight: 700;
+            margin-bottom: 12px;
+            letter-spacing: 3px;
+        }
+        
+        .item-title {
+            font-family: 'Cinzel', serif;
+            font-size: 34px;
+            font-weight: 600;
+            margin-bottom: 18px;
+            color: #FFF;
+            line-height: 1.2;
+            letter-spacing: 1px;
+        }
+        /* Read More History System */
+        
+        .history-wrapper {
+            margin-bottom: 25px;
+        }
+        
+        .history-base {
+            color: var(--text-muted);
+            font-size: 15px;
+            line-height: 1.8;
+        }
+        
+        .history-extended {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s cubic-bezier(0, 1, 0, 1);
+            color: var(--text-muted);
+            font-size: 15px;
+            line-height: 1.8;
+        }
+        
+        .history-extended p {
+            margin-top: 12px;
+        }
+        
+        .history-wrapper.expanded .history-extended {
+            max-height: 1200px;
+            transition: max-height 0.8s cubic-bezier(0.9, 0, 0.1, 1);
+        }
+        
+        .read-more-trigger {
+            display: inline-flex;
+            align-items: center;
+            background: none;
+            border: none;
+            color: var(--gold);
+            font-family: 'Cinzel', serif;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            cursor: pointer;
+            margin-top: 12px;
+            padding: 4px 0;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+        
+        .read-more-trigger:hover {
+            color: var(--terracotta);
+        }
+        
+        .read-more-trigger::after {
+            content: ' +';
+            font-weight: bold;
+        }
+        
+        .history-wrapper.expanded .read-more-trigger::after {
+            content: ' -';
+        }
+        /* Utility Grid Information Box */
+        
+        .utility-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 22px;
+            background: var(--card-dark);
+            padding: 24px;
+            border-radius: 4px;
+            border: 1px solid var(--border-glow);
+            margin-top: 15px;
+        }
+        
+        .util-meta h4 {
+            font-family: 'Cinzel', serif;
+            font-size: 11px;
+            text-transform: uppercase;
+            color: var(--gold);
+            letter-spacing: 1.5px;
+            margin-bottom: 6px;
+        }
+        
+        .util-meta p {
+            font-size: 13.5px;
+            color: #F0EDE8;
+            font-weight: 400;
+        }
+        
+        .util-meta a {
+            color: var(--terracotta);
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.2s;
+        }
+        
+        .util-meta a:hover {
+            opacity: 0.8;
+            text-decoration: underline;
+        }
+        /* Infrastructure Badges */
+        
+        .badge {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .badge-yes {
+            background: rgba(46, 204, 113, 0.12);
+            color: #2ecc71;
+            border: 1px solid rgba(46, 204, 113, 0.2);
+        }
+        
+        .badge-no {
+            background: rgba(231, 76, 60, 0.12);
+            color: #e74c3c;
+            border: 1px solid rgba(231, 76, 60, 0.2);
+        }
+        /* Responsive Systems */
+        
+        @media (max-width: 1100px) {
+            body {
+                padding: 50px 4%;
+            }
+            .heritage-item,
+            .heritage-item:nth-child(even) {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .heritage-item:nth-child(even) .item-gallery-wrapper {
+                order: 0;
+            }
+            .slider-container img {
+                height: 380px;
+            }
+            .header h1 {
+                font-size: 44px;
+            }
+        }
+    </style>
+<link rel="stylesheet" href="responsive.css">
+</head>
+
+<body>
+
+    <a href="go-heritage.html" class="back-btn">← Back to Dashboard</a>
+
+    <div class="header">
+        <h1>CHITRADURGA <span>CHRONICLES</span></h1>
+    </div>
+
+    <div class="intro-chronicle">
+        <h2>History of the Stone Fortress</h2>
+        <p>Chitradurga is defined by its legendary fortification history. Ruled by the Rashtrakutas, the Chalukyas, and later brought to prominence by the legendary Nayakas of Chitradurga, the city centers around a vast stone hill-fortress. Its structural
+            and architectural design remains an unconquered paradigm of medieval military intelligence.</p>
+    </div>
+
+    <div class="heritage-flow">
+
+        <div class="heritage-item">
+            <div class="item-gallery-wrapper">
+                <div class="slider-container">
+                    <img src="https://i.pinimg.com/1200x/8f/26/f2/8f26f2d6e73127f3452ffa9e1ff4c5c4.jpg" alt="Chitradurga Fort Ramparts">
+                    <img src="https://images.unsplash.com/photo-1596176530529-78163a4f7af2?w=800" alt="Concentric Stone Walls">
+                    <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=800" alt="Fort Overhead View">
+                </div>
+            </div>
+            <div class="item-details">
+                <span class="item-index">01 / 10</span>
+                <h3 class="item-title">Chitradurga Fort (Elu Suttina Kote)</h3>
+
+                <div class="history-wrapper">
+                    <p class="history-base">
+                        A legendary fortification engineered with seven concentric rows of high-walled defensive stone structures, 19 entry gateways, and 38 back doors designed to stall hostile cavalry.
+                    </p>
+                    <div class="history-extended">
+                        <p>
+                            The fort was constructed in phases between the 10th and 18th centuries by the dynastic lines of the Rashtrakutas, Chalukyas, and Hoysalas, and later substantially fortified by the Nayakas of Chitradurga. The architectural masterstroke lies in its opportunistic
+                            use of the natural granitic boulder formations, transforming jagged hills into an integrated defensive labyrinth.
+                        </p>
+                        <p>
+                            The "seven rounds" (Elu Suttina) were laid out in zigzag pathways ensuring that invading forces could never achieve a straight-line battering ram trajectory against the massive timber gates. It features sophisticated rainwater harvest reservoirs (Kalyanis)
+                            tucked deep into stone depressions, which supplied water across years of absolute military siege.
+                        </p>
+                    </div>
+                    <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
+                </div>
+
+                <div class="utility-grid">
+                    <div class="util-meta">
+                        <h4>Location</h4>
+                        <p><a href="https://maps.google.com/?q=Chitradurga+Fort" target="_blank">Chitradurga Town Center</a></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Washrooms</h4>
+                        <p><span class="badge badge-yes">Available Near Ticket Counter</span></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Logistics & Entry</h4>
+                        <p>8:00 AM – 6:00 PM | ₹25 Entry Fee</p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Recommended Hotels</h4>
+                        <p>Hotel Amogha International, Deepanjali Residency, Naveen Regency</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="heritage-item">
+            <div class="item-gallery-wrapper">
+                <div class="slider-container">
+                    <img src="https://images.unsplash.com/photo-1596176530529-78163a4f7af2?w=800" alt="Obavanna Kindi Crevice">
+                    <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=800" alt="Stone Guard Post Outside Kindi">
+                    <img src="https://images.unsplash.com/photo-1605649487212-47bdab064df7?w=800" alt="Inside Fort Crevice Pathway">
+                </div>
+            </div>
+            <div class="item-details">
+                <span class="item-index">02 / 10</span>
+                <h3 class="item-title">Onake Obavanna Kindi</h3>
+
+                <div class="history-wrapper">
+                    <p class="history-base">
+                        The historic, narrow rock aperture within the fort where a single brave woman successfully neutralised invading enemy troops using a heavy wooden kitchen pestle.
+                    </p>
+                    <div class="history-extended">
+                        <p>
+                            During the high-stakes siege of the fort by Hyder Ali in the late 18th century, a tactical vulnerability was discovered—a narrow cleft in the boulders through which a single soldier could squeeze at a time. While the guard of the post went down for his
+                            midday meal, his wife, Obavanna, went to gather water nearby and noticed the silent advance of enemy soldiers emerging from the opening.
+                        </p>
+                        <p>
+                            Armed only with an 'Onake' (a heavy wooden log pestle used for crushing grain), she hid behind the lip of the crevice. As each soldier emerged, she dealt a fatal blow to their head, pulling the bodies aside to keep the passage clear for the next unsuspecting
+                            soldier. Her exceptional bravery saved the fort for that day, and the crack remains a highly revered monument of Kannada historic heritage.
+                        </p>
+                    </div>
+                    <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
+                </div>
+
+                <div class="utility-grid">
+                    <div class="util-meta">
+                        <h4>Location</h4>
+                        <p><a href="https://maps.google.com/?q=Obavanna+Kindi+Chitradurga" target="_blank">Middle Enclosure, Chitradurga Fort</a></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Washrooms</h4>
+                        <p><span class="badge badge-no">None inside this sector</span></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Logistics & Entry</h4>
+                        <p>Included in Fort Tour | Free Entry (With Fort Ticket)</p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Recommended Hotels</h4>
+                        <p>Hotel Maurya Comforts, Hotel Maruthi Heritage</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="heritage-item">
+            <div class="item-gallery-wrapper">
+                <div class="slider-container">
+                    <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=800" alt="Hidimbeshwara Temple Boulders">
+                    <img src="https://images.unsplash.com/photo-1584551246679-0daf3d275d0f?w=800" alt="Rock-Cut Temple Entrance">
+                    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800" alt="Hilltop Stone Temple Panorama">
+                </div>
+            </div>
+            <div class="item-details">
+                <span class="item-index">03 / 10</span>
+                <h3 class="item-title">Hidimbeshwara Temple</h3>
+
+                <div class="history-wrapper">
+                    <p class="history-base">
+                        An ancient rock-integrated shrine crafted from massive granite boulders, tracing its roots to the early Chalukyan architectural era and epic Mahabharata legends.
+                    </p>
+                    <div class="history-extended">
+                        <p>
+                            Perched high upon the rocky hillsides of the fort, this shrine is traditionally linked to the mythological giant Hidimba, who was slain by the Pandava prince Bhima. The structure itself represents a transition from rock-shelter architecture to formal
+                            stone-built design, utilizing the overhead granite shelf as a natural temple ceiling.
+                        </p>
+                        <p>
+                            The structural temple features a heavy stone monolithic pillar network and a beautifully aged sanctuary. The exterior boasts a massive iron-clad ceremonial kettle drum, which was used in ancient times to sound warning signals across the plains below when
+                            enemy forces were spotted on the horizon.
+                        </p>
+                    </div>
+                    <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
+                </div>
+
+                <div class="utility-grid">
+                    <div class="util-meta">
+                        <h4>Location</h4>
+                        <p><a href="https://maps.google.com/?q=Hidimbeshwara+Temple" target="_blank">Upper Levels, Chitradurga Fort</a></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Washrooms</h4>
+                        <p><span class="badge badge-no">Not available on the hill</span></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Logistics & Entry</h4>
+                        <p>8:00 AM – 5:30 PM | Free Entry</p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Recommended Hotels</h4>
+                        <p>Hotel Kyriad Chitradurga, Amogha International</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="heritage-item">
+            <div class="item-gallery-wrapper">
+                <div class="slider-container">
+                    <img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=800" alt="Murugha Matha Entrance">
+                    <img src="https://images.unsplash.com/photo-1598977123418-45f04b6168ba?w=800" alt="Underground Meditation Halls">
+                    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800" alt="Matha Cultural Campus">
+                </div>
+            </div>
+            <div class="item-details">
+                <span class="item-index">04 / 10</span>
+                <h3 class="item-title">Murugha Rajendra Matha</h3>
+
+                <div class="history-wrapper">
+                    <p class="history-base">
+                        An expansive, active spiritual monastery center hosting unique underground meditation chambers and a long tradition of socio-religious reform.
+                    </p>
+                    <div class="history-extended">
+                        <p>
+                            The Murugha Rajendra Matha belongs to the rich Veerashaiva Lingayat tradition, tracing its ideological lineage back to the 12th-century social reformer Basaveshwara. The matha played a critical stabilizing role during the rule of the Nayaka kings, providing
+                            education, food security, and spiritual guidance during times of regional instability.
+                        </p>
+                        <p>
+                            The defining architectural feature of this spiritual site is the silent underground labyrinth of low-ceilinged stone chambers (Shoonya Peetha). These cold subterranean cells were engineered to provide an absolute lack of acoustic and sensory disturbance,
+                            allowing ascetics to perform long meditation rituals in complete isolation.
+                        </p>
+                    </div>
+                    <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
+                </div>
+
+                <div class="utility-grid">
+                    <div class="util-meta">
+                        <h4>Location</h4>
+                        <p><a href="https://maps.google.com/?q=Murugha+Rajendra+Matha" target="_blank">NH-48 Bypass Road, Chitradurga</a></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Washrooms</h4>
+                        <p><span class="badge badge-yes">Available (Pilgrim Complex)</span></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Logistics & Entry</h4>
+                        <p>6:00 AM – 8:00 PM | Free Entry</p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Recommended Hotels</h4>
+                        <p>The Central Park Hotel, Red Lotus Residency</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="heritage-item">
+            <div class="item-gallery-wrapper">
+                <div class="slider-container">
+                    <img src="https://images.unsplash.com/photo-1605649487212-47bdab064df7?w=800" alt="Chandravalli Cave Opening">
+                    <img src="https://images.unsplash.com/photo-1584551246679-0daf3d275d0f?w=800" alt="Ankali Math Subterranean Rooms">
+                    <img src="https://images.unsplash.com/photo-1596176530529-78163a4f7af2?w=800" alt="Chandravalli Lake and Hills">
+                </div>
+            </div>
+            <div class="item-details">
+                <span class="item-index">05 / 10</span>
+                <span class="item-title">Chandravalli Caves (Ankali Math)</span>
+
+                <div class="history-wrapper">
+                    <p class="history-base">
+                        Remarkable multi-level underground rock cave chambers set between valley boulders, once used by ancient monks for deep spiritual practices.
+                    </p>
+                    <div class="history-extended">
+                        <p>
+                            Chandravalli is an archaeological goldmine located in a valley formed by three parallel hills. Excavations here have unearthed Roman silver coins belonging to Emperor Augustus, Chinese clay medallions, and lead coins from the Satavahana dynasty, proving
+                            the site was a major hub of international commerce and trade routes around 2,000 years ago.
+                        </p>
+                        <p>
+                            Tucked deep inside the rocky valley is the Ankali Math, an underground monolithic cave temple system. Stepping through its small entrances reveals a series of chambers cut deep into the rock, complete with ventilation shafts, stone seating shelves, and
+                            natural drainage pools where saints from the Kadamba era lived and meditated.
+                        </p>
+                    </div>
+                    <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
+                </div>
+
+                <div class="utility-grid">
+                    <div class="util-meta">
+                        <h4>Location</h4>
+                        <p><a href="https://maps.google.com/?q=Chandravalli+Caves" target="_blank">Chandravalli Archaeological Site</a></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Washrooms</h4>
+                        <p><span class="badge badge-yes">Available Near Lake Park</span></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Logistics & Entry</h4>
+                        <p>9:00 AM – 5:00 PM | ₹20 Entry Fee</p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Recommended Hotels</h4>
+                        <p>Hotel Kyriad, Amogha International, Maurya Comforts</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="heritage-item">
+            <div class="item-gallery-wrapper">
+                <div class="slider-container">
+                    <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=800" alt="Ekanatheshwari Temple Front View">
+                    <img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=800" alt="Polished Carved Pillar Bases">
+                    <img src="https://images.unsplash.com/photo-1541963463532-d68292c34b19?w=800" alt="Temple Inner Mandapa Architecture">
+                </div>
+            </div>
+            <div class="item-details">
+                <span class="item-index">06 / 10</span>
+                <h3 class="item-title">Ekanatheshwari Temple</h3>
+
+                <div class="history-wrapper">
+                    <p class="history-base">
+                        Built inside the hill fort by the Nayaka chieftains in the 15th century, displaying highly polished stone entry halls and complex iconographic work.
+                    </p>
+                    <div class="history-extended">
+                        <p>
+                            The temple serves as the ancestral shrine of the Nayakas of Chitradurga. It was built during the reign of the early Madakari Nayakas to invoke divine protection over the fort's garrisons. The style is heavily inspired by late Vijayanagara designs, characterized
+                            by strong lines and deep stone relief work.
+                        </p>
+                        <p>
+                            The inner sanctuary holds a beautifully rendered multi-armed stone idol of the goddess. The entry pavilion (Mukhamandapa) features high granite columns with carvings of legendary beasts, structural guardian lions, and dynamic battle heroes, capturing
+                            the military spirit of the kingdom.
+                        </p>
+                    </div>
+                    <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
+                </div>
+
+                <div class="utility-grid">
+                    <div class="util-meta">
+                        <h4>Location</h4>
+                        <p><a href="https://maps.google.com/?q=Ekanatheshwari+Temple" target="_blank">Inner Fort Grid, Chitradurga Fort</a></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Washrooms</h4>
+                        <p><span class="badge badge-no">Basic setups near gateway</span></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Logistics & Entry</h4>
+                        <p>8:00 AM – 6:00 PM | Free Entry</p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Recommended Hotels</h4>
+                        <p>Hotel Naveen Regency, Deepanjali Residency</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="heritage-item">
+            <div class="item-gallery-wrapper">
+                <div class="slider-container">
+                    <img src="https://images.unsplash.com/photo-1584551246679-0daf3d275d0f?w=800" alt="Vani Vilas Sagara Spillway">
+                    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800" alt="Dam Stone Masonry Wall">
+                    <img src="https://images.unsplash.com/photo-1596176530529-78163a4f7af2?w=800" alt="Reservoir and Mountain Ridges">
+                </div>
+            </div>
+            <div class="item-details">
+                <span class="item-index">07 / 10</span>
+                <h3 class="item-title">Vani Vilas Sagara Dam</h3>
+
+                <div class="history-wrapper">
+                    <p class="history-base">
+                        An engineering masterpiece completed in 1907 by the Wadiyars of Mysore, standing as one of the oldest masonry dams in South India.
+                    </p>
+                    <div class="history-extended">
+                        <p>
+                            Commonly known as Mari Kanave, this dam was commissioned by the regency of Maharani Kempananjammanni Vani Vilasa Sannidhana and her son, Maharaja Krishnaraja Wadiyar IV. The project was designed by legendary British engineers alongside local experts to
+                            transform the drought-prone valleys into rich agricultural lands.
+                        </p>
+                        <p>
+                            The dam wall was constructed using an innovative lime-mortar and stone masonry configuration instead of modern concrete, creating a structure that has stood for over a century without a single structural leak. The architectural design features elegant
+                            pavilions on either end of the embankment, combining classical European elements with regional Mysore accents.
+                        </p>
+                    </div>
+                    <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
+                </div>
+
+                <div class="utility-grid">
+                    <div class="util-meta">
+                        <h4>Location</h4>
+                        <p><a href="https://maps.google.com/?q=Vani+Vilas+Sagara+Dam" target="_blank">Hiriyur Taluk, Chitradurga Sector</a></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Washrooms</h4>
+                        <p><span class="badge badge-yes">Available Near Garden Park</span></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Logistics & Entry</h4>
+                        <p>8:00 AM – 6:00 PM | Free Entry</p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Recommended Hotels</h4>
+                        <p>Hiriyur Town Lodges, Highway Dhabas and Restaurants</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="heritage-item">
+            <div class="item-gallery-wrapper">
+                <div class="slider-container">
+                    <img src="https://images.unsplash.com/photo-1598977123418-45f04b6168ba?w=800" alt="Purada Anjaneya Temple Tower">
+                    <img src="https://images.unsplash.com/photo-1569336415962-a4bd9f69cd83?w=800" alt="Monolithic Granite Hanuman Face">
+                    <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=800" alt="Temple Ceremonial Entryway">
+                </div>
+            </div>
+            <div class="item-details">
+                <span class="item-index">08 / 10</span>
+                <h3 class="item-title">Holalkere Purada Anjaneya</h3>
+
+                <div class="history-wrapper">
+                    <p class="history-base">
+                        Houses a colossal 6-meter-tall monolithic granite statue of Lord Hanuman erected in 1447 AD during the height of the Vijayanagara Empire.
+                    </p>
+                    <div class="history-extended">
+                        <p>
+                            This historic site was established under the supervision of the local chieftain Gopala Nayaka, who governed the region under the Vijayanagara crown. The creation of such grand statues was part of a larger plan to build strong cultural and religious landmarks
+                            along major trade routes.
+                        </p>
+                        <p>
+                            The massive statue is carved from a single outcropping of grey granite. The artistic style is distinctively Vijayanagara, featuring strong geometric patterns, clear expressions, and a high level of anatomical proportion. It remains a key example of the
+                            monolithic carving skills that flourished in medieval Karnataka.
+                        </p>
+                    </div>
+                    <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
+                </div>
+
+                <div class="utility-grid">
+                    <div class="util-meta">
+                        <h4>Location</h4>
+                        <p><a href="https://maps.google.com/?q=Holalkere" target="_blank">Holalkere Town Center</a></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Washrooms</h4>
+                        <p><span class="badge badge-yes">Available Outside Complex</span></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Logistics & Entry</h4>
+                        <p>6:00 AM – 8:00 PM | Free Entry</p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Recommended Hotels</h4>
+                        <p>Holalkere Town Rest Houses, Chitradurga City Hotels</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="heritage-item">
+            <div class="item-gallery-wrapper">
+                <div class="slider-container">
+                    <img src="https://images.unsplash.com/photo-1541963463532-d68292c34b19?w=800" alt="Sirigere Matha Prayer Hall">
+                    <img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=800" alt="Administrative Stone Columns">
+                    <img src="https://images.unsplash.com/photo-1596176530529-78163a4f7af2?w=800" alt="Socio Cultural Assembly Pavilion">
+                </div>
+            </div>
+            <div class="item-details">
+                <span class="item-index">09 / 10</span>
+                <h3 class="item-title">Sirigere Taralabalu Matha</h3>
+
+                <div class="history-wrapper">
+                    <p class="history-base">
+                        A prominent historical educational and socio-cultural monastery center featuring classic early modern architecture halls and public schools.
+                    </p>
+                    <div class="history-extended">
+                        <p>
+                            Founded by the saint Marulasiddha in the 12th century, this matha has historically served as a center for social equality and agricultural development. The institution pioneered early community-led judicial arbitration systems, allowing local farmers
+                            to resolve water and land disputes without relying on expensive colonial or feudal courts.
+                        </p>
+                        <p>
+                            The institutional architecture features expansive community halls designed to host thousands of pilgrims for educational meets. The design reflects an early modern style, blending traditional Dravidian layouts with functional 20th-century stone masonry.
+                        </p>
+                    </div>
+                    <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
+                </div>
+
+                <div class="utility-grid">
+                    <div class="util-meta">
+                        <h4>Location</h4>
+                        <p><a href="https://maps.google.com/?q=Sirigere" target="_blank">Sirigere Village, Bharamasagara Sector</a></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Washrooms</h4>
+                        <p><span class="badge badge-yes">Available (Institutional Block)</span></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Logistics & Entry</h4>
+                        <p>9:00 AM – 6:00 PM | Free Admission</p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Recommended Hotels</h4>
+                        <p>Taralabalu Guest Houses, National Highway Transit Motels</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="heritage-item">
+            <div class="item-gallery-wrapper">
+                <div class="slider-container">
+                    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800" alt="Siddapura Rock Edict Site">
+                    <img src="https://images.unsplash.com/photo-1541963463532-d68292c34b19?w=800" alt="Brahmi Script Carvings Close Up">
+                    <img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=800" alt="ASI Protective Pavilion Enclosure">
+                </div>
+            </div>
+            <div class="item-details">
+                <span class="item-index">10 / 10</span>
+                <h3 class="item-title">Ashoka Siddapura Inscription Site</h3>
+
+                <div class="history-wrapper">
+                    <p class="history-base">
+                        The historic location of ancient rock-carved minor edicts belonging to Emperor Ashoka, written in the old Brahmi script dating back to the 3rd century BC.
+                    </p>
+                    <div class="history-extended">
+                        <p>
+                            Discovered by archaeologists in the late 19th century, this ancient site proves that the southern edge of Maurya empire extended deep into central Karnataka. The rock edicts were placed along historic trading paths to catch the attention of traveling
+                            merchants, monks, and regional emissaries.
+                        </p>
+                        <p>
+                            The inscriptions are carved directly into a natural granitic boulder face and written in the Prakrit language using ancient Brahmi script characters. The text outlines Ashoka's policies on state ethics, religious tolerance, and social welfare (Dhamma),
+                            and is protected inside an open-air pavilion managed by the Archaeological Survey of India (ASI).
+                        </p>
+                    </div>
+                    <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
+                </div>
+
+                <div class="utility-grid">
+                    <div class="util-meta">
+                        <h4>Location</h4>
+                        <p><a href="https://maps.google.com/?q=Siddapura+Ashoka+Edicts" target="_blank">Siddapura, Molakalmuru Sector</a></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Washrooms</h4>
+                        <p><span class="badge badge-no">No nearby utility setups</span></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Logistics & Entry</h4>
+                        <p>Open Access | Free Admission</p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Recommended Hotels</h4>
+                        <p>Molakalmuru Town Lodges, Challakere Junction Hotels</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function toggleHistory(button) {
+            const wrapper = button.closest('.history-wrapper');
+            wrapper.classList.toggle('expanded');
+            if (wrapper.classList.contains('expanded')) {
+                button.textContent = "Read Less";
+            } else {
+                button.textContent = "Read More";
+            }
+        }
+    </script>
+
+</body>
+
+</html>

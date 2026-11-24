@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shivamogga — Premium Cultural Heritage Chronicle</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+         :root {
+            --terracotta: #E8651A;
+            --gold: #C9A84C;
+            --bg-dark: #080C12;
+            --card-dark: #0D1420;
+            --border-glow: rgba(201, 168, 76, 0.15);
+            --text-light: #F0EDE8;
+            --text-muted: rgba(240, 237, 232, 0.55);
+        }
+        
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            background: var(--bg-dark);
+            color: var(--text-light);
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 300;
+            line-height: 1.6;
+            padding: 60px 8%;
+            overflow-x: hidden;
+        }
+        
+        body::after {
+            content: '';
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 9000;
+            opacity: 0.02;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+        }
+        /* Editorial Header Design */
+        
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            color: var(--terracotta);
+            text-decoration: none;
+            font-size: 12px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 50px;
+            font-weight: 600;
+            transition: transform 0.3s ease;
+        }
+        
+        .back-btn:hover {
+            transform: translateX(-5px);
+        }
+        
+        .header {
+            margin-bottom: 60px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .header::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: var(--gold);
+            margin: 30px auto 0;
+        }
+        
+        .header h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 60px;
+            font-weight: 700;
+            letter-spacing: 5px;
+            line-height: 1.1;
+        }
+        
+        .header h1 span {
+            color: var(--terracotta);
+        }
+        /* Narrative Intro Box */
+        
+        .intro-chronicle {
+            max-width: 850px;
+            margin: 0 auto 100px;
+            text-align: center;
+            background: var(--card-dark);
+            padding: 40px;
+            border-radius: 4px;
+            border: 1px solid var(--border-glow);
+        }
+        
+        .intro-chronicle h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 24px;
+            color: var(--gold);
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+        
+        .intro-chronicle p {
+            font-size: 15px;
+            color: var(--text-muted);
+            line-height: 1.8;
+        }
+        /* One-by-One Alternating Layout */
+        
+        .heritage-flow {
+            display: flex;
+            flex-direction: column;
+            gap: 140px;
+        }
+        
+        .heritage-item {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 70px;
+            align-items: flex-start;
+        }
+        
+        .heritage-item:nth-child(even) {
+            grid-template-columns: 0.9fr 1.1fr;
+        }
+        
+        .heritage-item:nth-child(even) .item-gallery-wrapper {
+            order: 2;
+        }
+        /* Smooth Pure CSS Slider Component */
+        
+        .item-gallery-wrapper {
+            position: relative;
+            width: 100%;
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .slider-container {
+            display: flex;
+            width: 300%;
+            animation: slideShow 16s infinite ease-in-out;
+        }
+        
+        .slider-container img {
+            width: 33.333%;
+            height: 520px;
+            object-fit: cover;
+            display: block;
+        }
+        /* Staggered animation offsets per card to avoid uniform transitions */
+        
+        .heritage-item:nth-child(2n) .slider-container {
+            animation-delay: 2s;
+        }
+        
+        .heritage-item:nth-child(3n) .slider-container {
+            animation-delay: 4s;
+        }
+        
+        .heritage-item:nth-child(4n) .slider-container {
+            animation-delay: 6s;
+        }
+        
+        @keyframes slideShow {
+            0%,
+            25% {
+                transform: translateX(0%);
+            }
+            30%,
+            55% {
+                transform: translateX(-33.333%);
+            }
+            60%,
+            90% {
+                transform: translateX(-66.666%);
+            }
+            95%,
+            100% {
+                transform: translateX(0%);
+            }
+        }
+        /* Content Elements */
+        
+        .item-details {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .item-index {
+            font-family: 'Cinzel', serif;
+            font-size: 14px;
+            color: var(--terracotta);
+            font-weight: 700;
+            margin-bottom: 12px;
+            letter-spacing: 3px;
+        }
+        
+        .item-title {
+            font-family: 'Cinzel', serif;
+            font-size: 34px;
+            font-weight: 600;
+            margin-bottom: 18px;
+            color: #FFF;
+            line-height: 1.2;
+            letter-spacing: 1px;
+        }
+        /* Read More History System */
+        
+        .history-wrapper {
+            margin-bottom: 25px;
+        }
+        
+        .history-base {
+            color: var(--text-muted);
+            font-size: 15px;
+            line-height: 1.8;
+        }
+        
+        .history-extended {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s cubic-bezier(0, 1, 0, 1);
+            color: var(--text-muted);
+            font-size: 15px;
+            line-height: 1.8;
+        }
+        
+        .history-extended p {
+            margin-top: 12px;
+        }
+        
+        .history-wrapper.expanded .history-extended {
+            max-height: 1200px;
+            transition: max-height 0.8s cubic-bezier(0.9, 0, 0.1, 1);
+        }
+        
+        .read-more-trigger {
+            display: inline-flex;
+            align-items: center;
+            background: none;
+            border: none;
+            color: var(--gold);
+            font-family: 'Cinzel', serif;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            cursor: pointer;
+            margin-top: 12px;
+            padding: 4px 0;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+        
+        .read-more-trigger:hover {
+            color: var(--terracotta);
+        }
+        
+        .read-more-trigger::after {
+            content: ' +';
+            font-weight: bold;
+        }
+        
+        .history-wrapper.expanded .read-more-trigger::after {
+            content: ' -';
+        }
+        /* Utility Grid Information Box */
+        
+        .utility-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 22px;
+            background: var(--card-dark);
+            padding: 24px;
+            border-radius: 4px;
+            border: 1px solid var(--border-glow);
+            margin-top: 15px;
+        }
+        
+        .util-meta h4 {
+            font-family: 'Cinzel', serif;
+            font-size: 11px;
+            text-transform: uppercase;
+            color: var(--gold);
+            letter-spacing: 1.5px;
+            margin-bottom: 6px;
+        }
+        
+        .util-meta p {
+            font-size: 13.5px;
+            color: #F0EDE8;
+            font-weight: 400;
+        }
+        
+        .util-meta a {
+            color: var(--terracotta);
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.2s;
+        }
+        
+        .util-meta a:hover {
+            opacity: 0.8;
+            text-decoration: underline;
+        }
+        /* Infrastructure Badges */
+        
+        .badge {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .badge-yes {
+            background: rgba(46, 204, 113, 0.12);
+            color: #2ecc71;
+            border: 1px solid rgba(46, 204, 113, 0.2);
+        }
+        
+        .badge-no {
+            background: rgba(231, 76, 60, 0.12);
+            color: #e74c3c;
+            border: 1px solid rgba(231, 76, 60, 0.2);
+        }
+        /* Responsive Adjustments */
+        
+        @media (max-width: 1100px) {
+            body {
+                padding: 50px 4%;
+            }
+            .heritage-item,
+            .heritage-item:nth-child(even) {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .heritage-item:nth-child(even) .item-gallery-wrapper {
+                order: 0;
+            }
+            .slider-container img {
+                height: 380px;
+            }
+            .header h1 {
+                font-size: 44px;
+            }
+        }
+    </style>
+<link rel="stylesheet" href="responsive.css">
+</head>
+
+<body>
+
+    <a href="go-heritage.html" class="back-btn">← Back to Dashboard</a>
+
+    <div class="header">
+        <h1>SHIVAMOGGA <span>HERITAGE</span></h1>
+    </div>
+
+    <div class="intro-chronicle">
+        <h2>History of the Malnad Gateway</h2>
+        <p>Historically ruled by the Kadambas, Chalukyas, and the Keladi Nayakas (feudatories of the Vijayanagara Empire), Shivamogga is a verdant region where history meets the Malnad wilderness. Rulers like Shivappa Nayaka established powerful riverforts
+            and trading systems, leaving behind an artistic heritage of intricate wooden architecture and stone temples deep within the rain-soaked Western Ghats.</p>
+    </div>
+
+    <div class="heritage-flow">
+
+        <div class="heritage-item">
+            <div class="item-gallery-wrapper">
+                <div class="slider-container">
+                    <img src="https://i.pinimg.com/736x/8e/88/f8/8e88f828d6e75194c1e46c402062e679.jpg" alt="Keladi Rameshwara Temple Pillars">
+                    <img src="https://images.unsplash.com/photo-1596176530529-78163a4f7af2?w=800" alt="Intricate Wooden Roof Structure">
+                    <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=800" alt="Temple Sacred Inscriptions">
+                </div>
+            </div>
+            <div class="item-details">
+                <span class="item-index">01 / 10</span>
+                <h3 class="item-title">Keladi Rameshwara Temple</h3>
+
+                <div class="history-wrapper">
+                    <p class="history-base">
+                        An outstanding 16th-century temple complex showing a fusion of Hoysala and Vijayanagara styles, famous for its carved wooden ceilings.
+                    </p>
+                    <div class="history-extended">
+                        <p>
+                            Constructed during the reign of the early Keladi rulers, Chaudappa Nayaka and Sadashiva Nayaka, the Rameshwara temple serves as a magnificent historic monument to the independent cultural identity of the Malnad kingdoms. Built primarily out of local stone,
+                            the complex contains three main shrines dedicated to Rameshwara, Veerabhadra, and Goddess Parvati.
+                        </p>
+                        <p>
+                            The inner roof of the Veerabhadra shrine features an unparalleled masterpiece of dark wooden paneling, showcasing a large mythical creature called the Gandaberunda (a double-headed eagle holding elephants in its talons). This symbol became the royal emblem
+                            of consecutive Karnataka dynasties. The site also contains a unique historic pillar featuring a detailed carving of Queen Keladi Chennamma offering sanctuary to Rajaram, the son of Maratha ruler Chhatrapati Shivaji, highlighting
+                            the historical bravery of the region's leaders.
+                        </p>
+                    </div>
+                    <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
+                </div>
+
+                <div class="utility-grid">
+                    <div class="util-meta">
+                        <h4>Location</h4>
+                        <p><a href="https://maps.google.com/?q=Keladi+Rameshwara+Temple+Sagar+Shivamogga" target="_blank">Keladi Village, Sagar Taluk, Shivamogga District</a></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Washrooms</h4>
+                        <p><span class="badge badge-yes">Available inside the temple administrative block</span></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Logistics & Entry</h4>
+                        <p>6:00 AM – 8:00 PM | Free Entry</p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Recommended Hotels</h4>
+                        <p>KSTDC Hotel Mayura Sharavathi Sagar, Green Embassy Hotel, Royal Orchid Shivamogga</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="heritage-item">
+            <div class="item-gallery-wrapper">
+                <div class="slider-container">
+                    <img src="https://images.unsplash.com/photo-1596176530529-78163a4f7af2?w=800" alt="Shivappa Nayaka Palace Frontage">
+                    <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=800" alt="Rosewood Pillars Assembly Hall">
+                    <img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=800" alt="Archaeological Museum Gallery">
+                </div>
+            </div>
+            <div class="item-details">
+                <span class="item-index">02 / 10</span>
+                <h3 class="item-title">Shivappa Nayaka Palace</h3>
+
+                <div class="history-wrapper">
+                    <p class="history-base">
+                        Built completely of seasoned rosewood by the legendary ruler Shivappa Nayaka in the 17th century, it now houses ancient regional sculptures.
+                    </p>
+                    <div class="history-extended">
+                        <p>
+                            Located on the banks of the Tunga River within the heart of Shivamogga city, this palace was built by the great administrator King Shivappa Nayaka (reigned 1645–1660). Known for implementing revolutionary land revenue systems called 'Sist', the king designed
+                            his court with regional materials capable of withstanding the heavy monsoon seasons of the Western Ghats.
+                        </p>
+                        <p>
+                            The entire two-story palace structure is built from seasoned timber, featuring large rosewood columns that support a broad assembly hall. Today, the building is carefully maintained by the State Archaeology Department as a museum. It preserves an exceptional
+                            collection of stone inscriptions, ancient weapons, coins, and medieval Chalukyan and Hoysala sculptures collected from archaeological sites across Malnad.
+                        </p>
+                    </div>
+                    <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
+                </div>
+
+                <div class="utility-grid">
+                    <div class="util-meta">
+                        <h4>Location</h4>
+                        <p><a href="https://maps.google.com/?q=Shivappa+Nayaka+Palace+Shivamogga+City" target="_blank">Kote Road, Lashkar Mohalla, Shivamogga Urban Center</a></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Washrooms</h4>
+                        <p><span class="badge badge-yes">Available inside the main museum compound</span></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Logistics & Entry</h4>
+                        <p>9:00 AM – 6:00 PM | ₹15 Admission Fee (Closed on Mondays)</p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Recommended Hotels</h4>
+                        <p>Harsha The Comfort Hotel, Hotel Jewel Rock, Kimmane Luxury Golf Resort</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="heritage-item">
+            <div class="item-gallery-wrapper">
+                <div class="slider-container">
+                    <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=800" alt="Ikkeri Aghoreshwara Temple Stone Structure">
+                    <img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=800" alt="Monolithic Granite Nandi Pavilion">
+                    <img src="https://images.unsplash.com/photo-1605649487212-47bdab064df7?w=800" alt="Carved Mythical Yali Balustrades">
+                </div>
+            </div>
+            <div class="item-details">
+                <span class="item-index">03 / 10</span>
+                <h3 class="item-title">Ikkeri Aghoreshwara Temple</h3>
+
+                <div class="history-wrapper">
+                    <p class="history-base">
+                        A grand granite temple featuring a unique layout, built by the Nayakas of Keladi, with beautiful imagery of deities and dancers.
+                    </p>
+                    <div class="history-extended">
+                        <p>
+                            Ikkeri served as the capital of the Keladi Nayakas for over a century. The massive Aghoreshwara Temple, built from local granite block formations, represents the peak of the unique Keladi building style, which carefully blended Vijayanagara, Hoysala,
+                            and even Deccan Islamic elements.
+                        </p>
+                        <p>
+                            The main hall features highly polished pillars and a large inner space that creates an atmosphere of deep reverence. Sitting in front of the main shrine is a magnificent, highly polished monolithic Nandi bull, housed inside an elegant stone pavilion with
+                            arched windows. The outside walls are detailed with carved borders that show rows of dancers, musicians, and mythical creatures, reflecting the creative traditions of the old Malnad courts.
+                        </p>
+                    </div>
+                    <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
+                </div>
+
+                <div class="utility-grid">
+                    <div class="util-meta">
+                        <h4>Location</h4>
+                        <p><a href="https://maps.google.com/?q=Ikkeri+Aghoreshwara+Temple+Sagar" target="_blank">Ikkeri Town, 6km from Sagar Railway Station</a></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Washrooms</h4>
+                        <p><span class="badge badge-yes">Available near the ASI tourist garden lawn entrance</span></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Logistics & Entry</h4>
+                        <p>7:00 AM – 6:30 PM | Free Entry</p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Recommended Hotels</h4>
+                        <p>Hotel Sagar Comforts, KSTDC Mayura Sharavathi, Matthuga Resort</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="heritage-item">
+            <div class="item-gallery-wrapper">
+                <div class="slider-container">
+                    <img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=800" alt="Kavaledurga Fort Fortified Walls">
+                    <img src="https://images.unsplash.com/photo-1605649487212-47bdab064df7?w=800" alt="Moss Covered Steps to the Hill">
+                    <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=800" alt="Srikanteshwara Temple at Peak">
+                </div>
+            </div>
+            <div class="item-details">
+                <span class="item-index">04 / 10</span>
+                <h3 class="item-title">Kavaledurga Fort</h3>
+
+                <div class="history-wrapper">
+                    <p class="history-base">
+                        A magnificent, remote hill fortress surrounded by dense forests, featuring layered stone walls, structural gateways, and palace ruins.
+                    </p>
+                    <div class="history-extended">
+                        <p>
+                            Hidden deep within the dense forests of the Western Ghats, Kavaledurga was an important stronghold built in the 9th century and later reinforced by Keladi king Shivappa Nayaka. He renamed it Bhuvanagiri Fort and added seven distinct lines of granite defense
+                            walls to protect it from invading armies.
+                        </p>
+                        <p>
+                            The fortress layout is designed to work with the steep, natural curves of the mountain. Visitors can explore the stone foundations of the old palace complex, historic stone storehouses, and an advanced network of freshwater pools connected by channels.
+                            At the mountain peak sits the beautiful Srikanteshwara Temple, offering panoramic views across the rolling, misty hills of Malnad and the distant Varahi river basin.
+                        </p>
+                    </div>
+                    <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
+                </div>
+
+                <div class="utility-grid">
+                    <div class="util-meta">
+                        <h4>Location</h4>
+                        <p><a href="https://maps.google.com/?q=Kavaledurga+Fort+Thirthahalli" target="_blank">Kavaledurga, Thirthahalli Taluk, Western Shivamogga</a></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Washrooms</h4>
+                        <p><span class="badge badge-no">No public facilities available along the hill climb trail</span></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Logistics & Entry</h4>
+                        <p>8:00 AM – 5:00 PM | Free Entry (Requires a 2km trek over rocky ground)</p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Recommended Hotels</h4>
+                        <p>Vihangama Holiday Retreat, Bananki Homestay Thirthahalli</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="heritage-item">
+            <div class="item-gallery-wrapper">
+                <div class="slider-container">
+                    <img src="https://images.unsplash.com/photo-1605649487212-47bdab064df7?w=800" alt="Nagaram Fort Stone Bastions">
+                    <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=800" alt="Moat defense and watchtower formations">
+                    <img src="https://images.unsplash.com/photo-1584551246679-0daf3d275d0f?w=800" alt="Internal Palace Vault Ruin">
+                </div>
+            </div>
+            <div class="item-details">
+                <span class="item-index">05 / 10</span>
+                <h3 class="item-title">Nagaram Fort (Bidanur)</h3>
+
+                <div class="history-wrapper">
+                    <p class="history-base">
+                        An 18th-century stone fortification constructed on a hillock, featuring an advanced network of water canals and observation towers.
+                    </p>
+                    <div class="history-extended">
+                        <p>
+                            Originally known as Bidanur, Nagara became the final capital of the Keladi Kingdom in 1640. Shivappa Nayaka built a large, well-defended palace fort here, utilizing the surrounding deep river valleys and heavy rainfall as a natural barrier against enemy
+                            forces.
+                        </p>
+                        <p>
+                            In 1763, the fort was captured by Haider Ali of Mysore, who renamed it Hydernagar and established a major mint and naval shipyard here. The remaining stone structures include a deep defensive moat, solid watchtowers, storage vaults, and an advanced stone
+                            water network that supplied the palace chambers, illustrating the strategic importance of the site in regional history.
+                        </p>
+                    </div>
+                    <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
+                </div>
+
+                <div class="utility-grid">
+                    <div class="util-meta">
+                        <h4>Location</h4>
+                        <p><a href="https://maps.google.com/?q=Nagara+Fort+Hosanagara" target="_blank">Nagara Village, Hosanagara Taluk, Shivamogga</a></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Washrooms</h4>
+                        <p><span class="badge badge-yes">Available near the main ASI entry ticket house</span></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Logistics & Entry</h4>
+                        <p>8:00 AM – 6:00 PM | Free Entry</p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Recommended Hotels</h4>
+                        <p>Muoki Overlook Resort Hosanagara, Royal Orchid Shivamogga</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="heritage-item">
+            <div class="item-gallery-wrapper">
+                <div class="slider-container">
+                    <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=800" alt="Sacred Heart Cathedral Arch Architecture">
+                    <img src="https://images.unsplash.com/photo-1584551246679-0daf3d275d0f?w=800" alt="Massive Central Prayer Congregation Hall">
+                    <img src="https://images.unsplash.com/photo-1598977123418-45f04b6168ba?w=800" alt="Symmetrical Facade and Bell Tower">
+                </div>
+            </div>
+            <div class="item-details">
+                <span class="item-index">06 / 10</span>
+                <h3 class="item-title">Sacred Heart Cathedral</h3>
+
+                <div class="history-wrapper">
+                    <p class="history-base">
+                        One of the largest churches in the state, displaying striking Roman architectural arches and an expansive prayer hall layout.
+                    </p>
+                    <div class="history-extended">
+                        <p>
+                            Rebuilt over several decades to serve the expanding Christian community of central Karnataka, the Sacred Heart Cathedral stands as a beautiful monument of modern architecture and peaceful spiritual fellowship within Shivamogga city.
+                        </p>
+                        <p>
+                            The cathedral features a striking design with semi-circular Roman arches and a clean exterior facade. Covering an area of 18,000 square feet, the grand prayer hall can hold over 5,000 people at one time. The interior contains rows of large columns and
+                            delicate stained-glass panels that filter natural light, creating a serene atmosphere for visitors and congregations.
+                        </p>
+                    </div>
+                    <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
+                </div>
+
+                <div class="utility-grid">
+                    <div class="util-meta">
+                        <h4>Location</h4>
+                        <p><a href="https://maps.google.com/?q=Sacred+Heart+Cathedral+Bhavana+Ganga+Shivamogga" target="_blank">B.H. Road, near Railway Station Ground, Shivamogga City</a></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Washrooms</h4>
+                        <p><span class="badge badge-yes">Available inside the adjacent parish community office</span></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Logistics & Entry</h4>
+                        <p>6:00 AM – 7:30 PM | Free Entry (Modest attire requested)</p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Recommended Hotels</h4>
+                        <p>Hotel相互 Bliss, Green View Boutique Hotel, Clash Inn Executive Suites</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="heritage-item">
+            <div class="item-gallery-wrapper">
+                <div class="slider-container">
+                    <img src="https://images.unsplash.com/photo-1584551246679-0daf3d275d0f?w=800" alt="Koodli Tunga Bhadra Sangama">
+                    <img src="https://images.unsplash.com/photo-1598977123418-45f04b6168ba?w=800" alt="12th Century Hoysala Sangameshwara Shrine">
+                    <img src="https://images.unsplash.com/photo-1541963463532-d68292c34b19?w=800" alt="Sacred River Stepped Ghats">
+                </div>
+            </div>
+            <div class="item-details">
+                <span class="item-index">07 / 10</span>
+                <h3 class="item-title">Koodli Confluence Temples</h3>
+
+                <div class="history-wrapper">
+                    <p class="history-base">
+                        Located at the convergence of the Tunga and Bhadra rivers, hosting ancient 12th-century shrines from the Hoysala period.
+                    </p>
+                    <div class="history-extended">
+                        <p>
+                            Koodli holds great historical and geographic significance, marking the exact point where the Tunga and Bhadra rivers meet to form the mighty Tungabhadra River. This sacred junction has attracted ascetics and scholars for generations, becoming a prominent
+                            center for the Advaita school of philosophy.
+                        </p>
+                        <p>
+                            The most notable monument here is the Sangameshwara Temple, built in the 12th century during the Hoysala Empire. It features characteristic soapstone carvings, small pillared halls, and geometric wall borders. The site also houses an ancient monastery
+                            (Koodli Arya Akshobhya Teertha Mutt) that contains rare palm-leaf manuscripts and old copper plates, documenting centuries of spiritual and cultural traditions.
+                        </p>
+                    </div>
+                    <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
+                </div>
+
+                <div class="utility-grid">
+                    <div class="util-meta">
+                        <h4>Location</h4>
+                        <p><a href="https://maps.google.com/?q=Koodli+Sangama+Temples+Shivamogga" target="_blank">Koodli Village, 16km Northeast of Shivamogga Town</a></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Washrooms</h4>
+                        <p><span class="badge badge-yes">Available near the main matha visitor parking area</span></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Logistics & Entry</h4>
+                        <p>6:00 AM – 7:00 PM | Free Entry</p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Recommended Hotels</h4>
+                        <p>Royal Orchid Shivamogga, Mathura Comforts, Hotel Swarna Regency</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="heritage-item">
+            <div class="item-gallery-wrapper">
+                <div class="slider-container">
+                    <img src="https://images.unsplash.com/photo-1598977123418-45f04b6168ba?w=800" alt="Balligavi Soapstone Temple Front">
+                    <img src="https://images.unsplash.com/photo-1541963463532-d68292c34b19?w=800" alt="Highly Polished Lathe Turned Pillars">
+                    <img src="https://images.unsplash.com/photo-1569336415962-a4bd9f69cd83?w=800" alt="Detailed Hindu Deity Ceiling Panels">
+                </div>
+            </div>
+            <div class="item-details">
+                <span class="item-index">08 / 10</span>
+                <h3 class="item-title">Balligavi Kedareswara Temple</h3>
+
+                <div class="history-wrapper">
+                    <p class="history-base">
+                        A beautiful Western Chalukya temple built out of soapstone, featuring highly polished pillars and complex ceiling panels.
+                    </p>
+                    <div class="history-extended">
+                        <p>
+                            Historically known as Balagami, this ancient town was a major capital and intellectual hub under the Western Chalukya Empire during the 11th and 12th centuries. It was renowned for its universities and was the birthplace of famous historical figures like
+                            Allama Prabhu, a leading poet and philosopher of the Veerashaiva movement.
+                        </p>
+                        <p>
+                            The Kedareswara Temple is a brilliant example of the Trikuta (triple-shrine) design, constructed entirely from soft soapstone. This material allowed artists to carve incredibly fine details, visible in the highly polished, lathe-turned pillars that support
+                            the central hall. The temple ceiling panels are decorated with intricate depictions of the Dikpalas (guardians of the eight directions), making it an invaluable monument of medieval Indian architecture.
+                        </p>
+                    </div>
+                    <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
+                </div>
+
+                <div class="utility-grid">
+                    <div class="util-meta">
+                        <h4>Location</h4>
+                        <p><a href="https://maps.google.com/?q=Balligavi+Kedareswara+Temple+Shikaripura" target="_blank">Balligavi Town, Shikaripura Taluk, Northern Shivamogga</a></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Washrooms</h4>
+                        <p><span class="badge badge-yes">Available inside the ASI caretaker enclosure</span></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Logistics & Entry</h4>
+                        <p>8:00 AM – 5:30 PM | Free Entry</p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Recommended Hotels</h4>
+                        <p>Sharavati Comforts Shikaripura, Hotel Maurya Shikaripura</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="heritage-item">
+            <div class="item-gallery-wrapper">
+                <div class="slider-container">
+                    <img src="https://images.unsplash.com/photo-1541963463532-d68292c34b19?w=800" alt="Humcha Padmavati Basadi Front">
+                    <img src="https://images.unsplash.com/photo-1569336415962-a4bd9f69cd83?w=800" alt="Ancient Lakki Tree Sacred Enclosure">
+                    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800" alt="Panchakuta Basadi Pillar Columns">
+                </div>
+            </div>
+            <div class="item-details">
+                <span class="item-index">09 / 10</span>
+                <h3 class="item-title">Humcha Jain Temples</h3>
+
+                <div class="history-wrapper">
+                    <p class="history-base">
+                        A prominent historic Jain center dating back to the 8th century, housing beautiful shrines dedicated to Goddess Padmavati.
+                    </p>
+                    <div class="history-extended">
+                        <p>
+                            Humcha, historically known as Pomburcha, served as the capital of the Santhara Dynasty, who ruled as feudatories of the Rashtrakutas. Founded in the 8th century by King Jinadatta Raya, this sacred complex has remained an active and influential center
+                            for Jain heritage and pilgrimage for generations.
+                        </p>
+                        <p>
+                            The main complex includes the Panchakuta Basadi, a beautiful group of five connected shrines constructed in the classic Chalukyan style. The site is famous for its shrine dedicated to Goddess Padmavati, which stands near an ancient, centuries-old Lakki
+                            tree. According to local historical traditions, this tree has remained evergreen for over a millennium, serving as a living link to the spiritual history of the region.
+                        </p>
+                    </div>
+                    <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
+                </div>
+
+                <div class="utility-grid">
+                    <div class="util-meta">
+                        <h4>Location</h4>
+                        <p><a href="https://maps.google.com/?q=Humcha+Jain+Atishaya+Teertha+Kshethra" target="_blank">Humcha Town, Hosanagara Taluk, Central Shivamogga</a></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Washrooms</h4>
+                        <p><span class="badge badge-yes">Available inside the Atishaya Teertha pilgrimage lodge</span></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Logistics & Entry</h4>
+                        <p>6:00 AM – 8:00 PM | Free Entry (Vegetarian conduct strictly requested)</p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Recommended Hotels</h4>
+                        <p>Jain Dharamshala Lodging Humcha, Matthuga Eco Resort, Fortune JP Palace</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="heritage-item">
+            <div class="item-gallery-wrapper">
+                <div class="slider-container">
+                    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800" alt="Talagunda Inscribed Stone Pillar">
+                    <img src="https://images.unsplash.com/photo-1590050752117-238cb0fb12b1?w=800" alt="Pranaveshwara Temple Compound">
+                    <img src="https://images.unsplash.com/photo-1561361530-211ce63a8010?w=800" alt="Historical Inscription Close Panel">
+                </div>
+            </div>
+            <div class="item-details">
+                <span class="item-index">10 / 10</span>
+                <h3 class="item-title">Talagunda Pillar Site</h3>
+
+                <div class="history-wrapper">
+                    <p class="history-base">
+                        The historic location of the earliest known Sanskrit inscriptions of the Kadamba Dynasty, carved on a prominent stone pillar monument.
+                    </p>
+                    <div class="history-extended">
+                        <p>
+                            Talagunda, historically called Sthanakundur, is one of the most important archaeological sites for studying early South Indian history. It was a major educational center (Ghatika) during the Kadamba Empire, the first indigenous ruling dynasty of Karnataka,
+                            founded by Mayurasharma around 345 CE.
+                        </p>
+                        <p>
+                            The site features a grand granite pillar standing in front of the Pranaveshwara Temple. It contains a famous, detailed Sanskrit inscription carved in box-headed Brahmi script by the poet Kubja, under the direction of King Santivarma. This historic inscription
+                            documents the rise of the Kadamba Dynasty and the development of early educational systems in southern India, making it an essential destination for historians and visitors alike.
+                        </p>
+                    </div>
+                    <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
+                </div>
+
+                <div class="utility-grid">
+                    <div class="util-meta">
+                        <h4>Location</h4>
+                        <p><a href="https://maps.google.com/?q=Talagunda+Pillar+Site+Shikaripura" target="_blank">Talagunda Village, Shikaripura Taluk, Northern Shivamogga</a></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Washrooms</h4>
+                        <p><span class="badge badge-no">No public modern amenities nearby; plan travel accordingly</span></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Logistics & Entry</h4>
+                        <p>Open Access Layout | Daylight visits recommended for viewing inscriptions</p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Recommended Hotels</h4>
+                        <p>Hotel Ashoka Shikaripura, KSTDC Hotel Mayura Sharavathi Sagar</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function toggleHistory(button) {
+            const wrapper = button.closest('.history-wrapper');
+            wrapper.classList.toggle('expanded');
+            if (wrapper.classList.contains('expanded')) {
+                button.textContent = "Read Less";
+            } else {
+                button.textContent = "Read More";
+            }
+        }
+    </script>
+
+</body>
+
+</html>

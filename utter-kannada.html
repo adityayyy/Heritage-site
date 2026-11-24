@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uttara Kannada — Premium Heritage Chronicle</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+         :root {
+            --terracotta: #E8651A;
+            --gold: #C9A84C;
+            --bg-dark: #06090F;
+            --card-dark: #0B111E;
+            --border-glow: rgba(201, 168, 76, 0.12);
+            --text-light: #F4F1EC;
+            --text-muted: rgba(244, 241, 236, 0.6);
+            --glass-accent: rgba(232, 101, 26, 0.05);
+        }
+        
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            background: var(--bg-dark);
+            color: var(--text-light);
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 300;
+            line-height: 1.6;
+            padding: 80px 10%;
+            overflow-x: hidden;
+            position: relative;
+        }
+        /* Subtle Luxury Grain Overlay */
+        
+        body::after {
+            content: '';
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.02;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+        }
+        
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            color: var(--terracotta);
+            text-decoration: none;
+            font-size: 11px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 60px;
+            font-weight: 600;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+        
+        .back-btn:hover {
+            transform: translateX(-8px);
+            color: var(--gold);
+        }
+        
+        .header {
+            margin-bottom: 90px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .header::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            margin: 35px auto 0;
+        }
+        
+        .header h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 65px;
+            font-weight: 700;
+            letter-spacing: 7px;
+            line-height: 1.1;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+        
+        .header h1 span {
+            color: var(--terracotta);
+            background: linear-gradient(135deg, var(--terracotta), var(--gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .intro-chronicle {
+            max-width: 900px;
+            margin: 0 auto 120px;
+            text-align: center;
+            background: linear-gradient(180deg, var(--card-dark), rgba(11, 17, 30, 0.4));
+            padding: 50px;
+            border-radius: 6px;
+            border: 1px solid var(--border-glow);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .intro-chronicle h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 26px;
+            color: var(--gold);
+            margin-bottom: 25px;
+            letter-spacing: 3px;
+        }
+        
+        .intro-chronicle p {
+            font-size: 16px;
+            color: var(--text-muted);
+            line-height: 1.9;
+        }
+        
+        .heritage-flow {
+            display: flex;
+            flex-direction: column;
+            gap: 160px;
+        }
+        
+        .heritage-item {
+            display: grid;
+            grid-template-columns: 1.15fr 0.85fr;
+            gap: 80px;
+            align-items: center;
+        }
+        
+        .heritage-item:nth-child(even) {
+            grid-template-columns: 0.85fr 1.15fr;
+        }
+        
+        .heritage-item:nth-child(even) .item-gallery-wrapper {
+            order: 2;
+        }
+        
+        .item-gallery-wrapper {
+            position: relative;
+            width: 100%;
+            border-radius: 6px;
+            overflow: hidden;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+        }
+        
+        .slider-container {
+            display: flex;
+            width: 300%;
+            animation: slideShow 18s infinite ease-in-out;
+        }
+        
+        .slider-container img {
+            width: 33.333%;
+            height: 560px;
+            object-fit: cover;
+            display: block;
+            filter: brightness(0.9) contrast(1.05);
+        }
+        /* Shifted animation triggers to stagger sliding galleries */
+        
+        .heritage-item:nth-child(1) .slider-container {
+            animation-delay: 0s;
+        }
+        
+        .heritage-item:nth-child(2) .slider-container {
+            animation-delay: 1.5s;
+        }
+        
+        .heritage-item:nth-child(3) .slider-container {
+            animation-delay: 3s;
+        }
+        
+        .heritage-item:nth-child(4) .slider-container {
+            animation-delay: 4.5s;
+        }
+        
+        .heritage-item:nth-child(5) .slider-container {
+            animation-delay: 6s;
+        }
+        
+        .heritage-item:nth-child(6) .slider-container {
+            animation-delay: 7.5s;
+        }
+        
+        .heritage-item:nth-child(7) .slider-container {
+            animation-delay: 9s;
+        }
+        
+        .heritage-item:nth-child(8) .slider-container {
+            animation-delay: 10.5s;
+        }
+        
+        .heritage-item:nth-child(9) .slider-container {
+            animation-delay: 12s;
+        }
+        
+        .heritage-item:nth-child(10) .slider-container {
+            animation-delay: 13.5s;
+        }
+        
+        @keyframes slideShow {
+            0%,
+            28% {
+                transform: translateX(0%);
+            }
+            33%,
+            61% {
+                transform: translateX(-33.333%);
+            }
+            66%,
+            94% {
+                transform: translateX(-66.666%);
+            }
+            100% {
+                transform: translateX(0%);
+            }
+        }
+        
+        .item-details {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .item-index {
+            font-family: 'Cinzel', serif;
+            font-size: 13px;
+            color: var(--terracotta);
+            font-weight: 700;
+            margin-bottom: 15px;
+            letter-spacing: 4px;
+        }
+        
+        .item-title {
+            font-family: 'Cinzel', serif;
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 22px;
+            color: #FFF;
+            line-height: 1.2;
+            letter-spacing: 1px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .history-wrapper {
+            margin-bottom: 30px;
+            background: var(--glass-accent);
+            padding: 20px 25px;
+            border-left: 2px solid var(--terracotta);
+            border-radius: 0 4px 4px 0;
+        }
+        
+        .history-base {
+            color: var(--text-muted);
+            font-size: 15.5px;
+            line-height: 1.8;
+        }
+        
+        .history-extended {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.6s cubic-bezier(0, 1, 0, 1);
+            color: var(--text-muted);
+            font-size: 15px;
+            line-height: 1.8;
+        }
+        
+        .history-extended p {
+            margin-top: 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.03);
+            padding-top: 15px;
+        }
+        
+        .history-wrapper.expanded .history-extended {
+            max-height: 2000px;
+            transition: max-height 0.8s cubic-bezier(0.85, 0, 0.15, 1);
+        }
+        
+        .read-more-trigger {
+            display: inline-flex;
+            align-items: center;
+            background: none;
+            border: none;
+            color: var(--gold);
+            font-family: 'Cinzel', serif;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            cursor: pointer;
+            margin-top: 16px;
+            padding: 4px 0;
+            text-transform: uppercase;
+            transition: color 0.3s, transform 0.3s;
+        }
+        
+        .read-more-trigger:hover {
+            color: var(--terracotta);
+            transform: translateY(1px);
+        }
+        
+        .read-more-trigger::after {
+            content: ' ↓';
+            font-weight: bold;
+            margin-left: 5px;
+            transition: transform 0.3s;
+        }
+        
+        .history-wrapper.expanded .read-more-trigger::after {
+            content: ' ↑';
+        }
+        
+        .utility-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            background: var(--card-dark);
+            padding: 28px;
+            border-radius: 6px;
+            border: 1px solid var(--border-glow);
+            box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.4);
+        }
+        
+        .util-meta h4 {
+            font-family: 'Cinzel', serif;
+            font-size: 12px;
+            text-transform: uppercase;
+            color: var(--gold);
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+        }
+        
+        .util-meta p {
+            font-size: 14px;
+            color: #E6E2DC;
+            font-weight: 400;
+        }
+        
+        .util-meta a {
+            color: var(--terracotta);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        
+        .util-meta a:hover {
+            color: var(--gold);
+            text-decoration: underline;
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 2px;
+        }
+        
+        .badge-yes {
+            background: rgba(46, 204, 113, 0.1);
+            color: #2ecc71;
+            border: 1px solid rgba(46, 204, 113, 0.2);
+        }
+        
+        .badge-no {
+            background: rgba(231, 76, 60, 0.1);
+            color: #e74c3c;
+            border: 1px solid rgba(231, 76, 60, 0.2);
+        }
+        
+        @media (max-width: 1400px) {
+            body {
+                padding: 60px 5%;
+            }
+            .heritage-item,
+            .heritage-item:nth-child(even) {
+                gap: 50px;
+            }
+        }
+        
+        @media (max-width: 1100px) {
+            .heritage-item,
+            .heritage-item:nth-child(even) {
+                grid-template-columns: 1fr;
+                gap: 45px;
+            }
+            .heritage-item:nth-child(even) .item-gallery-wrapper {
+                order: 0;
+            }
+            .slider-container img {
+                height: 420px;
+            }
+            .header h1 {
+                font-size: 48px;
+            }
+            .utility-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+    </style>
+<link rel="stylesheet" href="responsive.css">
+</head>
+
+<body>
+
+    <a href="go-heritage.html" class="back-btn">← Back to Dashboard</a>
+
+    <div class="header">
+        <h1>UTTARA KANNADA <span>CHRONICLES</span></h1>
+    </div>
+
+    <div class="intro-chronicle">
+        <h2>History of the Spice & Sea Domain</h2>
+        <p>Uttara Kannada features an exceptional mix of rugged coastal history and inland forest empires. Ruled by the Kadamba Dynasty, the Alupas, and later chosen by European maritime powers for deep-sea trade fortification due to its abundant pepper
+            forests, it preserves unique ocean-fortresses, rocky island strongholds, and unique forest shrines.</p>
+    </div>
+
+    <div class="heritage-flow">
+
+        <div class="heritage-item">
+            <div class="item-gallery-wrapper">
+                <div class="slider-container">
+                    <img src="https://i.pinimg.com/736x/87/c0/76/87c076ad0da26d775af1119f7316b7ce.jpg" alt="Gokarna Temple Tower">
+                    <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=800" alt="Gokarna Sea Front Entrance">
+                    <img src="https://images.unsplash.com/photo-1596176530529-78163a4f7af2?w=800" alt="Ancient Granite Carvings">
+                </div>
+            </div>
+            <div class="item-details">
+                <span class="item-index">01 / 10</span>
+                <h3 class="item-title">Mahabaleshwar Temple (Gokarna)</h3>
+                <div class="history-wrapper">
+                    <p class="history-base">
+                        A legendary 4th-century temple complex built in classical Dravidian style, housing the sacred Atmalinga stone. This site is considered one of the seven holy Mukti Sthalas of Karnataka.
+                    </p>
+                    <div class="history-extended">
+                        <p>
+                            According to deep mythological chronicles, the legendary demon king Ravana performed intense penance to secure the almighty Atmalinga from Lord Shiva. Shiva granted the boon but warned that if the linga ever touched the earth, it would fix permanently
+                            to that spot. Fearing his unmatched power, the deities invoked Lord Ganesha, who tricked Ravana into placing the linga down on this exact shore.
+                        </p>
+                        <p>
+                            The site has been revered since the classical age, mentioned in the accounts of early centuries and honored by the Kadamba kings. The main shrine features a hand-carved stone pit where pilgrims can reach down to touch the topmost peak of the submerged
+                            stone Atmalinga.
+                        </p>
+                        <p>
+                            Architecturally, the surrounding granite walls and the massive outer chariot yards showcase decades of patronage by the Vijayanagara Empire and the rulers of Haleri, establishing Gokarna as a highly important architectural anchor points along the Arabian
+                            Sea.
+                        </p>
+                    </div>
+                    <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
+                </div>
+                <div class="utility-grid">
+                    <div class="util-meta">
+                        <h4>Location</h4>
+                        <p><a href="https://maps.google.com/?q=Mahabaleshwar+Temple+Gokarna" target="_blank">Koti Teertha Road, Gokarna</a></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Washrooms</h4>
+                        <p><span class="badge badge-yes">Available In Complex</span></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Logistics & Entry</h4>
+                        <p>5:30 AM – 9:00 PM | Free Entry</p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Recommended Hotels</h4>
+                        <p>SwaSwara Resort, Kahani Paradise, Zostel Gokarna</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="heritage-item">
+            <div class="item-gallery-wrapper">
+                <div class="slider-container">
+                    <img src="https://images.unsplash.com/photo-1596176530529-78163a4f7af2?w=800" alt="Mirjan Fort Bastions">
+                    <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=800" alt="Mirjan Moat in Monsoon">
+                    <img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=800" alt="Stone Guard Steps">
+                </div>
+            </div>
+            <div class="item-details">
+                <span class="item-index">02 / 10</span>
+                <h3 class="item-title">Mirjan Fort</h3>
+                <div class="history-wrapper">
+                    <p class="history-base">
+                        A magnificent 16th-century architectural stone fortress built along the estuary bank, globally famous for its deep-rooted double layout defensive walls and watchtowers.
+                    </p>
+                    <div class="history-extended">
+                        <p>
+                            Mirjan Fort is strongly intertwined with the legendary Rani Chennabhairadevi, the famous 'Pepper Queen' of Gersoppa who ruled under the flag of the Vijayanagara Empire. For over half a century, her sharp geopolitical strategies dominated the spice trade
+                            route, exporting fine black pepper and ginger directly to Portugal and Europe.
+                        </p>
+                        <p>
+                            The structure is built primarily from laterite blocks, featuring a layout designed to withstand heavy maritime artillery. It includes deep defensive moats, intricate internal wells, secret escape tunnels, and large circular battlements that overlook the
+                            peaceful Agnanishini river estuary.
+                        </p>
+                        <p>
+                            Archaeological excavations have uncovered old coins from European trading ships and fragments of specialized pottery, confirming that this fort was once a critical node in international maritime commerce.
+                        </p>
+                    </div>
+                    <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
+                </div>
+                <div class="utility-grid">
+                    <div class="util-meta">
+                        <h4>Location</h4>
+                        <p><a href="https://maps.google.com/?q=Mirjan+Fort" target="_blank">National Highway 66, Mirjan</a></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Washrooms</h4>
+                        <p><span class="badge badge-yes">Available (ASI Complex)</span></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Logistics & Entry</h4>
+                        <p>8:00 AM – 6:00 PM | ₹20 Entry Fee</p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Recommended Hotels</h4>
+                        <p>Gokarna International, Om Beach Resort</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="heritage-item">
+            <div class="item-gallery-wrapper">
+                <div class="slider-container">
+                    <img src="https://i.pinimg.com/1200x/6a/a5/8d/6aa58d609ac2417cf24531debe54c880.jpg" alt="Murudeshwar Statue Panorama">
+                    <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=800" alt="Rajagopuram Close Up">
+                    <img src="https://images.unsplash.com/photo-1584551246679-0daf3d275d0f?w=800" alt="Sea View From Tower">
+                </div>
+            </div>
+            <div class="item-details">
+                <span class="item-index">03 / 10</span>
+                <h3 class="item-title">Murudeshwar Temple Complex</h3>
+                <div class="history-wrapper">
+                    <p class="history-base">
+                        Houses the world's second tallest monolithic Shiva statue, looking out over the Arabian Sea alongside a majestic, modern 20-story Rajagopuram tower.
+                    </p>
+                    <div class="history-extended">
+                        <p>
+                            The site connects directly to the ancient Gokarna Atmalinga narrative. When Ravana attempted to tear the fixed Atmalinga up from the ground with great force, pieces of the sacred bundle scattered across the region. The cloth covering the linga fell on
+                            Kanduka Hill, which became the sacred site of Murudeshwar.
+                        </p>
+                        <p>
+                            While the foundations are ancient, the site underwent an extensive architectural expansion led by modern visionary R.N. Shetty. The 123-foot-tall Shiva statue took years to construct, intentionally angled to catch the golden light of sunset over the western
+                            sea.
+                        </p>
+                        <p>
+                            The towering Rajagopuram features a modern elevator system that carries visitors to the top floor, providing sweeping views of the coastline on three sides and showing a unique blend of ancient pilgrimage traditions with modern engineering.
+                        </p>
+                    </div>
+                    <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
+                </div>
+                <div class="utility-grid">
+                    <div class="util-meta">
+                        <h4>Location</h4>
+                        <p><a href="https://maps.google.com/?q=Murudeshwar+Temple" target="_blank">Kanduka Giri, Murudeshwar</a></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Washrooms</h4>
+                        <p><span class="badge badge-yes">Available In Complex</span></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Logistics & Entry</h4>
+                        <p>6:00 AM – 8:30 PM | Free Entry</p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Recommended Hotels</h4>
+                        <p>RNS Residency, Naveen Beach Resort</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="heritage-item">
+            <div class="item-gallery-wrapper">
+                <div class="slider-container">
+                    <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=800" alt="Banavasi Temple Pillars">
+                    <img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=800" alt="Monolithic Stone Throne">
+                    <img src="https://images.unsplash.com/photo-1598977123418-45f04b6168ba?w=800" alt="Kadamba Era Inscriptions">
+                </div>
+            </div>
+            <div class="item-details">
+                <span class="item-index">04 / 10</span>
+                <h3 class="item-title">Madhukeshwara Temple (Banavasi)</h3>
+                <div class="history-wrapper">
+                    <p class="history-base">
+                        The 9th-century structural pride of the Kadamba Dynasty, featuring an incredibly detailed monolithic stone throne and a honey-colored Shiva Lingam.
+                    </p>
+                    <div class="history-extended">
+                        <p>
+                            As the oldest town in Karnataka, Banavasi served as the capital of the foundational Kadamba Dynasty, established in 345 AD. The temple itself is a living architectural museum, built layer by layer across dynasties including the Chalukyas, Hoysalas, and
+                            Vijayanagara emperors.
+                        </p>
+                        <p>
+                            The temple gets its name from the honey-colored hue of its ancient stone Shiva Lingam. A key feature of the interior is the famous monolithic stone throne (Asana), carved from single grey schist stone with fine scrollwork, floral detailing, and depictions
+                            of courtly life.
+                        </p>
+                        <p>
+                            Pampa, Karnataka’s foundational epic poet, wrote beautifully about Banavasi's natural and artistic charm, famously stating that one should be born there even as a little bee to experience true beauty.
+                        </p>
+                    </div>
+                    <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
+                </div>
+                <div class="utility-grid">
+                    <div class="util-meta">
+                        <h4>Location</h4>
+                        <p><a href="https://maps.google.com/?q=Madhukeshwara+Temple+Banavasi" target="_blank">Sirsi Taluk, Banavasi</a></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Washrooms</h4>
+                        <p><span class="badge badge-yes">Available Nearby</span></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Logistics & Entry</h4>
+                        <p>6:00 AM – 7:00 PM | Free Entry</p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Recommended Hotels</h4>
+                        <p>Vanavasika Tourist Home, Sirsi Hotel Samrat</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="heritage-item">
+            <div class="item-gallery-wrapper">
+                <div class="slider-container">
+                    <img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=800" alt="Sadashivgad Fort Walls">
+                    <img src="https://images.unsplash.com/photo-1605649487212-47bdab064df7?w=800" alt="Kali River Bridge View">
+                    <img src="https://images.unsplash.com/photo-1596176530529-78163a4f7af2?w=800" alt="Granite Gateway Steps">
+                </div>
+            </div>
+            <div class="item-details">
+                <span class="item-index">05 / 10</span>
+                <h3 class="item-title">Sadashivgad Fort (Karwar)</h3>
+                <div class="history-wrapper">
+                    <p class="history-base">
+                        An 18th-century hilltop fortress constructed by Raja Sonde at the mouth of the Kali River, featuring an old granite gateway and clear views of the river merging into the sea.
+                    </p>
+                    <div class="history-extended">
+                        <p>
+                            Built on a high hill that has seen conflict since ancient times, the current fort was named by Raja Sonde in 1715 to honor his father, Sadashivling. Its location made it a key strategic prize, changing hands multiple times between the Marathas, the Portuguese,
+                            and British colonial forces.
+                        </p>
+                        <p>
+                            The site also holds deep literary significance: a young Rabindranath Tagore visited Karwar in 1882, exploring these hills and beaches. The experience inspired his very first literary drama, *Prakritir Pratisodh* (The Ascetic's Revenge).
+                        </p>
+                        <p>
+                            The ruins include an old temple dedicated to Goddess Durga, built with traditional coastal architecture, alongside old stone battlements that once housed heavy iron cannons guarding the river trade lanes.
+                        </p>
+                    </div>
+                    <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
+                </div>
+                <div class="utility-grid">
+                    <div class="util-meta">
+                        <h4>Location</h4>
+                        <p><a href="https://maps.google.com/?q=Sadashivgad+Fort+Karwar" target="_blank">Sadashivgad Hill, Karwar</a></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Washrooms</h4>
+                        <p><span class="badge badge-no">Basic Facilities Only</span></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Logistics & Entry</h4>
+                        <p>9:00 AM – 5:00 PM | Free Entry</p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Recommended Hotels</h4>
+                        <p>Sterling Karwar, Cintacor Island Resort</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="heritage-item">
+            <div class="item-gallery-wrapper">
+                <div class="slider-container">
+                    <img src="https://images.unsplash.com/photo-1605649487212-47bdab064df7?w=800" alt="Idagunji Temple Entrance">
+                    <img src="https://images.unsplash.com/photo-1584551246679-0daf3d275d0f?w=800" alt="Ganesha Deity Chamber">
+                    <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=800" alt="Pillared Outer Assembly">
+                </div>
+            </div>
+            <div class="item-details">
+                <span class="item-index">06 / 10</span>
+                <h3 class="item-title">Idagunji Vinayaka Temple</h3>
+                <div class="history-wrapper">
+                    <p class="history-base">
+                        A highly popular religious center holding a distinct two-handed standing stone figure of Lord Ganesha dating back over 1,500 years.
+                    </p>
+                    <div class="history-extended">
+                        <p>
+                            According to local legends, at the end of the Dwapara Yuga, ancient sages led by Manki Rishi faced major obstacles while trying to perform holy rituals. Divine sage Narada advised them to pray to Lord Ganesha, who chose this peaceful patch of coastal
+                            forest as his permanent home.
+                        </p>
+                        <p>
+                            The idol is carved from dark stone in a rare archaic style, showing Ganesha standing on two legs rather than seated. He holds a lotus bud in his right hand and a Modaka sweet in his left, missing his usual vehicle, the mouse—a detail that indicates the
+                            sculpture dates back to an early period of iconographic art.
+                        </p>
+                        <p>
+                            The temple complex is built with heavy timber beams and sloped roofs designed to withstand the region's intense monsoon rains, serving as an enduring symbol of coastal Karnataka's spiritual heritage.
+                        </p>
+                    </div>
+                    <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
+                </div>
+                <div class="utility-grid">
+                    <div class="util-meta">
+                        <h4>Location</h4>
+                        <p><a href="https://maps.google.com/?q=Idagunji+Vinayaka+Temple" target="_blank">Idagunji Road, Honnavar Taluk</a></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Washrooms</h4>
+                        <p><span class="badge badge-yes">Available (Devasthanam)</span></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Logistics & Entry</h4>
+                        <p>6:00 AM – 8:30 PM | Free Entry</p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Recommended Hotels</h4>
+                        <p>Hotel Pandurang International, Kamat Executive Inn</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="heritage-item">
+            <div class="item-gallery-wrapper">
+                <div class="slider-container">
+                    <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=800" alt="Yana Black Monoliths">
+                    <img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=800" alt="Cave Temple Interior">
+                    <img src="https://images.unsplash.com/photo-1541963463532-d68292c34b19?w=800" alt="Forest Trail to Yana">
+                </div>
+            </div>
+            <div class="item-details">
+                <span class="item-index">07 / 10</span>
+                <h3 class="item-title">Yana Rocks Shrines</h3>
+                <div class="history-wrapper">
+                    <p class="history-base">
+                        Two giant, deep-black crystalline karst rock monoliths housing a historic cave temple dedicated to Lord Bhairaveshwara hidden deep within the forest.
+                    </p>
+                    <div class="history-extended">
+                        <p>
+                            The towering black rocks—the 120-meter-high Bhairaveshwara Shikhar and the 90-meter-high Mohini Shikhar—are linked to the mythological story of Bhasmasura. The demon gained a boon from Shiva to burn anyone by placing his hand on their head, but was tricked
+                            into destroying himself by Vishnu, who disguised himself as the dancer Mohini. Local lore states the intense heat from this event turned the rock formations a deep charcoal black.
+                        </p>
+                        <p>
+                            Inside the damp cave under the main peak, water drips naturally from the roof onto a self-manifested Shiva Lingam, creating a popular site for regional eco-pilgrimage.
+                        </p>
+                        <p>
+                            Geologists note that these rare crystalline limestone structures are highly unique among the surrounding granite formations of the Western Ghats, making Yana an important site for both geological study and spiritual tradition.
+                        </p>
+                    </div>
+                    <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
+                </div>
+                <div class="utility-grid">
+                    <div class="util-meta">
+                        <h4>Location</h4>
+                        <p><a href="https://maps.google.com/?q=Yana+Rocks" target="_blank">Kumta-Sirsi Forest Division, Yana</a></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Washrooms</h4>
+                        <p><span class="badge badge-yes">Available at Base Camp</span></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Logistics & Entry</h4>
+                        <p>8:00 AM – 5:00 PM | Free Entry</p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Recommended Hotels</h4>
+                        <p>Hotel ibex Sirsi, Sathwik Homestay</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="heritage-item">
+            <div class="item-gallery-wrapper">
+                <div class="slider-container">
+                    <img src="https://images.unsplash.com/photo-1584551246679-0daf3d275d0f?w=800" alt="Sonda Monastery Entrance">
+                    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800" alt="Rama Trivikrama Temple">
+                    <img src="https://images.unsplash.com/photo-1596176530529-78163a4f7af2?w=800" alt="Sacred Stone Bathing Well">
+                </div>
+            </div>
+            <div class="item-details">
+                <span class="item-index">08 / 10</span>
+                <h3 class="item-title">Sonda Vadiraja Matha</h3>
+                <div class="history-wrapper">
+                    <p class="history-base">
+                        A peaceful forest monastery village hosting historic stone bathing wells, closely associated with the Dvaita philosopher Sri Vadiraja Tirtha.
+                    </p>
+                    <div class="history-extended">
+                        <p>
+                            Sonda served as the historic seat of the Swadi Kings during the 16th and 17th centuries. It gained spiritual significance under Sri Vadiraja Tirtha, a major philosopher of the Dvaita school of Vedanta who lived for over 120 years and established this
+                            forest monastery.
+                        </p>
+                        <p>
+                            The site houses the Rama Trivikrama Temple, which features a historic stone chariot design, alongside the sacred Brindavana (tomb) of Vadiraja. The complex is designed around clear water springs and ancient stone steps that descend into natural forest
+                            ravines.
+                        </p>
+                        <p>
+                            The quiet location preserves an authentic collection of old palm-leaf manuscripts and copper plate inscriptions, offering a look into the philosophical and political history of the Malnad highlands.
+                        </p>
+                    </div>
+                    <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
+                </div>
+                <div class="utility-grid">
+                    <div class="util-meta">
+                        <h4>Location</h4>
+                        <p><a href="https://maps.google.com/?q=Sonda+Vadiraja+Matha" target="_blank">Sonda Village, near Sirsi</a></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Washrooms</h4>
+                        <p><span class="badge badge-yes">Available inside Matha</span></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Logistics & Entry</h4>
+                        <p>7:00 AM – 6:00 PM | Free Entry</p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Recommended Hotels</h4>
+                        <p>KSTDC Mayura In Sirsi, Bakula Homestay</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="heritage-item">
+            <div class="item-gallery-wrapper">
+                <div class="slider-container">
+                    <img src="https://images.unsplash.com/photo-1598977123418-45f04b6168ba?w=800" alt="Sahasralinga River Bed">
+                    <img src="https://images.unsplash.com/photo-1541963463532-d68292c34b19?w=800" alt="Carved Stone Lingas">
+                    <img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=800" alt="Shalmala Hanging Bridge">
+                </div>
+            </div>
+            <div class="item-details">
+                <span class="item-index">09 / 10</span>
+                <h3 class="item-title">Sahasralinga River Site</h3>
+                <div class="history-wrapper">
+                    <p class="history-base">
+                        An incredible clearing inside the forest riverbed where hundreds of stone Shiva Lingas and accompanying Nandi bulls were carved directly onto natural rocks.
+                    </p>
+                    <div class="history-extended">
+                        <p>
+                            Sahasralinga translates to "thousand lingas," a title reflecting the numerous carvings found along the rocky bed of the Shalmala River. The carvings were commissioned by Sadashivaraya, the ruler of Sirsi (1678–1718), as part of a grand vow to secure an
+                            heir for his kingdom.
+                        </p>
+                        <p>
+                            Each stone lingam is carved directly out of the hard river granite rocks, flanked by a corresponding small figure of a kneeling Nandi bull. During the summer dry season, the carvings emerge from the receding waters, while the monsoon torrents submerge
+                            them completely in a natural ritual washing.
+                        </p>
+                        <p>
+                            A suspension bridge hangs over the river channel, providing views of the carven riverbed and the surrounding tropical forests of the Western Ghats.
+                        </p>
+                    </div>
+                    <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
+                </div>
+                <div class="utility-grid">
+                    <div class="util-meta">
+                        <h4>Location</h4>
+                        <p><a href="https://maps.google.com/?q=Sahasralinga+Sirsi" target="_blank">Yellapur Road Cross, Sahasralinga</a></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Washrooms</h4>
+                        <p><span class="badge badge-no">Limited Public Facilities</span></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Logistics & Entry</h4>
+                        <p>8:00 AM – 5:00 PM | Free Entry</p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Recommended Hotels</h4>
+                        <p>Hotel Panchavati, Pragati Homestay Sirsi</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="heritage-item">
+            <div class="item-gallery-wrapper">
+                <div class="slider-container">
+                    <img src="https://images.unsplash.com/photo-1541963463532-d68292c34b19?w=800" alt="Ulavi Temple Front">
+                    <img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=800" alt="Akka Nagamma Cave">
+                    <img src="https://images.unsplash.com/photo-1596176530529-78163a4f7af2?w=800" alt="Deep Forest Western Ghats">
+                </div>
+            </div>
+            <div class="item-details">
+                <span class="item-index">10 / 10</span>
+                <h3 class="item-title">Ulavi Channabasaveshwara</h3>
+                <div class="history-wrapper">
+                    <p class="history-base">
+                        A deep forest temple sanctuary holding the resting tomb (Samadhi) of the legendary 12th-century Lingayat saint Channabasavanna.
+                    </p>
+                    <div class="history-extended">
+                        <p>
+                            Following the major socio-religious revolution of 1167 AD in Kalyana, the Sharana saints led by Channabasavanna left the capital to protect their sacred Vachana literature. They traveled deep into the thick, rocky forests of Ulavi, using the remote wilderness
+                            as a refuge.
+                        </p>
+                        <p>
+                            The temple complex houses Channabasavanna's final resting place, marked by a multi-tiered dome decorated with colorful stucco carvings. The surrounding forest contains natural limestone caves like Akka Nagamma Cave and Akala Gavi, which served as meditation
+                            spaces for the saints.
+                        </p>
+                        <p>
+                            The annual Ulavi Fair draws thousands of travelers who journey through the steep passes of the Kali Tiger Reserve, keeping alive the centuries-old heritage of the Sharana movement.
+                        </p>
+                    </div>
+                    <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
+                </div>
+                <div class="utility-grid">
+                    <div class="util-meta">
+                        <h4>Location</h4>
+                        <p><a href="https://maps.google.com/?q=Ulavi+Channabasaveshwara+Temple" target="_blank">Joida Taluk, Ulavi Rainforest Zone</a></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Washrooms</h4>
+                        <p><span class="badge badge-yes">Available (Yatri Niwas)</span></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Logistics & Entry</h4>
+                        <p>6:00 AM – 7:30 PM | Free Admission</p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Recommended Hotels</h4>
+                        <p>Dandeli Jungle Inn, Kali River Lodge (Jungle Lodges)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function toggleHistory(button) {
+            const wrapper = button.closest('.history-wrapper');
+            wrapper.classList.toggle('expanded');
+            if (wrapper.classList.contains('expanded')) {
+                button.textContent = "Read Less";
+            } else {
+                button.textContent = "Read More";
+            }
+        }
+    </script>
+
+</body>
+
+</html>

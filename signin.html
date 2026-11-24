@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In | GO HERITAGE</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+         :root {
+            --orange: #E8651A;
+            --dark: #080C12;
+            --dark2: #0D1420;
+            --glass: rgba(255, 255, 255, 0.06);
+            --glass-border: rgba(255, 255, 255, 0.12);
+            --text: #F0EDE8;
+        }
+        
+        body {
+            margin: 0;
+            background: var(--dark);
+            color: var(--text);
+            font-family: 'DM Sans', sans-serif;
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
+        
+        .portal-left {
+            flex: 1;
+            background: linear-gradient(rgba(8, 12, 18, 0.7), rgba(8, 12, 18, 0.7)), url('https://i1-e.pinimg.com/1200x/94/bc/c9/94bcc91802b41177e92cc9e644802ad9.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 60px;
+        }
+        
+        .portal-right {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--dark2);
+        }
+        
+        .brand-logo {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 48px;
+            letter-spacing: 6px;
+            margin-bottom: 20px;
+        }
+        
+        .brand-logo span {
+            color: var(--orange);
+        }
+        
+        .auth-card {
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            padding: 50px;
+            width: 100%;
+            max-width: 380px;
+            border-radius: 4px;
+            transition: transform 0.5s ease;
+        }
+        
+        h2 {
+            font-family: 'Bebas Neue', sans-serif;
+            letter-spacing: 2px;
+            margin-bottom: 30px;
+        }
+        
+        input {
+            width: 100%;
+            background: var(--dark);
+            border: 1px solid var(--glass-border);
+            padding: 15px;
+            margin-bottom: 15px;
+            color: white;
+            border-radius: 2px;
+            box-sizing: border-box;
+        }
+        
+        button {
+            width: 100%;
+            background: var(--orange);
+            color: white;
+            padding: 15px;
+            border: none;
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        
+        button:hover {
+            filter: brightness(1.2);
+        }
+        
+        a {
+            color: var(--orange);
+            text-decoration: none;
+        }
+    </style>
+<link rel="stylesheet" href="responsive.css">
+</head>
+
+<body>
+    <div class="portal-left">
+        <a href="go-heritage.html" style="opacity: 0.6; margin-bottom: 20px;">← Back to Home</a>
+        <div class="brand-logo">GO <span>HERITAGE</span></div>
+        <p style="max-width: 400px; color: rgba(255,255,255,0.7);">Sign in to access your saved destinations, personalized heritage tours, and exclusive travel packages.</p>
+    </div>
+    <div class="portal-right">
+        <div class="auth-card">
+            <h2>SIGN IN</h2>
+            <input type="email" placeholder="EMAIL ADDRESS">
+            <input type="password" placeholder="PASSWORD">
+            <button onclick="window.location.href='go-heritage.html'">Continue to Journey</button>
+            <p style="text-align: center; font-size: 12px; margin-top: 20px;">
+                New to GO HERITAGE? <a href="#">Create Account</a>
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>

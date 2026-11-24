@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mysuru — Premium Cultural Heritage Chronicle</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+         :root {
+            --terracotta: #E8651A;
+            --gold: #C9A84C;
+            --bg-dark: #080C12;
+            --card-dark: #0D1420;
+            --border-glow: rgba(201, 168, 76, 0.15);
+            --text-light: #F0EDE8;
+            --text-muted: rgba(240, 237, 232, 0.55);
+        }
+        
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            background: var(--bg-dark);
+            color: var(--text-light);
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 300;
+            line-height: 1.6;
+            padding: 60px 8%;
+            overflow-x: hidden;
+        }
+        
+        body::after {
+            content: '';
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 9000;
+            opacity: 0.02;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+        }
+        /* Editorial Header Design */
+        
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            color: var(--terracotta);
+            text-decoration: none;
+            font-size: 12px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 50px;
+            font-weight: 600;
+            transition: transform 0.3s ease;
+        }
+        
+        .back-btn:hover {
+            transform: translateX(-5px);
+        }
+        
+        .header {
+            margin-bottom: 60px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .header::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: var(--gold);
+            margin: 30px auto 0;
+        }
+        
+        .header h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 60px;
+            font-weight: 700;
+            letter-spacing: 5px;
+            line-height: 1.1;
+        }
+        
+        .header h1 span {
+            color: var(--terracotta);
+        }
+        /* Narrative Intro Box */
+        
+        .intro-chronicle {
+            max-width: 850px;
+            margin: 0 auto 100px;
+            text-align: center;
+            background: var(--card-dark);
+            padding: 40px;
+            border-radius: 4px;
+            border: 1px solid var(--border-glow);
+        }
+        
+        .intro-chronicle h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 24px;
+            color: var(--gold);
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+        
+        .intro-chronicle p {
+            font-size: 15px;
+            color: var(--text-muted);
+            line-height: 1.8;
+        }
+        /* One-by-One Alternating Layout */
+        
+        .heritage-flow {
+            display: flex;
+            flex-direction: column;
+            gap: 140px;
+        }
+        
+        .heritage-item {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 70px;
+            align-items: flex-start;
+        }
+        
+        .heritage-item:nth-child(even) {
+            grid-template-columns: 0.9fr 1.1fr;
+        }
+        
+        .heritage-item:nth-child(even) .item-gallery-wrapper {
+            order: 2;
+        }
+        /* Smooth Pure CSS Slider Component */
+        
+        .item-gallery-wrapper {
+            position: relative;
+            width: 100%;
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .slider-container {
+            display: flex;
+            width: 300%;
+            animation: slideShow 16s infinite ease-in-out;
+        }
+        
+        .slider-container img {
+            width: 33.333%;
+            height: 520px;
+            object-fit: cover;
+            display: block;
+        }
+        /* Staggered animation offsets per card to avoid uniform transitions */
+        
+        .heritage-item:nth-child(2n) .slider-container {
+            animation-delay: 2s;
+        }
+        
+        .heritage-item:nth-child(3n) .slider-container {
+            animation-delay: 4s;
+        }
+        
+        .heritage-item:nth-child(4n) .slider-container {
+            animation-delay: 6s;
+        }
+        
+        @keyframes slideShow {
+            0%,
+            25% {
+                transform: translateX(0%);
+            }
+            30%,
+            55% {
+                transform: translateX(-33.333%);
+            }
+            60%,
+            90% {
+                transform: translateX(-66.666%);
+            }
+            95%,
+            100% {
+                transform: translateX(0%);
+            }
+        }
+        /* Content Elements */
+        
+        .item-details {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .item-index {
+            font-family: 'Cinzel', serif;
+            font-size: 14px;
+            color: var(--terracotta);
+            font-weight: 700;
+            margin-bottom: 12px;
+            letter-spacing: 3px;
+        }
+        
+        .item-title {
+            font-family: 'Cinzel', serif;
+            font-size: 34px;
+            font-weight: 600;
+            margin-bottom: 18px;
+            color: #FFF;
+            line-height: 1.2;
+            letter-spacing: 1px;
+        }
+        /* Read More History System */
+        
+        .history-wrapper {
+            margin-bottom: 25px;
+        }
+        
+        .history-base {
+            color: var(--text-muted);
+            font-size: 15px;
+            line-height: 1.8;
+        }
+        
+        .history-extended {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s cubic-bezier(0, 1, 0, 1);
+            color: var(--text-muted);
+            font-size: 15px;
+            line-height: 1.8;
+        }
+        
+        .history-extended p {
+            margin-top: 12px;
+        }
+        
+        .history-wrapper.expanded .history-extended {
+            max-height: 1200px;
+            transition: max-height 0.8s cubic-bezier(0.9, 0, 0.1, 1);
+        }
+        
+        .read-more-trigger {
+            display: inline-flex;
+            align-items: center;
+            background: none;
+            border: none;
+            color: var(--gold);
+            font-family: 'Cinzel', serif;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            cursor: pointer;
+            margin-top: 12px;
+            padding: 4px 0;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+        
+        .read-more-trigger:hover {
+            color: var(--terracotta);
+        }
+        
+        .read-more-trigger::after {
+            content: ' +';
+            font-weight: bold;
+        }
+        
+        .history-wrapper.expanded .read-more-trigger::after {
+            content: ' -';
+        }
+        /* Utility Grid Information Box */
+        
+        .utility-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 22px;
+            background: var(--card-dark);
+            padding: 24px;
+            border-radius: 4px;
+            border: 1px solid var(--border-glow);
+            margin-top: 15px;
+        }
+        
+        .util-meta h4 {
+            font-family: 'Cinzel', serif;
+            font-size: 11px;
+            text-transform: uppercase;
+            color: var(--gold);
+            letter-spacing: 1.5px;
+            margin-bottom: 6px;
+        }
+        
+        .util-meta p {
+            font-size: 13.5px;
+            color: #F0EDE8;
+            font-weight: 400;
+        }
+        
+        .util-meta a {
+            color: var(--terracotta);
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.2s;
+        }
+        
+        .util-meta a:hover {
+            opacity: 0.8;
+            text-decoration: underline;
+        }
+        /* Infrastructure Badges */
+        
+        .badge {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .badge-yes {
+            background: rgba(46, 204, 113, 0.12);
+            color: #2ecc71;
+            border: 1px solid rgba(46, 204, 113, 0.2);
+        }
+        
+        .badge-no {
+            background: rgba(231, 76, 60, 0.12);
+            color: #e74c3c;
+            border: 1px solid rgba(231, 76, 60, 0.2);
+        }
+        /* Responsive Adjustments */
+        
+        @media (max-width: 1100px) {
+            body {
+                padding: 50px 4%;
+            }
+            .heritage-item,
+            .heritage-item:nth-child(even) {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .heritage-item:nth-child(even) .item-gallery-wrapper {
+                order: 0;
+            }
+            .slider-container img {
+                height: 380px;
+            }
+            .header h1 {
+                font-size: 44px;
+            }
+        }
+
+        .item-gallery-wrapper {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.view-360-container {
+    position: relative;
+    width: 100%;
+    height: 450px; /* Change this height if your layout needs it taller/shorter */
+}
+
+.view-360-container iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+    cursor: grab;
+}
+
+.view-360-container iframe:active {
+    cursor: grabbing;
+}
+
+.drag-hint {
+    position: absolute;
+    bottom: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.75);
+    color: #fff;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-family: sans-serif;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 2;
+}
+
+.view-360-container:hover .drag-hint {
+    opacity: 0;
+}
+    </style>
+<link rel="stylesheet" href="responsive.css">
+</head>
+
+<body>
+
+    <a href="go-heritage.html" class="back-btn">← Back to Dashboard</a>
+
+    <div class="header">
+        <h1>MYSURU <span>HERITAGE</span></h1>
+    </div>
+
+    <div class="intro-chronicle">
+        <h2>History of the Cultural Jewel</h2>
+        <p>Mysuru served as the capital of the historic Kingdom of Mysore for nearly six centuries under the legendary Wadiyar Dynasty. Famed for patronizing fine arts, exquisite silk weaving, and grand architecture, it evolved under rulers like Raja Wadiyar
+            and the progressive visionaries of the 20th century into the cultural capital of modern Karnataka.</p>
+    </div>
+
+    <div class="heritage-flow">
+
+        <div class="heritage-item">
+            <div class="item-gallery-wrapper">
+    <div class="view-360-container">
+        <span class="drag-hint">🖱️ Click & drag to explore 360°</span>
+        <iframe 
+            src="https://www.google.com/maps/embed?pb=!4v1795185797228!6m8!1m7!1sCAoSFkNJSE0wb2dLRUlDQWdJQ0czSU9aWUE.!2m2!1d12.30531859273884!2d76.65450389460526!3f262.90829594942613!4f0.12078044011370537!5f0.7820865974627469" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="strict-origin-when-cross-origin">
+        </iframe>
+    </div>
+</div>
+            <div class="item-details">
+                <span class="item-index">01 / 10</span>
+                <h3 class="item-title">Mysore Palace (Amba Vilas)</h3>
+
+                <div class="history-wrapper">
+                    <p class="history-base">
+                        An outstanding masterpiece of Indo-Saracenic architectural engineering designed by British architect Henry Irwin, lit spectacularly by over 97,000 lightbulbs during festivals.
+                    </p>
+                    <div class="history-extended">
+                        <p>
+                            The original palace was a grand wooden structure that accidentally caught fire during the wedding celebrations of Princess Jayalakshmani in 1897. Following this disaster, Maharani Kempananjammanni Vani Vilas Sanndhiana, acting as regent, commissioned
+                            the renowned British architect Henry Irwin to design a new palace that would be completely fireproof and represent the global status of the state.
+                        </p>
+                        <p>
+                            Completed in 1912, the new Amba Vilas Palace mixed Hindu, Islamic, Rajput, and Gothic architectural styles into a massive three-story stone building. It contains magnificent stained glass ceilings imported from Scotland, intricately carved rosewood doors,
+                            inlaid marble floors, and local historic paintings. The palace stands as a grand tribute to the creative vision and administration of the Wadiyar Dynasty.
+                        </p>
+                    </div>
+                    <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
+                </div>
+
+                <div class="utility-grid">
+                    <div class="util-meta">
+                        <h4>Location</h4>
+                        <p><a href="https://maps.google.com/?q=Mysore+Palace" target="_blank">Sayyaji Rao Road, Agrahara, Mysuru Center</a></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Washrooms</h4>
+                        <p><span class="badge badge-yes">Available inside the main security courtyard</span></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Logistics & Entry</h4>
+                        <p>10:00 AM – 5:30 PM | ₹70 Admission Fee</p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Recommended Hotels</h4>
+                        <p>Radisson Blu Plaza Mysuru, Grand Mercure Mysore, Southern Star</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="heritage-item">
+            <div class="item-gallery-wrapper">
+                <div class="slider-container">
+                    <img src="https://images.unsplash.com/photo-1590050752117-238cb0fb12b1?w=800" alt="Jaganmohan Palace Exterior View">
+                    <img src="https://images.unsplash.com/photo-1561361530-211ce63a8010?w=800" alt="Jaganmohan Art Gallery Exhibition">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800" alt="Intricate Carved Wooden Entrances">
+                </div>
+            </div>
+            <div class="item-details">
+                <span class="item-index">02 / 10</span>
+                <h3 class="item-title">Jaganmohan Palace</h3>
+
+                <div class="history-wrapper">
+                    <p class="history-base">
+                        Built in 1861 as an alternate royal residence, it features a wonderful traditional wooden structure and now operates as a world-class art library gallery.
+                    </p>
+                    <div class="history-extended">
+                        <p>
+                            When the old wooden main palace was destroyed by fire in 1897, Jaganmohan Palace became the primary residence for the royal family while construction began on the new Amba Vilas Palace. This building is famous for its intricate three-story wooden framework
+                            and a massive frontage decorated with carvings of Hindu deities and royal processions.
+                        </p>
+                        <p>
+                            In 1915, under the direction of Maharaja Krishnaraja Wadiyar IV, the palace was converted into a public art gallery. It holds an exceptional collection of over 2,000 classic paintings, including legendary original artworks by Raja Ravi Varma. It also
+                            showcases historic musical instruments, rare coins, weapons, and unique historical exhibits that document the life of the kingdom.
+                        </p>
+                    </div>
+                    <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
+                </div>
+
+                <div class="utility-grid">
+                    <div class="util-meta">
+                        <h4>Location</h4>
+                        <p><a href="https://maps.google.com/?q=Jaganmohan+Palace" target="_blank">Jobaiah Road, Subbarayanakere, Chamrajpura, Mysuru</a></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Washrooms</h4>
+                        <p><span class="badge badge-yes">Available inside the ground-floor visitor complex</span></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Logistics & Entry</h4>
+                        <p>10:00 AM – 5:00 PM | ₹40 Entry Fee</p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Recommended Hotels</h4>
+                        <p>Metropole Mysore, Treebo Trend Spektrum Suites, Hotel Mayura Hoysala</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="heritage-item">
+            <div class="item-gallery-wrapper">
+                <div class="slider-container">
+                    <img src="https://images.unsplash.com/photo-1561361530-211ce63a8010?w=800" alt="Chamundi Hills Tower View">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800" alt="Monolithic Nandi Bull Sculpture">
+                    <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800" alt="Temple Sacred Entrance Threshold">
+                </div>
+            </div>
+            <div class="item-details">
+                <span class="item-index">03 / 10</span>
+                <h3 class="item-title">Chamundeshwari Temple</h3>
+
+                <div class="history-wrapper">
+                    <p class="history-base">
+                        Perched atop Chamundi Hills, this ancient temple dating back to the 12th century features a towering Dravidian gopuram that looks over the valley plains.
+                    </p>
+                    <div class="history-extended">
+                        <p>
+                            Dedicated to Goddess Chamundeshwari, the fierce form of Shakti who defeated the demon king Mahishasura, this sacred hill shrine has been central to regional spiritual traditions for generations. The temple started as a simple shrine under the Hoysala
+                            rulers in the 12th century, and was later expanded by the Vijayanagara empire and the Wadiyar kings.
+                        </p>
+                        <p>
+                            In 1827, Maharaja Krishnaraja Wadiyar III funded a major renovation, building the iconic 7-tier, 40-meter-tall Dravidian entrance tower (gopuram) topped with golden finials. Halfway up the stone steps of the hill sits a magnificent, massive monolithic
+                            sculpture of the Nandi bull, carved from a single granite rock in 1659, which remains a landmark of historical stone craftsmanship.
+                        </p>
+                    </div>
+                    <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
+                </div>
+
+                <div class="utility-grid">
+                    <div class="util-meta">
+                        <h4>Location</h4>
+                        <p><a href="https://maps.google.com/?q=Chamundeshwari+Temple" target="_blank">Chamundi Hill Top, Mysuru Outskirts</a></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Washrooms</h4>
+                        <p><span class="badge badge-yes">Available near the multi-level parking complex</span></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Logistics & Entry</h4>
+                        <p>7:30 AM – 9:00 PM | Free General Entry (Paid special queues available)</p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Recommended Hotels</h4>
+                        <p>The Windflower Resort & Spa, Fortune JP Palace, silent Shores Resort</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="heritage-item">
+            <div class="item-gallery-wrapper">
+                <div class="slider-container">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800" alt="St Philomena Neo Gothic Spires">
+                    <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800" alt="Altar and Crypt view inside">
+                    <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=800" alt="Stained Glass Window Panels Close">
+                </div>
+            </div>
+            <div class="item-details">
+                <span class="item-index">04 / 10</span>
+                <h3 class="item-title">St. Philomena's Church</h3>
+
+                <div class="history-wrapper">
+                    <p class="history-base">
+                        One of the tallest cathedrals in South Asia, featuring breathtaking Neo-Gothic architectural towers inspired directly by Germany's famous Cologne Cathedral.
+                    </p>
+                    <div class="history-extended">
+                        <p>
+                            St. Philomena's Church is a beautiful symbol of religious harmony and inclusive patronage in old Mysuru. Built in 1936 under the direction of Maharaja Krishnaraja Wadiyar IV, the cathedral was designed by a French architect named Daly to serve the city's
+                            growing Christian community.
+                        </p>
+                        <p>
+                            The cathedral features two massive 53-meter towers that define the city skyline, built using a classic cross-shaped layout. The main hall is adorned with delicate stained-glass windows imported from France, which depict key scenes from the life of Christ.
+                            Beneath the grand altar lies a sacred underground crypt that holds a historic relic of Saint Philomena, drawing visitors from all walks of life.
+                        </p>
+                    </div>
+                    <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
+                </div>
+
+                <div class="utility-grid">
+                    <div class="util-meta">
+                        <h4>Location</h4>
+                        <p><a href="https://maps.google.com/?q=St.+Philomena's+Church" target="_blank">Lashkar Mohalla, Ashoka Road, Mysuru</a></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Washrooms</h4>
+                        <p><span class="badge badge-yes">Available at the back corner of the church yard</span></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Logistics & Entry</h4>
+                        <p>5:00 AM – 6:00 PM | Free Entry</p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Recommended Hotels</h4>
+                        <p>Roopa Elite, Hotel Mayura Riverview Srirangapatna, Golden Landmark</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="heritage-item">
+            <div class="item-gallery-wrapper">
+                <div class="slider-container">
+                    <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800" alt="Lalitha Mahal Palace Exterior">
+                    <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=800" alt="Grand Dining Hall and Chandeliers">
+                    <img src="https://images.unsplash.com/photo-1598977123418-45f04b6168ba?w=800" alt="Staircases and Italian Marble Pillar">
+                </div>
+            </div>
+            <div class="item-details">
+                <span class="item-index">05 / 10</span>
+                <h3 class="item-title">Lalitha Mahal Palace</h3>
+
+                <div class="history-wrapper">
+                    <p class="history-base">
+                        Built in 1921 by Maharaja Krishnaraja Wadiyar IV, its majestic pure white dome is modeled after St. Paul's Cathedral in London.
+                    </p>
+                    <div class="history-extended">
+                        <p>
+                            Set amidst expansive manicured lawns near the base of Chamundi Hills, the Lalitha Mahal Palace was built in 1921 specifically to host the Viceroy of India and other prominent European guests of the state. Designed by the visionary architect E.W. Fritchley,
+                            the building features an elegant layout with twin rows of grand columns.
+                        </p>
+                        <p>
+                            The interior is a showcase of European luxury, featuring a magnificent grand staircase made of imported Italian marble, tall crystal chandeliers, and premium wood paneling. The palace's grand ballroom has been converted into a historic dining room, allowing
+                            visitors to experience the stately elegance of Mysuru's old royal court.
+                        </p>
+                    </div>
+                    <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
+                </div>
+
+                <div class="utility-grid">
+                    <div class="util-meta">
+                        <h4>Location</h4>
+                        <p><a href="https://maps.google.com/?q=Lalitha+Mahal+Palace" target="_blank">Lalitha Mahal Palace Road, Siddhartha Layout, Mysuru</a></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Washrooms</h4>
+                        <p><span class="badge badge-yes">Available inside the main heritage hotel lobby</span></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Logistics & Entry</h4>
+                        <p>10:00 AM – 6:00 PM | ₹100 Visitor Entry Fee</p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Recommended Hotels</h4>
+                        <p>Lalitha Mahal Palace Heritage Hotel, Jal Mahal Resort, Royal Orchid Brindavan</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="heritage-item">
+            <div class="item-gallery-wrapper">
+                <div class="slider-container">
+                    <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=800" alt="Srirangapatna Fort Moat Walls">
+                    <img src="https://images.unsplash.com/photo-1598977123418-45f04b6168ba?w=800" alt="Tipu Sultan Death Place Memorial">
+                    <img src="https://images.unsplash.com/photo-1541963463532-d68292c34b19?w=800" alt="Colonel Baillie Dungeon Vaults">
+                </div>
+            </div>
+            <div class="item-details">
+                <span class="item-index">06 / 10</span>
+                <h3 class="item-title">Srirangapatna Fort</h3>
+
+                <div class="history-wrapper">
+                    <p class="history-base">
+                        Located just outside Mysuru, this historic island fortress served as the military heart of Tipu Sultan's empire and a major center of Anglo-Mysore history.
+                    </p>
+                    <div class="history-extended">
+                        <p>
+                            Srirangapatna Fort is a massive island stronghold naturally protected by the split waters of the Kaveri River. Founded in 1454 by the regional ruler Timmanna Nayaka, it was later fortified using advanced French engineering under Haider Ali and his son,
+                            Tipu Sultan, making it one of India's strongest fortresses.
+                        </p>
+                        <p>
+                            The fort was the site of the historic fourth Anglo-Mysore War in 1799, which ended with the fall of Tipu Sultan and reshaped the history of southern India. The complex contains the old armory vaults, the deep Colonel Baillie Dungeon where British prisoners
+                            were held, and the historic spot where Tipu Sultan fought his final battle, making it an essential site for understanding the region's military history.
+                        </p>
+                    </div>
+                    <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
+                </div>
+
+                <div class="utility-grid">
+                    <div class="util-meta">
+                        <h4>Location</h4>
+                        <p><a href="https://maps.google.com/?q=Srirangapatna+Fort" target="_blank">Srirangapatna Island Town, Mandya District Border</a></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Washrooms</h4>
+                        <p><span class="badge badge-yes">Available near the central railway station entry plaza</span></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Logistics & Entry</h4>
+                        <p>8:00 AM – 6:00 PM | ₹20 Entry Fee</p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Recommended Hotels</h4>
+                        <p>Amblee Holiday Resort, KSTDC Mayura Riverview Srirangapatna</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="heritage-item">
+            <div class="item-gallery-wrapper">
+                <div class="slider-container">
+                    <img src="https://images.unsplash.com/photo-1598977123418-45f04b6168ba?w=800" alt="Somnathpur Star Shape Foundation">
+                    <img src="https://images.unsplash.com/photo-1541963463532-d68292c34b19?w=800" alt="Intricate Soapstone Carved Shrines">
+                    <img src="https://images.unsplash.com/photo-1569336415962-a4bd9f69cd83?w=800" alt="Ceiling Ornate Carving Panels">
+                </div>
+            </div>
+            <div class="item-details">
+                <span class="item-index">07 / 10</span>
+                <h3 class="item-title">Keshava Temple (Somnathpur)</h3>
+
+                <div class="history-wrapper">
+                    <p class="history-base">
+                        A magnificent Hoysala triple-shrine temple consecrated in 1268, featuring extraordinary, detailed star-shaped geometric stone carvings.
+                    </p>
+                    <div class="history-extended">
+                        <p>
+                            Commissioned by Somanatha Dandanayaka, a high-ranking military commander under Hoysala King Narasimha III, this temple stands as a supreme example of historic soapstone architecture. The temple is built on a raised star-shaped platform and features three
+                            separate shrines dedicated to the forms of Krishna: Keshava, Janardhana, and Venugopala.
+                        </p>
+                        <p>
+                            Every surface of the temple walls is adorned with detailed bands of carvings depicting rows of charging elephants, cavalry riders, scenes from ancient epics, and delicate floral patterns. The ceilings feature deep, layered dome carvings that look like
+                            opening lotus blossoms, showcasing the unmatched precision of medieval stone carvers.
+                        </p>
+                    </div>
+                    <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
+                </div>
+
+                <div class="utility-grid">
+                    <div class="util-meta">
+                        <h4>Location</h4>
+                        <p><a href="https://maps.google.com/?q=Keshava+Temple+Somnathpur" target="_blank">Somnathpur Village, 38km East of Mysuru City</a></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Washrooms</h4>
+                        <p><span class="badge badge-yes">Available inside the ASI tourist reception center</span></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Logistics & Entry</h4>
+                        <p>9:00 AM – 5:30 PM | ₹25 Entry Fee</p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Recommended Hotels</h4>
+                        <p>Tents N Trails Coorg, Heritage Homestays Talakad, Radisson Blu Mysuru</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="heritage-item">
+            <div class="item-gallery-wrapper">
+                <div class="slider-container">
+                    <img src="https://images.unsplash.com/photo-1541963463532-d68292c34b19?w=800" alt="Jayalakshmi Vilas Front Porch">
+                    <img src="https://images.unsplash.com/photo-1569336415962-a4bd9f69cd83?w=800" alt="Folklore Museum Artefacts Hall">
+                    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800" alt="Ornate Corinthian Pillar Columns">
+                </div>
+            </div>
+            <div class="item-details">
+                <span class="item-index">08 / 10</span>
+                <h3 class="item-title">Jayalakshmi Vilas Mansion</h3>
+
+                <div class="history-wrapper">
+                    <p class="history-base">
+                        Constructed in 1905 for Princess Jayalakshmani, this massive heritage complex contains over 300 ornate rooms filled with rare regional folk artifacts.
+                    </p>
+                    <div class="history-extended">
+                        <p>
+                            Built in 1905 by Maharaja Chamarajendra Wadiyar X for his eldest daughter, Princess Jayalakshmani, this mansion was designed to harmonize with the rolling hills of Kukkarahalli Lake. The building features grand Corinthian columns, decorated plaster borders,
+                            and beautiful internal courtyards with carved wooden pillars.
+                        </p>
+                        <p>
+                            In 2002, the structure was carefully restored by the University of Mysore using funding from the Infosys Foundation. It now houses an exceptional folklore museum that displays thousands of rare artifacts, including traditional shadow puppets, ceremonial
+                            regional costumes, large wooden processional carts, and ancient tools, preserving the folk heritage of Karnataka.
+                        </p>
+                    </div>
+                    <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
+                </div>
+
+                <div class="utility-grid">
+                    <div class="util-meta">
+                        <h4>Location</h4>
+                        <p><a href="https://maps.google.com/?q=Jayalakshmi+Vilas+Mansion" target="_blank">Manasagangotri University Campus, Bogadi Road, Mysuru</a></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Washrooms</h4>
+                        <p><span class="badge badge-yes">Available inside the University Postgraduate Center block</span></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Logistics & Entry</h4>
+                        <p>10:00 AM – 5:00 PM | ₹20 Entry Fee (Closed on Sundays)</p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Recommended Hotels</h4>
+                        <p>The Premier Hotel, Fairfield by Marriott, Royal Orchid Metropole</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="heritage-item">
+            <div class="item-gallery-wrapper">
+                <div class="slider-container">
+                    <img src="https://images.unsplash.com/photo-1569336415962-a4bd9f69cd83?w=800" alt="Cheluvamba Mansion Palatial Gables">
+                    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800" alt="Manicured Research Center Gardens">
+                    <img src="https://images.unsplash.com/photo-1590050752117-238cb0fb12b1?w=800" alt="Arched Administrative Colonnades">
+                </div>
+            </div>
+            <div class="item-details">
+                <span class="item-index">09 / 10</span>
+                <h3 class="item-title">Cheluvamba Mansion</h3>
+
+                <div class="history-wrapper">
+                    <p class="history-base">
+                        An elegant palace designed for the third daughter of Maharaja Chamarajendra Wadiyar, now functioning as a premier national research facility.
+                    </p>
+                    <div class="history-extended">
+                        <p>
+                            The Cheluvamba Mansion was built in 1911 as a grand residence for Princess Cheluvajammanni. Surrounded by expansive botanical gardens, the building features elegant stone columns, majestic entrance gates, and broad terraces designed to keep the interiors
+                            cool throughout the year.
+                        </p>
+                        <p>
+                            Shortly after independence, the royal family transitioned the estate to the Government of India. Today, it serves as the central headquarters for the Central Food Technological Research Institute (CFTRI). While the inside rooms are reserved for scientific
+                            research, the grand exterior stands as a proud example of early 20th-century royal residential architecture.
+                        </p>
+                    </div>
+                    <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
+                </div>
+
+                <div class="utility-grid">
+                    <div class="util-meta">
+                        <h4>Location</h4>
+                        <p><a href="https://maps.google.com/?q=CFTRI+Mysore" target="_blank">CFTRI Campus, near Mysuru Junction Railway Station</a></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Washrooms</h4>
+                        <p><span class="badge badge-no">No public access inside the active research campus</span></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Logistics & Entry</h4>
+                        <p>Active Scientific Facility | External views from the perimeter roads only</p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Recommended Hotels</h4>
+                        <p>Hotel MB International, Treebo Trend Royal Horizon, Radisson Blu</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="heritage-item">
+            <div class="item-gallery-wrapper">
+                <div class="slider-container">
+                    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800" alt="Brindavan Gardens Fountain Terraces">
+                    <img src="https://images.unsplash.com/photo-1590050752117-238cb0fb12b1?w=800" alt="Musical Fountain Night Show">
+                    <img src="https://images.unsplash.com/photo-1561361530-211ce63a8010?w=800" alt="KRS Dam Granite Sluice Gates">
+                </div>
+            </div>
+            <div class="item-details">
+                <span class="item-index">10 / 10</span>
+                <h3 class="item-title">Brindavan Gardens Fountain Complex</h3>
+
+                <div class="history-wrapper">
+                    <p class="history-base">
+                        Adjoining the historic KRS Dam, these symmetrical terraced gardens were engineered alongside early 20th-century water systems.
+                    </p>
+                    <div class="history-extended">
+                        <p>
+                            The creation of Brindavan Gardens was envisioned by Sir Mirza Ismail, the visionary Diwan of Mysore, to complement the massive Krishna Raja Sagara (KRS) Dam built by pioneering engineer Sir M. Visvesvaraya. Inspired by traditional Mughal layouts, construction
+                            on the terraced gardens began in 1927 and was completed in 1932.
+                        </p>
+                        <p>
+                            The gardens feature a series of three symmetrical terraces with water fountains powered by the natural pressure of the dam. The park is famous for its pioneering musical fountain show, which combines synchronized water jets, music, and colorful lights,
+                            representing the progressive landscape engineering and civic vision of early modern Mysuru.
+                        </p>
+                    </div>
+                    <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
+                </div>
+
+                <div class="utility-grid">
+                    <div class="util-meta">
+                        <h4>Location</h4>
+                        <p><a href="https://maps.google.com/?q=Brindavan+Gardens" target="_blank">KRS Dam Road, Krishna Raja Sagar, Mandya District</a></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Washrooms</h4>
+                        <p><span class="badge badge-yes">Available near the main ticket booths and the northern boat deck</span></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Logistics & Entry</h4>
+                        <p>6:30 AM – 9:00 PM | ₹50 Entry Fee (Fountain show starts after sunset)</p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Recommended Hotels</h4>
+                        <p>Royal Orchid Brindavan Garden Palace, KSTDC Hotel Mayura KRS</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function toggleHistory(button) {
+            const wrapper = button.closest('.history-wrapper');
+            wrapper.classList.toggle('expanded');
+            if (wrapper.classList.contains('expanded')) {
+                button.textContent = "Read Less";
+            } else {
+                button.textContent = "Read More";
+            }
+        }
+    </script>
+
+</body>
+
+</html>

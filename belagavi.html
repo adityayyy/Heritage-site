@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Belagavi — Premium Heritage Chronicle</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+         :root {
+            --terracotta: #D46A43;
+            --gold: #D4AF37;
+            --bg-dark: #0A0F18;
+            --card-dark: #121A2A;
+            --border-glow: rgba(212, 175, 55, 0.12);
+            --text-light: #F4F6F9;
+            --text-muted: #8E9AAF;
+        }
+        
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            background: var(--bg-dark);
+            color: var(--text-light);
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 300;
+            line-height: 1.6;
+            padding: 60px 8%;
+        }
+        /* Editorial Header Design */
+        
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            color: var(--terracotta);
+            text-decoration: none;
+            font-size: 12px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 50px;
+            font-weight: 600;
+            transition: transform 0.3s ease;
+        }
+        
+        .back-btn:hover {
+            transform: translateX(-5px);
+        }
+        
+        .header {
+            margin-bottom: 60px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .header::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: var(--gold);
+            margin: 30px auto 0;
+        }
+        
+        .header h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 60px;
+            font-weight: 700;
+            letter-spacing: 5px;
+            line-height: 1.1;
+        }
+        
+        .header h1 span {
+            color: var(--terracotta);
+        }
+        /* Narrative Intro Box */
+        
+        .intro-chronicle {
+            max-width: 850px;
+            margin: 0 auto 100px;
+            text-align: center;
+            background: var(--card-dark);
+            padding: 40px;
+            border-radius: 6px;
+            border: 1px solid var(--border-glow);
+        }
+        
+        .intro-chronicle h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 24px;
+            color: var(--gold);
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+        
+        .intro-chronicle p {
+            font-size: 15px;
+            color: var(--text-muted);
+            line-height: 1.8;
+        }
+        /* One-by-One Alternating Layout */
+        
+        .heritage-flow {
+            display: flex;
+            flex-direction: column;
+            gap: 140px;
+        }
+        
+        .heritage-item {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 70px;
+            align-items: flex-start;
+        }
+        
+        .heritage-item:nth-child(even) {
+            grid-template-columns: 0.9fr 1.1fr;
+        }
+        
+        .heritage-item:nth-child(even) .item-gallery-wrapper {
+            order: 2;
+        }
+        /* Smooth Pure CSS Slider Component */
+        
+        .item-gallery-wrapper {
+            position: relative;
+            width: 100%;
+            border-radius: 6px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .slider-container {
+            display: flex;
+            width: 300%;
+            animation: slideShow 16s infinite ease-in-out;
+        }
+        
+        .slider-container img {
+            width: 33.333%;
+            height: 500px;
+            object-fit: cover;
+            display: block;
+        }
+        /* Unique staggered animation offsets per card to avoid uniform sliding */
+        
+        .heritage-item:nth-child(2n) .slider-container {
+            animation-delay: 2s;
+        }
+        
+        .heritage-item:nth-child(3n) .slider-container {
+            animation-delay: 4s;
+        }
+        
+        .heritage-item:nth-child(4n) .slider-container {
+            animation-delay: 6s;
+        }
+        
+        @keyframes slideShow {
+            0%,
+            25% {
+                transform: translateX(0%);
+            }
+            30%,
+            55% {
+                transform: translateX(-33.333%);
+            }
+            60%,
+            90% {
+                transform: translateX(-66.666%);
+            }
+            95%,
+            100% {
+                transform: translateX(0%);
+            }
+        }
+        /* Content Elements */
+        
+        .item-details {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .item-index {
+            font-family: 'Cinzel', serif;
+            font-size: 14px;
+            color: var(--terracotta);
+            font-weight: 700;
+            margin-bottom: 12px;
+            letter-spacing: 3px;
+        }
+        
+        .item-title {
+            font-family: 'Cinzel', serif;
+            font-size: 34px;
+            font-weight: 600;
+            margin-bottom: 18px;
+            color: #FFF;
+            line-height: 1.2;
+            letter-spacing: 1px;
+        }
+        /* Read More History System */
+        
+        .history-wrapper {
+            margin-bottom: 25px;
+        }
+        
+        .history-base {
+            color: var(--text-muted);
+            font-size: 15px;
+            line-height: 1.8;
+        }
+        
+        .history-extended {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s cubic-bezier(0, 1, 0, 1);
+            color: var(--text-muted);
+            font-size: 15px;
+            line-height: 1.8;
+        }
+        
+        .history-extended p {
+            margin-top: 12px;
+        }
+        
+        .history-wrapper.expanded .history-extended {
+            max-height: 1000px;
+            /* high enough threshold for layout flow */
+            transition: max-height 0.8s cubic-bezier(0.9, 0, 0.1, 1);
+        }
+        
+        .read-more-trigger {
+            display: inline-flex;
+            align-items: center;
+            background: none;
+            border: none;
+            color: var(--gold);
+            font-family: 'Cinzel', serif;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            cursor: pointer;
+            margin-top: 10px;
+            padding: 4px 0;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+        
+        .read-more-trigger:hover {
+            color: var(--terracotta);
+        }
+        
+        .read-more-trigger::after {
+            content: ' +';
+            font-weight: bold;
+        }
+        
+        .history-wrapper.expanded .read-more-trigger::after {
+            content: ' -';
+        }
+        /* Utility Grid Information Box */
+        
+        .utility-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 22px;
+            background: var(--card-dark);
+            padding: 24px;
+            border-radius: 6px;
+            border: 1px solid var(--border-glow);
+            margin-top: 15px;
+        }
+        
+        .util-meta h4 {
+            font-family: 'Cinzel', serif;
+            font-size: 11px;
+            text-transform: uppercase;
+            color: var(--gold);
+            letter-spacing: 1.5px;
+            margin-bottom: 6px;
+        }
+        
+        .util-meta p {
+            font-size: 13.5px;
+            color: #E1E6ED;
+            font-weight: 400;
+        }
+        
+        .util-meta a {
+            color: var(--terracotta);
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.2s;
+        }
+        
+        .util-meta a:hover {
+            opacity: 0.8;
+            text-decoration: underline;
+        }
+        /* Infrastructure Badges */
+        
+        .badge {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .badge-yes {
+            background: rgba(46, 204, 113, 0.12);
+            color: #2ecc71;
+            border: 1px solid rgba(46, 204, 113, 0.2);
+        }
+        
+        .badge-no {
+            background: rgba(231, 76, 60, 0.12);
+            color: #e74c3c;
+            border: 1px solid rgba(231, 76, 60, 0.2);
+        }
+        /* Responsive Systems */
+        
+        @media (max-width: 1100px) {
+            body {
+                padding: 50px 4%;
+            }
+            .heritage-item,
+            .heritage-item:nth-child(even) {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .heritage-item:nth-child(even) .item-gallery-wrapper {
+                order: 0;
+            }
+            .slider-container img {
+                height: 380px;
+            }
+            .header h1 {
+                font-size: 44px;
+            }
+        }
+    </style>
+<link rel="stylesheet" href="responsive.css">
+</head>
+
+<body>
+
+    <a href="go-heritage.html" class="back-btn">← Back to Dashboard</a>
+
+    <div class="header">
+        <h1>BELAGAVI <span>CHRONICLES</span></h1>
+    </div>
+
+    <div class="intro-chronicle">
+        <h2>The Architectural Legacy of the Northern Bastion</h2>
+        <p>Belagavi (Belgaum) was established in the 12th century by the Ratta Dynasty before cycling through the control of the Yadavas, the Bahmani Sultanate, the Adil Shahis, and the Marathas. It serves as an incredible historical melting pot of Kannada,
+            Marathi, and colonial British military architecture, safely guarded by one of the oldest water-moated stone fortresses in Southern India. This premium guide catalogues the region's top 10 heritage landmarks, combining in-depth historiography
+            with essential modern explorer logistics.</p>
+    </div>
+
+    <div class="heritage-flow">
+
+        <div class="heritage-item">
+            <div class="item-gallery-wrapper">
+                <div class="slider-container">
+                    <img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAGxvZbO-jaXa0H7LHgZ8kBY5ouMytfu2mCSJRwhCBvIRHNGDrOLZPDjfhoqSvsYv5PnUBsrsTym1nzRpcWGzsayT4Jvzz3DMRSJFe7FHE2l36xYp_3H9ZRRbrdS9n3dE_-QXOgl=s1360-w1360-h1020-rw" alt="Belagavi Fort Outer Moat Structure">
+                    <img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAG3rWI0nDZr7gYkrebRD4vJv97y_IbOvY_-YN3eyAbiU9qDKO0WcWZAB3QD6XxHHB7Gsxb0q22bkgSoA5uc5v9bAL4ukl51zzNzvHh7EqFweCCFFEAZyn2B6y55zlQDagIhaBZsVfM_N3p5=s1360-w1360-h1020-rw" alt="Belagavi Fort High Granite Ramparts">
+                    <img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAFGqB2mohnFGcsh8EbDIRqdc3OfpPh_9d-IZWLDvBUNtwgZc0s7sgVr1-OjXDmVIXYqF83vdW2RnYVdOOFLYat5GxpPEX1adCmDd5osaXfiS4ZeVbM9nD89CuYqZyExV7ORnClBv5DFlM5v=s1360-w1360-h1020-rw" alt="Belagavi Fort Guard Bulwarks">
+                </div>
+            </div>
+            <div class="item-details">
+                <span class="item-index">01 / 10</span>
+                <h3 class="item-title">Belagavi Fort</h3>
+
+                <div class="history-wrapper">
+                    <p class="history-base">
+                        An ancient oval-shaped military fortification originally laid down in 1204 AD, the Belagavi Fort is bounded by massive granite blocks and anchored by a vast deep-cut water moat. It stands out as one of the most resilient structures in Northern Karnataka.
+                    </p>
+                    <div class="history-extended">
+                        <p>
+                            Constructed by Jaya Raya, a military commander under the Ratta Dynasty, the fort was heavily redesigned over successive eras by the Vijayanagara sovereigns, the Bijapur Sultanate, and the Marathas. Its primary defensive layout was modified to withstand
+                            heavy artillery fire during the 16th-century campaigns of the Adil Shahi dynasty.
+                        </p>
+                        <p>
+                            The entry ramparts display heavy wooden gate setups equipped with massive iron plates designed to resist charging war elephants. Inside the fort perimeter, multiple religious shrines, ranging from ancient Jain temples to historic mosques, safely co-exist,
+                            highlighting its cross-cultural governance through the ages.
+                        </p>
+                    </div>
+                    <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
+                </div>
+
+                <div class="utility-grid">
+                    <div class="util-meta">
+                        <h4>Location</h4>
+                        <p><a href="https://maps.google.com/?q=Belagavi+Fort" target="_blank">Fort Area, Central Belagavi</a></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Washrooms</h4>
+                        <p><span class="badge badge-yes">Available On-site</span></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Logistics & Entry</h4>
+                        <p>8:00 AM – 6:30 PM | ₹20 Entry Fee</p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Premium Stays Nearby</h4>
+                        <p>Fairfield by Marriott, UK 27 The Fern, Hotel Eefa</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="heritage-item">
+            <div class="item-gallery-wrapper">
+                <div class="slider-container">
+                    <img src="https://i.pinimg.com/736x/80/9d/25/809d25a719e556a308d9afbee68755d7.jpg" alt="Kamal Basadi Outer Shrines">
+                    <img src="https://i.pinimg.com/736x/fa/bf/5c/fabf5ce1689314cedd8ae977a7b581e8.jpg" alt="Lotus Carved Ceiling Close Up">
+                    <img src="https://i.pinimg.com/1200x/3a/ec/f7/3aecf704b9ef419b073dbd4f16f5eab4.jpg" alt="Soapstone Pillared Hallways">
+                </div>
+            </div>
+            <div class="item-details">
+                <span class="item-index">02 / 10</span>
+                <h3 class="item-title">Kamal Basadi Jain Temple</h3>
+
+                <div class="history-wrapper">
+                    <p class="history-base">
+                        Nestled inside the fort complex, this 12th-century Chalukyan soapstone masterpiece is structurally renowned for its magnificent domed ceiling carved into an inverted lotus flower. It serves as an active sacred site.
+                    </p>
+                    <div class="history-extended">
+                        <p>
+                            Built in 1204 AD by Bichiraja, a prominent minister in the court of Ratta King Kartavirya IV, the temple showcases Late Chalukyan design elements. The central pillared hall features perfectly polished dark columns that reflect the delicate stone carvings
+                            of the sanctuary walls.
+                        </p>
+                        <p>
+                            The crowning jewel of the structure is the "Gada-Kumbha" ceiling, featuring 72 interlocking granite petals arranged into a monumental hanging lotus blossom. This feature showcases incredible mathematical precision and structural engineering achieved without
+                            modern binding mortars.
+                        </p>
+                    </div>
+                    <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
+                </div>
+
+                <div class="utility-grid">
+                    <div class="util-meta">
+                        <h4>Location</h4>
+                        <p><a href="https://maps.google.com/?q=Kamal+Basadi+Belagavi" target="_blank">Belagavi Fort Inner Compound</a></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Washrooms</h4>
+                        <p><span class="badge badge-yes">Available In Compound</span></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Logistics & Entry</h4>
+                        <p>8:00 AM – 6:00 PM | Free Entry</p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Premium Stays Nearby</h4>
+                        <p>UK 27 The Fern, The Native Hotel, Sanman Deluxe</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="heritage-item">
+            <div class="item-gallery-wrapper">
+                <div class="slider-container">
+                    <img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAH6RoK2jL0Do6VpJvbKuH61LcpO9aEUXXwS1kpePpW5OpJ0LW_UcQzZuH6-sXquIHxre7nXTkM53ku1LfDIpurZzAslrvrbfF1oh8KeOcHUSFKrOYFJxx8K5IGu5sg_gzIG4NqI=s1360-w1360-h1020-rw" alt="Kittur Fort Gateway Ruins">
+                    <img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAEqo4E2kaIU3QQXb52wYz8gqbAylinrm7riN7wrvBX4yRsam1iDrhtCXMDzDargiO6OYNl7ZvlnPjknTDvj4mda3qG80-RPKslqQb-grB9tVM79WBAuJTqLVi6tSbnbOrfRSmFgTg=s1360-w1360-h1020-rw" alt="Palace Ground Foundations">
+                    <img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAGEppG1aYgZ0ye4D1P8j7QOl9BgfynSLNTs3AEeFmKB_GmCPQIaWqM4eR5fEDhPA6O9VwKwKIRdOc5Kgu4p3kmljHCGefZUo0jjyOh5m0giioGAn6x6MTQi4vetS49ZTmIY8-6h5Q=s1360-w1360-h1020-rw" alt="Kittur Museum Archaeological Gallery">
+                </div>
+            </div>
+            <div class="item-details">
+                <span class="item-index">03 / 10</span>
+                <h3 class="item-title">Kittur Chennamma Fort</h3>
+
+                <div class="history-wrapper">
+                    <p class="history-base">
+                        The legendary fortified headquarters of Queen Rani Chennamma, who spearheaded an iconic armed resistance movement against the British East India Company in 1824, pre-dating the 1857 mutiny by over three decades.
+                    </p>
+                    <div class="history-extended">
+                        <p>
+                            The ruined citadel commemorates Rani Chennamma's historic fight against the British "Doctrine of Lapse." The fort layout preserves the foundation blocks of the six-story royal palace, an intricately engineered network of concealed water pipelines, and
+                            heavy defense outposts.
+                        </p>
+                        <p>
+                            The adjacent state archaeological museum houses priceless relics from the site, including authentic medieval swords, shields, chain-mail armor sets, and original epigraphs that capture the operational scale of the Kittur kingdom.
+                        </p>
+                    </div>
+                    <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
+                </div>
+
+                <div class="utility-grid">
+                    <div class="util-meta">
+                        <h4>Location</h4>
+                        <p><a href="https://maps.google.com/?q=Kittur+Fort" target="_blank">Kittur Highway Axis, Belagavi District</a></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Washrooms</h4>
+                        <p><span class="badge badge-yes">Available (Museum Block)</span></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Logistics & Entry</h4>
+                        <p>9:00 AM – 5:00 PM | ₹15 Entry Fee</p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Premium Stays Nearby</h4>
+                        <p>Regenta Resort Belagavi, Hotel Native Rooms</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="heritage-item">
+            <div class="item-gallery-wrapper">
+                <div class="slider-container">
+                    <img src="https://belagavitourism.com/wp-content/uploads/2024/12/page1_image1_crop_5-7-600x552.webp" alt="Safa Masjid Archways">
+                    <img src="https://belagavitourism.com/wp-content/uploads/2024/12/page1_image1_crop_7-3-600x556.webp" alt="Medieval Plaster Decorations">
+                    <img src="https://belagavitourism.com/wp-content/uploads/2024/12/page1_image1_crop_5-7-600x552.webp" alt="Masjid Main Courtyard View">
+                </div>
+            </div>
+            <div class="item-details">
+                <span class="item-index">04 / 10</span>
+                <h3 class="item-title">Safa Masjid</h3>
+
+                <div class="history-wrapper">
+                    <p class="history-base">
+                        An elegant Adil Shahi civic monument located within the fort boundaries, displaying outstanding medieval plasterwork decoration and distinctive scalloped arches dating back to the Bijapur Sultanate.
+                    </p>
+                    <div class="history-extended">
+                        <p>
+                            Constructed in the 16th century, Safa Masjid is characterized by its clean, minimalist lines paired with intricate floral stucco bands that wind along its central minarets and deep niche prayer bays.
+                        </p>
+                        <p>
+                            The massive lime-plaster and basalt stone block walls naturally regulate temperature, ensuring the inner prayer hall remains calm and cool even during peak summer afternoons.
+                        </p>
+                    </div>
+                    <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
+                </div>
+
+                <div class="utility-grid">
+                    <div class="util-meta">
+                        <h4>Location</h4>
+                        <p><a href="https://maps.google.com/?q=Safa+Masjid+Belagavi" target="_blank">Belagavi Fort Inner Perimeter</a></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Washrooms</h4>
+                        <p><span class="badge badge-no">Restricted Access</span></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Logistics & Entry</h4>
+                        <p>6:00 AM – 7:00 PM | Free Entry</p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Premium Stays Nearby</h4>
+                        <p>Fairfield by Marriott, Hotel Sanman Deluxe</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="heritage-item">
+            <div class="item-gallery-wrapper">
+                <div class="slider-container">
+                    <img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAGLjW-ksKf1mXHum_vsNgjWXO0eVYybyU8uK0IlGq9DIvygL2OQlMDcpFNG-mu0SYfgBHpUlvGbH6ZI0nIMaHmCqNV32b4P20YTkt1fwEIKnAse78EVdCI_t6KuK8Bzyxcq0idb8g=s1360-w1360-h1020-rw" alt="St Marys Church Red Brick Facade">
+                    <img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAFApD98RBYk3j8VMdCDyu-GWnz52QwyHh2hLyOpJGoQSkK4qJ-AcjjYaiH_3vCWtwKmxTYoaKGNvcOiXmmt_nPtCcGfhyJpDPXF3lJzAY6es-uhmSfE5NI4VD3iLhr1hwwtlGJpwQ=s1360-w1360-h1020-rw" alt="Stained Glass Windows Altar">
+                    <img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAHlwizm6hpkL2HpAAvQw1mFUTw-8FL8LGFXinsuQFFd77lcWaVnGcr4D5TrvjUVJTXQ98UsxvBadSbv8eaYmEZSo5agT4-kJVVy06krzkTJGGcGiX59e-dPOFkJCuKwpruojRzp=s1360-w1360-h1020-rw" alt="Cantonment Pine Tree Walkways">
+                </div>
+            </div>
+            <div class="item-details">
+                <span class="item-index">05 / 10</span>
+                <h3 class="item-title">St. Mary's Church</h3>
+
+                <div class="history-wrapper">
+                    <p class="history-base">
+                        Consecrated in 1869 by the British Raj administration, this magnificent house of worship features grand red-brick Gothic-revival towers and beautifully detailed, imported stained-glass panels.
+                    </p>
+                    <div class="history-extended">
+                        <p>
+                            Designed by Reverend T. Cook to accommodate the British regiment troops stationed within the strategic Belgaum Cantonment, the church boasts high-vaulted wooden ceilings supported by massive, premium Burma teak beams.
+                        </p>
+                        <p>
+                            The main sanctuary houses fine memorial plaques dedicated to fallen colonial officers, while the custom stained-glass windows, shipped from Europe in the late 19th century, fill the entire nave with soft, colorful light during morning prayers.
+                        </p>
+                    </div>
+                    <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
+                </div>
+
+                <div class="utility-grid">
+                    <div class="util-meta">
+                        <h4>Location</h4>
+                        <p><a href="https://maps.google.com/?q=St+Mary+Church+Belagavi" target="_blank">Camp Area, Belagavi Cantonment</a></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Washrooms</h4>
+                        <p><span class="badge badge-yes">Available In Compound</span></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Logistics & Entry</h4>
+                        <p>9:00 AM – 5:00 PM | Free Admission</p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Premium Stays Nearby</h4>
+                        <p>UK 27 The Fern, Hotel Eefa, Marriot Fairfield</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="heritage-item">
+            <div class="item-gallery-wrapper">
+                <div class="slider-container">
+                    <img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAE9x3t-1fNlEGVPDXEOU-c5atatt0WHzrMKRsfeOlSI95SiXkjl5Kj-DUndVHe17ani8EyRb3Ycv3w8f4earhDAG_w5-WEOmwVvKmHX83JXzJqWfnAphAjt7KCNpsaRDwKVK9dhBQ=s1360-w1360-h1020-rw" alt="Kapileshwar Temple Shikhara">
+                    <img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAGJraeo19D3O59LzDiEUv4cQWZPYtLsqfBekDmQDh9zyRMvCn4_leYS29Qk500UrEjnRmZoGuWbmbTwsM6PNrZ1A2VJZxAuAiXWAW6XmTHIalWP4ku74IJxbmk-HKSGjVEo5ue84xaMkKi4=s1360-w1360-h1020-rw" alt="Stone Bathing Ghats Pool">
+                    <img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAGOvgjFpXCpJY2CtQ9IOjEVUw2xNR-f39rNfhvelrkVMbkH0LqaMXAJij1jkNCPcoXR9HXgQd7fUg384Kirgg7xaY7fyELaDpbuWpUhxTju2TuN9kTsDikZSFY8j6fxXKbxM7wiRA=s1360-w1360-h1020-rw" alt="Ancient Sacred Courtyard Setup">
+                </div>
+            </div>
+            <div class="item-details">
+                <span class="item-index">06 / 10</span>
+                <h3 class="item-title">Kapileshwar Temple</h3>
+
+                <div class="history-wrapper">
+                    <p class="history-base">
+                        Widely revered as the "Dakshina Kashi" (Kashi of the South), this ancient Shiva temple is bounded by historic stone bathing ghats and stone slabs displaying classical Devnagari text inscriptions.
+                    </p>
+                    <div class="history-extended">
+                        <p>
+                            Local spiritual custom states that any pilgrimage tour of Northern India remains incomplete without honoring the natural monolithic Shiva Lingam housed within this sacred compound. It serves as a central anchor for the city's spiritual identity.
+                        </p>
+                        <p>
+                            The main complex links with ancient natural underground springs that channel clean freshwater through centuries-old stone channels to feed the adjacent bathing tank (Kalyani) during annual festival phases.
+                        </p>
+                    </div>
+                    <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
+                </div>
+
+                <div class="utility-grid">
+                    <div class="util-meta">
+                        <h4>Location</h4>
+                        <p><a href="https://maps.google.com/?q=Kapileshwar+Temple+Belagavi" target="_blank">Shahapur Route, Central Belagavi</a></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Washrooms</h4>
+                        <p><span class="badge badge-no">Limited Facilities</span></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Logistics & Entry</h4>
+                        <p>5:00 AM – 9:00 PM | Free Entry</p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Premium Stays Nearby</h4>
+                        <p>Hotel Native, Sanman Deluxe, The Fern</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="heritage-item">
+            <div class="item-gallery-wrapper">
+                <div class="slider-container">
+                    <img src="https://thrilltourism.com/storage/4738/byo3NdGitrg4uGm6ZxIVuTQUEaJocgEJFz0Twg3M.jpg" alt="Gokak Suspension Bridge High Angle">
+                    <img src="https://i.pinimg.com/1200x/da/83/ec/da83ec7fe5a6a30b91e77788bf221fbd.jpg" alt="Gokak Waterfall Cascade Gorge">
+                    <img src="https://i.pinimg.com/736x/90/68/3d/90683da2b5ab23448e71c9ad8ff6c243.jpg" alt="Old Textile Mill Structures 1900">
+                </div>
+            </div>
+            <div class="item-details">
+                <span class="item-index">07 / 10</span>
+                <h3 class="item-title">Gokak Falls Suspension Bridge</h3>
+
+                <div class="history-wrapper">
+                    <p class="history-base">
+                        An industrial-era wire-rope suspension bridge completed in 1900 AD. It spans directly across a roaring sandstone gorge carved out by the Ghataprabha River, originally built to serve early textile operations.
+                    </p>
+                    <div class="history-extended">
+                        <p>
+                            Stretching across a 201-meter canyon, the bridge allows visitors to walk 14 meters directly above the crest of the 52-meter Gokak waterfall cascade. It was designed by British engineers to provide a steady passage for the workforce of the neighboring
+                            Gokak Mills.
+                        </p>
+                        <p>
+                            The adjacent powerhouse installations, commissioned back in 1887, house historical hydro-electric generation turbines that represent some of the earliest commercial electricity capture systems anywhere across the Indian subcontinent.
+                        </p>
+                    </div>
+                    <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
+                </div>
+
+                <div class="utility-grid">
+                    <div class="util-meta">
+                        <h4>Location</h4>
+                        <p><a href="https://maps.google.com/?q=Gokak+Falls" target="_blank">Gokak Taluk, Belagavi District</a></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Washrooms</h4>
+                        <p><span class="badge badge-yes">Available Near Entry</span></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Logistics & Entry</h4>
+                        <p>7:00 AM – 5:30 PM | ₹10 Entry Fee</p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Premium Stays Nearby</h4>
+                        <p>Gokak Resort Units, Marriott Fairfield Belagavi</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="heritage-item">
+            <div class="item-gallery-wrapper">
+                <div class="slider-container">
+                    <img src="https://belagavitourism.com/wp-content/uploads/2024/09/page1_image1_crop_4-5-600x600.webp" alt="Parasgad Fort Rock Cut Walls">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/3/30/Parasgad_Fort_3.jpg" alt="Parasgad Hill Top Overlook View">
+                    <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0a/fb/20/1a/parasgad-fort.jpg?w=1200&h=-1&s=1" alt="Maratha Era Stone Inscriptions">
+                </div>
+            </div>
+            <div class="item-details">
+                <span class="item-index">08 / 10</span>
+                <h3 class="item-title">Parasgad Fort</h3>
+
+                <div class="history-wrapper">
+                    <p class="history-base">
+                        An imposing mountain fortress that was extensively fortified during the reign of Chhatrapati Shivaji Maharaj in the 17th century. It features solid rock walls set along sheer vertical cliffs.
+                    </p>
+                    <div class="history-extended">
+                        <p>
+                            The hill fort leverages steep, natural black basalt cliffs to construct an line of defense. The high watchpoints allowed Maratha garrison troops to monitor enemy movements across the vast Malaprabha river plains below.
+                        </p>
+                        <p>
+                            The interior features old rock-cut water reservoirs, cisterns, and ruined stone foundations dedicated to protective local deities, all chiseled directly out of the mountain's natural stone crest.
+                        </p>
+                    </div>
+                    <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
+                </div>
+
+                <div class="utility-grid">
+                    <div class="util-meta">
+                        <h4>Location</h4>
+                        <p><a href="https://maps.google.com/?q=Parasgad+Fort" target="_blank">Saundatti East Zone, Belagavi District</a></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Washrooms</h4>
+                        <p><span class="badge badge-no">No Facilities On-Peak</span></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Logistics & Entry</h4>
+                        <p>8:00 AM – 6:00 PM | Free Entry</p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Premium Stays Nearby</h4>
+                        <p>UK 27 The Fern, Local Eco Stays</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="heritage-item">
+            <div class="item-gallery-wrapper">
+                <div class="slider-container">
+                    <img src="https://i.pinimg.com/736x/6a/20/fa/6a20faa31b0c5f33d65e1a1f19e998fd.jpg" alt="Saundatti Temple Main Shikhara">
+                    <img src="https://d3fphkxyf5o5bm.cloudfront.net/image-resize/format=webp,w=720/QwRY54Li1HMwD7oNfqDvmz75d4yyKVWWC22sY9agju" alt="Pilgrimage Gathering Hallways">
+                    <img src="https://belagavitourism.com/wp-content/uploads/2024/12/page1_image1_crop_4-4-600x600.webp" alt="Early Chalukyan Plinth Carvings">
+                </div>
+            </div>
+            <div class="item-details">
+                <span class="item-index">09 / 10</span>
+                <h3 class="item-title">Yellamma Temple (Saundatti)</h3>
+
+                <div class="history-wrapper">
+                    <p class="history-base">
+                        A highly revered 10th-century religious complex built by the Rashtrakuta and Early Chalukya Dynasties, anchoring one of the most prominent cultural pilgrimages in Northern Karnataka.
+                    </p>
+                    <div class="history-extended">
+                        <p>
+                            Set atop the scenic Yellamma Gudda hills, the main shrine reflects a blend of early Dravidian and Kadamba structural configurations. The outer pillars feature complex reliefs depicting scenes from classical Puranic literature.
+                        </p>
+                        <p>
+                            The venue acts as the central hub for the historic "Yellamma Jatre" fairs, which gather hundreds of thousands of traditional devotees from across Karnataka, Maharashtra, and Goa each year.
+                        </p>
+                    </div>
+                    <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
+                </div>
+
+                <div class="utility-grid">
+                    <div class="util-meta">
+                        <h4>Location</h4>
+                        <p><a href="https://maps.google.com/?q=Saundatti+Yellamma+Temple" target="_blank">Yellamma Gudda Hills, Saundatti</a></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Washrooms</h4>
+                        <p><span class="badge badge-yes">Available (Devasthanam Managed)</span></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Logistics & Entry</h4>
+                        <p>5:00 AM – 10:00 PM | Free Entry</p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Premium Stays Nearby</h4>
+                        <p>Fern Residency Belagavi, Comfort Suites</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="heritage-item">
+            <div class="item-gallery-wrapper">
+                <div class="slider-container">
+                    <img src="https://belagavitourism.com/wp-content/uploads/2024/08/Untitled_20191211153234-600x495.webp" alt="Rajhansgad Restored Battlements">
+                    <img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAGykKe6cQ-6vfCErWzF9o92BsvSZPcS-Enzt4yt_yoYQS8r76WEX2KIT0BXT2q6EGeM4CPsNh64rIcwDOA3MQeLq5ifEbnKj0qGCTIWMhhWeg3N-qtcnEB89CUykh2p2HBqJkjL=s1360-w1360-h1020-rw" alt="Fort Top Watchtower Views">
+                    <img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAEeyqUH_aHkN4WRjlS-DT_4QIeCMXQVGDgKnz7Ii-tw0QHUhg2p8OpfQY9lSetPz5iqaC0d13BVBV1HTHof0yLhiNEi8AkARAVudmaEKRU5cO_pr2WJQbHxIBd3epJKY3m_9_tNFg=s1360-w1360-h1020-rw" alt="Yellur Fort Stone Gateway">
+                </div>
+            </div>
+            <div class="item-details">
+                <span class="item-index">10 / 10</span>
+                <h3 class="item-title">Rajhansgad Yellur Fort</h3>
+
+                <div class="history-wrapper">
+                    <p class="history-base">
+                        An archetypal medieval hilltop fort that has been carefully restored. It features high stone bastions that look out over rolling agricultural plains.
+                    </p>
+                    <div class="history-extended">
+                        <p>
+                            Perched at an elevation of nearly 2,500 feet above sea level, this fortification passed through the hands of the Rattas, the Peshwas, and the Marathas. It served as a vital high-altitude reconnaissance outpost.
+                        </p>
+                        <p>
+                            The fortification perimeter includes a beautifully restored temple dedicated to Lord Shiva, surrounded by solid stone ramparts that offer spectacular panoramic views of the surrounding agrarian valleys.
+                        </p>
+                    </div>
+                    <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
+                </div>
+
+                <div class="utility-grid">
+                    <div class="util-meta">
+                        <h4>Location</h4>
+                        <p><a href="https://maps.google.com/?q=Rajhansgad+Yellur+Fort" target="_blank">Yellur Heights, Belagavi Rural</a></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Washrooms</h4>
+                        <p><span class="badge badge-yes">Available Near Parking</span></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Logistics & Entry</h4>
+                        <p>7:00 AM – 6:00 PM | Free Admission</p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Premium Stays Nearby</h4>
+                        <p>Fairfield by Marriott, Hotel Eefa Belagavi</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function toggleHistory(button) {
+            const wrapper = button.closest('.history-wrapper');
+            wrapper.classList.toggle('expanded');
+            if (wrapper.classList.contains('expanded')) {
+                button.textContent = "Read Less";
+            } else {
+                button.textContent = "Read More";
+            }
+        }
+    </script>
+
+</body>
+
+</html>

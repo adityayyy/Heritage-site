@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dakshin Kannada — Premium Heritage Chronicle</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+         :root {
+            --terracotta: #E8651A;
+            --gold: #C9A84C;
+            --bg-dark: #080C12;
+            --card-dark: #0D1420;
+            --border-glow: rgba(201, 168, 76, 0.15);
+            --text-light: #F0EDE8;
+            --text-muted: rgba(240, 237, 232, 0.55);
+        }
+        
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            background: var(--bg-dark);
+            color: var(--text-light);
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 300;
+            line-height: 1.6;
+            padding: 60px 8%;
+            overflow-x: hidden;
+        }
+        /* Editorial Header Design */
+        
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            color: var(--terracotta);
+            text-decoration: none;
+            font-size: 12px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 50px;
+            font-weight: 600;
+            transition: transform 0.3s ease;
+        }
+        
+        .back-btn:hover {
+            transform: translateX(-5px);
+        }
+        
+        .header {
+            margin-bottom: 60px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .header::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: var(--gold);
+            margin: 30px auto 0;
+        }
+        
+        .header h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 60px;
+            font-weight: 700;
+            letter-spacing: 5px;
+            line-height: 1.1;
+        }
+        
+        .header h1 span {
+            color: var(--terracotta);
+        }
+        /* Narrative Intro Box */
+        
+        .intro-chronicle {
+            max-width: 850px;
+            margin: 0 auto 100px;
+            text-align: center;
+            background: var(--card-dark);
+            padding: 40px;
+            border-radius: 4px;
+            border: 1px solid var(--border-glow);
+        }
+        
+        .intro-chronicle h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 24px;
+            color: var(--gold);
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+        
+        .intro-chronicle p {
+            font-size: 15px;
+            color: var(--text-muted);
+            line-height: 1.8;
+        }
+        /* One-by-One Alternating Layout */
+        
+        .heritage-flow {
+            display: flex;
+            flex-direction: column;
+            gap: 140px;
+        }
+        
+        .heritage-item {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 70px;
+            align-items: flex-start;
+        }
+        
+        .heritage-item:nth-child(even) {
+            grid-template-columns: 0.9fr 1.1fr;
+        }
+        
+        .heritage-item:nth-child(even) .item-gallery-wrapper {
+            order: 2;
+        }
+        /* Smooth Pure CSS Slider Component */
+        
+        .item-gallery-wrapper {
+            position: relative;
+            width: 100%;
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .slider-container {
+            display: flex;
+            width: 300%;
+            animation: slideShow 16s infinite ease-in-out;
+        }
+        
+        .slider-container img {
+            width: 33.333%;
+            height: 520px;
+            object-fit: cover;
+            display: block;
+        }
+        /* Staggered animation offsets per card to avoid uniform sliding */
+        
+        .heritage-item:nth-child(2n) .slider-container {
+            animation-delay: 2s;
+        }
+        
+        .heritage-item:nth-child(3n) .slider-container {
+            animation-delay: 4s;
+        }
+        
+        .heritage-item:nth-child(4n) .slider-container {
+            animation-delay: 6s;
+        }
+        
+        @keyframes slideShow {
+            0%,
+            25% {
+                transform: translateX(0%);
+            }
+            30%,
+            55% {
+                transform: translateX(-33.333%);
+            }
+            60%,
+            90% {
+                transform: translateX(-66.666%);
+            }
+            95%,
+            100% {
+                transform: translateX(0%);
+            }
+        }
+        /* Content Elements */
+        
+        .item-details {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .item-index {
+            font-family: 'Cinzel', serif;
+            font-size: 14px;
+            color: var(--terracotta);
+            font-weight: 700;
+            margin-bottom: 12px;
+            letter-spacing: 3px;
+        }
+        
+        .item-title {
+            font-family: 'Cinzel', serif;
+            font-size: 34px;
+            font-weight: 600;
+            margin-bottom: 18px;
+            color: #FFF;
+            line-height: 1.2;
+            letter-spacing: 1px;
+        }
+        /* Read More History System */
+        
+        .history-wrapper {
+            margin-bottom: 25px;
+        }
+        
+        .history-base {
+            color: var(--text-muted);
+            font-size: 15px;
+            line-height: 1.8;
+        }
+        
+        .history-extended {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s cubic-bezier(0, 1, 0, 1);
+            color: var(--text-muted);
+            font-size: 15px;
+            line-height: 1.8;
+        }
+        
+        .history-extended p {
+            margin-top: 12px;
+        }
+        
+        .history-wrapper.expanded .history-extended {
+            max-height: 1200px;
+            transition: max-height 0.8s cubic-bezier(0.9, 0, 0.1, 1);
+        }
+        
+        .read-more-trigger {
+            display: inline-flex;
+            align-items: center;
+            background: none;
+            border: none;
+            color: var(--gold);
+            font-family: 'Cinzel', serif;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            cursor: pointer;
+            margin-top: 12px;
+            padding: 4px 0;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+        
+        .read-more-trigger:hover {
+            color: var(--terracotta);
+        }
+        
+        .read-more-trigger::after {
+            content: ' +';
+            font-weight: bold;
+        }
+        
+        .history-wrapper.expanded .read-more-trigger::after {
+            content: ' -';
+        }
+        /* Utility Grid Information Box */
+        
+        .utility-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 22px;
+            background: var(--card-dark);
+            padding: 24px;
+            border-radius: 4px;
+            border: 1px solid var(--border-glow);
+            margin-top: 15px;
+        }
+        
+        .util-meta h4 {
+            font-family: 'Cinzel', serif;
+            font-size: 11px;
+            text-transform: uppercase;
+            color: var(--gold);
+            letter-spacing: 1.5px;
+            margin-bottom: 6px;
+        }
+        
+        .util-meta p {
+            font-size: 13.5px;
+            color: #F0EDE8;
+            font-weight: 400;
+        }
+        
+        .util-meta a {
+            color: var(--terracotta);
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.2s;
+        }
+        
+        .util-meta a:hover {
+            opacity: 0.8;
+            text-decoration: underline;
+        }
+        /* Infrastructure Badges */
+        
+        .badge {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .badge-yes {
+            background: rgba(46, 204, 113, 0.12);
+            color: #2ecc71;
+            border: 1px solid rgba(46, 204, 113, 0.2);
+        }
+        
+        .badge-no {
+            background: rgba(231, 76, 60, 0.12);
+            color: #e74c3c;
+            border: 1px solid rgba(231, 76, 60, 0.2);
+        }
+        /* Responsive Systems */
+        
+        @media (max-width: 1100px) {
+            body {
+                padding: 50px 4%;
+            }
+            .heritage-item,
+            .heritage-item:nth-child(even) {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .heritage-item:nth-child(even) .item-gallery-wrapper {
+                order: 0;
+            }
+            .slider-container img {
+                height: 380px;
+            }
+            .header h1 {
+                font-size: 44px;
+            }
+        }
+    </style>
+<link rel="stylesheet" href="responsive.css">
+</head>
+
+<body>
+
+    <a href="go-heritage.html" class="back-btn">← Back to Dashboard</a>
+
+    <div class="header">
+        <h1>DAKSHIN KANNADA <span>CHRONICLES</span></h1>
+    </div>
+
+    <div class="intro-chronicle">
+        <h2>History of the Tuluva Coastline</h2>
+        <p>Dakshin Kannada (South Canara) encapsulates the historic domain of the Tuluva people, ruled across generations by the Alupa kings and the local Jain chieftains of Moodabidri. Characterized by its own rich traditions like Daivaradhane and Yakshagana,
+            it houses expansive timbered palace architecture and centuries-old Jain stone temples along the coast.</p>
+    </div>
+
+    <div class="heritage-flow">
+
+        <div class="heritage-item">
+            <div class="item-gallery-wrapper">
+                <div class="slider-container">
+                    <img src="https://i.pinimg.com/1200x/d2/23/ad/d223adc58941bcf9d714769cb7603ab2.jpg" alt="Saavira Kambada Basadi Exterior">
+                    <img src="https://images.unsplash.com/photo-1596176530529-78163a4f7af2?w=800" alt="Intricate Stone Pillars Grid">
+                    <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=800" alt="Jain Basadi Monolithic Pillar">
+                </div>
+            </div>
+            <div class="item-details">
+                <span class="item-index">01 / 10</span>
+                <h3 class="item-title">Saavira Kambada Basadi</h3>
+
+                <div class="history-wrapper">
+                    <p class="history-base">
+                        Located in Moodabidri, this 15th-century Jain architectural wonder is completely engineered out of stone and famously features 1,000 uniquely carved pillars.
+                    </p>
+                    <div class="history-extended">
+                        <p>
+                            Also known as the Tribhuvana Tilaka Chudamani Basadi, this monumental structural complex was built in 1430 AD under the patronage of the local Jain ruler Devaraya Wodeyar and completed over multiple decades with community contributions. Moodabidri was
+                            a primary center of Jain corporate trade, scholarship, and spiritual life along the western coast during this period.
+                        </p>
+                        <p>
+                            The structural engineering is exceptional: no two pillars among the thousand in the dynamic stone halls share the same pattern or iconographical relief. The lower base details showcase global influences, including carvings of Chinese dragons and Arab
+                            merchants, proving the extensive coastal trade connections of the Tuluva kingdom. The temple also safely housed the ancient Dhavala commentaries written on palm leaves for centuries.
+                        </p>
+                    </div>
+                    <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
+                </div>
+
+                <div class="utility-grid">
+                    <div class="util-meta">
+                        <h4>Location</h4>
+                        <p><a href="https://maps.google.com/?q=Saavira+Kambada+Basadi+Moodabidri" target="_blank">Moodabidri Town Center</a></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Washrooms</h4>
+                        <p><span class="badge badge-yes">Available Near Complex Gate</span></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Logistics & Entry</h4>
+                        <p>9:00 AM – 6:00 PM | ₹20 Entry Fee</p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Recommended Hotels</h4>
+                        <p>Hotel Pandit Health Resort, Kadalakanti Comforts, Bedra Residency</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="heritage-item">
+            <div class="item-gallery-wrapper">
+                <div class="slider-container">
+                    <img src="https://images.unsplash.com/photo-1596176530529-78163a4f7af2?w=800" alt="Mangaladevi Gilded Temple Roof">
+                    <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=800" alt="Wooden Carvings Inner Courtyard">
+                    <img src="https://images.unsplash.com/photo-1605649487212-47bdab064df7?w=800" alt="Ancient Stone Inscriptions">
+                </div>
+            </div>
+            <div class="item-details">
+                <span class="item-index">02 / 10</span>
+                <h3 class="item-title">Mangaladevi Temple</h3>
+
+                <div class="history-wrapper">
+                    <p class="history-base">
+                        The 9th-century classical temple complex that gave the port city of Mangaluru its name, built out of timber logs and laterite stone by the Alupa Dynasty.
+                    </p>
+                    <div class="history-extended">
+                        <p>
+                            The temple's origins are deeply tied to the famous Nath panth tradition, established around 968 AD by King Kundavarman of the Alupa Dynasty under the guidance of the spiritual saints Matsyendranath and Gorakhnath. The site reflects the classic Kerala-style
+                            coastal wooden layout designed to withstand the region's heavy monsoon downpours.
+                        </p>
+                        <p>
+                            According to local historical lore, a princess named Parimala from Malabar renounced her royal life and embraced the Nath monastic order, renaming herself Mangaladevi. She spent her final years practicing deep meditation on this hill. After her passing,
+                            this sacred shrine was built to honor her memory, transforming the surrounding port settlement into 'Mangalapura'.
+                        </p>
+                    </div>
+                    <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
+                </div>
+
+                <div class="utility-grid">
+                    <div class="util-meta">
+                        <h4>Location</h4>
+                        <p><a href="https://maps.google.com/?q=Mangaladevi+Temple+Bolara+Mangaluru" target="_blank">Bolara, Mangaluru</a></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Washrooms</h4>
+                        <p><span class="badge badge-yes">Available Inside Temple Campus</span></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Logistics & Entry</h4>
+                        <p>6:00 AM – 1:00 PM, 4:00 PM – 8:30 PM | Free Entry</p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Recommended Hotels</h4>
+                        <p>The Gateway Hotel, Vivanta Mangalore, Goldfinch Hotel</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="heritage-item">
+            <div class="item-gallery-wrapper">
+                <div class="slider-container">
+                    <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=800" alt="St Aloysius Chapel Frescoes">
+                    <img src="https://images.unsplash.com/photo-1584551246679-0daf3d275d0f?w=800" alt="Baroque Painted Ceiling Detail">
+                    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800" alt="Chapel Nave and Altar Art">
+                </div>
+            </div>
+            <div class="item-details">
+                <span class="item-index">03 / 10</span>
+                <h3 class="item-title">St. Aloysius Chapel Murals</h3>
+
+                <div class="history-wrapper">
+                    <p class="history-base">
+                        Constructed in 1899 by Jesuit missionaries, the interior walls are covered in spectacular ceiling-to-floor frescoes painted by the Italian master Antony Moscheni.
+                    </p>
+                    <div class="history-extended">
+                        <p>
+                            The chapel was built to match the iconic Baroque churches of Europe. Its entire interior canvas was painted by Brother Antony Moscheni, an exceptionally gifted Jesuit artist from Italy, who spent over two intensive years completing this monumental work
+                            using oil canvas and fresh plaster methods.
+                        </p>
+                        <p>
+                            The expansive paintings depict key moments from the life of St. Aloysius Gonzaga, along with various biblical narratives and Christian saints. Because it was painted directly onto plaster walls (fresco) and large canvases attached to the ceiling, keeping
+                            these vibrant colors safe from the humid coastal air has required meticulous restoration efforts over the decades.
+                        </p>
+                    </div>
+                    <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
+                </div>
+
+                <div class="utility-grid">
+                    <div class="util-meta">
+                        <h4>Location</h4>
+                        <p><a href="https://maps.google.com/?q=St+Aloysius+Chapel+Mangaluru" target="_blank">Lighthouse Hill, Mangaluru</a></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Washrooms</h4>
+                        <p><span class="badge badge-yes">Available Inside College Premises</span></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Logistics & Entry</h4>
+                        <p>8:30 AM – 5:00 PM | Free Entry (Photography Restricted)</p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Recommended Hotels</h4>
+                        <p>Hotel Moti Mahal, Saffron Boutique Hotel, Avatar Hotel</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="heritage-item">
+            <div class="item-gallery-wrapper">
+                <div class="slider-container">
+                    <img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=800" alt="Sultan Battery Block Tower">
+                    <img src="https://images.unsplash.com/photo-1598977123418-45f04b6168ba?w=800" alt="Gurupur River Watch Openings">
+                    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800" alt="Black Stone Gun Ports Lookout">
+                </div>
+            </div>
+            <div class="item-details">
+                <span class="item-index">04 / 10</span>
+                <h3 class="item-title">Sultan Battery Watchtower</h3>
+
+                <div class="history-wrapper">
+                    <p class="history-base">
+                        A black volcanic stone naval watchfort constructed by Tipu Sultan in 1784 to monitor the Gurupur river mouth and block incoming British warships.
+                    </p>
+                    <div class="history-extended">
+                        <p>
+                            Following his recapturing of the Mangaluru port complex from British hands during the Second Anglo-Mysore War, Tipu Sultan recognized the need to secure the river entry points. He built this fortified outpost using heavy laterite blocks taken from demolished
+                            local structures, designing it specifically to function as a defensive gun battery.
+                        </p>
+                        <p>
+                            The miniature fort features deep underground storage vaults meant for keeping gunpowder, alongside a series of embrasures designed for heavy cannon lines. Its main strategic goal was to stop enemy naval vessels from traveling upriver to attack the capital's
+                            royal shipyards, making it a vital piece of 18th-century maritime defense architecture.
+                        </p>
+                    </div>
+                    <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
+                </div>
+
+                <div class="utility-grid">
+                    <div class="util-meta">
+                        <h4>Location</h4>
+                        <p><a href="https://maps.google.com/?q=Sultan+Battery+Mangaluru" target="_blank">Boloor, Mangaluru Coastal Line</a></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Washrooms</h4>
+                        <p><span class="badge badge-yes">Available Near Boat Jetty Complex</span></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Logistics & Entry</h4>
+                        <p>9:00 AM – 6:00 PM | Free Entry</p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Recommended Hotels</h4>
+                        <p>Hotel Ocean Pearl, Sai Palace Hotel, Ginger Mangalore</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="heritage-item">
+            <div class="item-gallery-wrapper">
+                <div class="slider-container">
+                    <img src="https://images.unsplash.com/photo-1605649487212-47bdab064df7?w=800" alt="Dharmasthala Temple Front Gopuram">
+                    <img src="https://images.unsplash.com/photo-1584551246679-0daf3d275d0f?w=800" alt="Annadhana Dining Labyrinth">
+                    <img src="https://images.unsplash.com/photo-1596176530529-78163a4f7af2?w=800" alt="Bahubali Hilltop Monolith Path">
+                </div>
+            </div>
+            <div class="item-details">
+                <span class="item-index">05 / 10</span>
+                <h3 class="item-title">Dharmasthala Manjunatha Temple</h3>
+
+                <div class="history-wrapper">
+                    <p class="history-base">
+                        An 800-year-old temple complex managed by hereditary Jain trustees (Heggedes), preserving an iconic multi-faith tradition of charity and administrative judicial system.
+                    </p>
+                    <div class="history-extended">
+                        <p>
+                            The history of Dharmasthala began eight centuries ago when a pious Jain couple, Birmanna Pergade and Ammu Ballalthi, lived in a house named Nelliadi Beedu. According to regional lore, the guardian angels of Dharma appeared in their dreams and instructed
+                            them to dedicate their home to charity and establish a sacred shrine for Lord Manjunatha (Shiva).
+                        </p>
+                        <p>
+                            This unique institutional arrangement has survived for generations: a Shaivite deity is worshipped by traditional Vaishnavite priests, while the entire administrative apparatus is managed by a Jain family header titled the 'Heggede'. The site is famous
+                            across southern India for its four pillars of charity—Anna (free food), Akshara (education), Vidya (medical aid), and Abhaya (justice through customary arbitration).
+                        </p>
+                    </div>
+                    <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
+                </div>
+
+                <div class="utility-grid">
+                    <div class="util-meta">
+                        <h4>Location</h4>
+                        <p><a href="https://maps.google.com/?q=Dharmasthala+Manjunatha+Temple" target="_blank">Belthangady Taluk, Dakshin Kannada</a></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Washrooms</h4>
+                        <p><span class="badge badge-yes">Available in all Guest Lounges</span></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Logistics & Entry</h4>
+                        <p>6:30 AM – 2:00 PM, 4:00 PM – 8:30 PM | Free Entry</p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Recommended Hotels</h4>
+                        <p>Netravathi Guest House, Ganga Chowltry, Vaishali Comforts</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="heritage-item">
+            <div class="item-gallery-wrapper">
+                <div class="slider-container">
+                    <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=800" alt="Venur Bahubali Statue Side View">
+                    <img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=800" alt="Granite Carving Pedestal Bases">
+                    <img src="https://images.unsplash.com/photo-1541963463532-d68292c34b19?w=800" alt="River Bank Temple Wall Enclosure">
+                </div>
+            </div>
+            <div class="item-details">
+                <span class="item-index">06 / 10</span>
+                <h3 class="item-title">Venur Gommateshwara Monolith</h3>
+
+                <div class="history-wrapper">
+                    <p class="history-base">
+                        A majestic 11-meter monolithic granite statue of Lord Bahubali, erected on the scenic banks of the Gurupur River in 1604 AD by the Ajila Dynasty.
+                    </p>
+                    <div class="history-extended">
+                        <p>
+                            Commissioned by the Jain prince Timmaraja Ajila IV, this colossal sculpture is one of the four legendary monolithic Bahubali statues found in Karnataka. Venur was once the busy capital of the Ajila kingdom, serving as a key center for inland trade, political
+                            assembly, and artistic patronage.
+                        </p>
+                        <p>
+                            Carved from a single massive block of gray granite, the statue captures the profound stillness of 'Kayotsarga' meditation pose. The clean execution of its features, along with the detailed creepers climbing up the limbs, stands as an enduring testament
+                            to the late-medieval carving skills preserved by coastal guild craftsmen.
+                        </p>
+                    </div>
+                    <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
+                </div>
+
+                <div class="utility-grid">
+                    <div class="util-meta">
+                        <h4>Location</h4>
+                        <p><a href="https://maps.google.com/?q=Venur+Gommateshwara+Monolith" target="_blank">Venur Town, Gurupur Bank</a></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Washrooms</h4>
+                        <p><span class="badge badge-yes">Available Outside Enclosure Area</span></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Logistics & Entry</h4>
+                        <p>6:00 AM – 6:00 PM | Free Entry</p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Recommended Hotels</h4>
+                        <p>Moodabidri Town Lodges, Belthangady Transit Inns</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="heritage-item">
+            <div class="item-gallery-wrapper">
+                <div class="slider-container">
+                    <img src="https://images.unsplash.com/photo-1584551246679-0daf3d275d0f?w=800" alt="Kukke Subramanya Valley Backdrop">
+                    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800" alt="Kumaradhara Holy Bathing Ghat">
+                    <img src="https://images.unsplash.com/photo-1596176530529-78163a4f7af2?w=800" alt="Inner Courtyard Pillar Rows">
+                </div>
+            </div>
+            <div class="item-details">
+                <span class="item-index">07 / 10</span>
+                <h3 class="item-title">Kukke Subramanya Temple</h3>
+
+                <div class="history-wrapper">
+                    <p class="history-base">
+                        An ancient coastal temple tucked beneath the dense forests of the Western Ghats, famous for its historic ritual bathing facilities along the Kumaradhara river.
+                    </p>
+                    <div class="history-extended">
+                        <p>
+                            Mentioned in the ancient Skanda Purana texts, this sacred site has served as a sanctuary for spiritual seekers across the centuries. Adi Shankaracharya visited during his 8th-century travels, referencing the temple in his compositions and establishing
+                            its place within classical monastic networks.
+                        </p>
+                        <p>
+                            The temple sits in a beautiful natural valley, looking out over the misty peak of Kumara Parvatha. Over the generations, it has evolved into a key center for ancient Vedic snake rituals (Ashlesha Bali and Sarpa Samskara). Pilgrims traditionally begin
+                            their visit by taking a ritual bath in the cold waters of the Kumaradhara River before entering the main laterite-and-timber sanctuary.
+                        </p>
+                    </div>
+                    <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
+                </div>
+
+                <div class="utility-grid">
+                    <div class="util-meta">
+                        <h4>Location</h4>
+                        <p><a href="https://maps.google.com/?q=Kukke+Subramanya+Temple" target="_blank">Sullia Taluk, Dakshin Kannada Foot-hills</a></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Washrooms</h4>
+                        <p><span class="badge badge-yes">Available Near Main Chowltry</span></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Logistics & Entry</h4>
+                        <p>5:00 AM – 1:30 PM, 3:30 PM – 8:00 PM | Free Entry</p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Recommended Hotels</h4>
+                        <p>Shesha Residency, Hotel SLR Comforts, Neo Mysore Cafe Lodge</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="heritage-item">
+            <div class="item-gallery-wrapper">
+                <div class="slider-container">
+                    <img src="https://images.unsplash.com/photo-1598977123418-45f04b6168ba?w=800" alt="Kadri Temple Caves View">
+                    <img src="https://images.unsplash.com/photo-1569336415962-a4bd9f69cd83?w=800" alt="Lokeshwara Bronze Idol Close-up">
+                    <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=800" alt="Natural Water Tanks Steps">
+                </div>
+            </div>
+            <div class="item-details">
+                <span class="item-index">08 / 10</span>
+                <h3 class="item-title">Kadri Manjunatha Temple</h3>
+
+                <div class="history-wrapper">
+                    <p class="history-base">
+                        Dating back to the 10th century, this historic site features rock-cut cave chambers and houses some of the finest ancient bronze statues in India.
+                    </p>
+                    <div class="history-extended">
+                        <p>
+                            The temple site was originally a prominent center for Vajrayana Buddhist worship before transitioning into a major hub for the Nath panth yogis under the Alupa kings. This blending of spiritual traditions is clearly reflected in the temple's unique artwork
+                            and layout.
+                        </p>
+                        <p>
+                            The temple's prize possession is the magnificent bronze idol of Lokeshwara (Avalokiteshvara), cast in 968 AD by King Kundavarman. Experts consider it one of the absolute finest examples of high-precision bronze casting anywhere in India. Higher up the
+                            hillside lie the ancient stone caves where Buddhist monks and Jogis lived, alongside a series of natural natural spring-fed pools (Saptamaharshi Kalyani).
+                        </p>
+                    </div>
+                    <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
+                </div>
+
+                <div class="utility-grid">
+                    <div class="util-meta">
+                        <h4>Location</h4>
+                        <p><a href="https://maps.google.com/?q=Kadri+Manjunatha+Temple+Mangaluru" target="_blank">Kadri Hills, Mangaluru</a></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Washrooms</h4>
+                        <p><span class="badge badge-yes">Available Near Temple Kalyani</span></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Logistics & Entry</h4>
+                        <p>6:00 AM – 1:00 PM, 4:00 PM – 8:00 PM | Free Entry</p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Recommended Hotels</h4>
+                        <p>Hotel Deepa Comforts, Grand Plaza Hotel, Ginger Mangalore</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="heritage-item">
+            <div class="item-gallery-wrapper">
+                <div class="slider-container">
+                    <img src="https://images.unsplash.com/photo-1541963463532-d68292c34b19?w=800" alt="Moti Mahal Palace Ruins">
+                    <img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=800" alt="Laterite Foundation Blocks">
+                    <img src="https://images.unsplash.com/photo-1596176530529-78163a4f7af2?w=800" alt="Overgrown Arched Portal">
+                </div>
+            </div>
+            <div class="item-details">
+                <span class="item-index">09 / 10</span>
+                <h3 class="item-title">Moti Mahal Palace Site</h3>
+
+                <div class="history-wrapper">
+                    <p class="history-base">
+                        The historic royal ruins of a summer manor palace constructed by Hyder Ali during his intensive 18th-century naval campaigns.
+                    </p>
+                    <div class="history-extended">
+                        <p>
+                            Built around 1768 AD following Hyder Ali's strategic occupation of the Canara coastline, this palace was designed to be his administrative summer manor and military headquarters. From this vantage point, he supervised the creation of his new navy and
+                            monitored the movement of international trade fleets.
+                        </p>
+                        <p>
+                            The structural layout combined French military engineering with traditional Mysore palace design. Sadly, decades of conflict and intense coastal monoons have left only the heavy laterite stone foundations and parts of the arched entryways intact. Today,
+                            it stands as a quiet historical marker of the intense 18th-century race to control the spice ports.
+                        </p>
+                    </div>
+                    <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
+                </div>
+
+                <div class="utility-grid">
+                    <div class="util-meta">
+                        <h4>Location</h4>
+                        <p><a href="https://maps.google.com/?q=Moti+Mahal+Palace+Mangaluru" target="_blank">Hampankatta Enclosure, Mangaluru</a></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Washrooms</h4>
+                        <p><span class="badge badge-no">No public restrooms on site</span></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Logistics & Entry</h4>
+                        <p>Closed to Public Inside | External View Only</p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Recommended Hotels</h4>
+                        <p>Hotel Ocean Pearl, Saffron Boutique Hotel</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="heritage-item">
+            <div class="item-gallery-wrapper">
+                <div class="slider-container">
+                    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800" alt="Chowter Palace Wooden Facade">
+                    <img src="https://images.unsplash.com/photo-1541963463532-d68292c34b19?w=800" alt="Carved Jackwood Pillars Closeup">
+                    <img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=800" alt="Royal Assembly Hall Ceiling">
+                </div>
+            </div>
+            <div class="item-details">
+                <span class="item-index">10 / 10</span>
+                <h3 class="item-title">Chowter Palace (Moodabidri)</h3>
+
+                <div class="history-wrapper">
+                    <p class="history-base">
+                        The historic wooden seat of the Jain Chowta monarchs, displaying exquisite 17th-century carvings on its heavy jackwood pillars.
+                    </p>
+                    <div class="history-extended">
+                        <p>
+                            Constructed around 1630 AD, this heritage palace served as the administrative home of the Chowta dynasty, a prominent Jain ruling line that governed parts of the coast under the regional umbrella of the Vijayanagara Empire. The palace was built entirely
+                            out of seasoned local timber and laterite stones.
+                        </p>
+                        <p>
+                            The palace interior features a magnificent royal assembly hall (Darbar Hall). The massive columns supporting the ceiling are carved from solid jackwood and decorated with reliefs of historic heroes, guardian animals, and complex geometric framing. The
+                            most famous artwork is a beautifully carved composition of five interlocking female figures forming the shape of an elephant (Navanari Kunjara).
+                        </p>
+                    </div>
+                    <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
+                </div>
+
+                <div class="utility-grid">
+                    <div class="util-meta">
+                        <h4>Location</h4>
+                        <p><a href="https://maps.google.com/?q=Chowter+Palace+Moodabidri" target="_blank">Chowter Street, Moodabidri</a></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Washrooms</h4>
+                        <p><span class="badge badge-no">Basic setup near administrative block</span></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Logistics & Entry</h4>
+                        <p>10:00 AM – 5:00 PM | Free Admission (Prior Permission Required)</p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Recommended Hotels</h4>
+                        <p>Bedra Residency, Pandit Health Resort Complex</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function toggleHistory(button) {
+            const wrapper = button.closest('.history-wrapper');
+            wrapper.classList.toggle('expanded');
+            if (wrapper.classList.contains('expanded')) {
+                button.textContent = "Read Less";
+            } else {
+                button.textContent = "Read More";
+            }
+        }
+    </script>
+
+</body>
+
+</html>

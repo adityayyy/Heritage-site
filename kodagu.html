@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kodagu — Premium High-Mountain Heritage Chronicle</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+         :root {
+            --terracotta: #E8651A;
+            --gold: #C9A84C;
+            --bg-dark: #080C12;
+            --card-dark: #0D1420;
+            --border-glow: rgba(201, 168, 76, 0.15);
+            --text-light: #F0EDE8;
+            --text-muted: rgba(240, 237, 232, 0.55);
+        }
+        
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            background: var(--bg-dark);
+            color: var(--text-light);
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 300;
+            line-height: 1.6;
+            padding: 60px 8%;
+            overflow-x: hidden;
+        }
+        
+        body::after {
+            content: '';
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 9000;
+            opacity: 0.02;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+        }
+        /* Editorial Header Design */
+        
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            color: var(--terracotta);
+            text-decoration: none;
+            font-size: 12px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 50px;
+            font-weight: 600;
+            transition: transform 0.3s ease;
+        }
+        
+        .back-btn:hover {
+            transform: translateX(-5px);
+        }
+        
+        .header {
+            margin-bottom: 60px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .header::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: var(--gold);
+            margin: 30px auto 0;
+        }
+        
+        .header h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 60px;
+            font-weight: 700;
+            letter-spacing: 5px;
+            line-height: 1.1;
+        }
+        
+        .header h1 span {
+            color: var(--terracotta);
+        }
+        /* Narrative Intro Box */
+        
+        .intro-chronicle {
+            max-width: 850px;
+            margin: 0 auto 100px;
+            text-align: center;
+            background: var(--card-dark);
+            padding: 40px;
+            border-radius: 4px;
+            border: 1px solid var(--border-glow);
+        }
+        
+        .intro-chronicle h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 24px;
+            color: var(--gold);
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+        
+        .intro-chronicle p {
+            font-size: 15px;
+            color: var(--text-muted);
+            line-height: 1.8;
+        }
+        /* One-by-One Alternating Layout */
+        
+        .heritage-flow {
+            display: flex;
+            flex-direction: column;
+            gap: 140px;
+        }
+        
+        .heritage-item {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 70px;
+            align-items: flex-start;
+        }
+        
+        .heritage-item:nth-child(even) {
+            grid-template-columns: 0.9fr 1.1fr;
+        }
+        
+        .heritage-item:nth-child(even) .item-gallery-wrapper {
+            order: 2;
+        }
+        /* Smooth Pure CSS Slider Component */
+        
+        .item-gallery-wrapper {
+            position: relative;
+            width: 100%;
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .slider-container {
+            display: flex;
+            width: 300%;
+            animation: slideShow 16s infinite ease-in-out;
+        }
+        
+        .slider-container img {
+            width: 33.333%;
+            height: 520px;
+            object-fit: cover;
+            display: block;
+        }
+        /* Staggered animation offsets per card to avoid uniform transitions */
+        
+        .heritage-item:nth-child(2n) .slider-container {
+            animation-delay: 2s;
+        }
+        
+        .heritage-item:nth-child(3n) .slider-container {
+            animation-delay: 4s;
+        }
+        
+        .heritage-item:nth-child(4n) .slider-container {
+            animation-delay: 6s;
+        }
+        
+        @keyframes slideShow {
+            0%,
+            25% {
+                transform: translateX(0%);
+            }
+            30%,
+            55% {
+                transform: translateX(-33.333%);
+            }
+            60%,
+            90% {
+                transform: translateX(-66.666%);
+            }
+            95%,
+            100% {
+                transform: translateX(0%);
+            }
+        }
+        /* Content Elements */
+        
+        .item-details {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .item-index {
+            font-family: 'Cinzel', serif;
+            font-size: 14px;
+            color: var(--terracotta);
+            font-weight: 700;
+            margin-bottom: 12px;
+            letter-spacing: 3px;
+        }
+        
+        .item-title {
+            font-family: 'Cinzel', serif;
+            font-size: 34px;
+            font-weight: 600;
+            margin-bottom: 18px;
+            color: #FFF;
+            line-height: 1.2;
+            letter-spacing: 1px;
+        }
+        /* Read More History System */
+        
+        .history-wrapper {
+            margin-bottom: 25px;
+        }
+        
+        .history-base {
+            color: var(--text-muted);
+            font-size: 15px;
+            line-height: 1.8;
+        }
+        
+        .history-extended {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s cubic-bezier(0, 1, 0, 1);
+            color: var(--text-muted);
+            font-size: 15px;
+            line-height: 1.8;
+        }
+        
+        .history-extended p {
+            margin-top: 12px;
+        }
+        
+        .history-wrapper.expanded .history-extended {
+            max-height: 1200px;
+            transition: max-height 0.8s cubic-bezier(0.9, 0, 0.1, 1);
+        }
+        
+        .read-more-trigger {
+            display: inline-flex;
+            align-items: center;
+            background: none;
+            border: none;
+            color: var(--gold);
+            font-family: 'Cinzel', serif;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            cursor: pointer;
+            margin-top: 12px;
+            padding: 4px 0;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+        
+        .read-more-trigger:hover {
+            color: var(--terracotta);
+        }
+        
+        .read-more-trigger::after {
+            content: ' +';
+            font-weight: bold;
+        }
+        
+        .history-wrapper.expanded .read-more-trigger::after {
+            content: ' -';
+        }
+        /* Utility Grid Information Box */
+        
+        .utility-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 22px;
+            background: var(--card-dark);
+            padding: 24px;
+            border-radius: 4px;
+            border: 1px solid var(--border-glow);
+            margin-top: 15px;
+        }
+        
+        .util-meta h4 {
+            font-family: 'Cinzel', serif;
+            font-size: 11px;
+            text-transform: uppercase;
+            color: var(--gold);
+            letter-spacing: 1.5px;
+            margin-bottom: 6px;
+        }
+        
+        .util-meta p {
+            font-size: 13.5px;
+            color: #F0EDE8;
+            font-weight: 400;
+        }
+        
+        .util-meta a {
+            color: var(--terracotta);
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.2s;
+        }
+        
+        .util-meta a:hover {
+            opacity: 0.8;
+            text-decoration: underline;
+        }
+        /* Infrastructure Badges */
+        
+        .badge {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .badge-yes {
+            background: rgba(46, 204, 113, 0.12);
+            color: #2ecc71;
+            border: 1px solid rgba(46, 204, 113, 0.2);
+        }
+        
+        .badge-no {
+            background: rgba(231, 76, 60, 0.12);
+            color: #e74c3c;
+            border: 1px solid rgba(231, 76, 60, 0.2);
+        }
+        /* Responsive Adjustments */
+        
+        @media (max-width: 1100px) {
+            body {
+                padding: 50px 4%;
+            }
+            .heritage-item,
+            .heritage-item:nth-child(even) {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .heritage-item:nth-child(even) .item-gallery-wrapper {
+                order: 0;
+            }
+            .slider-container img {
+                height: 380px;
+            }
+            .header h1 {
+                font-size: 44px;
+            }
+        }
+    </style>
+<link rel="stylesheet" href="responsive.css">
+</head>
+
+<body>
+
+    <a href="go-heritage.html" class="back-btn">← Back to Dashboard</a>
+
+    <div class="header">
+        <h1>KODAGU <span>CHRONICLES</span></h1>
+    </div>
+
+    <div class="intro-chronicle">
+        <h2>History of the Land of Warriors</h2>
+        <p>Kodagu (Coorg) was independently ruled by the Haleri Dynasty from 1600 until British annexation in 1834. The distinct tribal warrior culture of the Kodavas, coupled with their rugged terrain, kept it semi-isolated. This independence left an array
+            of distinct mountain fortresses, weaponry vaults, and architectural royal tombs amidst extensive misty coffee estates.</p>
+    </div>
+
+    <div class="heritage-flow">
+
+        <div class="heritage-item">
+            <div class="item-gallery-wrapper">
+                <div class="slider-container">
+                    <img src="https://i.pinimg.com/1200x/38/a9/cb/38a9cbfb3dfa6b37e0836365924fdc0f.jpg" alt="Madikeri Fort Stone Entrance">
+                    <img src="https://images.unsplash.com/photo-1596176530529-78163a4f7af2?w=800" alt="Madikeri Fort Inner Palace View">
+                    <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=800" alt="British Church and Elephants">
+                </div>
+            </div>
+            <div class="item-details">
+                <span class="item-index">01 / 10</span>
+                <h3 class="item-title">Madikeri Fort</h3>
+
+                <div class="history-wrapper">
+                    <p class="history-base">
+                        Originally constructed out of mud by Muddu Raja in the late 17th century, it was later rebuilt in stone by Tipu Sultan and features a multi-tiered palace layout inside.
+                    </p>
+                    <div class="history-extended">
+                        <p>
+                            Madikeri Fort stands as an architectural witness to shifting empires. When the Haleri king Muddu Raja established Madikeri as his capital in 1681, he framed the stronghold with mud battlements. Its strategic vantage point overlooking the misty Western
+                            Ghats valleys made it a key conquest target during regional power struggles.
+                        </p>
+                        <p>
+                            In the late 18th century, Tipu Sultan seized the fortress and rebuilt it completely with thick granite blocks, renaming it Jaffarabad. The site contains an unusual mix of landmarks: two life-sized mortar elephants stand at the entrance gates, while the
+                            inner grounds feature a two-story British-remodeled palace, an old structural church now acting as a local historical archive, and a historic secretory complex.
+                        </p>
+                    </div>
+                    <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
+                </div>
+
+                <div class="utility-grid">
+                    <div class="util-meta">
+                        <h4>Location</h4>
+                        <p><a href="https://maps.google.com/?q=Madikeri+Fort+Coorg" target="_blank">Madikeri City Center, Kodagu District</a></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Washrooms</h4>
+                        <p><span class="badge badge-yes">Available inside the central museum building</span></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Logistics & Entry</h4>
+                        <p>10:00 AM – 5:30 PM | Free Admission (Closed on Mondays)</p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Recommended Hotels</h4>
+                        <p>Grand Mercure Coorg, Hotel Coorg International, Woodstock Resorts</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="heritage-item">
+            <div class="item-gallery-wrapper">
+                <div class="slider-container">
+                    <img src="https://images.unsplash.com/photo-1596176530529-78163a4f7af2?w=800" alt="Gaddige Central Tombs Profile">
+                    <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=800" alt="Islamic Style Dome Detail">
+                    <img src="https://images.unsplash.com/photo-1605649487212-47bdab064df7?w=800" alt="Gaddige Outer Gardens View">
+                </div>
+            </div>
+            <div class="item-details">
+                <span class="item-index">02 / 10</span>
+                <h3 class="item-title">Raja's Tomb (Gaddige)</h3>
+
+                <div class="history-wrapper">
+                    <p class="history-base">
+                        Beautiful royal monuments built in an Indo-Saracenic style with prominent central domes, containing the mortal remains of the prominent Haleri kings.
+                    </p>
+                    <div class="history-extended">
+                        <p>
+                            The Gaddige monument complex displays a unique blend of cultures, built between 1809 and 1821. Standing proudly on a hill on the outskirts of Madikeri, these structures show a distinct Islamic architectural influence, which is highly unusual for royal
+                            resting places built by Hindu dynasties in Southern India.
+                        </p>
+                        <p>
+                            The three elegant tombs feature large central domes flanked by minaret-style corner pillars, yet the windows are carved with delicate brass grills and wall carvings of Nandi bulls and Hindu figures. The main central structure holds the remains of King
+                            Doddavira Rajendra and his queen Mahajammanni, while the neighboring structures house the tombs of Lingarajendra II and royal priest Rudrappa, preserving the history of the Haleri lineage.
+                        </p>
+                    </div>
+                    <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
+                </div>
+
+                <div class="utility-grid">
+                    <div class="util-meta">
+                        <h4>Location</h4>
+                        <p><a href="https://maps.google.com/?q=Gaddige+Rajas+Tomb+Madikeri" target="_blank">Mahadevpet Outskirts, Madikeri</a></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Washrooms</h4>
+                        <p><span class="badge badge-yes">Basic amenities available at the ticketing block</span></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Logistics & Entry</h4>
+                        <p>9:00 AM – 6:00 PM | ₹10 Entry Fee</p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Recommended Hotels</h4>
+                        <p>Heritage Resort Coorg, Club Mahindra Madikeri, Hotel Hill View</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="heritage-item">
+            <div class="item-gallery-wrapper">
+                <div class="slider-container">
+                    <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=800" alt="Omkareshwara Temple Lake Reflective View">
+                    <img src="https://images.unsplash.com/photo-1584551246679-0daf3d275d0f?w=800" alt="Central Dome and Corner Turrets">
+                    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800" alt="Temple Sacred Central Water Tank">
+                </div>
+            </div>
+            <div class="item-details">
+                <span class="item-index">03 / 10</span>
+                <h3 class="item-title">Omkareshwara Temple</h3>
+
+                <div class="history-wrapper">
+                    <p class="history-base">
+                        Built in 1820 by King Lingarajendra II, it features an extraordinary architectural blend of Islamic dome structures and classic Gothic lines.
+                    </p>
+                    <div class="history-extended">
+                        <p>
+                            The creation of the Omkareshwara Temple is deeply tied to historical folklore. Local chronicles state that King Lingarajendra II constructed this shrine to ease his troubled conscience after unjustifiably taking the life of a pious local Brahmin named
+                            Subbaraya, who had opposed the king's political choices.
+                        </p>
+                        <p>
+                            To honor the spirit of the Brahmin, the king brought a sacred Shiva Linga from Kashi and built a temple that deliberately avoided traditional South Indian Dravidian elements. The building looks much like an old fort or palace, featuring a large central
+                            pool filled with freshwater fish and a unique entry layout that remains a symbol of Coorg's architecture.
+                        </p>
+                    </div>
+                    <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
+                </div>
+
+                <div class="utility-grid">
+                    <div class="util-meta">
+                        <h4>Location</h4>
+                        <p><a href="https://maps.google.com/?q=Omkareshwara+Temple+Madikeri" target="_blank">Omkareshwara Road, Madikeri Town</a></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Washrooms</h4>
+                        <p><span class="badge badge-yes">Available inside the temple complex courtyard</span></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Logistics & Entry</h4>
+                        <p>6:30 AM – 8:00 PM | Free Entry (Dress code applies)</p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Recommended Hotels</h4>
+                        <p>Mayura Valley View Coorg, itsy By Treebo - Jade Resort</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="heritage-item">
+            <div class="item-gallery-wrapper">
+                <div class="slider-container">
+                    <img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=800" alt="Golden Temple Main Prayer Hall facade">
+                    <img src="https://images.unsplash.com/photo-1598977123418-45f04b6168ba?w=800" alt="12 Meter Buddha Statues Inside">
+                    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800" alt="Tibetan Ornate Wall Frescoes">
+                </div>
+            </div>
+            <div class="item-details">
+                <span class="item-index">04 / 10</span>
+                <h3 class="item-title">Namdroling Monastery (Golden Temple)</h3>
+
+                <div class="history-wrapper">
+                    <p class="history-base">
+                        A majestic Tibetan settlement featuring the 'Golden Temple', housing spectacular 12-meter tall gold-plated statues of Buddha and complex wall frescoes.
+                    </p>
+                    <div class="history-extended">
+                        <p>
+                            Namdroling Monastery stands as a monumental home for Tibetan heritage in exile. It was founded in 1963 by His Holiness Pema Norbu Rinpoche, starting as a simple bamboo structure built on land provided by the Indian government to shelter Tibetan refugees
+                            fleeing regional conflicts.
+                        </p>
+                        <p>
+                            Over the decades, it grew into one of the largest Buddhist centers in the world, home to thousands of monks and nuns. The main prayer hall, known as the Golden Temple, features magnificent architecture adorned with detailed murals that tell stories of
+                            ancient Buddhist traditions. Inside, three massive gold-plated statues—Buddha Shakyamuni, Guru Padmasambhava, and Buddha Amitayus—gaze down over the grand hall.
+                        </p>
+                    </div>
+                    <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
+                </div>
+
+                <div class="utility-grid">
+                    <div class="util-meta">
+                        <h4>Location</h4>
+                        <p><a href="https://maps.google.com/?q=Bylakuppe+Golden+Temple" target="_blank">Bylakuppe Tibetan Settlement, Near Kushalnagar</a></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Washrooms</h4>
+                        <p><span class="badge badge-yes">Large public restroom complex located near the shopping arcades</span></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Logistics & Entry</h4>
+                        <p>9:00 AM – 6:00 PM | Free Entry (Great shopping & dining alternatives)</p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Recommended Hotels</h4>
+                        <p>The Purple Palms Resort, Amanvana Spa Resort, Corner Stay Kushalnagar</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="heritage-item">
+            <div class="item-gallery-wrapper">
+                <div class="slider-container">
+                    <img src="https://images.unsplash.com/photo-1605649487212-47bdab064df7?w=800" alt="Nalknad Palace Frontage">
+                    <img src="https://images.unsplash.com/photo-1584551246679-0daf3d275d0f?w=800" alt="Carved Wooden Columns Interior">
+                    <img src="https://images.unsplash.com/photo-1596176530529-78163a4f7af2?w=800" alt="Ancient Painted Ceiling Motifs">
+                </div>
+            </div>
+            <div class="item-details">
+                <span class="item-index">05 / 10</span>
+                <h3 class="item-title">Nalknad Palace</h3>
+
+                <div class="history-wrapper">
+                    <p class="history-base">
+                        Built in 1792 by King Dodda Vira Rajendra, this two-storied wooden palace features beautiful wall murals, dark wood pillars, and secret underground vaults.
+                    </p>
+                    <div class="history-extended">
+                        <p>
+                            Nalknad Palace served as a secure royal refuge rather than a display of royal wealth. King Dodda Vira Rajendra built this palace at the base of Coorg's highest mountain peak, Tadiandamol, to protect his family during ongoing conflicts with Tipu Sultan's
+                            forces.
+                        </p>
+                        <p>
+                            The palace is built with heavy dark wood pillars, sloping tiled roofs, and thick walls that offered excellent protection. The inner rooms feature vibrant ceiling paintings and murals showing historic court gatherings. Notably, this quiet mountain palace
+                            is also where Chikkavira Rajendra, the very last king of Coorg, took refuge before surrendering to British forces in 1834.
+                        </p>
+                    </div>
+                    <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
+                </div>
+
+                <div class="utility-grid">
+                    <div class="util-meta">
+                        <h4>Location</h4>
+                        <p><a href="https://maps.google.com/?q=Nalknad+Palace" target="_blank">Kakkabe Village Outskirts, Tadiandamol Base Road</a></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Washrooms</h4>
+                        <p><span class="badge badge-no">No public restrooms available inside the small historic palace ground</span></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Logistics & Entry</h4>
+                        <p>9:00 AM – 6:00 PM | Free Admission (Great pairing with hill trek)</p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Recommended Hotels</h4>
+                        <p>The Tamara Coorg, Paddington Resorts, Palace Estate Stay</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="heritage-item">
+            <div class="item-gallery-wrapper">
+                <div class="slider-container">
+                    <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=800" alt="Talakaveri Sacred Kundike Spring">
+                    <img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=800" alt="Brahmagiri Hill Climb Steps">
+                    <img src="https://images.unsplash.com/photo-1541963463532-d68292c34b19?w=800" alt="Mountain Pass Shrines at Talakaveri">
+                </div>
+            </div>
+            <div class="item-details">
+                <span class="item-index">06 / 10</span>
+                <h3 class="item-title">Talakaveri Temple Shrine</h3>
+
+                <div class="history-wrapper">
+                    <p class="history-base">
+                        The sacred geographic point of origin of the Kaveri River, featuring historic bathing tanks and hillside shrines built along the slopes of Brahmagiri Hill.
+                    </p>
+                    <div class="history-extended">
+                        <p>
+                            Perched high on the slopes of Brahmagiri Hill at an altitude of 1,276 meters, Talakaveri holds a deep place in regional history and spiritual tradition. According to ancient legends, the river goddess Kaveri flowed from this spot after being released
+                            from the water vessel of Sage Agastya, cascading down to nourish the plains of South India.
+                        </p>
+                        <p>
+                            The site features a small, sacred spring known as the Kundike. Devotees gather here during the annual Tula Sankramana festival in October to witness a natural upwelling of water, which is revered as a manifestation of the river goddess. Visitors can also
+                            climb a steep flight of steps up Brahmagiri Hill, offering sweeping views of the mist-covered mountain landscape.
+                        </p>
+                    </div>
+                    <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
+                </div>
+
+                <div class="utility-grid">
+                    <div class="util-meta">
+                        <h4>Location</h4>
+                        <p><a href="https://maps.google.com/?q=Talakaveri+Bhagamandala" target="_blank">Brahmagiri Hills Range, Western Kodagu</a></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Washrooms</h4>
+                        <p><span class="badge badge-yes">Available near the main entrance changing rooms area</span></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Logistics & Entry</h4>
+                        <p>6:00 AM – 6:00 PM | Free Entry (Strict traditional dress guidelines apply)</p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Recommended Hotels</h4>
+                        <p>KSTDC Hotel Mayur Kauvery Bhagamandala, Coorg Cliff Resort</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="heritage-item">
+            <div class="item-gallery-wrapper">
+                <div class="slider-container">
+                    <img src="https://images.unsplash.com/photo-1584551246679-0daf3d275d0f?w=800" alt="Bhagamandala Temple Complex Front">
+                    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800" alt="Sloping Tiled Roof Gables">
+                    <img src="https://images.unsplash.com/photo-1596176530529-78163a4f7af2?w=800" alt="Sacred Confluence Holy River Ghaut">
+                </div>
+            </div>
+            <div class="item-details">
+                <span class="item-index">07 / 10</span>
+                <h3 class="item-title">Bhagamandala Triveni Sangam</h3>
+
+                <div class="history-wrapper">
+                    <p class="history-base">
+                        A sacred confluence of three rivers featuring the historic Sri Bhagandeshwara temple complex, built in a traditional multi-tiered sloping roof architecture style.
+                    </p>
+                    <div class="history-extended">
+                        <p>
+                            Bhagamandala marks the sacred confluence of three rivers: the Kaveri, the Kanika, and the underground mythical Sujyothi River. This geographic landmark has been a vital center for spiritual gatherings and pilgrimage rites since early medieval times.
+                        </p>
+                        <p>
+                            Facing the river ghats is the prominent Sri Bhagandeshwara temple complex, which houses shrines dedicated to Shiva, Vishnu, Subramanya, and Ganesha. The buildings feature beautiful multi-tiered tiled roofs and carved wood paneling that reflect the unique
+                            architecture of regions facing heavy monsoon rainfall. The site was briefly occupied and altered by Tipu Sultan, who renamed it Afzalabad, before being restored to its original form by the Haleri kings.
+                        </p>
+                    </div>
+                    <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
+                </div>
+
+                <div class="utility-grid">
+                    <div class="util-meta">
+                        <h4>Location</h4>
+                        <p><a href="https://maps.google.com/?q=Bhagamandala+Triveni+Sangam" target="_blank">Bhagamandala Village Center, Foothills of Talakaveri</a></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Washrooms</h4>
+                        <p><span class="badge badge-yes">Available adjacent to the main ritual bathing ghats</span></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Logistics & Entry</h4>
+                        <p>6:00 AM – 7:00 PM | Free Public Space</p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Recommended Hotels</h4>
+                        <p>Hotel Sanman Bhagamandala, Coorg Wilderness Resort</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="heritage-item">
+            <div class="item-gallery-wrapper">
+                <div class="slider-container">
+                    <img src="https://images.unsplash.com/photo-1598977123418-45f04b6168ba?w=800" alt="Padi Igguthappa Entrance Arch">
+                    <img src="https://images.unsplash.com/photo-1569336415962-a4bd9f69cd83?w=800" alt="Kerala Style Wooden Shrine Panels">
+                    <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=800" alt="Huttari Festival Gathering Courtyard">
+                </div>
+            </div>
+            <div class="item-details">
+                <span class="item-index">08 / 10</span>
+                <h3 class="item-title">Padi Igguthappa Temple</h3>
+
+                <div class="history-wrapper">
+                    <p class="history-base">
+                        Constructed in 1810 by King Lingarajendra II, this stands as the most vital ancestral shrine of the Kodava people, built in traditional regional styles.
+                    </p>
+                    <div class="history-extended">
+                        <p>
+                            The Padi Igguthappa Temple holds a central place in the cultural life of the Kodava community. Dedicated to Lord Igguthappa, a powerful ancient deity of rain, agriculture, and harvest, the shrine was rebuilt in 1810 by King Lingarajendra II with a design
+                            that shares many elements with the traditional architecture of neighboring Kerala.
+                        </p>
+                        <p>
+                            The temple sits atop a beautiful, verdant hill in the village of Kakkabe. It features a simple exterior layout with a main sanctuary covered in polished brass panels, surrounded by heavy wooden beams and a central open-air courtyard. The temple is the
+                            focal point for the annual Huttari harvest festival, where initial harvest offerings are ritually presented to the deity before celebrations begin across Coorg.
+                        </p>
+                    </div>
+                    <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
+                </div>
+
+                <div class="utility-grid">
+                    <div class="util-meta">
+                        <h4>Location</h4>
+                        <p><a href="https://maps.google.com/?q=Padi+Igguthappa+Temple" target="_blank">Igguthappa Devasthana Road, Kakkabe Village</a></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Washrooms</h4>
+                        <p><span class="badge badge-yes">Available inside the administrative dining hall wing</span></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Logistics & Entry</h4>
+                        <p>5:30 AM – 2:00 PM, 5:30 PM – 7:00 PM | Free Entry (Traditional attire required)</p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Recommended Hotels</h4>
+                        <p>Evolve Back Coorg, Crystal Homestay Kakkabe, Club Mahindra</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="heritage-item">
+            <div class="item-gallery-wrapper">
+                <div class="slider-container">
+                    <img src="https://images.unsplash.com/photo-1541963463532-d68292c34b19?w=800" alt="St Marks Church Exterior Arches">
+                    <img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=800" alt="Museum Display of Weapons and Cannons">
+                    <img src="https://images.unsplash.com/photo-1596176530529-78163a4f7af2?w=800" alt="Stained Glass Window Framework">
+                </div>
+            </div>
+            <div class="item-details">
+                <span class="item-index">09 / 10</span>
+                <h3 class="item-title">St. Mark's Church Museum</h3>
+
+                <div class="history-wrapper">
+                    <p class="history-base">
+                        An elegant, colonial British church building dating back to 1855, now transformed into a museum holding historic weapon collections and royal edicts.
+                    </p>
+                    <div class="history-extended">
+                        <p>
+                            St. Mark's Church was built in 1855 by the East India Company to serve the growing population of British officers, planters, and administrators who settled in Coorg's temperate climate after the annexation of the region. The building features an elegant
+                            neo-Gothic design with high arched windows and beautiful stained glass panels.
+                        </p>
+                        <p>
+                            After India gained independence, the building was taken over by the state government and carefully converted into a historical museum managed by the Department of Archaeology. Today, the old church hall displays an impressive collection of heritage artifacts,
+                            including ancient stone sculptures, weapons used by Kodava warriors, British-era cannons, and old royal documents from the Haleri kings.
+                        </p>
+                    </div>
+                    <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
+                </div>
+
+                <div class="utility-grid">
+                    <div class="util-meta">
+                        <h4>Location</h4>
+                        <p><a href="https://maps.google.com/?q=Madikeri+Fort+Museum" target="_blank">Located inside the Madikeri Fort Compound</a></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Washrooms</h4>
+                        <p><span class="badge badge-no">Public restrooms located across the fort lawns complex</span></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Logistics & Entry</h4>
+                        <p>10:00 AM – 5:30 PM | Free Admission (Closed on Mondays)</p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Recommended Hotels</h4>
+                        <p>Coorg Gate Hotel, Treebo Trend Sunrise Madikeri</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="heritage-item">
+            <div class="item-gallery-wrapper">
+                <div class="slider-container">
+                    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800" alt="Valnur Kaveri Riverbank Fishing Pools">
+                    <img src="https://images.unsplash.com/photo-1541963463532-d68292c34b19?w=800" alt="Colonial Fishing Lodge Architecture">
+                    <img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=800" alt="Bamboo Thickets along Valnur River">
+                </div>
+            </div>
+            <div class="item-details">
+                <span class="item-index">10 / 10</span>
+                <h3 class="item-title">Angling Heritage Site (Valnur)</h3>
+
+                <div class="history-wrapper">
+                    <p class="history-base">
+                        An early colonial fishing campsite along the banks of the Kaveri River, preserving old fishing lodges and conservation histories from the British era.
+                    </p>
+                    <div class="history-extended">
+                        <p>
+                            Valnur holds a unique place in the history of wildlife conservation and sport fishing in Southern India. During the late 19th and early 20th centuries, British coffee planters established this scenic spot along the Kaveri River as a premier site for angling,
+                            particularly for catching the famous Golden Mahseer.
+                        </p>
+                        <p>
+                            To protect the river ecosystem and prevent overfishing, early sport organizations introduced strict catch-and-release rules and mandatory fishing permits, which helped safeguard the local fish populations. Today, Valnur remains a peaceful eco-tourism
+                            site surrounded by dense bamboo groves and forest trails, preserving the heritage of early environmental conservation efforts in Coorg.
+                        </p>
+                    </div>
+                    <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
+                </div>
+
+                <div class="utility-grid">
+                    <div class="util-meta">
+                        <h4>Location</h4>
+                        <p><a href="https://maps.google.com/?q=Valnur+Fishing+Camp+Coorg" target="_blank">Valnur Village, near Kushalnagar & Dubare Forest</a></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Washrooms</h4>
+                        <p><span class="badge badge-no">No public facilities available along the wilderness riverbanks</span></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Logistics & Entry</h4>
+                        <p>6:00 AM – 5:00 PM | ₹100 Entry (Official forest department permit required)</p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Recommended Hotels</h4>
+                        <p>Dubare Elephant Camp Lodge, Jungle Lodges Resort, Coorg Adventure Camp</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function toggleHistory(button) {
+            const wrapper = button.closest('.history-wrapper');
+            wrapper.classList.toggle('expanded');
+            if (wrapper.classList.contains('expanded')) {
+                button.textContent = "Read Less";
+            } else {
+                button.textContent = "Read More";
+            }
+        }
+    </script>
+
+</body>
+
+</html>

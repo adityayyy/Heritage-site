@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bagalkot — Premium Heritage Chronicle</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+         :root {
+            --terracotta: #E8651A;
+            --gold: #C9A84C;
+            --bg-dark: #080C12;
+            --card-dark: #0D1420;
+            --border-glow: rgba(201, 168, 76, 0.15);
+            --text-light: #F0EDE8;
+            --text-muted: rgba(240, 237, 232, 0.55);
+        }
+        
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            background: var(--bg-dark);
+            color: var(--text-light);
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 300;
+            line-height: 1.6;
+            padding: 60px 8%;
+            overflow-x: hidden;
+        }
+        /* Editorial Header Design */
+        
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            color: var(--terracotta);
+            text-decoration: none;
+            font-size: 12px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 50px;
+            font-weight: 600;
+            transition: transform 0.3s ease;
+        }
+        
+        .back-btn:hover {
+            transform: translateX(-5px);
+        }
+        
+        .header {
+            margin-bottom: 60px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .header::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: var(--gold);
+            margin: 30px auto 0;
+        }
+        
+        .header h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 60px;
+            font-weight: 700;
+            letter-spacing: 5px;
+            line-height: 1.1;
+        }
+        
+        .header h1 span {
+            color: var(--terracotta);
+        }
+        /* Narrative Intro Box */
+        
+        .intro-chronicle {
+            max-width: 850px;
+            margin: 0 auto 100px;
+            text-align: center;
+            background: var(--card-dark);
+            padding: 40px;
+            border-radius: 4px;
+            border: 1px solid var(--border-glow);
+        }
+        
+        .intro-chronicle h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 24px;
+            color: var(--gold);
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+        
+        .intro-chronicle p {
+            font-size: 15px;
+            color: var(--text-muted);
+            line-height: 1.8;
+        }
+        /* One-by-One Alternating Layout */
+        
+        .heritage-flow {
+            display: flex;
+            flex-direction: column;
+            gap: 140px;
+        }
+        
+        .heritage-item {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 70px;
+            align-items: flex-start;
+        }
+        
+        .heritage-item:nth-child(even) {
+            grid-template-columns: 0.9fr 1.1fr;
+        }
+        
+        .heritage-item:nth-child(even) .item-gallery-wrapper {
+            order: 2;
+        }
+        /* Smooth Pure CSS Slider Component */
+        
+        .item-gallery-wrapper {
+            position: relative;
+            width: 100%;
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .slider-container {
+            display: flex;
+            width: 300%;
+            animation: slideShow 16s infinite ease-in-out;
+        }
+        
+        .slider-container img {
+            width: 33.333%;
+            height: 520px;
+            object-fit: cover;
+            display: block;
+        }
+        /* Unique staggered animation offsets per card to avoid uniform sliding */
+        
+        .heritage-item:nth-child(2n) .slider-container {
+            animation-delay: 2s;
+        }
+        
+        .heritage-item:nth-child(3n) .slider-container {
+            animation-delay: 4s;
+        }
+        
+        .heritage-item:nth-child(4n) .slider-container {
+            animation-delay: 6s;
+        }
+        
+        @keyframes slideShow {
+            0%,
+            25% {
+                transform: translateX(0%);
+            }
+            30%,
+            55% {
+                transform: translateX(-33.333%);
+            }
+            60%,
+            90% {
+                transform: translateX(-66.666%);
+            }
+            95%,
+            100% {
+                transform: translateX(0%);
+            }
+        }
+        /* Content Elements */
+        
+        .item-details {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .item-index {
+            font-family: 'Cinzel', serif;
+            font-size: 14px;
+            color: var(--terracotta);
+            font-weight: 700;
+            margin-bottom: 12px;
+            letter-spacing: 3px;
+        }
+        
+        .item-title {
+            font-family: 'Cinzel', serif;
+            font-size: 34px;
+            font-weight: 600;
+            margin-bottom: 18px;
+            color: #FFF;
+            line-height: 1.2;
+            letter-spacing: 1px;
+        }
+        /* Read More History System */
+        
+        .history-wrapper {
+            margin-bottom: 25px;
+        }
+        
+        .history-base {
+            color: var(--text-muted);
+            font-size: 15px;
+            line-height: 1.8;
+        }
+        
+        .history-extended {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s cubic-bezier(0, 1, 0, 1);
+            color: var(--text-muted);
+            font-size: 15px;
+            line-height: 1.8;
+        }
+        
+        .history-extended p {
+            margin-top: 12px;
+        }
+        
+        .history-wrapper.expanded .history-extended {
+            max-height: 1200px;
+            /* High threshold for safe layout flow expansion */
+            transition: max-height 0.8s cubic-bezier(0.9, 0, 0.1, 1);
+        }
+        
+        .read-more-trigger {
+            display: inline-flex;
+            align-items: center;
+            background: none;
+            border: none;
+            color: var(--gold);
+            font-family: 'Cinzel', serif;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            cursor: pointer;
+            margin-top: 12px;
+            padding: 4px 0;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+        
+        .read-more-trigger:hover {
+            color: var(--terracotta);
+        }
+        
+        .read-more-trigger::after {
+            content: ' +';
+            font-weight: bold;
+        }
+        
+        .history-wrapper.expanded .read-more-trigger::after {
+            content: ' -';
+        }
+        /* Utility Grid Information Box */
+        
+        .utility-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 22px;
+            background: var(--card-dark);
+            padding: 24px;
+            border-radius: 4px;
+            border: 1px solid var(--border-glow);
+            margin-top: 15px;
+        }
+        
+        .util-meta h4 {
+            font-family: 'Cinzel', serif;
+            font-size: 11px;
+            text-transform: uppercase;
+            color: var(--gold);
+            letter-spacing: 1.5px;
+            margin-bottom: 6px;
+        }
+        
+        .util-meta p {
+            font-size: 13.5px;
+            color: #F0EDE8;
+            font-weight: 400;
+        }
+        
+        .util-meta a {
+            color: var(--terracotta);
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.2s;
+        }
+        
+        .util-meta a:hover {
+            opacity: 0.8;
+            text-decoration: underline;
+        }
+        /* Infrastructure Badges */
+        
+        .badge {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .badge-yes {
+            background: rgba(46, 204, 113, 0.12);
+            color: #2ecc71;
+            border: 1px solid rgba(46, 204, 113, 0.2);
+        }
+        
+        .badge-no {
+            background: rgba(231, 76, 60, 0.12);
+            color: #e74c3c;
+            border: 1px solid rgba(231, 76, 60, 0.2);
+        }
+        /* Responsive Systems */
+        
+        @media (max-width: 1100px) {
+            body {
+                padding: 50px 4%;
+            }
+            .heritage-item,
+            .heritage-item:nth-child(even) {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .heritage-item:nth-child(even) .item-gallery-wrapper {
+                order: 0;
+            }
+            .slider-container img {
+                height: 380px;
+            }
+            .header h1 {
+                font-size: 44px;
+            }
+        }
+    </style>
+<link rel="stylesheet" href="responsive.css">
+</head>
+
+<body>
+
+    <a href="go-heritage.html" class="back-btn">← Back to Dashboard</a>
+
+    <div class="header">
+        <h1>BAGALKOT <span>CHRONICLES</span></h1>
+    </div>
+
+    <div class="intro-chronicle">
+        <h2>The Cradle of Indian Temple Architecture</h2>
+        <p>Bagalkot district holds the structural keys to ancient India. As the geometric epicenter of the Early Chalukya Dynasty from the 6th to the 8th centuries, historic centers like Badami, Aihole, and Pattadakal served as vast architectural experimental
+            yards. Master stone-craftsmen here systematically blended Northern Nagara dynamic forms with Southern Dravidian structural concepts, documenting standard blueprints for Hindu temple construction that would spread across the entire subcontinent.</p>
+    </div>
+
+    <div class="heritage-flow">
+
+        <div class="heritage-item">
+            <div class="item-gallery-wrapper">
+                <div class="slider-container">
+                    <img src="https://i.pinimg.com/1200x/9e/38/b7/9e38b7d7e0f381b580d3879a857996a9.jpg" alt="Sandstone Pillars Inner Cave">
+                    <img src="https://i.pinimg.com/736x/19/74/18/197418e04222b5cddeffcafc0f34269e.jpg" alt="Badami Cave Temples Cliff Exterior">
+                    <img src="https://i.pinimg.com/736x/e5/71/e5/e571e51c10c1d1d982ec68206d837932.jpg" alt="Nataraja Rock-Cut Bas Relief">
+
+                </div>
+            </div>
+            <div class="item-details">
+                <span class="item-index">01 / 10</span>
+                <h3 class="item-title">Badami Cave Temples</h3>
+
+                <div class="history-wrapper">
+                    <p class="history-base">
+                        Four majestic, 6th-century rock-cut temples chiseled carefully out of towering red sandstone cliffs. Bounded by raw natural geometry, these caves stand out as stellar expressions of early Chalukyan artistic craftsmanship.
+                    </p>
+                    <div class="history-extended">
+                        <p>
+                            Excavated during the golden eras of Pulakeshin I and Mangalesha, these structural hollows trace their lineage directly to the ancient capital of Vatapi. The caves are progressively tiered based on spiritual themes, covering Vedic deities, complex Vishnu
+                            avatars, expansive Shiva manifestations, and highly detailed Jain Tirthankara figures.
+                        </p>
+                        <p>
+                            Cave 1 is globally celebrated for its high-relief sculpture of an 18-armed Lord Shiva displaying 81 distinct classical dance configurations of the Nataraja form. The entire engineering plan features deep pillared halls (Mukha Mandapa) running into internal
+                            sanctuaries, carved straight into solid horizontal mountain stone without a single external support masonry element.
+                        </p>
+                    </div>
+                    <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
+                </div>
+
+                <div class="utility-grid">
+                    <div class="util-meta">
+                        <h4>Location</h4>
+                        <p><a href="https://maps.google.com/?q=Badami+Cave+Temples+Bagalkot" target="_blank">Cave Temple Road, Badami</a></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Washrooms</h4>
+                        <p><span class="badge badge-yes">Available Near Entry</span></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Logistics & Entry</h4>
+                        <p>9:00 AM – 5:30 PM | ₹30 Entry Fee</p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Recommended Hotels</h4>
+                        <p>Heritage Resort Badami, Krishna Heritage, Clarks Inn</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="heritage-item">
+            <div class="item-gallery-wrapper">
+                <div class="slider-container">
+                    <img src="https://i.pinimg.com/1200x/2a/dd/48/2add48001d605d7a3c88674ff572d8b5.jpg" alt="Pattadakal Complex Panoramic Layout">
+                    <img src="https://i.pinimg.com/1200x/10/05/1e/10051e188ab220c3820204c0b9cb4f6a.jpg" alt="Virupaksha Temple Main Vimana">
+                    <img src="https://i.pinimg.com/1200x/20/8e/70/208e7048a0b4e5ee85ff6bb72ce5778a.jpg" alt="Malaprabha Riverside Shrines">
+                </div>
+            </div>
+            <div class="item-details">
+                <span class="item-index">02 / 10</span>
+                <h3 class="item-title">Pattadakal Temple Complex</h3>
+
+                <div class="history-wrapper">
+                    <p class="history-base">
+                        A magnificent UNESCO World Heritage Site showing a dynamic architectural synthesis of Northern Nagara and Southern Dravidian temple shapes neatly plotted along the shores of the sacred Malaprabha River.
+                    </p>
+                    <div class="history-extended">
+                        <p>
+                            Serving as the historic, holy coronation precinct for the Chalukya kings, Pattadakal represents the absolute pinnacle of their structural developments during the 7th and 8th centuries. The site contains nine major structural Hindu temples alongside a
+                            historic monolithic Jain sanctuary.
+                        </p>
+                        <p>
+                            The legendary Virupaksha Temple, commissioned by Queen Lokamahadevi in 740 AD to celebrate her husband Vikramaditya II's major battlefield triumph over the Pallavas of Kanchi, stands out as the finest architectural wonder on site. It features highly narrative
+                            wall friezes capturing complex storylines from the Ramayana, Mahabharata, and Bhagavata Purana with precise, theatrical stone details.
+                        </p>
+                    </div>
+                    <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
+                </div>
+
+                <div class="utility-grid">
+                    <div class="util-meta">
+                        <h4>Location</h4>
+                        <p><a href="https://maps.google.com/?q=Pattadakal+Temple+Complex" target="_blank">Pattadakal Heritage Site, Badami Taluk</a></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Washrooms</h4>
+                        <p><span class="badge badge-yes">Available (ASI Managed)</span></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Logistics & Entry</h4>
+                        <p>6:00 AM – 6:00 PM | ₹40 Entry Fee</p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Recommended Hotels</h4>
+                        <p>Badami Court Hotel, Krishna Heritage Resort</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="heritage-item">
+            <div class="item-gallery-wrapper">
+                <div class="slider-container">
+                    <img src="https://i.pinimg.com/1200x/48/01/23/48012392e55e4b940a1769356edbbdf0.jpg" alt="Durga Temple Apsidal Curves">
+                    <img src="https://i.pinimg.com/1200x/2e/74/11/2e741144889196cb5eb738e3d9dca9c0.jpg" alt="Pillared Outer Colonnades">
+                    <img src="https://i.pinimg.com/1200x/d4/27/eb/d427eba0b6adb32cf045f17bcccbdcd9.jpg" alt="Harihara Sculpture Close Up">
+                </div>
+            </div>
+            <div class="item-details">
+                <span class="item-index">03 / 10</span>
+                <h3 class="item-title">Durga Temple (Aihole)</h3>
+
+                <div class="history-wrapper">
+                    <p class="history-base">
+                        An extraordinary apsidal, semi-circular temple configuration constructed between the late 7th and early 8th centuries. It features meticulously carved, open-air pillared corridors that wrap around the core sanctuary.
+                    </p>
+                    <div class="history-extended">
+                        <p>
+                            Despite its common name, the Durga Temple was not dedicated to Goddess Durga; "Durga" actually refers to a fortified outpost or defensive rampart that guarded the temple compound in subsequent military eras. The sanctuary was originally built to honor
+                            Lord Vishnu or Lord Surya.
+                        </p>
+                        <p>
+                            The structural framework is famous for imitating ancient Buddhist Chaitya layouts, making it a rare example of a Hindu temple built on a curved apsidal blueprint (Gajaprastha). The outer pillared gallery is filled with fine stone sculptures of Mahishasuramardini,
+                            Varaha, and Harihara, all showing deep, fluent clothing folds and lifelike body weight distributions.
+                        </p>
+                    </div>
+                    <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
+                </div>
+
+                <div class="utility-grid">
+                    <div class="util-meta">
+                        <h4>Location</h4>
+                        <p><a href="https://maps.google.com/?q=Durga+Temple+Aihole" target="_blank">Main Temple Circle, Aihole</a></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Washrooms</h4>
+                        <p><span class="badge badge-yes">Available In Complex</span></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Logistics & Entry</h4>
+                        <p>9:00 AM – 5:30 PM | ₹25 Entry Fee</p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Recommended Hotels</h4>
+                        <p>KSTDC Mayura Chalukya Badami, Aihole Home stays</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="heritage-item">
+            <div class="item-gallery-wrapper">
+                <div class="slider-container">
+                    <img src="https://i.pinimg.com/1200x/c0/56/12/c056128aaf9f2bd91f2d6a099b9fd060.jpg" alt="Bhutanatha Temple at Agastya Lake Edge">
+                    <img src="https://i.pinimg.com/736x/85/89/bf/8589bf113f89694aa2d27696cf39452c.jpg" alt="Sandstone Structures Sunset Reflection">
+                    <img src="https://i.pinimg.com/1200x/73/87/38/738738f9ca1d4e03f7a158e58ab0aa57.jpg" alt="Inner Shrine Mantapa Architecture">
+                </div>
+            </div>
+            <div class="item-details">
+                <span class="item-index">04 / 10</span>
+                <h3 class="item-title">Bhutanatha Temples (Badami)</h3>
+
+                <div class="history-wrapper">
+                    <p class="history-base">
+                        A serene, picturesque cluster of early sandstone shrines extending directly into the eastern edge of the sacred Agastya Lake, backdropped by massive red rock clefts.
+                    </p>
+                    <div class="history-extended">
+                        <p>
+                            The main temple group showcases a transition between different phases of early Chalukyan temple building. The main central shrine was built in the late 7th century, featuring an early Dravidian layout, while the surrounding open hall structure extending
+                            into the lake was added by the Kalyani Chalukyas in the 11th century.
+                        </p>
+                        <p>
+                            During heavy monsoon rains, water from the surrounding cliffs pours down in dramatic cascades directly behind the shrines, raising the lake levels until they partially submerge the temple's lower stone steps. It stands out as a brilliant example of early
+                            Indian structural layouts designed to integrate with the natural landscape.
+                        </p>
+                    </div>
+                    <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
+                </div>
+
+                <div class="utility-grid">
+                    <div class="util-meta">
+                        <h4>Location</h4>
+                        <p><a href="https://maps.google.com/?q=Bhutanatha+Temples+Badami" target="_blank">East Bank, Agastya Lake, Badami</a></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Washrooms</h4>
+                        <p><span class="badge badge-no">Restricted Access Nearby</span></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Logistics & Entry</h4>
+                        <p>6:00 AM – 6:00 PM | Free Entry</p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Recommended Hotels</h4>
+                        <p>Clarks Inn Badami, Hotel Rajsangam International</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="heritage-item">
+            <div class="item-gallery-wrapper">
+                <div class="slider-container">
+                    <img src="https://i.pinimg.com/1200x/b4/7f/0e/b47f0ee04328ed5a989569b7b5689a45.jpg" alt="Lad Khan Temple Exterior Profile">
+                    <img src="https://i.pinimg.com/1200x/99/9a/00/999a00f9c5bdd98726af2dbf6a7d755d.jpg" alt="Perforated Stone Lattice Windows">
+                    <img src="https://i.pinimg.com/1200x/b6/e2/58/b6e258ff09a5e481c76a9d04ea455d76.jpg" alt="Slanted Roof Stone Joins">
+                </div>
+            </div>
+            <div class="item-details">
+                <span class="item-index">05 / 10</span>
+                <h3 class="item-title">Lad Khan Temple (Aihole)</h3>
+
+                <div class="history-wrapper">
+                    <p class="history-base">
+                        One of the oldest stone-roofed structures in Aihole, originally configured as a multi-purpose royal assembly hall before being converted into a shrine for Lord Shiva.
+                    </p>
+                    <div class="history-extended">
+                        <p>
+                            Dating back to the late 5th or early 6th century, this building displays an architectural style that closely resembles wooden village assembly halls. It features a unique, flat-roof design built with large, interlocking stone logs and slanted eaves.
+                        </p>
+                        <p>
+                            The temple is named after a Muslim noble named Lad Khan, who occupied the structure as a residence during the late 19th-century periods of Nizam governance. The interior hall houses a massive stone Nandi facing a small shrine chamber added directly onto
+                            the back wall, showing how early architects experimented with interior layout spaces.
+                        </p>
+                    </div>
+                    <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
+                </div>
+
+                <div class="utility-grid">
+                    <div class="util-meta">
+                        <h4>Location</h4>
+                        <p><a href="https://maps.google.com/?q=Lad+Khan+Temple+Aihole" target="_blank">Durga Temple Complex Enclosure, Aihole</a></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Washrooms</h4>
+                        <p><span class="badge badge-yes">Available In Complex</span></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Logistics & Entry</h4>
+                        <p>9:00 AM – 5:30 PM | Included in Durga Ticket</p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Recommended Hotels</h4>
+                        <p>KSTDC Mayura Chalukya, local homestays</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="heritage-item">
+            <div class="item-gallery-wrapper">
+                <div class="slider-container">
+                    <img src="https://i.pinimg.com/736x/49/e7/df/49e7dfb48f7bf868f45201835d73fba6.jpg" alt="Mahakuta Central Pushkarini Spring">
+                    <img src="https://i.pinimg.com/736x/06/71/01/0671012a6779f3f732f9bc931635926b.jpg" alt="Miniature Stone Shrines Row">
+                    <img src="https://i.pinimg.com/736x/7a/87/09/7a87090a89da6c5a49b79ab59c46a1da.jpg" alt="Underwater Shiva Lingam Shrine">
+                </div>
+            </div>
+            <div class="item-details">
+                <span class="item-index">06 / 10</span>
+                <h3 class="item-title">Mahakuta Group of Temples</h3>
+
+                <div class="history-wrapper">
+                    <p class="history-base">
+                        An active, sacred religious compound shaded by ancient banyan trees and built around a natural mountain spring pool. It contains dozens of miniature 7th-century sandstone shrines.
+                    </p>
+                    <div class="history-extended">
+                        <p>
+                            Constructed during the reign of Chalukya King Pulakeshin I, Mahakuta remains an invaluable resource for archaeologists due to its balance of both Nagara and Dravidian architectural formulas in one enclosed yard.
+                        </p>
+                        <p>
+                            The central fresh-water pool, known as the "Mahakuta Pushkarini," is fed by a natural underground spring that channels water out through a small stone masonry structure. Submerged inside the pool is a unique Panchamukha (five-faced) Shiva Lingam carving,
+                            which worshippers visit for ritual purifications before entering the main temples.
+                        </p>
+                    </div>
+                    <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
+                </div>
+
+                <div class="utility-grid">
+                    <div class="util-meta">
+                        <h4>Location</h4>
+                        <p><a href="https://maps.google.com/?q=Mahakuta+Group+of+Temples" target="_blank">Mahakuta Village, Badami Region</a></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Washrooms</h4>
+                        <p><span class="badge badge-no">Basic Facilities Only</span></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Logistics & Entry</h4>
+                        <p>6:00 AM – 6:30 PM | Free Entry</p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Recommended Hotels</h4>
+                        <p>Heritage Resort Badami, Hotel Badami Court</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="heritage-item">
+            <div class="item-gallery-wrapper">
+                <div class="slider-container">
+                    <img src="https://i.pinimg.com/736x/e9/a0/1c/e9a01c3085179890cda4c68fddd820de.jpg" alt="Banashankari Temple Front Entrance">
+                    <img src="https://i.pinimg.com/736x/80/68/58/80685804ee52fc3a570771e887ae7972.jpg" alt="Haridra Tirtha Deepastambha Tower">
+                    <img src="https://i.pinimg.com/1200x/c4/47/64/c447640dc3f8331a0f1a3093c9329811.jpg" alt="Temple Tank Stone Corridors">
+                </div>
+            </div>
+            <div class="item-details">
+                <span class="item-index">07 / 10</span>
+                <h3 class="item-title">Banashankari Amma Temple</h3>
+
+                <div class="history-wrapper">
+                    <p class="history-base">
+                        A unique Chalukyan temple layout modified through successive centuries, fronted by the "Haridra Tirtha," a massive stone square water cistern tank lined with pillared walkways.
+                    </p>
+                    <div class="history-extended">
+                        <p>
+                            Originally built by the early Chalukyas in the 7th century to honor their ancestral deity, Shakambhari (an avatar of Goddess Parvati), the current structure reflects extensive 18th-century Maratha architectural updates added after conflicts with regional
+                            sultanates.
+                        </p>
+                        <p>
+                            The massive temple tank features towering stone lamp towers (Deepastambhas) along its edge, which are fully lit during the grand annual Banashankari Jatre festival. This event transforms the entire complex into a vibrant cultural hub, drawing pilgrims
+                            from across South India.
+                        </p>
+                    </div>
+                    <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
+                </div>
+
+                <div class="utility-grid">
+                    <div class="util-meta">
+                        <h4>Location</h4>
+                        <p><a href="https://maps.google.com/?q=Banashankari+Amma+Temple+Cholachagudda" target="_blank">Cholachagudda Highway Axis, Badami</a></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Washrooms</h4>
+                        <p><span class="badge badge-yes">Available (Devasthanam Office)</span></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Logistics & Entry</h4>
+                        <p>6:00 AM – 8:00 PM | Free Entry</p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Recommended Hotels</h4>
+                        <p>Hotel Rajsangam International, Krishna Heritage Resort</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="heritage-item">
+            <div class="item-gallery-wrapper">
+                <div class="slider-container">
+                    <img src="https://i.pinimg.com/1200x/be/0d/23/be0d238a2f3704693a4490bc3fd7394f.jpg" alt="Ravana Phadi Cave Rock Cut Entrance">
+                    <img src="https://i.pinimg.com/1200x/86/7b/7e/867b7e1c615de73ba5dcfb4a3307abfe.jpg" alt="Dancing Shiva Relief Inside Cave">
+                    <img src="https://i.pinimg.com/1200x/5b/1f/2c/5b1f2cf033607d5c2c35d503b67145e3.jpg" alt="Saptamatrika Panel Detailed Carvings">
+                </div>
+            </div>
+            <div class="item-details">
+                <span class="item-index">08 / 10</span>
+                <h3 class="item-title">Ravana Phadi Cave (Aihole)</h3>
+
+                <div class="history-wrapper">
+                    <p class="history-base">
+                        A monolithic rock-cut cave temple dating to roughly 550 AD. It stands out as one of the oldest rock-cut monuments in the Aihole basin, housing large, dynamic figures of Lord Shiva.
+                    </p>
+                    <div class="history-extended">
+                        <p>
+                            Carved out of a lone sandstone ridge, Ravana Phadi features a spacious inner hall flanked by deeply carved side chambers. The main hall is dominated by a majestic sculpture of a ten-armed dancing Shiva, accompanied by detailed carvings of Parvati, Ganesha,
+                            and the Saptamatrikas (the seven divine mothers).
+                        </p>
+                        <p>
+                            The ceiling displays large, geometric stone medallions featuring fine carvings of Vishnu riding Garuda. The site provides invaluable insight into how early Chalukyan sculptors transitioned from traditional rock-cut cave excavations to building freestanding
+                            stone structures.
+                        </p>
+                    </div>
+                    <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
+                </div>
+
+                <div class="utility-grid">
+                    <div class="util-meta">
+                        <h4>Location</h4>
+                        <p><a href="https://maps.google.com/?q=Ravana+Phadi+Cave+Aihole" target="_blank">Archaeological Park Zone, Aihole</a></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Washrooms</h4>
+                        <p><span class="badge badge-no">No Facilities inside Cave</span></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Logistics & Entry</h4>
+                        <p>9:00 AM – 5:30 PM | Free Entry</p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Recommended Hotels</h4>
+                        <p>KSTDC Mayura Chalukya Badami, local homestays</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="heritage-item">
+            <div class="item-gallery-wrapper">
+                <div class="slider-container">
+                    <img src="https://i.pinimg.com/736x/8a/f5/ec/8af5ecf5c63eac24dd4478114455e26e.jpg" alt="Badami Fort Upper Ramparts View">
+                    <img src="https://i.pinimg.com/736x/f7/f3/5b/f7f35b37744b1ebe47f96f6bb045ede5.jpg" alt="Stone Circular Granaries Tower">
+                    <img src="https://i.pinimg.com/736x/f9/b5/9e/f9b59ec99fbb9992bb6d90d4e712d0f2.jpg" alt="Tipu Sultan Cannon Outpost">
+                </div>
+            </div>
+            <div class="item-details">
+                <span class="item-index">09 / 10</span>
+                <h3 class="item-title">Badami Fort Hilltop Bastion</h3>
+
+                <div class="history-wrapper">
+                    <p class="history-base">
+                        Perched directly over steep sandstone cliffs, this strategic fort houses ancient defensive guard towers, stone grain silos, and historical military lookout points.
+                    </p>
+                    <div class="history-extended">
+                        <p>
+                            Originally fortified by Chalukya King Pulakeshin I in the 6th century, the fort was heavily modified over the centuries by the Vijayanagara Empire, the Adil Shahi rulers, and later by Tipu Sultan in the late 18th century. It served as a vital stronghold
+                            guarding the valley below.
+                        </p>
+                        <p>
+                            The climb up the rugged stone steps takes visitors past massive circular granaries, defensive weapon stores, and a historic cannon outpost added during Tipu Sultan's campaigns. The peak offers breathtaking views of Agastya Lake and the lower town's ancient
+                            monuments.
+                        </p>
+                    </div>
+                    <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
+                </div>
+
+                <div class="utility-grid">
+                    <div class="util-meta">
+                        <h4>Location</h4>
+                        <p><a href="https://maps.google.com/?q=Badami+Fort" target="_blank">North Cliff Ascent Path, Badami</a></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Washrooms</h4>
+                        <p><span class="badge badge-yes">Available near Museum Gate</span></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Logistics & Entry</h4>
+                        <p>9:00 AM – 5:00 PM | Free Entry</p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Recommended Hotels</h4>
+                        <p>Clarks Inn Badami, Heritage Resort Badami</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="heritage-item">
+            <div class="item-gallery-wrapper">
+                <div class="slider-container">
+                    <img src="https://i.pinimg.com/736x/bd/fd/ca/bdfdca2f6a667ac58028c02d1826ea4a.jpg" alt="Meguti Jain Temple Hilltop Structure">
+                    <img src="https://i.pinimg.com/1200x/11/f8/9c/11f89c2de4eebca546d7822260e9eb90.jpg" alt="Aihole Inscription Stone Slab">
+                    <img src="https://i.pinimg.com/736x/bd/fd/ca/bdfdca2f6a667ac58028c02d1826ea4a.jpg" alt="Upper Terrace Temple Landscape Overlook">
+                </div>
+            </div>
+            <div class="item-details">
+                <span class="item-index">10 / 10</span>
+                <h3 class="item-title">Meguti Jain Temple (Aihole)</h3>
+
+                <div class="history-wrapper">
+                    <p class="history-base">
+                        Built in 634 AD atop the highest hill in Aihole, this monument contains the vital historical "Aihole Inscription," a stone slab detailing the military achievements of Emperor Pulakeshin II.
+                    </p>
+                    <div class="history-extended">
+                        <p>
+                            Commissioned by Ravikirti, the court poet and minister of Pulakeshin II, this temple is the only firmly dated monument in Aihole. It stands as an essential reference point for dating the emergence of early medieval architectural styles across South India.
+                        </p>
+                        <p>
+                            The famous Sanskrit inscription, carved in old Kannada script, provides a poetic account of Pulakeshin II’s major victory over Emperor Harshavardhana of Kannauj along the banks of the Narmada River. Built on an elevated plinth, the temple features an
+                            early Dravidian layout, offering sweeping views of the ancient town below.
+                        </p>
+                    </div>
+                    <button class="read-more-trigger" onclick="toggleHistory(this)">Read More</button>
+                </div>
+
+                <div class="utility-grid">
+                    <div class="util-meta">
+                        <h4>Location</h4>
+                        <p><a href="https://maps.google.com/?q=Meguti+Jain+Temple+Aihole" target="_blank">Meguti Hill Summit, Aihole</a></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Washrooms</h4>
+                        <p><span class="badge badge-no">No Facilities on Hill</span></p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Logistics & Entry</h4>
+                        <p>9:00 AM – 5:30 PM | Free Admission</p>
+                    </div>
+                    <div class="util-meta">
+                        <h4>Recommended Hotels</h4>
+                        <p>KSTDC Mayura Chalukya, local homestays</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function toggleHistory(button) {
+            const wrapper = button.closest('.history-wrapper');
+            wrapper.classList.toggle('expanded');
+            if (wrapper.classList.contains('expanded')) {
+                button.textContent = "Read Less";
+            } else {
+                button.textContent = "Read More";
+            }
+        }
+    </script>
+
+</body>
+
+</html>
