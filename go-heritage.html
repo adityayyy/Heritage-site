@@ -1,10 +1,7 @@
-﻿?<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-
-
-    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GO HERITAGE — Karnataka</title>
@@ -122,6 +119,14 @@
         </div>
     </section>
 
+    <!-- INTERTITLE -->
+    <section id="intertitle" class="intertitle">
+        <div class="intertitle-grid">
+            <div class="intertitle-num">02<small>CHAPTERS</small></div>
+            <p class="intertitle-text">Nine chapters of Karnataka — from the granite ruins of <strong>Hampi</strong> to the misted coffee hills of <strong>Coorg</strong>, from the royal palaces of <strong>Mysuru</strong> to the bohemian shores of <strong>Gokarna</strong>. Each a civilization's memory, waiting to be walked through.</p>
+        </div>
+    </section>
+
     <!-- TOP 10 PLACES -->
     <section id="top-places">
         <div class="section-header">
@@ -208,9 +213,9 @@
             </div>
             <div class="map-container" style="display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 24px; background: var(--dark2); border: 1px solid var(--glass-border); padding: 20px; border-radius: 4px;">
 
-                <div style="position: relative; height: 460px; background: #070d19; border-radius: 2px; overflow: hidden; border: 1px solid rgba(232,101,26,0.15);">
+                <div style="position: relative; height: 460px; background: #0A0A0A; border-radius: 2px; overflow: hidden; border: 1px solid rgba(201,162,39,0.18);">
                     <canvas id="interactiveCanvasMap" style="width: 100%; height: 100%; display: block;"></canvas>
-                    <div id="mapStatusOverlay" style="position: absolute; bottom: 16px; left: 16px; background: rgba(8,12,18,0.9); padding: 8px 16px; border-radius: 2px; font-size: 11px; letter-spacing: 1.5px; color: var(--gold); border: 1px solid var(--glass-border); font-family: 'Bebas Neue', sans-serif;">
+                    <div id="mapStatusOverlay" style="position: absolute; bottom: 16px; left: 16px; background: rgba(8,8,8,0.9); padding: 8px 16px; border-radius: 2px; font-size: 11px; letter-spacing: 1.5px; color: var(--gold); border: 1px solid var(--glass-border); font-family: 'Bebas Neue', sans-serif;">
                         🛰️ SEEKING GPS CARRIER SIGNAL...
                     </div>
                 </div>
@@ -244,7 +249,7 @@
                                 <span style="font-size: 12px; color: var(--muted);">🅿️ Space Booking</span>
                                 <strong id="drawerParking" style="font-size: 12px; color: #28a745;">--</strong>
                             </div>
-                            <div style="display: flex; flex-direction: column; gap: 4px; padding: 12px 14px; background: rgba(232,101,26,0.03); border: 1px solid rgba(232,101,26,0.15); border-radius: 2px;">
+                            <div style="display: flex; flex-direction: column; gap: 4px; padding: 12px 14px; background: rgba(201,162,39,0.04); border: 1px solid rgba(201,162,39,0.16); border-radius: 2px;">
                                 <span style="font-size: 9px; text-transform: uppercase; letter-spacing: 2px; color: var(--orange); font-weight: 600;">🏨 Verified Premium Stay</span>
                                 <strong id="drawerHotel" style="font-family: 'Playfair Display', serif; font-size: 14px; color: #fff; font-weight: 400;">--</strong>
                             </div>
@@ -282,6 +287,11 @@
             </div>
         </div>
     </section>
+
+    <!-- MARQUEE -->
+    <div class="marquee" aria-hidden="true">
+        <div class="marquee-track" id="marqueeTrack"></div>
+    </div>
 
     <!-- FOOTER -->
     <footer>

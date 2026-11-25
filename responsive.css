@@ -51,7 +51,7 @@ iframe {
         right: 0;
         flex-direction: column;
         gap: 0;
-        background: rgba(8, 12, 18, 0.96);
+        background: rgba(8, 8, 8, 0.97);
         backdrop-filter: blur(20px);
         border-bottom: 1px solid var(--glass-border);
         padding: 12px 24px;
@@ -81,7 +81,7 @@ iframe {
 
     .weather-widget {
         right: 16px;
-        top: 84px;
+        top: 156px;
         padding: 12px 14px;
     }
 
@@ -250,7 +250,7 @@ iframe {
 
     .weather-widget {
         right: 12px;
-        top: 76px;
+        top: 150px;
         padding: 10px 12px;
     }
 

@@ -140,7 +140,7 @@
         const cities = [{
             name: "Bengaluru",
             count: "12 places",
-            img: "https://i.pinimg.com/736x/70/97/ee/7097eefa4d483853f1103e67e247790f.jpg"
+            img: "assets/cities/bengaluru.jpg"
         }, {
             name: "Mysuru",
             count: "8 places",
@@ -164,7 +164,7 @@
         }, {
             name: "Belagavi",
             count: "5 places",
-            img: "https://i.pinimg.com/736x/2e/98/f6/2e98f6573d8b8cccc35424bc449aa6af.jpg"
+            img: "assets/cities/belagavi.jpg"
         }, {
             name: "Bagalkot",
             count: "6 places",
@@ -180,7 +180,7 @@
         }, {
             name: "Dharwad",
             count: "4 places",
-            img: "https://i.pinimg.com/1200x/5b/5c/2c/5b5c2c9d65722d0614276354c12fdedb.jpg"
+            img: "assets/cities/dharwad.jpg"
         }, {
             name: "utter kannada",
             count: "5 places",
@@ -203,7 +203,7 @@
             name: "Hampi Heritage Tour",
             duration: "3 Days",
             price: "₹8,999",
-            img: "https://i.pinimg.com/1200x/e1/5c/81/e15c81b91d9b0e117841f2b1c0d05db9.jpg"
+            img: "https://i.pinimg.com/1200x/36/b4/d3/36b4d3b434eb9619b90237b117fd7c39.jpg"
         }, {
             name: "Coorg Coffee Trail",
             duration: "2 Days",
@@ -297,7 +297,7 @@
             document.querySelectorAll('.hero-dot')[heroIdx].classList.add('active');
             const h = heroData[heroIdx];
             document.getElementById('heroPlace').textContent = h.place;
-            document.getElementById('heroTag').innerHTML = `<span style="content:''"></span>${h.tag}`;
+            document.getElementById('heroTag').textContent = h.tag;
             document.getElementById('heroDist').textContent = h.dist;
             document.getElementById('heroDesc').textContent = h.desc;
         }
@@ -383,7 +383,12 @@
     </div>`;
         });
 
-        // === RENDER PACKAGES ===
+        // === MARQUEE ===
+        const marqueeTrack = document.getElementById('marqueeTrack');
+        if (marqueeTrack) {
+            const items = cities.map(c => `<span>${c.name}</span>`).join('');
+            marqueeTrack.innerHTML = items + items;
+        }
         const packagesGrid = document.getElementById('packagesGrid');
         packages.forEach((pkg, i) => {
             packagesGrid.innerHTML += `
@@ -601,7 +606,7 @@
                 ctx.clearRect(0, 0, mapCanvas.width, mapCanvas.height);
                 pulseTimer += 0.04;
 
-                ctx.strokeStyle = 'rgba(232, 101, 26, 0.03)';
+                ctx.strokeStyle = 'rgba(201, 162, 39, 0.035)';
                 ctx.lineWidth = 0.5;
                 const gridStride = 40;
                 for (let x = 0; x < mapCanvas.width; x += gridStride) {
@@ -617,9 +622,9 @@
                     ctx.stroke();
                 }
 
-                ctx.strokeStyle = 'rgba(232, 101, 26, 0.15)';
+                ctx.strokeStyle = 'rgba(201, 162, 39, 0.16)';
                 ctx.lineWidth = 1.5;
-                ctx.fillStyle = 'rgba(13, 20, 32, 0.3)';
+                ctx.fillStyle = 'rgba(10, 10, 10, 0.3)';
                 const mapPolygon = [
                     { x: 120, y: 40 }, { x: 240, y: 30 }, { x: 320, y: 60 },
                     { x: 350, y: 120 }, { x: 340, y: 220 }, { x: 300, y: 330 },
@@ -648,7 +653,7 @@
                         ctx.beginPath();
                         ctx.moveTo(originX, originY);
                         ctx.lineTo(destinationX, destinationY);
-                        ctx.strokeStyle = 'rgba(232, 101, 26, 0.4)';
+                        ctx.strokeStyle = 'rgba(201, 162, 39, 0.45)';
                         ctx.lineWidth = 1.5;
                         ctx.setLineDash([4, 4]);
                         ctx.lineDashOffset = -pulseTimer * 20;
@@ -665,12 +670,12 @@
                     const ringRadius = 5 + Math.sin(pulseTimer * 2.5) * 4;
                     ctx.beginPath();
                     ctx.arc(px, py, ringRadius + (activeMatch ? 6 : 0), 0, Math.PI * 2);
-                    ctx.fillStyle = activeMatch ? 'rgba(232, 101, 26, 0.3)' : 'rgba(201, 168, 76, 0.15)';
+                    ctx.fillStyle = activeMatch ? 'rgba(201, 162, 39, 0.3)' : 'rgba(237, 231, 218, 0.12)';
                     ctx.fill();
 
                     ctx.beginPath();
                     ctx.arc(px, py, activeMatch ? 6 : 4, 0, Math.PI * 2);
-                    ctx.fillStyle = activeMatch ? '#E8651A' : '#C9A84C';
+                    ctx.fillStyle = '#C9A227';
                     ctx.fill();
 
                     ctx.fillStyle = activeMatch ? '#fff' : 'rgba(240, 237, 232, 0.6)';

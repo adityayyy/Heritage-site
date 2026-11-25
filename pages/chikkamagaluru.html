@@ -5,16 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chikkamagaluru — Premium Heritage Chronicle</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
          :root {
-            --terracotta: #E8651A;
-            --gold: #C9A84C;
-            --bg-dark: #080C12;
-            --card-dark: #0D1420;
-            --border-glow: rgba(201, 168, 76, 0.15);
-            --text-light: #F0EDE8;
-            --text-muted: rgba(240, 237, 232, 0.55);
+            --terracotta: #C9A227;
+            --gold: #C9A227;
+            --bg-dark: #080808;
+            --card-dark: #121212;
+            --border-glow: rgba(237, 231, 218, 0.13);
+            --text-light: #EDE7DA;
+            --text-muted: rgba(237, 231, 218, 0.55);
         }
         
         *,
@@ -69,7 +69,7 @@
         }
         
         .header h1 {
-            font-family: 'Cinzel', serif;
+            font-family: 'Bebas Neue', sans-serif;
             font-size: 60px;
             font-weight: 700;
             letter-spacing: 5px;
@@ -92,7 +92,7 @@
         }
         
         .intro-chronicle h2 {
-            font-family: 'Cinzel', serif;
+            font-family: 'Bebas Neue', sans-serif;
             font-size: 24px;
             color: var(--gold);
             margin-bottom: 20px;
@@ -189,7 +189,7 @@
         }
         
         .item-index {
-            font-family: 'Cinzel', serif;
+            font-family: 'Bebas Neue', sans-serif;
             font-size: 14px;
             color: var(--terracotta);
             font-weight: 700;
@@ -198,7 +198,7 @@
         }
         
         .item-title {
-            font-family: 'Cinzel', serif;
+            font-family: 'Bebas Neue', sans-serif;
             font-size: 34px;
             font-weight: 600;
             margin-bottom: 18px;
@@ -242,7 +242,7 @@
             background: none;
             border: none;
             color: var(--gold);
-            font-family: 'Cinzel', serif;
+            font-family: 'Bebas Neue', sans-serif;
             font-size: 12px;
             font-weight: 600;
             letter-spacing: 2px;
@@ -279,7 +279,7 @@
         }
         
         .util-meta h4 {
-            font-family: 'Cinzel', serif;
+            font-family: 'Bebas Neue', sans-serif;
             font-size: 11px;
             text-transform: uppercase;
             color: var(--gold);
@@ -289,7 +289,7 @@
         
         .util-meta p {
             font-size: 13.5px;
-            color: #F0EDE8;
+            color: #EDE7DA;
             font-weight: 400;
         }
         
@@ -348,6 +348,11 @@
                 font-size: 44px;
             }
         }
+
+        /* Nocturne extras */
+        body::after { content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 9998; opacity: 0.035; background-image: url("data:image/svg+xml,%3Csvg viewBox=%270 0 256 256%27 xmlns=%27http://www.w3.org/2000/svg%27%3E%3Cfilter id=%27n%27%3E%3CfeTurbulence type=%27fractalNoise%27 baseFrequency=%270.9%27 numOctaves=%274%27 stitchTiles=%27stitch%27/%3E%3C/filter%3E%3Crect width=%27100%25%27 height=%27100%25%27 filter=%27url(%23n)%27/%3E%3C/svg%3E"); }
+        ::selection { background: #C9A227; color: #080808; }
+        .slider-container img { filter: saturate(0.88) contrast(1.02) brightness(0.92); }
     </style>
 <link rel="stylesheet" href="../responsive.css">
 </head>
@@ -522,7 +527,7 @@
             <div class="item-gallery-wrapper">
                 <div class="slider-container">
                     <img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=800" alt="Veera Narayana Temple Trikuta Front">
-                    <img src="https://images.unsplash.com/photo-1598977123418-45f04b6168ba?w=800" alt="Polished Lathe Turned Columns">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Ornate_Lathe-Turned_Pillars_of_Chennakeshava_Temple%2C_Belur%2C_Karnataka.jpg/960px-Ornate_Lathe-Turned_Pillars_of_Chennakeshava_Temple%2C_Belur%2C_Karnataka.jpg" alt="Polished Lathe Turned Columns">
                     <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800" alt="Ornate Guardian Elephants">
                 </div>
             </div>
@@ -721,7 +726,7 @@
         <div class="heritage-item">
             <div class="item-gallery-wrapper">
                 <div class="slider-container">
-                    <img src="https://images.unsplash.com/photo-1598977123418-45f04b6168ba?w=800" alt="Balehonnur Shrimath Front Facade">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Tea_plantation_between_Sringeri_and_Balehonnur.jpg/960px-Tea_plantation_between_Sringeri_and_Balehonnur.jpg" alt="Balehonnur Shrimath Front Facade">
                     <img src="https://images.unsplash.com/photo-1569336415962-a4bd9f69cd83?w=800" alt="Bhadra Riverfront Steps">
                     <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=800" alt="Ceremonial Golden Ornaments">
                 </div>

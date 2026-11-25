@@ -5,16 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bengaluru — Premium Heritage Chronicle</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
          :root {
-            --terracotta: #D46A43;
-            --gold: #D4AF37;
-            --bg-dark: #0A0F18;
-            --card-dark: #121A2A;
-            --border-glow: rgba(212, 175, 55, 0.12);
-            --text-light: #F4F6F9;
-            --text-muted: #8E9AAF;
+            --terracotta: #C9A227;
+            --gold: #C9A227;
+            --bg-dark: #080808;
+            --card-dark: #121212;
+            --border-glow: rgba(237, 231, 218, 0.13);
+            --text-light: #EDE7DA;
+            --text-muted: rgba(237, 231, 218, 0.55);
         }
         
         *,
@@ -68,7 +68,7 @@
         }
         
         .header h1 {
-            font-family: 'Cinzel', serif;
+            font-family: 'Bebas Neue', sans-serif;
             font-size: 60px;
             font-weight: 700;
             letter-spacing: 5px;
@@ -86,12 +86,12 @@
             text-align: center;
             background: var(--card-dark);
             padding: 40px;
-            border-radius: 6px;
+            border-radius: 0;
             border: 1px solid var(--border-glow);
         }
         
         .intro-chronicle h2 {
-            font-family: 'Cinzel', serif;
+            font-family: 'Bebas Neue', sans-serif;
             font-size: 24px;
             color: var(--gold);
             margin-bottom: 20px;
@@ -130,9 +130,9 @@
         .item-gallery-wrapper {
             position: relative;
             width: 100%;
-            border-radius: 6px;
+            border-radius: 0;
             overflow: hidden;
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+            box-shadow: none;
             border: 1px solid rgba(255, 255, 255, 0.05);
         }
         
@@ -188,7 +188,7 @@
         }
         
         .item-index {
-            font-family: 'Cinzel', serif;
+            font-family: 'Bebas Neue', sans-serif;
             font-size: 14px;
             color: var(--terracotta);
             font-weight: 700;
@@ -197,7 +197,7 @@
         }
         
         .item-title {
-            font-family: 'Cinzel', serif;
+            font-family: 'Bebas Neue', sans-serif;
             font-size: 34px;
             font-weight: 600;
             margin-bottom: 18px;
@@ -242,7 +242,7 @@
             background: none;
             border: none;
             color: var(--gold);
-            font-family: 'Cinzel', serif;
+            font-family: 'Bebas Neue', sans-serif;
             font-size: 12px;
             font-weight: 600;
             letter-spacing: 2px;
@@ -273,13 +273,13 @@
             gap: 22px;
             background: var(--card-dark);
             padding: 24px;
-            border-radius: 6px;
+            border-radius: 0;
             border: 1px solid var(--border-glow);
             margin-top: 15px;
         }
         
         .util-meta h4 {
-            font-family: 'Cinzel', serif;
+            font-family: 'Bebas Neue', sans-serif;
             font-size: 11px;
             text-transform: uppercase;
             color: var(--gold);
@@ -348,6 +348,11 @@
                 font-size: 44px;
             }
         }
+
+        /* Nocturne extras */
+        body::after { content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 9998; opacity: 0.035; background-image: url("data:image/svg+xml,%3Csvg viewBox=%270 0 256 256%27 xmlns=%27http://www.w3.org/2000/svg%27%3E%3Cfilter id=%27n%27%3E%3CfeTurbulence type=%27fractalNoise%27 baseFrequency=%270.9%27 numOctaves=%274%27 stitchTiles=%27stitch%27/%3E%3C/filter%3E%3Crect width=%27100%25%27 height=%27100%25%27 filter=%27url(%23n)%27/%3E%3C/svg%3E"); }
+        ::selection { background: #C9A227; color: #080808; }
+        .slider-container img { filter: saturate(0.88) contrast(1.02) brightness(0.92); }
     </style>
 <link rel="stylesheet" href="../responsive.css">
 </head>

@@ -5,16 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Udupi — Premium Heritage Chronicle</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
          :root {
-            --terracotta: #E8651A;
-            --gold: #C9A84C;
-            --bg-dark: #080C12;
-            --card-dark: #0D1420;
-            --border-glow: rgba(201, 168, 76, 0.15);
-            --text-light: #F0EDE8;
-            --text-muted: rgba(240, 237, 232, 0.55);
+            --terracotta: #C9A227;
+            --gold: #C9A227;
+            --bg-dark: #080808;
+            --card-dark: #121212;
+            --border-glow: rgba(237, 231, 218, 0.13);
+            --text-light: #EDE7DA;
+            --text-muted: rgba(237, 231, 218, 0.55);
         }
         
         *,
@@ -68,7 +68,7 @@
         }
         
         .header h1 {
-            font-family: 'Cinzel', serif;
+            font-family: 'Bebas Neue', sans-serif;
             font-size: 60px;
             font-weight: 700;
             letter-spacing: 5px;
@@ -90,7 +90,7 @@
         }
         
         .intro-chronicle h2 {
-            font-family: 'Cinzel', serif;
+            font-family: 'Bebas Neue', sans-serif;
             font-size: 24px;
             color: var(--gold);
             margin-bottom: 20px;
@@ -183,7 +183,7 @@
         }
         
         .item-index {
-            font-family: 'Cinzel', serif;
+            font-family: 'Bebas Neue', sans-serif;
             font-size: 14px;
             color: var(--terracotta);
             font-weight: 700;
@@ -192,7 +192,7 @@
         }
         
         .item-title {
-            font-family: 'Cinzel', serif;
+            font-family: 'Bebas Neue', sans-serif;
             font-size: 34px;
             font-weight: 600;
             margin-bottom: 18px;
@@ -235,7 +235,7 @@
             background: none;
             border: none;
             color: var(--gold);
-            font-family: 'Cinzel', serif;
+            font-family: 'Bebas Neue', sans-serif;
             font-size: 12px;
             font-weight: 600;
             letter-spacing: 2px;
@@ -271,7 +271,7 @@
         }
         
         .util-meta h4 {
-            font-family: 'Cinzel', serif;
+            font-family: 'Bebas Neue', sans-serif;
             font-size: 11px;
             text-transform: uppercase;
             color: var(--gold);
@@ -281,7 +281,7 @@
         
         .util-meta p {
             font-size: 13.5px;
-            color: #F0EDE8;
+            color: #EDE7DA;
             font-weight: 400;
         }
         
@@ -338,6 +338,11 @@
                 font-size: 44px;
             }
         }
+
+        /* Nocturne extras */
+        body::after { content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 9998; opacity: 0.035; background-image: url("data:image/svg+xml,%3Csvg viewBox=%270 0 256 256%27 xmlns=%27http://www.w3.org/2000/svg%27%3E%3Cfilter id=%27n%27%3E%3CfeTurbulence type=%27fractalNoise%27 baseFrequency=%270.9%27 numOctaves=%274%27 stitchTiles=%27stitch%27/%3E%3C/filter%3E%3Crect width=%27100%25%27 height=%27100%25%27 filter=%27url(%23n)%27/%3E%3C/svg%3E"); }
+        ::selection { background: #C9A227; color: #080808; }
+        .slider-container img { filter: saturate(0.88) contrast(1.02) brightness(0.92); }
     </style>
 <link rel="stylesheet" href="../responsive.css">
 </head>
@@ -361,9 +366,9 @@
         <div class="heritage-item">
             <div class="item-gallery-wrapper">
                 <div class="slider-container">
-                    <img src="https://images.unsplash.com/photo-1605649487212-47bdab064df7?w=800" alt="Sri Krishna Mutt Temple Entrance">
-                    <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=800" alt="Madswa Sarovara Temple Tank">
-                    <img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=800" alt="Kanakana Kindi Window Details">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Udupi_Krishna_Mutt.jpg/960px-Udupi_Krishna_Mutt.jpg" alt="Sri Krishna Mutt Temple Entrance">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Sri_Krishna_Mutt%2C_Udupi.jpg/960px-Sri_Krishna_Mutt%2C_Udupi.jpg" alt="Madswa Sarovara Temple Tank">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/KANAKANA_KINDI%28_WINDOW%29.JPG/960px-KANAKANA_KINDI%28_WINDOW%29.JPG" alt="Kanakana Kindi Window Details">
                 </div>
             </div>
             <div class="item-details">
@@ -410,9 +415,9 @@
         <div class="heritage-item">
             <div class="item-gallery-wrapper">
                 <div class="slider-container">
-                    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800" alt="Basaltic Rock Formations St Marys Island">
-                    <img src="https://images.unsplash.com/photo-1541963463532-d68292c34b19?w=800" alt="Hexagonal Column Georock View">
-                    <img src="https://images.unsplash.com/photo-1596176530529-78163a4f7af2?w=800" alt="Island Turquoise Coastline">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Columnar_Basaltic_Rocks.jpg/960px-Columnar_Basaltic_Rocks.jpg" alt="Basaltic Rock Formations St Marys Island">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/St._Mary%27s_Island%2C_Udupi.jpg/960px-St._Mary%27s_Island%2C_Udupi.jpg" alt="Hexagonal Column Georock View">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/St._mary%27s_island%2CUdupi%2CIndia.jpg/960px-St._mary%27s_island%2CUdupi%2CIndia.jpg" alt="Island Turquoise Coastline">
                 </div>
             </div>
             <div class="item-details">
@@ -459,9 +464,9 @@
         <div class="heritage-item">
             <div class="item-gallery-wrapper">
                 <div class="slider-container">
-                    <img src="https://images.unsplash.com/photo-1584551246679-0daf3d275d0f?w=800" alt="Anantheshwara Gaja Prishta Architecture">
-                    <img src="https://images.unsplash.com/photo-1598977123418-45f04b6168ba?w=800" alt="Chandramouleshwara Stone Shrines">
-                    <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=800" alt="Alun Chalukya Inscription Panels">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Ever_Burning_diya_next_to.jpg/960px-Ever_Burning_diya_next_to.jpg" alt="Anantheshwara Gaja Prishta Architecture">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Chandramouleshwara_Temple_Udupi.jpg/960px-Chandramouleshwara_Temple_Udupi.jpg" alt="Chandramouleshwara Stone Shrines">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Barkur_Fort_01.jpg/960px-Barkur_Fort_01.jpg" alt="Alun Chalukya Inscription Panels">
                 </div>
             </div>
             <div class="item-details">
@@ -508,9 +513,9 @@
         <div class="heritage-item">
             <div class="item-gallery-wrapper">
                 <div class="slider-container">
-                    <img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=800" alt="Barkur Fort Ruined Gateways">
-                    <img src="https://images.unsplash.com/photo-1541963463532-d68292c34b19?w=800" alt="Kathale Basadi Jain Pillars">
-                    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800" alt="Alupa Hero Stones Inscriptions">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Barkur_Fort_02.jpg/960px-Barkur_Fort_02.jpg" alt="Barkur Fort Ruined Gateways">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Kathale_Basadi%2C_Barkur_02.jpg/960px-Kathale_Basadi%2C_Barkur_02.jpg" alt="Kathale Basadi Jain Pillars">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Barkur_Fort_03.jpg/960px-Barkur_Fort_03.jpg" alt="Alupa Hero Stones Inscriptions">
                 </div>
             </div>
             <div class="item-details">
@@ -556,9 +561,9 @@
         <div class="heritage-item">
             <div class="item-gallery-wrapper">
                 <div class="slider-container">
-                    <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=800" alt="Restored Timber Architecture Houses">
-                    <img src="https://images.unsplash.com/photo-1584551246679-0daf3d275d0f?w=800" alt="Traditional Coastal Courtyards">
-                    <img src="https://images.unsplash.com/photo-1596176530529-78163a4f7af2?w=800" alt="Museum Antiquities Interior">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Kathale_Basadi%2C_Barkur_05.jpg/960px-Kathale_Basadi%2C_Barkur_05.jpg" alt="Restored Timber Architecture Houses">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Udupi_Krishna_Mutt_chariots.jpg/960px-Udupi_Krishna_Mutt_chariots.jpg" alt="Traditional Coastal Courtyards">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Barkur_Fort_04.jpg/960px-Barkur_Fort_04.jpg" alt="Museum Antiquities Interior">
                 </div>
             </div>
             <div class="item-details">
@@ -604,9 +609,9 @@
         <div class="heritage-item">
             <div class="item-gallery-wrapper">
                 <div class="slider-container">
-                    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800" alt="Kapu Beach Lighthouse Rocky Ridge">
-                    <img src="https://images.unsplash.com/photo-1541963463532-d68292c34b19?w=800" alt="Lighthouse Spiral Lantern Deck">
-                    <img src="https://images.unsplash.com/photo-1605649487212-47bdab064df7?w=800" alt="Sunset View over Rocky Outcrop">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Kapu_beach_light_house.jpg/960px-Kapu_beach_light_house.jpg" alt="Kapu Beach Lighthouse Rocky Ridge">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Kaup_beach%2C_Udupi%2C_Karnataka_04.jpg/960px-Kaup_beach%2C_Udupi%2C_Karnataka_04.jpg" alt="Lighthouse Spiral Lantern Deck">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Kapu_beach_light_house.jpg/960px-Kapu_beach_light_house.jpg" alt="Sunset View over Rocky Outcrop">
                 </div>
             </div>
             <div class="item-details">
@@ -652,9 +657,9 @@
         <div class="heritage-item">
             <div class="item-gallery-wrapper">
                 <div class="slider-container">
-                    <img src="https://images.unsplash.com/photo-1584551246679-0daf3d275d0f?w=800" alt="Pajaka Kshetra Ancestral Sanctuary">
-                    <img src="https://images.unsplash.com/photo-1598977123418-45f04b6168ba?w=800" alt="Sacred Stone Footprints Relic">
-                    <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=800" alt="Kunjaru Durga Hill Silhouette">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Pajaka.jpg/960px-Pajaka.jpg" alt="Pajaka Kshetra Ancestral Sanctuary">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Pajaka.jpg/960px-Pajaka.jpg" alt="Sacred Stone Footprints Relic">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Baana_teertha-_one_of_the_four_holy_ponds_found_near_Kunjarugiri_durga_temple.jpg/960px-Baana_teertha-_one_of_the_four_holy_ponds_found_near_Kunjarugiri_durga_temple.jpg" alt="Kunjaru Durga Hill Silhouette">
                 </div>
             </div>
             <div class="item-details">
@@ -700,9 +705,9 @@
         <div class="heritage-item">
             <div class="item-gallery-wrapper">
                 <div class="slider-container">
-                    <img src="https://images.unsplash.com/photo-1598977123418-45f04b6168ba?w=800" alt="Karkala Gommateshwara Giant Monolith">
-                    <img src="https://images.unsplash.com/photo-1541963463532-d68292c34b19?w=800" alt="Chaturmukha Basadi Symmetrical Pillars">
-                    <img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=800" alt="Granite Rock Ridge Topography">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/64_Tirthankara_Gomateswara_Bahubali_Karkala_Karnataka_01.jpg/960px-64_Tirthankara_Gomateswara_Bahubali_Karkala_Karnataka_01.jpg" alt="Karkala Gommateshwara Giant Monolith">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Chaturmukha_Basadi_Front_view.jpg/960px-Chaturmukha_Basadi_Front_view.jpg" alt="Chaturmukha Basadi Symmetrical Pillars">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Gomateswara_Bahubali_Karkala_Karnataka.jpg/960px-Gomateswara_Bahubali_Karkala_Karnataka.jpg" alt="Granite Rock Ridge Topography">
                 </div>
             </div>
             <div class="item-details">
@@ -748,9 +753,9 @@
         <div class="heritage-item">
             <div class="item-gallery-wrapper">
                 <div class="slider-container">
-                    <img src="https://images.unsplash.com/photo-1541963463532-d68292c34b19?w=800" alt="Varanga Lake Temple Center">
-                    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800" alt="Wooden Boat Ferry Transit">
-                    <img src="https://images.unsplash.com/photo-1605649487212-47bdab064df7?w=800" alt="Neminatha Basadi Outer Courtyard">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Karkala_jain_temple.JPG/960px-Karkala_jain_temple.JPG" alt="Varanga Lake Temple Center">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/St._mary%27s_island-Udupi.jpg/960px-St._mary%27s_island-Udupi.jpg" alt="Wooden Boat Ferry Transit">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Chaturmukha_Basadi_Karkala_2.jpg/960px-Chaturmukha_Basadi_Karkala_2.jpg" alt="Neminatha Basadi Outer Courtyard">
                 </div>
             </div>
             <div class="item-details">
@@ -796,9 +801,9 @@
         <div class="heritage-item">
             <div class="item-gallery-wrapper">
                 <div class="slider-container">
-                    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800" alt="Savira Kambada Basadi Front View">
-                    <img src="https://images.unsplash.com/photo-1541963463532-d68292c34b19?w=800" alt="Intricate Pillar Carvings Rows">
-                    <img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=800" alt="Mahasthambha Stone Pillar Profile">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Savira_Kambada_Basadi%2C_the_1%2C000-pillared_Jain_temple_at_Moodabidri_%2817%29.jpg/960px-Savira_Kambada_Basadi%2C_the_1%2C000-pillared_Jain_temple_at_Moodabidri_%2817%29.jpg" alt="Savira Kambada Basadi Front View">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Savira_Kambada_Basadi%2C_the_1%2C000-pillared_Jain_temple_at_Moodabidri_%282%29.jpg/960px-Savira_Kambada_Basadi%2C_the_1%2C000-pillared_Jain_temple_at_Moodabidri_%282%29.jpg" alt="Intricate Pillar Carvings Rows">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Great_Manastambha%2C_Hiriyangadi_1.jpg/960px-Great_Manastambha%2C_Hiriyangadi_1.jpg" alt="Mahasthambha Stone Pillar Profile">
                 </div>
             </div>
             <div class="item-details">

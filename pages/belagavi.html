@@ -5,16 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Belagavi — Premium Heritage Chronicle</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
          :root {
-            --terracotta: #D46A43;
-            --gold: #D4AF37;
-            --bg-dark: #0A0F18;
-            --card-dark: #121A2A;
-            --border-glow: rgba(212, 175, 55, 0.12);
-            --text-light: #F4F6F9;
-            --text-muted: #8E9AAF;
+            --terracotta: #C9A227;
+            --gold: #C9A227;
+            --bg-dark: #080808;
+            --card-dark: #121212;
+            --border-glow: rgba(237, 231, 218, 0.13);
+            --text-light: #EDE7DA;
+            --text-muted: rgba(237, 231, 218, 0.55);
         }
         
         *,
@@ -68,7 +68,7 @@
         }
         
         .header h1 {
-            font-family: 'Cinzel', serif;
+            font-family: 'Bebas Neue', sans-serif;
             font-size: 60px;
             font-weight: 700;
             letter-spacing: 5px;
@@ -86,12 +86,12 @@
             text-align: center;
             background: var(--card-dark);
             padding: 40px;
-            border-radius: 6px;
+            border-radius: 0;
             border: 1px solid var(--border-glow);
         }
         
         .intro-chronicle h2 {
-            font-family: 'Cinzel', serif;
+            font-family: 'Bebas Neue', sans-serif;
             font-size: 24px;
             color: var(--gold);
             margin-bottom: 20px;
@@ -130,9 +130,9 @@
         .item-gallery-wrapper {
             position: relative;
             width: 100%;
-            border-radius: 6px;
+            border-radius: 0;
             overflow: hidden;
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+            box-shadow: none;
             border: 1px solid rgba(255, 255, 255, 0.05);
         }
         
@@ -188,7 +188,7 @@
         }
         
         .item-index {
-            font-family: 'Cinzel', serif;
+            font-family: 'Bebas Neue', sans-serif;
             font-size: 14px;
             color: var(--terracotta);
             font-weight: 700;
@@ -197,7 +197,7 @@
         }
         
         .item-title {
-            font-family: 'Cinzel', serif;
+            font-family: 'Bebas Neue', sans-serif;
             font-size: 34px;
             font-weight: 600;
             margin-bottom: 18px;
@@ -242,7 +242,7 @@
             background: none;
             border: none;
             color: var(--gold);
-            font-family: 'Cinzel', serif;
+            font-family: 'Bebas Neue', sans-serif;
             font-size: 12px;
             font-weight: 600;
             letter-spacing: 2px;
@@ -273,13 +273,13 @@
             gap: 22px;
             background: var(--card-dark);
             padding: 24px;
-            border-radius: 6px;
+            border-radius: 0;
             border: 1px solid var(--border-glow);
             margin-top: 15px;
         }
         
         .util-meta h4 {
-            font-family: 'Cinzel', serif;
+            font-family: 'Bebas Neue', sans-serif;
             font-size: 11px;
             text-transform: uppercase;
             color: var(--gold);
@@ -348,6 +348,11 @@
                 font-size: 44px;
             }
         }
+
+        /* Nocturne extras */
+        body::after { content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 9998; opacity: 0.035; background-image: url("data:image/svg+xml,%3Csvg viewBox=%270 0 256 256%27 xmlns=%27http://www.w3.org/2000/svg%27%3E%3Cfilter id=%27n%27%3E%3CfeTurbulence type=%27fractalNoise%27 baseFrequency=%270.9%27 numOctaves=%274%27 stitchTiles=%27stitch%27/%3E%3C/filter%3E%3Crect width=%27100%25%27 height=%27100%25%27 filter=%27url(%23n)%27/%3E%3C/svg%3E"); }
+        ::selection { background: #C9A227; color: #080808; }
+        .slider-container img { filter: saturate(0.85) contrast(1.02) brightness(0.88); }
     </style>
 <link rel="stylesheet" href="../responsive.css">
 </head>
@@ -372,9 +377,9 @@
         <div class="heritage-item">
             <div class="item-gallery-wrapper">
                 <div class="slider-container">
-                    <img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAGxvZbO-jaXa0H7LHgZ8kBY5ouMytfu2mCSJRwhCBvIRHNGDrOLZPDjfhoqSvsYv5PnUBsrsTym1nzRpcWGzsayT4Jvzz3DMRSJFe7FHE2l36xYp_3H9ZRRbrdS9n3dE_-QXOgl=s1360-w1360-h1020-rw" alt="Belagavi Fort Outer Moat Structure">
-                    <img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAG3rWI0nDZr7gYkrebRD4vJv97y_IbOvY_-YN3eyAbiU9qDKO0WcWZAB3QD6XxHHB7Gsxb0q22bkgSoA5uc5v9bAL4ukl51zzNzvHh7EqFweCCFFEAZyn2B6y55zlQDagIhaBZsVfM_N3p5=s1360-w1360-h1020-rw" alt="Belagavi Fort High Granite Ramparts">
-                    <img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAFGqB2mohnFGcsh8EbDIRqdc3OfpPh_9d-IZWLDvBUNtwgZc0s7sgVr1-OjXDmVIXYqF83vdW2RnYVdOOFLYat5GxpPEX1adCmDd5osaXfiS4ZeVbM9nD89CuYqZyExV7ORnClBv5DFlM5v=s1360-w1360-h1020-rw" alt="Belagavi Fort Guard Bulwarks">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Col_Welsh%27s_residence%2C_Belgaum_fort.jpg/960px-Col_Welsh%27s_residence%2C_Belgaum_fort.jpg" alt="Belagavi Fort Outer Moat Structure">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Fort-belgaum_0.jpg/960px-Fort-belgaum_0.jpg" alt="Belagavi Fort High Granite Ramparts">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Fort_of_Belgaum.jpg/960px-Fort_of_Belgaum.jpg" alt="Belagavi Fort Guard Bulwarks">
                 </div>
             </div>
             <div class="item-details">
@@ -472,9 +477,9 @@
         <div class="heritage-item">
             <div class="item-gallery-wrapper">
                 <div class="slider-container">
-                    <img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAH6RoK2jL0Do6VpJvbKuH61LcpO9aEUXXwS1kpePpW5OpJ0LW_UcQzZuH6-sXquIHxre7nXTkM53ku1LfDIpurZzAslrvrbfF1oh8KeOcHUSFKrOYFJxx8K5IGu5sg_gzIG4NqI=s1360-w1360-h1020-rw" alt="Kittur Fort Gateway Ruins">
-                    <img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAEqo4E2kaIU3QQXb52wYz8gqbAylinrm7riN7wrvBX4yRsam1iDrhtCXMDzDargiO6OYNl7ZvlnPjknTDvj4mda3qG80-RPKslqQb-grB9tVM79WBAuJTqLVi6tSbnbOrfRSmFgTg=s1360-w1360-h1020-rw" alt="Palace Ground Foundations">
-                    <img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAGEppG1aYgZ0ye4D1P8j7QOl9BgfynSLNTs3AEeFmKB_GmCPQIaWqM4eR5fEDhPA6O9VwKwKIRdOc5Kgu4p3kmljHCGefZUo0jjyOh5m0giioGAn6x6MTQi4vetS49ZTmIY8-6h5Q=s1360-w1360-h1020-rw" alt="Kittur Museum Archaeological Gallery">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Kittur_fort.jpeg/960px-Kittur_fort.jpeg" alt="Kittur Fort Gateway Ruins">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Gateway_of_Belgaum_fort.jpg/960px-Gateway_of_Belgaum_fort.jpg" alt="Palace Ground Foundations">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Kittur_fort.jpeg/960px-Kittur_fort.jpeg" alt="Kittur Museum Archaeological Gallery">
                 </div>
             </div>
             <div class="item-details">
@@ -521,9 +526,9 @@
         <div class="heritage-item">
             <div class="item-gallery-wrapper">
                 <div class="slider-container">
-                    <img src="https://belagavitourism.com/wp-content/uploads/2024/12/page1_image1_crop_5-7-600x552.webp" alt="Safa Masjid Archways">
-                    <img src="https://belagavitourism.com/wp-content/uploads/2024/12/page1_image1_crop_7-3-600x556.webp" alt="Medieval Plaster Decorations">
-                    <img src="https://belagavitourism.com/wp-content/uploads/2024/12/page1_image1_crop_5-7-600x552.webp" alt="Masjid Main Courtyard View">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/General_view_of_the_gateway_of_the_fort%2C_Belgaum.jpg/960px-General_view_of_the_gateway_of_the_fort%2C_Belgaum.jpg" alt="Safa Masjid Archways">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Rajhansgad_belgaum.jpg/960px-Rajhansgad_belgaum.jpg" alt="Medieval Plaster Decorations">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Col_Welsh%27s_residence%2C_Belgaum_fort.jpg/960px-Col_Welsh%27s_residence%2C_Belgaum_fort.jpg" alt="Masjid Main Courtyard View">
                 </div>
             </div>
             <div class="item-details">
@@ -569,9 +574,9 @@
         <div class="heritage-item">
             <div class="item-gallery-wrapper">
                 <div class="slider-container">
-                    <img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAGLjW-ksKf1mXHum_vsNgjWXO0eVYybyU8uK0IlGq9DIvygL2OQlMDcpFNG-mu0SYfgBHpUlvGbH6ZI0nIMaHmCqNV32b4P20YTkt1fwEIKnAse78EVdCI_t6KuK8Bzyxcq0idb8g=s1360-w1360-h1020-rw" alt="St Marys Church Red Brick Facade">
-                    <img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAFApD98RBYk3j8VMdCDyu-GWnz52QwyHh2hLyOpJGoQSkK4qJ-AcjjYaiH_3vCWtwKmxTYoaKGNvcOiXmmt_nPtCcGfhyJpDPXF3lJzAY6es-uhmSfE5NI4VD3iLhr1hwwtlGJpwQ=s1360-w1360-h1020-rw" alt="Stained Glass Windows Altar">
-                    <img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAHlwizm6hpkL2HpAAvQw1mFUTw-8FL8LGFXinsuQFFd77lcWaVnGcr4D5TrvjUVJTXQ98UsxvBadSbv8eaYmEZSo5agT4-kJVVy06krzkTJGGcGiX59e-dPOFkJCuKwpruojRzp=s1360-w1360-h1020-rw" alt="Cantonment Pine Tree Walkways">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Belagavi_Airport.jpg/960px-Belagavi_Airport.jpg" alt="St Marys Church Red Brick Facade">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/b/be/Belgaum_Fort.jpg" alt="Stained Glass Windows Altar">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Chandpur_Belgaon_Tea_Garden_01.jpg/960px-Chandpur_Belgaon_Tea_Garden_01.jpg" alt="Cantonment Pine Tree Walkways">
                 </div>
             </div>
             <div class="item-details">
@@ -617,9 +622,9 @@
         <div class="heritage-item">
             <div class="item-gallery-wrapper">
                 <div class="slider-container">
-                    <img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAE9x3t-1fNlEGVPDXEOU-c5atatt0WHzrMKRsfeOlSI95SiXkjl5Kj-DUndVHe17ani8EyRb3Ycv3w8f4earhDAG_w5-WEOmwVvKmHX83JXzJqWfnAphAjt7KCNpsaRDwKVK9dhBQ=s1360-w1360-h1020-rw" alt="Kapileshwar Temple Shikhara">
-                    <img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAGJraeo19D3O59LzDiEUv4cQWZPYtLsqfBekDmQDh9zyRMvCn4_leYS29Qk500UrEjnRmZoGuWbmbTwsM6PNrZ1A2VJZxAuAiXWAW6XmTHIalWP4ku74IJxbmk-HKSGjVEo5ue84xaMkKi4=s1360-w1360-h1020-rw" alt="Stone Bathing Ghats Pool">
-                    <img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAGOvgjFpXCpJY2CtQ9IOjEVUw2xNR-f39rNfhvelrkVMbkH0LqaMXAJij1jkNCPcoXR9HXgQd7fUg384Kirgg7xaY7fyELaDpbuWpUhxTju2TuN9kTsDikZSFY8j6fxXKbxM7wiRA=s1360-w1360-h1020-rw" alt="Ancient Sacred Courtyard Setup">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Chandpur_Belgaon_Tea_Garden_02.jpg/960px-Chandpur_Belgaon_Tea_Garden_02.jpg" alt="Kapileshwar Temple Shikhara">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/A_scenic_view_of_Gokak_Falls.jpg/960px-A_scenic_view_of_Gokak_Falls.jpg" alt="Stone Bathing Ghats Pool">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Fort-belgaum_0.jpg/960px-Fort-belgaum_0.jpg" alt="Ancient Sacred Courtyard Setup">
                 </div>
             </div>
             <div class="item-details">
@@ -714,8 +719,8 @@
         <div class="heritage-item">
             <div class="item-gallery-wrapper">
                 <div class="slider-container">
-                    <img src="https://belagavitourism.com/wp-content/uploads/2024/09/page1_image1_crop_4-5-600x600.webp" alt="Parasgad Fort Rock Cut Walls">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/3/30/Parasgad_Fort_3.jpg" alt="Parasgad Hill Top Overlook View">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Fort_of_Belgaum.jpg/960px-Fort_of_Belgaum.jpg" alt="Parasgad Fort Rock Cut Walls">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Fort_of_Belgaum.jpg/640px-Fort_of_Belgaum.jpg" alt="Parasgad Hill Top Overlook View">
                     <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0a/fb/20/1a/parasgad-fort.jpg?w=1200&h=-1&s=1" alt="Maratha Era Stone Inscriptions">
                 </div>
             </div>
@@ -764,7 +769,7 @@
                 <div class="slider-container">
                     <img src="https://i.pinimg.com/736x/6a/20/fa/6a20faa31b0c5f33d65e1a1f19e998fd.jpg" alt="Saundatti Temple Main Shikhara">
                     <img src="https://d3fphkxyf5o5bm.cloudfront.net/image-resize/format=webp,w=720/QwRY54Li1HMwD7oNfqDvmz75d4yyKVWWC22sY9agju" alt="Pilgrimage Gathering Hallways">
-                    <img src="https://belagavitourism.com/wp-content/uploads/2024/12/page1_image1_crop_4-4-600x600.webp" alt="Early Chalukyan Plinth Carvings">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Gateway_of_Belgaum_fort.jpg/960px-Gateway_of_Belgaum_fort.jpg" alt="Early Chalukyan Plinth Carvings">
                 </div>
             </div>
             <div class="item-details">
@@ -810,9 +815,9 @@
         <div class="heritage-item">
             <div class="item-gallery-wrapper">
                 <div class="slider-container">
-                    <img src="https://belagavitourism.com/wp-content/uploads/2024/08/Untitled_20191211153234-600x495.webp" alt="Rajhansgad Restored Battlements">
-                    <img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAGykKe6cQ-6vfCErWzF9o92BsvSZPcS-Enzt4yt_yoYQS8r76WEX2KIT0BXT2q6EGeM4CPsNh64rIcwDOA3MQeLq5ifEbnKj0qGCTIWMhhWeg3N-qtcnEB89CUykh2p2HBqJkjL=s1360-w1360-h1020-rw" alt="Fort Top Watchtower Views">
-                    <img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAEeyqUH_aHkN4WRjlS-DT_4QIeCMXQVGDgKnz7Ii-tw0QHUhg2p8OpfQY9lSetPz5iqaC0d13BVBV1HTHof0yLhiNEi8AkARAVudmaEKRU5cO_pr2WJQbHxIBd3epJKY3m_9_tNFg=s1360-w1360-h1020-rw" alt="Yellur Fort Stone Gateway">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/General_view_of_the_gateway_of_the_fort%2C_Belgaum.jpg/960px-General_view_of_the_gateway_of_the_fort%2C_Belgaum.jpg" alt="Rajhansgad Restored Battlements">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Rajhansgad_belgaum.jpg/960px-Rajhansgad_belgaum.jpg" alt="Fort Top Watchtower Views">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Col_Welsh%27s_residence%2C_Belgaum_fort.jpg/960px-Col_Welsh%27s_residence%2C_Belgaum_fort.jpg" alt="Yellur Fort Stone Gateway">
                 </div>
             </div>
             <div class="item-details">
