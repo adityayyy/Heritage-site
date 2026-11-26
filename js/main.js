@@ -423,12 +423,18 @@
         });
 
         // === MODAL ===
+        // region -> district page, for the two spellings that differ
+        const CITY_PAGE = { "Uttara Kannada": "utter-kannada" };
+
         function openModal(i) {
             const p = places[i];
             document.getElementById('modalHero').style.backgroundImage = `url('${p.img}')`;
             document.getElementById('modalTag').textContent = `${p.region} · ${p.category}`;
             document.getElementById('modalTitle').textContent = p.name;
             document.getElementById('modalDesc').textContent = p.desc;
+            const cityLink = document.getElementById('modalCityLink');
+            cityLink.href = `pages/${CITY_PAGE[p.region] || p.region.toLowerCase().replace(/\s+/g, '-')}.html`;
+            cityLink.textContent = `Explore ${p.region} →`;
             document.getElementById('modalInfoGrid').innerHTML = `
     <div class="modal-info-item"><label>Distance</label><span>${p.dist}</span></div>
     <div class="modal-info-item"><label>Entry Fee</label><span>${p.fee}</span></div>
