@@ -1,7 +1,11 @@
 {
   "type": "module",
+  "engines": {
+    "node": ">=18"
+  },
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "dev": "node server.js"
   },
   "dependencies": {
     "dotenv": "^18.0.10",
