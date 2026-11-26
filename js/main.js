@@ -505,11 +505,15 @@
 
         // === CHATBOT ===
         function toggleChatbot() {
+            const chat = document.getElementById('chatbot');
             if (window.matchMedia('(max-width: 900px)').matches) {
-                const chatWindow = window.open('pages/chatpages/.html', 'goHeritageChat', 'width=420,height=640,resizable=yes,scrollbars=yes');
-                if (chatWindow) return;
+                const opening = !chat.classList.contains('open');
+                chat.classList.toggle('open', opening);
+                chat.classList.toggle('fullscreen', opening);
+                document.body.style.overflow = opening ? 'hidden' : '';
+                return;
             }
-            document.getElementById('chatbot').classList.toggle('open');
+            chat.classList.toggle('open');
         }
         const chatResponses = {
             'hampi': 'Hampi is 340 km from Bengaluru (about 6 hrs). Best time: Oct–Feb. Entry ₹40. Must-see: Virupaksha Temple, Stone Chariot, Vittala Temple!',
