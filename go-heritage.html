@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GO HERITAGE — Karnataka</title>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,700;1,9..144,300;1,9..144,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
 <link rel="stylesheet" href="responsive.css">
 </head>
@@ -95,6 +95,7 @@
         </div>
 
         <div class="hero-dots" id="heroDots"></div>
+        <div class="hero-scroll-cue">Scroll to explore ↓</div>
     </section>
 
     <!-- STATS -->
@@ -213,9 +214,9 @@
             </div>
             <div class="map-container" style="display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 24px; background: var(--dark2); border: 1px solid var(--glass-border); padding: 20px; border-radius: 4px;">
 
-                <div style="position: relative; height: 460px; background: #0A0A0A; border-radius: 2px; overflow: hidden; border: 1px solid rgba(201,162,39,0.18);">
+                <div style="position: relative; height: 460px; background: #0A0A0A; border-radius: 2px; overflow: hidden; border: 1px solid rgba(212,168,67,0.18);">
                     <canvas id="interactiveCanvasMap" style="width: 100%; height: 100%; display: block;"></canvas>
-                    <div id="mapStatusOverlay" style="position: absolute; bottom: 16px; left: 16px; background: rgba(8,8,8,0.9); padding: 8px 16px; border-radius: 2px; font-size: 11px; letter-spacing: 1.5px; color: var(--gold); border: 1px solid var(--glass-border); font-family: 'Bebas Neue', sans-serif;">
+                    <div id="mapStatusOverlay" style="position: absolute; bottom: 16px; left: 16px; background: rgba(11,11,15,0.9); padding: 8px 16px; border-radius: 2px; font-size: 11px; letter-spacing: 1.5px; color: var(--gold); border: 1px solid var(--glass-border); font-family: 'Fraunces', serif;">
                         🛰️ SEEKING GPS CARRIER SIGNAL...
                     </div>
                 </div>
@@ -224,7 +225,7 @@
 
                     <div id="drawerPlaceholder" style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; text-align: center; color: var(--muted); padding: 40px 10px;">
                         <span style="font-size: 40px; margin-bottom: 16px; filter: drop-shadow(0 0 10px var(--orange));">📡</span>
-                        <h4 style="font-family: 'Bebas Neue', sans-serif; font-size: 22px; color: #fff; letter-spacing: 2px; margin-bottom: 8px;">RADAR STANDBY</h4>
+                        <h4 style="font-family: 'Fraunces', serif; font-size: 22px; color: #fff; letter-spacing: 2px; margin-bottom: 8px;">RADAR STANDBY</h4>
                         <p style="font-size: 12px; line-height: 1.6; max-width: 240px; color: var(--muted);">Click any pulsing geographic target coordinate on the matrix map to stream telemetry logs, real driving distance, entry fares, and premium stays.</p>
                     </div>
 
@@ -234,12 +235,12 @@
                             <span style="background: rgba(40,167,69,0.15); color: #28a745; font-size: 9px; padding: 3px 8px; border-radius: 2px; letter-spacing: 1px; font-weight: 600;">ONLINE</span>
                         </div>
 
-                        <h3 id="drawerTitle" style="font-family: 'Playfair Display', serif; font-size: 30px; color: #fff; margin-bottom: 20px; font-style: italic;">Destination</h3>
+                        <h3 id="drawerTitle" style="font-family: 'Fraunces', serif; font-size: 30px; color: #fff; margin-bottom: 20px; font-style: italic;">Destination</h3>
 
                         <div style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px;">
                             <div style="display:flex; justify-content:space-between; align-items:center; padding: 12px 14px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 2px;">
                                 <span style="font-size: 12px; color: var(--muted);">🚘 Driving Range</span>
-                                <strong id="drawerDistance" style="font-family: 'Bebas Neue', sans-serif; font-size: 16px; color: var(--gold); letter-spacing: 1px;">CALCULATING...</strong>
+                                <strong id="drawerDistance" style="font-family: 'Fraunces', serif; font-size: 16px; color: var(--gold); letter-spacing: 1px;">CALCULATING...</strong>
                             </div>
                             <div style="display:flex; justify-content:space-between; align-items:center; padding: 12px 14px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 2px;">
                                 <span style="font-size: 12px; color: var(--muted);">🎟️ Access Fares</span>
@@ -249,9 +250,9 @@
                                 <span style="font-size: 12px; color: var(--muted);">🅿️ Space Booking</span>
                                 <strong id="drawerParking" style="font-size: 12px; color: #28a745;">--</strong>
                             </div>
-                            <div style="display: flex; flex-direction: column; gap: 4px; padding: 12px 14px; background: rgba(201,162,39,0.04); border: 1px solid rgba(201,162,39,0.16); border-radius: 2px;">
+                            <div style="display: flex; flex-direction: column; gap: 4px; padding: 12px 14px; background: rgba(212,168,67,0.04); border: 1px solid rgba(212,168,67,0.16); border-radius: 2px;">
                                 <span style="font-size: 9px; text-transform: uppercase; letter-spacing: 2px; color: var(--orange); font-weight: 600;">🏨 Verified Premium Stay</span>
-                                <strong id="drawerHotel" style="font-family: 'Playfair Display', serif; font-size: 14px; color: #fff; font-weight: 400;">--</strong>
+                                <strong id="drawerHotel" style="font-family: 'Fraunces', serif; font-size: 14px; color: #fff; font-weight: 400;">--</strong>
                             </div>
                         </div>
                     </div>

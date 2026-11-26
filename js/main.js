@@ -606,7 +606,7 @@
                 ctx.clearRect(0, 0, mapCanvas.width, mapCanvas.height);
                 pulseTimer += 0.04;
 
-                ctx.strokeStyle = 'rgba(201, 162, 39, 0.035)';
+                ctx.strokeStyle = 'rgba(212, 168, 67, 0.035)';
                 ctx.lineWidth = 0.5;
                 const gridStride = 40;
                 for (let x = 0; x < mapCanvas.width; x += gridStride) {
@@ -622,7 +622,7 @@
                     ctx.stroke();
                 }
 
-                ctx.strokeStyle = 'rgba(201, 162, 39, 0.16)';
+                ctx.strokeStyle = 'rgba(212, 168, 67, 0.16)';
                 ctx.lineWidth = 1.5;
                 ctx.fillStyle = 'rgba(10, 10, 10, 0.3)';
                 const mapPolygon = [
@@ -653,7 +653,7 @@
                         ctx.beginPath();
                         ctx.moveTo(originX, originY);
                         ctx.lineTo(destinationX, destinationY);
-                        ctx.strokeStyle = 'rgba(201, 162, 39, 0.45)';
+                        ctx.strokeStyle = 'rgba(212, 168, 67, 0.45)';
                         ctx.lineWidth = 1.5;
                         ctx.setLineDash([4, 4]);
                         ctx.lineDashOffset = -pulseTimer * 20;
@@ -670,12 +670,12 @@
                     const ringRadius = 5 + Math.sin(pulseTimer * 2.5) * 4;
                     ctx.beginPath();
                     ctx.arc(px, py, ringRadius + (activeMatch ? 6 : 0), 0, Math.PI * 2);
-                    ctx.fillStyle = activeMatch ? 'rgba(201, 162, 39, 0.3)' : 'rgba(237, 231, 218, 0.12)';
+                    ctx.fillStyle = activeMatch ? 'rgba(212, 168, 67, 0.3)' : 'rgba(237, 238, 242, 0.12)';
                     ctx.fill();
 
                     ctx.beginPath();
                     ctx.arc(px, py, activeMatch ? 6 : 4, 0, Math.PI * 2);
-                    ctx.fillStyle = '#C9A227';
+                    ctx.fillStyle = '#D4A843';
                     ctx.fill();
 
                     ctx.fillStyle = activeMatch ? '#fff' : 'rgba(240, 237, 232, 0.6)';

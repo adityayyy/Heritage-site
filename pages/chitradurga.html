@@ -5,16 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chitradurga — Premium Heritage Chronicle</title>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,700;1,9..144,300;1,9..144,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
          :root {
-            --terracotta: #C9A227;
-            --gold: #C9A227;
-            --bg-dark: #080808;
-            --card-dark: #121212;
-            --border-glow: rgba(237, 231, 218, 0.13);
-            --text-light: #EDE7DA;
-            --text-muted: rgba(237, 231, 218, 0.55);
+            --terracotta: #D4A843;
+            --gold: #D4A843;
+            --bg-dark: #0B0B0F;
+            --card-dark: #16161C;
+            --border-glow: rgba(212, 168, 67, 0.18);
+            --text-light: #EDEEF2;
+            --text-muted: #9A9AA8;
         }
         
         *,
@@ -69,7 +69,7 @@
         }
         
         .header h1 {
-            font-family: 'Bebas Neue', sans-serif;
+            font-family: 'Fraunces', serif;
             font-size: 60px;
             font-weight: 700;
             letter-spacing: 5px;
@@ -92,7 +92,7 @@
         }
         
         .intro-chronicle h2 {
-            font-family: 'Bebas Neue', sans-serif;
+            font-family: 'Fraunces', serif;
             font-size: 24px;
             color: var(--gold);
             margin-bottom: 20px;
@@ -189,7 +189,7 @@
         }
         
         .item-index {
-            font-family: 'Bebas Neue', sans-serif;
+            font-family: 'Fraunces', serif;
             font-size: 14px;
             color: var(--terracotta);
             font-weight: 700;
@@ -198,7 +198,7 @@
         }
         
         .item-title {
-            font-family: 'Bebas Neue', sans-serif;
+            font-family: 'Fraunces', serif;
             font-size: 34px;
             font-weight: 600;
             margin-bottom: 18px;
@@ -242,7 +242,7 @@
             background: none;
             border: none;
             color: var(--gold);
-            font-family: 'Bebas Neue', sans-serif;
+            font-family: 'Fraunces', serif;
             font-size: 12px;
             font-weight: 600;
             letter-spacing: 2px;
@@ -279,7 +279,7 @@
         }
         
         .util-meta h4 {
-            font-family: 'Bebas Neue', sans-serif;
+            font-family: 'Fraunces', serif;
             font-size: 11px;
             text-transform: uppercase;
             color: var(--gold);
@@ -289,7 +289,7 @@
         
         .util-meta p {
             font-size: 13.5px;
-            color: #EDE7DA;
+            color: #EDEEF2;
             font-weight: 400;
         }
         
@@ -351,8 +351,16 @@
 
         /* Nocturne extras */
         body::after { content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 9998; opacity: 0.035; background-image: url("data:image/svg+xml,%3Csvg viewBox=%270 0 256 256%27 xmlns=%27http://www.w3.org/2000/svg%27%3E%3Cfilter id=%27n%27%3E%3CfeTurbulence type=%27fractalNoise%27 baseFrequency=%270.9%27 numOctaves=%274%27 stitchTiles=%27stitch%27/%3E%3C/filter%3E%3Crect width=%27100%25%27 height=%27100%25%27 filter=%27url(%23n)%27/%3E%3C/svg%3E"); }
-        ::selection { background: #C9A227; color: #080808; }
+        ::selection { background: #D4A843; color: #0B0B0F; }
         .slider-container img { filter: saturate(0.88) contrast(1.02) brightness(0.92); }
+
+        /* Neo-retro cinematic refinements */
+        .header h1 { font-weight: 500; letter-spacing: -1px; }
+        .header h1 span { font-style: italic; font-weight: 400; }
+        .intro-chronicle h2,
+        .item-title { font-weight: 500; letter-spacing: 0; }
+        .item-index { font-style: italic; font-weight: 400; letter-spacing: 0; }
+        .back-btn { letter-spacing: 4px; font-weight: 500; }
     </style>
 <link rel="stylesheet" href="../responsive.css">
 </head>

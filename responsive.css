@@ -88,8 +88,29 @@ iframe {
     .hero-content {
         left: 20px;
         right: 20px;
+        top: auto;
         bottom: 10%;
+        transform: none;
         max-width: none;
+        padding: 0;
+        text-align: left;
+    }
+
+    .hero-tag,
+    .hero-btns {
+        justify-content: flex-start;
+    }
+
+    .hero-meta {
+        justify-content: flex-start;
+    }
+
+    .hero-desc {
+        margin-left: 0;
+    }
+
+    .hero-scroll-cue {
+        display: none;
     }
 
     .hero-title {
@@ -245,7 +266,9 @@ iframe {
     .hero-content {
         left: 18px;
         right: 18px;
+        top: auto;
         bottom: 8%;
+        transform: none;
     }
 
     .weather-widget {
@@ -279,7 +302,7 @@ iframe {
 
     .header h1 {
         font-size: 34px;
-        letter-spacing: 2px;
+        letter-spacing: -0.5px;
     }
 
     .intro-chronicle {
@@ -374,4 +397,3 @@ iframe {
         font-size: 24px;
     }
 }
-PY
