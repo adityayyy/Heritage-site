@@ -401,7 +401,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">01 / 10</span>
-                <h3 class="item-title">Keladi Rameshwara Temple</h3>
+                <h3 class="item-title" id="place-keladi-rameshwara-temple">Keladi Rameshwara Temple</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
@@ -452,7 +452,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">02 / 10</span>
-                <h3 class="item-title">Shivappa Nayaka Palace</h3>
+                <h3 class="item-title" id="place-shivappa-nayaka-palace">Shivappa Nayaka Palace</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
@@ -502,7 +502,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">03 / 10</span>
-                <h3 class="item-title">Ikkeri Aghoreshwara Temple</h3>
+                <h3 class="item-title" id="place-ikkeri-aghoreshwara-temple">Ikkeri Aghoreshwara Temple</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
@@ -552,7 +552,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">04 / 10</span>
-                <h3 class="item-title">Kavaledurga Fort</h3>
+                <h3 class="item-title" id="place-kavaledurga-fort">Kavaledurga Fort</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
@@ -602,7 +602,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">05 / 10</span>
-                <h3 class="item-title">Nagaram Fort (Bidanur)</h3>
+                <h3 class="item-title" id="place-nagaram-fort-bidanur">Nagaram Fort (Bidanur)</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
@@ -652,7 +652,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">06 / 10</span>
-                <h3 class="item-title">Sacred Heart Cathedral</h3>
+                <h3 class="item-title" id="place-sacred-heart-cathedral">Sacred Heart Cathedral</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
@@ -701,7 +701,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">07 / 10</span>
-                <h3 class="item-title">Koodli Confluence Temples</h3>
+                <h3 class="item-title" id="place-koodli-confluence-temples">Koodli Confluence Temples</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
@@ -751,7 +751,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">08 / 10</span>
-                <h3 class="item-title">Balligavi Kedareswara Temple</h3>
+                <h3 class="item-title" id="place-balligavi-kedareswara-temple">Balligavi Kedareswara Temple</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
@@ -801,7 +801,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">09 / 10</span>
-                <h3 class="item-title">Humcha Jain Temples</h3>
+                <h3 class="item-title" id="place-humcha-jain-temples">Humcha Jain Temples</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
@@ -851,7 +851,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">10 / 10</span>
-                <h3 class="item-title">Talagunda Pillar Site</h3>
+                <h3 class="item-title" id="place-talagunda-pillar-site">Talagunda Pillar Site</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
@@ -905,6 +905,22 @@
         }
     </script>
 
+
+    <script>
+    (function(){
+        var hash = window.location.hash;
+        if (!hash || !hash.startsWith('#place-')) return;
+        var id = hash.slice(1);
+        var el = document.getElementById(id);
+        if (!el) return;
+        setTimeout(function(){
+            el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            el.style.outline = '2px solid #D4A843';
+            el.style.outlineOffset = '4px';
+            setTimeout(function(){ el.style.outline = 'none'; }, 2500);
+        }, 400);
+    })();
+    </script>
 </body>
 
 </html>

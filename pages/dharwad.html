@@ -401,7 +401,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">01 / 10</span>
-                <h3 class="item-title">Chandramouleshwara Temple</h3>
+                <h3 class="item-title" id="place-chandramouleshwara-temple">Chandramouleshwara Temple</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
@@ -451,7 +451,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">02 / 10</span>
-                <h3 class="item-title">Siddharoodha Math Complex</h3>
+                <h3 class="item-title" id="place-siddharoodha-math-complex">Siddharoodha Math Complex</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
@@ -501,7 +501,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">03 / 10</span>
-                <h3 class="item-title">Karnatak College Building</h3>
+                <h3 class="item-title" id="place-karnatak-college-building">Karnatak College Building</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
@@ -551,7 +551,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">04 / 10</span>
-                <h3 class="item-title">Amruteshwara Temple (Annigeri)</h3>
+                <h3 class="item-title" id="place-amruteshwara-temple-annigeri">Amruteshwara Temple (Annigeri)</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
@@ -601,7 +601,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">05 / 10</span>
-                <h3 class="item-title">Dharwad Fort Gate Site</h3>
+                <h3 class="item-title" id="place-dharwad-fort-gate-site">Dharwad Fort Gate Site</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
@@ -651,7 +651,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">06 / 10</span>
-                <h3 class="item-title">Shambulinga Temple (Kundgol)</h3>
+                <h3 class="item-title" id="place-shambulinga-temple-kundgol">Shambulinga Temple (Kundgol)</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
@@ -701,7 +701,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">07 / 10</span>
-                <h3 class="item-title">All Saints Church</h3>
+                <h3 class="item-title" id="place-all-saints-church">All Saints Church</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
@@ -750,7 +750,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">08 / 10</span>
-                <h3 class="item-title">Asar Mahal (Dharwad)</h3>
+                <h3 class="item-title" id="place-asar-mahal-dharwad">Asar Mahal (Dharwad)</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
@@ -800,7 +800,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">09 / 10</span>
-                <h3 class="item-title">Venkateshwara Temple (Sathoda)</h3>
+                <h3 class="item-title" id="place-venkateshwara-temple-sathoda">Venkateshwara Temple (Sathoda)</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
@@ -850,7 +850,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">10 / 10</span>
-                <h3 class="item-title">Navalgund Weaving Clusters</h3>
+                <h3 class="item-title" id="place-navalgund-weaving-clusters">Navalgund Weaving Clusters</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
@@ -905,6 +905,22 @@
         }
     </script>
 
+
+    <script>
+    (function(){
+        var hash = window.location.hash;
+        if (!hash || !hash.startsWith('#place-')) return;
+        var id = hash.slice(1);
+        var el = document.getElementById(id);
+        if (!el) return;
+        setTimeout(function(){
+            el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            el.style.outline = '2px solid #D4A843';
+            el.style.outlineOffset = '4px';
+            setTimeout(function(){ el.style.outline = 'none'; }, 2500);
+        }, 400);
+    })();
+    </script>
 </body>
 
 </html>

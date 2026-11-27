@@ -553,283 +553,110 @@
 
 
         // Global GPS Target Registry Coordinates to translate flat map pixels back to True Latitude/Longitude
-        const GPS_REGISTRY = {
-            'HAMPI': { lat: 15.3350, lon: 76.4600 },
-            'COORG': { lat: 12.3375, lon: 75.8069 },
-            'MYSURU': { lat: 12.3052, lon: 76.6552 },
-            'GOKARNA': { lat: 14.5479, lon: 74.3188 },
-            'BADAMI': { lat: 15.9181, lon: 75.6798 }
+        const CITY_COORDS = {
+            Bengaluru: { lat: 12.9716, lng: 77.5946 },
+            Mysuru: { lat: 12.3052, lng: 76.6552 },
+            Vijayanagara: { lat: 15.3350, lng: 76.4600 },
+            Shivamogga: { lat: 13.9299, lng: 75.5681 },
+            Udupi: { lat: 13.3409, lng: 74.7421 },
+            Kodagu: { lat: 12.4233, lng: 75.7394 },
+            Belagavi: { lat: 15.8497, lng: 74.4976 },
+            Bagalkot: { lat: 16.1862, lng: 75.6983 },
+            Vijayapura: { lat: 16.8300, lng: 75.7100 },
+            Hassan: { lat: 13.0061, lng: 76.1029 },
+            Dharwad: { lat: 15.4559, lng: 75.0065 },
+            'utter kannada': { lat: 14.8153, lng: 74.1233 },
+            Chikkamagaluru: { lat: 13.3187, lng: 75.7716 },
+            'Dakshin Kannada': { lat: 12.9141, lng: 74.8560 },
+            chitradurga: { lat: 14.2300, lng: 76.3900 }
         };
 
-        const HERITAGE_MAP_DB = {
-            'HAMPI': { name: "Hampi Monuments", x: 260, y: 130, fees: "₹40 (Indians) / ₹600 (Foreigners)", parking: "Ample Base Plots + Buggy Ride", hotel: "Evolve Back Kamalapura Palace", slideIdx: 0 },
-            'COORG': { name: "Coorg Mist Highlands", x: 150, y: 310, fees: "Free Entry (Site fees vary)", parking: "Available at all natural trail bases", hotel: "The Tamara Luxury Resort", slideIdx: 1 },
-            'MYSURU': { name: "Mysuru Royal Palace", x: 190, y: 280, fees: "₹100 Adults / ₹50 Children", parking: "Massive Front Palace Ground Gates", hotel: "Grand Mercure Palace Wing", slideIdx: 2 },
-            'GOKARNA': { name: "Gokarna Coastal Cliffs", x: 90, y: 180, fees: "No Fees (Public Beaches)", parking: "Beach Shoreline Dedicated Slots", hotel: "Kahani Paradise Villa Resort", slideIdx: 3 },
-            'BADAMI': { name: "Badami Cave Complex", x: 210, y: 80, fees: "₹25 (Indians) / ₹300 (Foreigners)", parking: "Direct Lake Shoreline Spaces", hotel: "Badami Heritage Gateway", slideIdx: 4 }
-        };
+        async function initMiniMap() {
+            const container = document.getElementById('miniMap');
+            if (!container || typeof maplibregl === 'undefined') return;
 
-        let geoLiveCoords = null;
-        let chosenMapMarkerKey = null;
-        let pulseTimer = 0;
-
-        function calculateGpsDistance(lat1, lon1, lat2, lon2) {
-            const EarthRadiusKm = 6371;
-            const dLat = (lat2 - lat1) * Math.PI / 180;
-            const dLon = (lon2 - lon1) * Math.PI / 180;
-            const a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-                Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
-                Math.sin(dLon / 2) * Math.sin(dLon / 2);
-            const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-            return Math.round(EarthRadiusKm * c);
-        }
-
-        function runInteractiveRadarEngine() {
-            const mapCanvas = document.getElementById('interactiveCanvasMap');
-            if (!mapCanvas) return;
-            const ctx = mapCanvas.getContext('2d');
-
-            function scaleViewport() {
-                const dimensions = mapCanvas.getBoundingClientRect();
-                mapCanvas.width = dimensions.width;
-                mapCanvas.height = dimensions.height;
+            async function getCartoKey() {
+                try {
+                    const r = await fetch('/api/carto-config');
+                    if (r.ok) { const d = await r.json(); if (d && d.apiKey) return d.apiKey; }
+                } catch (e) {}
+                return 'cb1_5cvq_1_8011f64c37add97cd443f4c3';
             }
-            scaleViewport();
-            window.addEventListener('resize', scaleViewport);
 
-            mapCanvas.addEventListener('click', (event) => {
-                const bounds = mapCanvas.getBoundingClientRect();
-                const mouseX = event.clientX - bounds.left;
-                const mouseY = event.clientY - bounds.top;
+            const key = await getCartoKey();
+            const styleUrl = 'https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json?key=' + encodeURIComponent(key);
 
-                for (const [key, marker] of Object.entries(HERITAGE_MAP_DB)) {
-                    const nodeX = (marker.x / 400) * mapCanvas.width;
-                    const nodeY = (marker.y / 400) * mapCanvas.height;
-                    if (Math.hypot(mouseX - nodeX, mouseY - nodeY) < 18) {
-                        renderSidePanelDetails(key);
-                        break;
-                    }
-                }
+            const map = new maplibregl.Map({
+                container: 'miniMap',
+                style: styleUrl,
+                center: [75.9, 14.9],
+                zoom: 5.6,
+                pitch: 0,
+                bearing: 0,
+                antialias: true,
+                interactive: false,
+                dragPan: false,
+                scrollZoom: false,
+                doubleClickZoom: false,
+                boxZoom: false,
+                keyboard: false,
+                touchZoomRotate: false
             });
 
-            function renderRadarFrame() {
-                ctx.clearRect(0, 0, mapCanvas.width, mapCanvas.height);
-                pulseTimer += 0.04;
+            map.addControl(new maplibregl.NavigationControl(), 'top-left');
 
-                ctx.strokeStyle = 'rgba(212, 168, 67, 0.035)';
-                ctx.lineWidth = 0.5;
-                const gridStride = 40;
-                for (let x = 0; x < mapCanvas.width; x += gridStride) {
-                    ctx.beginPath();
-                    ctx.moveTo(x, 0);
-                    ctx.lineTo(x, mapCanvas.height);
-                    ctx.stroke();
-                }
-                for (let y = 0; y < mapCanvas.height; y += gridStride) {
-                    ctx.beginPath();
-                    ctx.moveTo(0, y);
-                    ctx.lineTo(mapCanvas.width, y);
-                    ctx.stroke();
-                }
+            document.getElementById('miniMapWrap').addEventListener('click', function() {
+                window.location.href = 'map.html';
+            });
 
-                ctx.strokeStyle = 'rgba(212, 168, 67, 0.16)';
-                ctx.lineWidth = 1.5;
-                ctx.fillStyle = 'rgba(10, 10, 10, 0.3)';
-                const mapPolygon = [
-                    { x: 120, y: 40 }, { x: 240, y: 30 }, { x: 320, y: 60 },
-                    { x: 350, y: 120 }, { x: 340, y: 220 }, { x: 300, y: 330 },
-                    { x: 220, y: 370 }, { x: 150, y: 340 }, { x: 110, y: 260 },
-                    { x: 70, y: 140 }
-                ];
-                ctx.beginPath();
-                mapPolygon.forEach((vertex, i) => {
-                    const vx = (vertex.x / 400) * mapCanvas.width;
-                    const vy = (vertex.y / 400) * mapCanvas.height;
-                    if (i === 0) ctx.moveTo(vx, vy);
-                    else ctx.lineTo(vx, vy);
+            map.on('error', function(e) {
+                window.__miniMapError = (e && e.error && e.error.message) || String(e);
+            });
+
+            map.on('load', function() {
+                window.__miniMapLoaded = true;
+                cities.forEach(function(city) {
+                    const pos = CITY_COORDS[city.name];
+                    if (!pos) return;
+
+                    const el = document.createElement('div');
+                    el.className = 'city-marker';
+                    el.style.width = '10px';
+                    el.style.height = '10px';
+                    el.style.background = '#ff3b30';
+                    el.style.border = '2px solid #fff';
+                    el.style.borderRadius = '50%';
+                    el.style.cursor = 'pointer';
+                    el.style.boxShadow = '0 0 10px rgba(255,59,48,0.5)';
+
+                    new maplibregl.Marker({ element: el })
+                        .setLngLat([pos.lng, pos.lat])
+                        .addTo(map);
+
+                    el.addEventListener('click', function() {
+                        window.location.href = 'pages/' + city.slug + '.html';
+                    });
                 });
-                ctx.closePath();
-                ctx.fill();
-                ctx.stroke();
-
-                if (geoLiveCoords && chosenMapMarkerKey) {
-                    const targetedDestination = HERITAGE_MAP_DB[chosenMapMarkerKey];
-                    if (targetedDestination) {
-                        const originX = (geoLiveCoords.x / 400) * mapCanvas.width;
-                        const originY = (geoLiveCoords.y / 400) * mapCanvas.height;
-                        const destinationX = (targetedDestination.x / 400) * mapCanvas.width;
-                        const destinationY = (targetedDestination.y / 400) * mapCanvas.height;
-
-                        ctx.beginPath();
-                        ctx.moveTo(originX, originY);
-                        ctx.lineTo(destinationX, destinationY);
-                        ctx.strokeStyle = 'rgba(212, 168, 67, 0.45)';
-                        ctx.lineWidth = 1.5;
-                        ctx.setLineDash([4, 4]);
-                        ctx.lineDashOffset = -pulseTimer * 20;
-                        ctx.stroke();
-                        ctx.setLineDash([]);
-                    }
-                }
-
-                for (const [key, point] of Object.entries(HERITAGE_MAP_DB)) {
-                    const px = (point.x / 400) * mapCanvas.width;
-                    const py = (point.y / 400) * mapCanvas.height;
-                    const activeMatch = (chosenMapMarkerKey === key);
-
-                    const ringRadius = 5 + Math.sin(pulseTimer * 2.5) * 4;
-                    ctx.beginPath();
-                    ctx.arc(px, py, ringRadius + (activeMatch ? 6 : 0), 0, Math.PI * 2);
-                    ctx.fillStyle = activeMatch ? 'rgba(212, 168, 67, 0.3)' : 'rgba(237, 238, 242, 0.12)';
-                    ctx.fill();
-
-                    ctx.beginPath();
-                    ctx.arc(px, py, activeMatch ? 6 : 4, 0, Math.PI * 2);
-                    ctx.fillStyle = '#D4A843';
-                    ctx.fill();
-
-                    ctx.fillStyle = activeMatch ? '#fff' : 'rgba(240, 237, 232, 0.6)';
-                    ctx.font = activeMatch ? 'bold 11px DM Sans' : '9px DM Sans';
-                    ctx.fillText(key, px + 12, py + 3);
-                }
-
-                if (geoLiveCoords) {
-                    const ux = (geoLiveCoords.x / 400) * mapCanvas.width;
-                    const uy = (geoLiveCoords.y / 400) * mapCanvas.height;
-
-                    ctx.beginPath();
-                    ctx.arc(ux, uy, 7 + Math.cos(pulseTimer * 3) * 3, 0, Math.PI * 2);
-                    ctx.fillStyle = 'rgba(40, 167, 69, 0.25)';
-                    ctx.fill();
-
-                    ctx.beginPath();
-                    ctx.arc(ux, uy, 4, 0, Math.PI * 2);
-                    ctx.fillStyle = '#28a745';
-                    ctx.fill();
-
-                    ctx.fillStyle = '#28a745';
-                    ctx.font = 'bold 9px DM Sans';
-                    ctx.fillText("YOUR RADAR LOC", ux + 12, uy - 5);
-                }
-
-                requestAnimationFrame(renderRadarFrame);
-            }
-
-            requestAnimationFrame(renderRadarFrame);
-            connectSatellitePositioning();
-        }
-
-        function connectSatellitePositioning() {
-            const interfaceOverlay = document.getElementById('mapStatusOverlay');
-            if (!navigator.geolocation) {
-                geoLiveCoords = { x: 220, y: 220 };
-                if (interfaceOverlay) interfaceOverlay.innerText = "🛰️ LOCATION ERROR: FALLBACK APPLIED";
-                return;
-            }
-
-            navigator.geolocation.getCurrentPosition(
-                (gpsPos) => {
-                    geoLiveCoords = { x: 200, y: 250 };
-                    if (interfaceOverlay) interfaceOverlay.innerText = "🛰️ RADAR LINK ESTABLISHED (LIVE GPS)";
-                    if (chosenMapMarkerKey) renderSidePanelDetails(chosenMapMarkerKey);
-                },
-                (err) => {
-                    geoLiveCoords = { x: 220, y: 220 };
-                    if (interfaceOverlay) interfaceOverlay.innerText = "🛰️ RADAR LOC: DEFAULT REGIONAL BASE ARCHIVE";
-                }
-            );
-        }
-
-        function renderSidePanelDetails(key) {
-            chosenMapMarkerKey = key;
-            const targetObj = HERITAGE_MAP_DB[key];
-            if (!targetObj) return;
-
-            document.getElementById('drawerPlaceholder').style.display = 'none';
-            document.getElementById('drawerDataContent').style.display = 'block';
-            document.getElementById('drawerActionContainer').style.display = 'block';
-
-            document.getElementById('drawerTitle').innerText = targetObj.name;
-            document.getElementById('drawerFees').innerText = targetObj.fees;
-            document.getElementById('drawerParking').innerText = targetObj.parking;
-            document.getElementById('drawerHotel').innerText = targetObj.hotel;
-
-            document.getElementById('drawerExploreBtn').onclick = function() {
-                document.getElementById('hero').scrollIntoView({ behavior: 'smooth' });
-            };
-
-            const rangeCounterText = document.getElementById('drawerDistance');
-            navigator.geolocation.getCurrentPosition((coordsObj) => {
-                const geoPoints = GPS_REGISTRY[key];
-                if (geoPoints) {
-                    const rawDistanceKm = calculateGpsDistance(
-                        coordsObj.coords.latitude,
-                        coordsObj.coords.longitude,
-                        geoPoints.lat,
-                        geoPoints.lon
-                    );
-                    rangeCounterText.innerText = `${rawDistanceKm} KM TO GO`;
-                }
-            }, () => {
-                rangeCounterText.innerText = "340 KM (ESTIMATED)";
+                window.__markerCount = document.querySelectorAll('.city-marker').length;
             });
         }
 
 
         // === LOADING SCREEN & RUNTIME ENGINE INITIALIZER ===
         window.addEventListener('load', () => {
-            // 1. Terminate the interface splash loading layout smoothly
-            setTimeout(() => {
-                document.getElementById('loading').classList.add('hidden');
-            }, 600);
+            const loading = document.getElementById('loading');
+            const alreadyShown = sessionStorage.getItem('goHeritage:loaded') === '1';
+
+            if (alreadyShown) {
+                loading.classList.add('hidden');
+            } else {
+                setTimeout(() => {
+                    loading.classList.add('hidden');
+                    sessionStorage.setItem('goHeritage:loaded', '1');
+                }, 600);
+            }
 
             // 2. Trigger the primary interactive dashboard canvas component layer initialization mapping
-            runInteractiveRadarEngine();
+            initMiniMap();
         });
 
-function getLocation() {
-                            const status = document.getElementById("locationStatus");
-                            const locationName = document.getElementById("locationName");
-
-                            if (navigator.geolocation) {
-                                navigator.geolocation.getCurrentPosition(
-                                    async function(position) {
-                                        const lat = position.coords.latitude;
-                                        const lon = position.coords.longitude;
-
-                                        status.innerHTML = "Location detected ✅";
-
-                                        try {
-                                            // Reverse Geocoding API
-                                            const response = await fetch(
-                                                `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}`
-                                            );
-
-                                            const data = await response.json();
-
-                                            const city =
-                                                data.address.city ||
-                                                data.address.town ||
-                                                data.address.village ||
-                                                "Unknown Location";
-
-                                            locationName.innerHTML =
-                                                `📌 ${city}<br>Lat: ${lat.toFixed(4)} | Lon: ${lon.toFixed(4)}`;
-
-                                        } catch (error) {
-                                            locationName.innerHTML =
-                                                `Lat: ${lat.toFixed(4)}, Lon: ${lon.toFixed(4)}`;
-                                        }
-                                    },
-                                    function(error) {
-                                        status.innerHTML = "Location access denied ❌";
-                                        locationName.innerHTML = "";
-                                    }
-                                );
-                            } else {
-                                status.innerHTML = "Geolocation not supported";
-                            }
-                        }
-
-                        // Run automatically
-                        getLocation();

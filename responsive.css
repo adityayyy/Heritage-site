@@ -43,6 +43,41 @@ iframe {
         display: inline-flex;
     }
 
+    .nav-map {
+        display: none;
+    }
+
+    .nav-map-mobile {
+        display: block;
+    }
+
+    #miniMapWrap {
+        max-width: 100% !important;
+        width: 100% !important;
+        height: auto !important;
+        aspect-ratio: 560 / 450 !important;
+    }
+
+    #miniMap {
+        width: 100% !important;
+        height: 100% !important;
+    }
+
+
+    /* Loading screen */
+    #loading {
+        gap: 20px;
+    }
+
+    .loading-logo {
+        letter-spacing: 1px;
+    }
+
+    .loading-sub {
+        font-size: 9px;
+        letter-spacing: 2px;
+    }
+
     .nav-links {
         display: none;
         position: absolute;
@@ -155,6 +190,64 @@ iframe {
     /* City detail pages */
     .utility-grid {
         grid-template-columns: 1fr;
+    }
+
+    /* Loading screen on mobile */
+    #loading {
+        gap: 20px;
+    }
+
+    .loading-logo {
+        letter-spacing: 1px;
+    }
+
+    .loading-sub {
+        font-size: 9px;
+        letter-spacing: 2px;
+    }
+
+    /* Mini map on mobile */
+    #miniMapWrap {
+        max-width: 100% !important;
+        width: 100% !important;
+        height: auto !important;
+        aspect-ratio: 560 / 450 !important;
+    }
+
+    #miniMap {
+        width: 100% !important;
+        height: 100% !important;
+    }
+
+    /* Homepage: single column grids on small screens */
+    .cities-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .stats-grid > div {
+        border-left: none !important;
+        padding-left: 24px !important;
+    }
+
+    /* Mini map responsive */
+    #miniMapWrap {
+        max-width: 100% !important;
+        width: 100% !important;
+        height: auto !important;
+        aspect-ratio: 560 / 450 !important;
+    }
+
+    #miniMap {
+        width: 100% !important;
+        height: 100% !important;
     }
 }
 
@@ -395,6 +488,38 @@ iframe {
 
     .item-title {
         font-size: 24px;
+    }
+
+    /* District pages: reduce padding and header on small screens */
+    body {
+        padding: 40px 5% !important;
+    }
+
+    .header h1 {
+        font-size: 28px;
+        letter-spacing: 1px;
+    }
+
+    .intro-chronicle {
+        padding: 20px;
+    }
+
+    .intro-chronicle h2 {
+        font-size: 18px;
+    }
+
+    .heritage-item {
+        gap: 30px;
+    }
+
+    .slider-container img {
+        height: 280px;
+    }
+
+    .back-btn {
+        font-size: 10px;
+        padding: 8px 12px;
+        letter-spacing: 2px;
     }
 }
 

@@ -391,7 +391,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">01 / 10</span>
-                <h3 class="item-title">Virupaksha Temple</h3>
+                <h3 class="item-title" id="place-virupaksha-temple">Virupaksha Temple</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
@@ -440,7 +440,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">02 / 10</span>
-                <h3 class="item-title">Vittala Temple Stone Chariot</h3>
+                <h3 class="item-title" id="place-vittala-temple-stone-chariot">Vittala Temple Stone Chariot</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
@@ -488,7 +488,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">03 / 10</span>
-                <h3 class="item-title">Lotus Mahal</h3>
+                <h3 class="item-title" id="place-lotus-mahal">Lotus Mahal</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
@@ -536,7 +536,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">04 / 10</span>
-                <h3 class="item-title">Elephant Stables</h3>
+                <h3 class="item-title" id="place-elephant-stables">Elephant Stables</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
@@ -584,7 +584,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">05 / 10</span>
-                <h3 class="item-title">Ugra Narasimha Statue</h3>
+                <h3 class="item-title" id="place-ugra-narasimha-statue">Ugra Narasimha Statue</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
@@ -633,7 +633,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">06 / 10</span>
-                <h3 class="item-title">Hazara Rama Temple</h3>
+                <h3 class="item-title" id="place-hazara-rama-temple">Hazara Rama Temple</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
@@ -681,7 +681,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">07 / 10</span>
-                <h3 class="item-title">Mahanavami Dibba</h3>
+                <h3 class="item-title" id="place-mahanavami-dibba">Mahanavami Dibba</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
@@ -729,7 +729,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">08 / 10</span>
-                <h3 class="item-title">Queen's Bath</h3>
+                <h3 class="item-title" id="place-queen-s-bath">Queen's Bath</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
@@ -777,7 +777,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">09 / 10</span>
-                <h3 class="item-title">Achyutaraya Temple</h3>
+                <h3 class="item-title" id="place-achyutaraya-temple">Achyutaraya Temple</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
@@ -825,7 +825,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">10 / 10</span>
-                <h3 class="item-title">Badavilinga Temple</h3>
+                <h3 class="item-title" id="place-badavilinga-temple">Badavilinga Temple</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
@@ -877,6 +877,22 @@
         }
     </script>
 
+
+    <script>
+    (function(){
+        var hash = window.location.hash;
+        if (!hash || !hash.startsWith('#place-')) return;
+        var id = hash.slice(1);
+        var el = document.getElementById(id);
+        if (!el) return;
+        setTimeout(function(){
+            el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            el.style.outline = '2px solid #D4A843';
+            el.style.outlineOffset = '4px';
+            setTimeout(function(){ el.style.outline = 'none'; }, 2500);
+        }, 400);
+    })();
+    </script>
 </body>
 
 </html>

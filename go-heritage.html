@@ -8,6 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,700;1,9..144,300;1,9..144,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
 <link rel="stylesheet" href="responsive.css">
+    <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.css">
 </head>
 
 <body>
@@ -31,6 +32,7 @@
     <nav id="navbar">
 
         <a href="#hero" class="nav-logo" aria-label="Home">GO <span>HERITAGE</span></a>
+        <a href="map.html" class="nav-map">Interactive Map</a>
 
 
         <ul class="nav-links">
@@ -40,6 +42,7 @@
             <li><a href="#packages">Packages</a></li>
             <li><a href="#hotels">Hotels</a></li>
             <li><a href="#about">About</a></li>
+            <li class="nav-map-mobile"><a href="map.html">Interactive Map</a></li>
         </ul>
         <div class="nav-right">
 
@@ -176,91 +179,29 @@
 
     <!-- MAP -->
     <section id="map-section">
-        <div class="section-header">
-            <div class="section-eyebrow">Navigate Karnataka</div>
-            <div class="section-title">INTERACTIVE <em>MAP</em></div>
+        <div class="section-header" style="display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap;">
+            <div>
+                <div class="section-eyebrow">Navigate Karnataka</div>
+                <div class="section-title">INTERACTIVE <em>MAP</em></div>
+            </div>
         </div>
         <div class="map-container">
             <div class="map-info">
                 <h3>Find Your Way Through Karnataka</h3>
                 <p>Use our interactive map to discover tourist places near your current location, calculate distances, estimated travel times, and plan the perfect route.</p>
+                <p style="font-size: 12px; color: var(--gold); letter-spacing: 1px; margin-top: 8px; opacity: 0.8;">tap the map to open in full view</p>
                 <div class="map-features">
-                    <div class="map-feature">
-                        <div class="map-feature-icon" id="locationIcon">📍</div>
-                        <div class="map-feature-text">
-                            <strong>Live Location</strong>
-                            <span id="locationStatus">Detecting your position...</span>
-                            <!-- This is where the actual city name will show up -->
-                            <span class="location-name" id="locationName"></span>
-                        </div>
-                    </div>
-                    
 
-
-                    <div class="map-feature">
-                        <div class="map-feature-icon">🏛️</div>
-                        <div class="map-feature-text">
-                            <strong>Heritage Clusters</strong> Group nearby sites for efficient multi-stop itineraries
-                        </div>
-                    </div>
-                    <div class="map-feature">
-                        <div class="map-feature-icon">☁️</div>
-                        <div class="map-feature-text">
-                            <strong>Weather Overlay</strong> Real-time weather conditions at each destination
-                        </div>
-                    </div>
                 </div>
                 <br>
             </div>
-            <div class="map-container" style="display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 24px; background: var(--dark2); border: 1px solid var(--glass-border); padding: 20px; border-radius: 4px;">
+            <div class="map-container" style="background: var(--dark2); border: 1px solid var(--glass-border); padding: 20px; border-radius: 4px;">
 
-                <div style="position: relative; height: 460px; background: #0A0A0A; border-radius: 2px; overflow: hidden; border: 1px solid rgba(212,168,67,0.18);">
-                    <canvas id="interactiveCanvasMap" style="width: 100%; height: 100%; display: block;"></canvas>
-                    <div id="mapStatusOverlay" style="position: absolute; bottom: 16px; left: 16px; background: rgba(11,11,15,0.9); padding: 8px 16px; border-radius: 2px; font-size: 11px; letter-spacing: 1.5px; color: var(--gold); border: 1px solid var(--glass-border); font-family: 'Fraunces', serif;">
-                        🛰️ SEEKING GPS CARRIER SIGNAL...
-                    </div>
+                <div id="miniMapWrap" style="width: 560px; max-width: 100%; height: 450px; border-radius: 2px; overflow: hidden; border: 1px solid rgba(212,168,67,0.18); margin: 0 auto; position: relative; background: #0A0A0A;">
+                    <div id="miniMap" style="width: 100%; height: 100%;"></div>
+                    <div id="miniMapInfo" style="position: absolute; bottom: 12px; right: 12px; width: 36px; height: 36px; background: rgba(11,11,15,0.85); border: 1px solid rgba(212,168,67,0.18); border-radius: 50%; color: #EDEEF2; font-family: 'Fraunces', serif; font-size: 16px; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 10;">i</div>
                 </div>
 
-                <div id="heritageDetailsDrawer" style="background: var(--dark3); border: 1px solid var(--glass-border); padding: 24px; display: flex; flex-direction: column; justify-content: space-between; min-height: 460px; border-radius: 2px;">
-
-                    <div id="drawerPlaceholder" style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; text-align: center; color: var(--muted); padding: 40px 10px;">
-                        <span style="font-size: 40px; margin-bottom: 16px; filter: drop-shadow(0 0 10px var(--orange));">📡</span>
-                        <h4 style="font-family: 'Fraunces', serif; font-size: 22px; color: #fff; letter-spacing: 2px; margin-bottom: 8px;">RADAR STANDBY</h4>
-                        <p style="font-size: 12px; line-height: 1.6; max-width: 240px; color: var(--muted);">Click any pulsing geographic target coordinate on the matrix map to stream telemetry logs, real driving distance, entry fares, and premium stays.</p>
-                    </div>
-
-                    <div id="drawerDataContent" style="display: none;">
-                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 12px;">
-                            <span style="font-size: 10px; letter-spacing: 3px; color: var(--orange); font-weight: 600; text-transform: uppercase;">METRICS DESK</span>
-                            <span style="background: rgba(40,167,69,0.15); color: #28a745; font-size: 9px; padding: 3px 8px; border-radius: 2px; letter-spacing: 1px; font-weight: 600;">ONLINE</span>
-                        </div>
-
-                        <h3 id="drawerTitle" style="font-family: 'Fraunces', serif; font-size: 30px; color: #fff; margin-bottom: 20px; font-style: italic;">Destination</h3>
-
-                        <div style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px;">
-                            <div style="display:flex; justify-content:space-between; align-items:center; padding: 12px 14px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 2px;">
-                                <span style="font-size: 12px; color: var(--muted);">🚘 Driving Range</span>
-                                <strong id="drawerDistance" style="font-family: 'Fraunces', serif; font-size: 16px; color: var(--gold); letter-spacing: 1px;">CALCULATING...</strong>
-                            </div>
-                            <div style="display:flex; justify-content:space-between; align-items:center; padding: 12px 14px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 2px;">
-                                <span style="font-size: 12px; color: var(--muted);">🎟️ Access Fares</span>
-                                <strong id="drawerFees" style="font-size: 12px; color: var(--text);">--</strong>
-                            </div>
-                            <div style="display:flex; justify-content:space-between; align-items:center; padding: 12px 14px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 2px;">
-                                <span style="font-size: 12px; color: var(--muted);">🅿️ Space Booking</span>
-                                <strong id="drawerParking" style="font-size: 12px; color: #28a745;">--</strong>
-                            </div>
-                            <div style="display: flex; flex-direction: column; gap: 4px; padding: 12px 14px; background: rgba(212,168,67,0.04); border: 1px solid rgba(212,168,67,0.16); border-radius: 2px;">
-                                <span style="font-size: 9px; text-transform: uppercase; letter-spacing: 2px; color: var(--orange); font-weight: 600;">🏨 Verified Premium Stay</span>
-                                <strong id="drawerHotel" style="font-family: 'Fraunces', serif; font-size: 14px; color: #fff; font-weight: 400;">--</strong>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div id="drawerActionContainer" style="display: none;">
-                        <button class="btn-primary" id="drawerExploreBtn" style="width: 100%; text-align: center; font-size: 11px; padding: 12px 0; letter-spacing: 2px;">Lock Navigation Route</button>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
@@ -374,6 +315,7 @@
         </div>
     </div>
 
+    <script src="https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.js"></script>
     <script src="js/main.js" defer></script>
 
 

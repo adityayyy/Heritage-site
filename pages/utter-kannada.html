@@ -451,7 +451,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">01 / 10</span>
-                <h3 class="item-title">Mahabaleshwar Temple (Gokarna)</h3>
+                <h3 class="item-title" id="place-mahabaleshwar-temple-gokarna">Mahabaleshwar Temple (Gokarna)</h3>
                 <div class="history-wrapper">
                     <p class="history-base">
                         A legendary 4th-century temple complex built in classical Dravidian style, housing the sacred Atmalinga stone. This site is considered one of the seven holy Mukti Sthalas of Karnataka.
@@ -503,7 +503,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">02 / 10</span>
-                <h3 class="item-title">Mirjan Fort</h3>
+                <h3 class="item-title" id="place-mirjan-fort">Mirjan Fort</h3>
                 <div class="history-wrapper">
                     <p class="history-base">
                         A magnificent 16th-century architectural stone fortress built along the estuary bank, globally famous for its deep-rooted double layout defensive walls and watchtowers.
@@ -554,7 +554,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">03 / 10</span>
-                <h3 class="item-title">Murudeshwar Temple Complex</h3>
+                <h3 class="item-title" id="place-murudeshwar-temple-complex">Murudeshwar Temple Complex</h3>
                 <div class="history-wrapper">
                     <p class="history-base">
                         Houses the world's second tallest monolithic Shiva statue, looking out over the Arabian Sea alongside a majestic, modern 20-story Rajagopuram tower.
@@ -605,7 +605,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">04 / 10</span>
-                <h3 class="item-title">Madhukeshwara Temple (Banavasi)</h3>
+                <h3 class="item-title" id="place-madhukeshwara-temple-banavasi">Madhukeshwara Temple (Banavasi)</h3>
                 <div class="history-wrapper">
                     <p class="history-base">
                         The 9th-century structural pride of the Kadamba Dynasty, featuring an incredibly detailed monolithic stone throne and a honey-colored Shiva Lingam.
@@ -656,7 +656,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">05 / 10</span>
-                <h3 class="item-title">Sadashivgad Fort (Karwar)</h3>
+                <h3 class="item-title" id="place-sadashivgad-fort-karwar">Sadashivgad Fort (Karwar)</h3>
                 <div class="history-wrapper">
                     <p class="history-base">
                         An 18th-century hilltop fortress constructed by Raja Sonde at the mouth of the Kali River, featuring an old granite gateway and clear views of the river merging into the sea.
@@ -706,7 +706,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">06 / 10</span>
-                <h3 class="item-title">Idagunji Vinayaka Temple</h3>
+                <h3 class="item-title" id="place-idagunji-vinayaka-temple">Idagunji Vinayaka Temple</h3>
                 <div class="history-wrapper">
                     <p class="history-base">
                         A highly popular religious center holding a distinct two-handed standing stone figure of Lord Ganesha dating back over 1,500 years.
@@ -757,7 +757,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">07 / 10</span>
-                <h3 class="item-title">Yana Rocks Shrines</h3>
+                <h3 class="item-title" id="place-yana-rocks-shrines">Yana Rocks Shrines</h3>
                 <div class="history-wrapper">
                     <p class="history-base">
                         Two giant, deep-black crystalline karst rock monoliths housing a historic cave temple dedicated to Lord Bhairaveshwara hidden deep within the forest.
@@ -807,7 +807,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">08 / 10</span>
-                <h3 class="item-title">Sonda Vadiraja Matha</h3>
+                <h3 class="item-title" id="place-sonda-vadiraja-matha">Sonda Vadiraja Matha</h3>
                 <div class="history-wrapper">
                     <p class="history-base">
                         A peaceful forest monastery village hosting historic stone bathing wells, closely associated with the Dvaita philosopher Sri Vadiraja Tirtha.
@@ -858,7 +858,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">09 / 10</span>
-                <h3 class="item-title">Sahasralinga River Site</h3>
+                <h3 class="item-title" id="place-sahasralinga-river-site">Sahasralinga River Site</h3>
                 <div class="history-wrapper">
                     <p class="history-base">
                         An incredible clearing inside the forest riverbed where hundreds of stone Shiva Lingas and accompanying Nandi bulls were carved directly onto natural rocks.
@@ -909,7 +909,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">10 / 10</span>
-                <h3 class="item-title">Ulavi Channabasaveshwara</h3>
+                <h3 class="item-title" id="place-ulavi-channabasaveshwara">Ulavi Channabasaveshwara</h3>
                 <div class="history-wrapper">
                     <p class="history-base">
                         A deep forest temple sanctuary holding the resting tomb (Samadhi) of the legendary 12th-century Lingayat saint Channabasavanna.
@@ -964,6 +964,22 @@
         }
     </script>
 
+
+    <script>
+    (function(){
+        var hash = window.location.hash;
+        if (!hash || !hash.startsWith('#place-')) return;
+        var id = hash.slice(1);
+        var el = document.getElementById(id);
+        if (!el) return;
+        setTimeout(function(){
+            el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            el.style.outline = '2px solid #D4A843';
+            el.style.outlineOffset = '4px';
+            setTimeout(function(){ el.style.outline = 'none'; }, 2500);
+        }, 400);
+    })();
+    </script>
 </body>
 
 </html>

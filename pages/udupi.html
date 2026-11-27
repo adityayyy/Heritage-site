@@ -381,7 +381,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">01 / 10</span>
-                <h3 class="item-title">Sri Krishna Mutt</h3>
+                <h3 class="item-title" id="place-sri-krishna-mutt">Sri Krishna Mutt</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
@@ -430,7 +430,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">02 / 10</span>
-                <h3 class="item-title">St. Mary's Island</h3>
+                <h3 class="item-title" id="place-st-mary-s-island">St. Mary's Island</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
@@ -479,7 +479,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">03 / 10</span>
-                <h3 class="item-title">Anantheshwara Temples</h3>
+                <h3 class="item-title" id="place-anantheshwara-temples">Anantheshwara Temples</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
@@ -528,7 +528,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">04 / 10</span>
-                <h3 class="item-title">Barkur Royal Ruins</h3>
+                <h3 class="item-title" id="place-barkur-royal-ruins">Barkur Royal Ruins</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
@@ -576,7 +576,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">05 / 10</span>
-                <h3 class="item-title">Hasta Shilpa Heritage Village</h3>
+                <h3 class="item-title" id="place-hasta-shilpa-heritage-village">Hasta Shilpa Heritage Village</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
@@ -624,7 +624,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">06 / 10</span>
-                <h3 class="item-title">Kapu Lighthouse</h3>
+                <h3 class="item-title" id="place-kapu-lighthouse">Kapu Lighthouse</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
@@ -672,7 +672,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">07 / 10</span>
-                <h3 class="item-title">Pajaka Kshetra</h3>
+                <h3 class="item-title" id="place-pajaka-kshetra">Pajaka Kshetra</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
@@ -720,7 +720,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">08 / 10</span>
-                <h3 class="item-title">Karkala Jain Monuments</h3>
+                <h3 class="item-title" id="place-karkala-jain-monuments">Karkala Jain Monuments</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
@@ -768,7 +768,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">09 / 10</span>
-                <h3 class="item-title">Varanga Lake Basadi</h3>
+                <h3 class="item-title" id="place-varanga-lake-basadi">Varanga Lake Basadi</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
@@ -816,7 +816,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">10 / 10</span>
-                <h3 class="item-title">Savira Kambada Basadi</h3>
+                <h3 class="item-title" id="place-savira-kambada-basadi">Savira Kambada Basadi</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
@@ -869,6 +869,22 @@
         }
     </script>
 
+
+    <script>
+    (function(){
+        var hash = window.location.hash;
+        if (!hash || !hash.startsWith('#place-')) return;
+        var id = hash.slice(1);
+        var el = document.getElementById(id);
+        if (!el) return;
+        setTimeout(function(){
+            el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            el.style.outline = '2px solid #D4A843';
+            el.style.outlineOffset = '4px';
+            setTimeout(function(){ el.style.outline = 'none'; }, 2500);
+        }, 400);
+    })();
+    </script>
 </body>
 
 </html>

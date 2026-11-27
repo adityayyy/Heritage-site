@@ -393,7 +393,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">01 / 10</span>
-                <h3 class="item-title">Bangalore Palace</h3>
+                <h3 class="item-title" id="place-bangalore-palace">Bangalore Palace</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
@@ -444,7 +444,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">02 / 10</span>
-                <h3 class="item-title">Tipu Sultan's Summer Palace</h3>
+                <h3 class="item-title" id="place-tipu-sultan-s-summer-palace">Tipu Sultan's Summer Palace</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
@@ -496,7 +496,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">03 / 10</span>
-                <h3 class="item-title">Bull Temple (Basavanagudi)</h3>
+                <h3 class="item-title" id="place-bull-temple-basavanagudi">Bull Temple (Basavanagudi)</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
@@ -547,7 +547,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">04 / 10</span>
-                <h3 class="item-title">Someshwara Temple (Ulsoor)</h3>
+                <h3 class="item-title" id="place-someshwara-temple-ulsoor">Someshwara Temple (Ulsoor)</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
@@ -598,7 +598,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">05 / 10</span>
-                <h3 class="item-title">Bangalore Fort</h3>
+                <h3 class="item-title" id="place-bangalore-fort">Bangalore Fort</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
@@ -649,7 +649,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">06 / 10</span>
-                <h3 class="item-title">Lalbagh Glass House</h3>
+                <h3 class="item-title" id="place-lalbagh-glass-house">Lalbagh Glass House</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
@@ -700,7 +700,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">07 / 10</span>
-                <h3 class="item-title">Mayo Hall</h3>
+                <h3 class="item-title" id="place-mayo-hall">Mayo Hall</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
@@ -749,7 +749,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">08 / 10</span>
-                <h3 class="item-title">St. Mark's Cathedral</h3>
+                <h3 class="item-title" id="place-st-mark-s-cathedral">St. Mark's Cathedral</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
@@ -799,7 +799,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">09 / 10</span>
-                <h3 class="item-title">Government Museum</h3>
+                <h3 class="item-title" id="place-government-museum">Government Museum</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
@@ -850,7 +850,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">10 / 10</span>
-                <h3 class="item-title">Begur Nageshwara Temple</h3>
+                <h3 class="item-title" id="place-begur-nageshwara-temple">Begur Nageshwara Temple</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
@@ -907,6 +907,22 @@
                 });
             }
         }
+    </script>
+
+    <script>
+    (function(){
+        var hash = window.location.hash;
+        if (!hash || !hash.startsWith('#place-')) return;
+        var id = hash.slice(1);
+        var el = document.getElementById(id);
+        if (!el) return;
+        setTimeout(function(){
+            el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            el.style.outline = '2px solid #D4A843';
+            el.style.outlineOffset = '4px';
+            setTimeout(function(){ el.style.outline = 'none'; }, 2500);
+        }, 400);
+    })();
     </script>
 </body>
 

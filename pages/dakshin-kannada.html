@@ -391,7 +391,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">01 / 10</span>
-                <h3 class="item-title">Saavira Kambada Basadi</h3>
+                <h3 class="item-title" id="place-saavira-kambada-basadi">Saavira Kambada Basadi</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
@@ -441,7 +441,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">02 / 10</span>
-                <h3 class="item-title">Mangaladevi Temple</h3>
+                <h3 class="item-title" id="place-mangaladevi-temple">Mangaladevi Temple</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
@@ -491,7 +491,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">03 / 10</span>
-                <h3 class="item-title">St. Aloysius Chapel Murals</h3>
+                <h3 class="item-title" id="place-st-aloysius-chapel-murals">St. Aloysius Chapel Murals</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
@@ -541,7 +541,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">04 / 10</span>
-                <h3 class="item-title">Sultan Battery Watchtower</h3>
+                <h3 class="item-title" id="place-sultan-battery-watchtower">Sultan Battery Watchtower</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
@@ -591,7 +591,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">05 / 10</span>
-                <h3 class="item-title">Dharmasthala Manjunatha Temple</h3>
+                <h3 class="item-title" id="place-dharmasthala-manjunatha-temple">Dharmasthala Manjunatha Temple</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
@@ -641,7 +641,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">06 / 10</span>
-                <h3 class="item-title">Venur Gommateshwara Monolith</h3>
+                <h3 class="item-title" id="place-venur-gommateshwara-monolith">Venur Gommateshwara Monolith</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
@@ -691,7 +691,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">07 / 10</span>
-                <h3 class="item-title">Kukke Subramanya Temple</h3>
+                <h3 class="item-title" id="place-kukke-subramanya-temple">Kukke Subramanya Temple</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
@@ -741,7 +741,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">08 / 10</span>
-                <h3 class="item-title">Kadri Manjunatha Temple</h3>
+                <h3 class="item-title" id="place-kadri-manjunatha-temple">Kadri Manjunatha Temple</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
@@ -791,7 +791,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">09 / 10</span>
-                <h3 class="item-title">Moti Mahal Palace Site</h3>
+                <h3 class="item-title" id="place-moti-mahal-palace-site">Moti Mahal Palace Site</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
@@ -841,7 +841,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">10 / 10</span>
-                <h3 class="item-title">Chowter Palace (Moodabidri)</h3>
+                <h3 class="item-title" id="place-chowter-palace-moodabidri">Chowter Palace (Moodabidri)</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
@@ -895,6 +895,22 @@
         }
     </script>
 
+
+    <script>
+    (function(){
+        var hash = window.location.hash;
+        if (!hash || !hash.startsWith('#place-')) return;
+        var id = hash.slice(1);
+        var el = document.getElementById(id);
+        if (!el) return;
+        setTimeout(function(){
+            el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            el.style.outline = '2px solid #D4A843';
+            el.style.outlineOffset = '4px';
+            setTimeout(function(){ el.style.outline = 'none'; }, 2500);
+        }, 400);
+    })();
+    </script>
 </body>
 
 </html>

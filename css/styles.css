@@ -240,6 +240,30 @@ nav.scrolled {
     cursor: pointer;
 }
 
+.nav-map {
+    font-family: var(--display);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    border: 1px solid var(--line);
+    padding: 6px 14px;
+    margin-left: 10px;
+    transition: border-color 0.3s var(--ease), color 0.3s var(--ease);
+    white-space: nowrap;
+}
+
+.nav-map:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+}
+
+.nav-map-mobile {
+    display: none;
+}
+
 /* ============================================================
    HERO
    ============================================================ */

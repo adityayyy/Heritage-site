@@ -393,7 +393,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">01 / 10</span>
-                <h3 class="item-title">Badami Cave Temples</h3>
+                <h3 class="item-title" id="place-badami-cave-temples">Badami Cave Temples</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
@@ -443,7 +443,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">02 / 10</span>
-                <h3 class="item-title">Pattadakal Temple Complex</h3>
+                <h3 class="item-title" id="place-pattadakal-temple-complex">Pattadakal Temple Complex</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
@@ -493,7 +493,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">03 / 10</span>
-                <h3 class="item-title">Durga Temple (Aihole)</h3>
+                <h3 class="item-title" id="place-durga-temple-aihole">Durga Temple (Aihole)</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
@@ -543,7 +543,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">04 / 10</span>
-                <h3 class="item-title">Bhutanatha Temples (Badami)</h3>
+                <h3 class="item-title" id="place-bhutanatha-temples-badami">Bhutanatha Temples (Badami)</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
@@ -593,7 +593,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">05 / 10</span>
-                <h3 class="item-title">Lad Khan Temple (Aihole)</h3>
+                <h3 class="item-title" id="place-lad-khan-temple-aihole">Lad Khan Temple (Aihole)</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
@@ -642,7 +642,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">06 / 10</span>
-                <h3 class="item-title">Mahakuta Group of Temples</h3>
+                <h3 class="item-title" id="place-mahakuta-group-of-temples">Mahakuta Group of Temples</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
@@ -691,7 +691,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">07 / 10</span>
-                <h3 class="item-title">Banashankari Amma Temple</h3>
+                <h3 class="item-title" id="place-banashankari-amma-temple">Banashankari Amma Temple</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
@@ -741,7 +741,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">08 / 10</span>
-                <h3 class="item-title">Ravana Phadi Cave (Aihole)</h3>
+                <h3 class="item-title" id="place-ravana-phadi-cave-aihole">Ravana Phadi Cave (Aihole)</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
@@ -791,7 +791,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">09 / 10</span>
-                <h3 class="item-title">Badami Fort Hilltop Bastion</h3>
+                <h3 class="item-title" id="place-badami-fort-hilltop-bastion">Badami Fort Hilltop Bastion</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
@@ -841,7 +841,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">10 / 10</span>
-                <h3 class="item-title">Meguti Jain Temple (Aihole)</h3>
+                <h3 class="item-title" id="place-meguti-jain-temple-aihole">Meguti Jain Temple (Aihole)</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
@@ -894,6 +894,22 @@
         }
     </script>
 
+
+    <script>
+    (function(){
+        var hash = window.location.hash;
+        if (!hash || !hash.startsWith('#place-')) return;
+        var id = hash.slice(1);
+        var el = document.getElementById(id);
+        if (!el) return;
+        setTimeout(function(){
+            el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            el.style.outline = '2px solid #D4A843';
+            el.style.outlineOffset = '4px';
+            setTimeout(function(){ el.style.outline = 'none'; }, 2500);
+        }, 400);
+    })();
+    </script>
 </body>
 
 </html>

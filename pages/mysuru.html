@@ -447,7 +447,7 @@
 </div>
             <div class="item-details">
                 <span class="item-index">01 / 10</span>
-                <h3 class="item-title">Mysore Palace (Amba Vilas)</h3>
+                <h3 class="item-title" id="place-mysore-palace-amba-vilas">Mysore Palace (Amba Vilas)</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
@@ -497,7 +497,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">02 / 10</span>
-                <h3 class="item-title">Jaganmohan Palace</h3>
+                <h3 class="item-title" id="place-jaganmohan-palace">Jaganmohan Palace</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
@@ -547,7 +547,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">03 / 10</span>
-                <h3 class="item-title">Chamundeshwari Temple</h3>
+                <h3 class="item-title" id="place-chamundeshwari-temple">Chamundeshwari Temple</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
@@ -597,7 +597,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">04 / 10</span>
-                <h3 class="item-title">St. Philomena's Church</h3>
+                <h3 class="item-title" id="place-st-philomena-s-church">St. Philomena's Church</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
@@ -647,7 +647,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">05 / 10</span>
-                <h3 class="item-title">Lalitha Mahal Palace</h3>
+                <h3 class="item-title" id="place-lalitha-mahal-palace">Lalitha Mahal Palace</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
@@ -697,7 +697,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">06 / 10</span>
-                <h3 class="item-title">Srirangapatna Fort</h3>
+                <h3 class="item-title" id="place-srirangapatna-fort">Srirangapatna Fort</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
@@ -747,7 +747,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">07 / 10</span>
-                <h3 class="item-title">Keshava Temple (Somnathpur)</h3>
+                <h3 class="item-title" id="place-keshava-temple-somnathpur">Keshava Temple (Somnathpur)</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
@@ -797,7 +797,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">08 / 10</span>
-                <h3 class="item-title">Jayalakshmi Vilas Mansion</h3>
+                <h3 class="item-title" id="place-jayalakshmi-vilas-mansion">Jayalakshmi Vilas Mansion</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
@@ -847,7 +847,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">09 / 10</span>
-                <h3 class="item-title">Cheluvamba Mansion</h3>
+                <h3 class="item-title" id="place-cheluvamba-mansion">Cheluvamba Mansion</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
@@ -897,7 +897,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">10 / 10</span>
-                <h3 class="item-title">Brindavan Gardens Fountain Complex</h3>
+                <h3 class="item-title" id="place-brindavan-gardens-fountain-complex">Brindavan Gardens Fountain Complex</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
@@ -951,6 +951,22 @@
         }
     </script>
 
+
+    <script>
+    (function(){
+        var hash = window.location.hash;
+        if (!hash || !hash.startsWith('#place-')) return;
+        var id = hash.slice(1);
+        var el = document.getElementById(id);
+        if (!el) return;
+        setTimeout(function(){
+            el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            el.style.outline = '2px solid #D4A843';
+            el.style.outlineOffset = '4px';
+            setTimeout(function(){ el.style.outline = 'none'; }, 2500);
+        }, 400);
+    })();
+    </script>
 </body>
 
 </html>

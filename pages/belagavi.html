@@ -392,7 +392,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">01 / 10</span>
-                <h3 class="item-title">Belagavi Fort</h3>
+                <h3 class="item-title" id="place-belagavi-fort">Belagavi Fort</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
@@ -442,7 +442,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">02 / 10</span>
-                <h3 class="item-title">Kamal Basadi Jain Temple</h3>
+                <h3 class="item-title" id="place-kamal-basadi-jain-temple">Kamal Basadi Jain Temple</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
@@ -492,7 +492,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">03 / 10</span>
-                <h3 class="item-title">Kittur Chennamma Fort</h3>
+                <h3 class="item-title" id="place-kittur-chennamma-fort">Kittur Chennamma Fort</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
@@ -541,7 +541,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">04 / 10</span>
-                <h3 class="item-title">Safa Masjid</h3>
+                <h3 class="item-title" id="place-safa-masjid">Safa Masjid</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
@@ -589,7 +589,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">05 / 10</span>
-                <h3 class="item-title">St. Mary's Church</h3>
+                <h3 class="item-title" id="place-st-mary-s-church">St. Mary's Church</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
@@ -637,7 +637,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">06 / 10</span>
-                <h3 class="item-title">Kapileshwar Temple</h3>
+                <h3 class="item-title" id="place-kapileshwar-temple">Kapileshwar Temple</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
@@ -685,7 +685,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">07 / 10</span>
-                <h3 class="item-title">Gokak Falls Suspension Bridge</h3>
+                <h3 class="item-title" id="place-gokak-falls-suspension-bridge">Gokak Falls Suspension Bridge</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
@@ -734,7 +734,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">08 / 10</span>
-                <h3 class="item-title">Parasgad Fort</h3>
+                <h3 class="item-title" id="place-parasgad-fort">Parasgad Fort</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
@@ -782,7 +782,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">09 / 10</span>
-                <h3 class="item-title">Yellamma Temple (Saundatti)</h3>
+                <h3 class="item-title" id="place-yellamma-temple-saundatti">Yellamma Temple (Saundatti)</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
@@ -830,7 +830,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">10 / 10</span>
-                <h3 class="item-title">Rajhansgad Yellur Fort</h3>
+                <h3 class="item-title" id="place-rajhansgad-yellur-fort">Rajhansgad Yellur Fort</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
@@ -882,6 +882,22 @@
         }
     </script>
 
+
+    <script>
+    (function(){
+        var hash = window.location.hash;
+        if (!hash || !hash.startsWith('#place-')) return;
+        var id = hash.slice(1);
+        var el = document.getElementById(id);
+        if (!el) return;
+        setTimeout(function(){
+            el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            el.style.outline = '2px solid #D4A843';
+            el.style.outlineOffset = '4px';
+            setTimeout(function(){ el.style.outline = 'none'; }, 2500);
+        }, 400);
+    })();
+    </script>
 </body>
 
 </html>

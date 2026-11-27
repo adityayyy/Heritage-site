@@ -381,7 +381,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">01 / 10</span>
-                <h3 class="item-title">Gol Gumbaz</h3>
+                <h3 class="item-title" id="place-gol-gumbaz">Gol Gumbaz</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
@@ -430,7 +430,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">02 / 10</span>
-                <h3 class="item-title">Ibrahim Rauza</h3>
+                <h3 class="item-title" id="place-ibrahim-rauza">Ibrahim Rauza</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
@@ -479,7 +479,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">03 / 10</span>
-                <h3 class="item-title">Jama Masjid</h3>
+                <h3 class="item-title" id="place-jama-masjid">Jama Masjid</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
@@ -527,7 +527,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">04 / 10</span>
-                <h3 class="item-title">Asar Mahal</h3>
+                <h3 class="item-title" id="place-asar-mahal">Asar Mahal</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
@@ -575,7 +575,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">05 / 10</span>
-                <h3 class="item-title">Bara Kaman</h3>
+                <h3 class="item-title" id="place-bara-kaman">Bara Kaman</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
@@ -623,7 +623,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">06 / 10</span>
-                <h3 class="item-title">Gagan Mahal</h3>
+                <h3 class="item-title" id="place-gagan-mahal">Gagan Mahal</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
@@ -671,7 +671,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">07 / 10</span>
-                <h3 class="item-title">Malik-e-Maidan Cannon</h3>
+                <h3 class="item-title" id="place-malik-e-maidan-cannon">Malik-e-Maidan Cannon</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
@@ -719,7 +719,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">08 / 10</span>
-                <h3 class="item-title">Mehtar Mahal Gateway</h3>
+                <h3 class="item-title" id="place-mehtar-mahal-gateway">Mehtar Mahal Gateway</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
@@ -767,7 +767,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">09 / 10</span>
-                <h3 class="item-title">Taj Bawdi</h3>
+                <h3 class="item-title" id="place-taj-bawdi">Taj Bawdi</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
@@ -815,7 +815,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">10 / 10</span>
-                <h3 class="item-title">Vijayapura Citadel Walls</h3>
+                <h3 class="item-title" id="place-vijayapura-citadel-walls">Vijayapura Citadel Walls</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
@@ -867,6 +867,22 @@
         }
     </script>
 
+
+    <script>
+    (function(){
+        var hash = window.location.hash;
+        if (!hash || !hash.startsWith('#place-')) return;
+        var id = hash.slice(1);
+        var el = document.getElementById(id);
+        if (!el) return;
+        setTimeout(function(){
+            el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            el.style.outline = '2px solid #D4A843';
+            el.style.outlineOffset = '4px';
+            setTimeout(function(){ el.style.outline = 'none'; }, 2500);
+        }, 400);
+    })();
+    </script>
 </body>
 
 </html>

@@ -391,7 +391,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">01 / 10</span>
-                <h3 class="item-title">Vidyashankara Temple (Sringeri)</h3>
+                <h3 class="item-title" id="place-vidyashankara-temple-sringeri">Vidyashankara Temple (Sringeri)</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
@@ -441,7 +441,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">02 / 10</span>
-                <h3 class="item-title">Amrutesvara Temple (Amrutapura)</h3>
+                <h3 class="item-title" id="place-amrutesvara-temple-amrutapura">Amrutesvara Temple (Amrutapura)</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
@@ -491,7 +491,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">03 / 10</span>
-                <h3 class="item-title">Baba Budangiri Shrine</h3>
+                <h3 class="item-title" id="place-baba-budangiri-shrine">Baba Budangiri Shrine</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
@@ -541,7 +541,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">04 / 10</span>
-                <h3 class="item-title">Veera Narayana Temple (Belavadi)</h3>
+                <h3 class="item-title" id="place-veera-narayana-temple-belavadi">Veera Narayana Temple (Belavadi)</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
@@ -591,7 +591,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">05 / 10</span>
-                <h3 class="item-title">Sringeri Sharada Peetham</h3>
+                <h3 class="item-title" id="place-sringeri-sharada-peetham">Sringeri Sharada Peetham</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
@@ -641,7 +641,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">06 / 10</span>
-                <h3 class="item-title">Kodanda Rama Temple (Hiremagalur)</h3>
+                <h3 class="item-title" id="place-kodanda-rama-temple-hiremagalur">Kodanda Rama Temple (Hiremagalur)</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
@@ -691,7 +691,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">07 / 10</span>
-                <h3 class="item-title">Kallathigiri Cave Temple</h3>
+                <h3 class="item-title" id="place-kallathigiri-cave-temple">Kallathigiri Cave Temple</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
@@ -741,7 +741,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">08 / 10</span>
-                <h3 class="item-title">Balehonnur Shrimath</h3>
+                <h3 class="item-title" id="place-balehonnur-shrimath">Balehonnur Shrimath</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
@@ -790,7 +790,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">09 / 10</span>
-                <h3 class="item-title">Horanadu Annapoorneshwari</h3>
+                <h3 class="item-title" id="place-horanadu-annapoorneshwari">Horanadu Annapoorneshwari</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
@@ -840,7 +840,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">10 / 10</span>
-                <h3 class="item-title">Angadi Hoysala Temple Site</h3>
+                <h3 class="item-title" id="place-angadi-hoysala-temple-site">Angadi Hoysala Temple Site</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
@@ -894,6 +894,22 @@
         }
     </script>
 
+
+    <script>
+    (function(){
+        var hash = window.location.hash;
+        if (!hash || !hash.startsWith('#place-')) return;
+        var id = hash.slice(1);
+        var el = document.getElementById(id);
+        if (!el) return;
+        setTimeout(function(){
+            el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            el.style.outline = '2px solid #D4A843';
+            el.style.outlineOffset = '4px';
+            setTimeout(function(){ el.style.outline = 'none'; }, 2500);
+        }, 400);
+    })();
+    </script>
 </body>
 
 </html>

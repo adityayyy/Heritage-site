@@ -401,7 +401,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">01 / 10</span>
-                <h3 class="item-title">Madikeri Fort</h3>
+                <h3 class="item-title" id="place-madikeri-fort">Madikeri Fort</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
@@ -451,7 +451,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">02 / 10</span>
-                <h3 class="item-title">Raja's Tomb (Gaddige)</h3>
+                <h3 class="item-title" id="place-raja-s-tomb-gaddige">Raja's Tomb (Gaddige)</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
@@ -501,7 +501,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">03 / 10</span>
-                <h3 class="item-title">Omkareshwara Temple</h3>
+                <h3 class="item-title" id="place-omkareshwara-temple">Omkareshwara Temple</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
@@ -551,7 +551,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">04 / 10</span>
-                <h3 class="item-title">Namdroling Monastery (Golden Temple)</h3>
+                <h3 class="item-title" id="place-namdroling-monastery-golden-temple">Namdroling Monastery (Golden Temple)</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
@@ -601,7 +601,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">05 / 10</span>
-                <h3 class="item-title">Nalknad Palace</h3>
+                <h3 class="item-title" id="place-nalknad-palace">Nalknad Palace</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
@@ -651,7 +651,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">06 / 10</span>
-                <h3 class="item-title">Talakaveri Temple Shrine</h3>
+                <h3 class="item-title" id="place-talakaveri-temple-shrine">Talakaveri Temple Shrine</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
@@ -701,7 +701,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">07 / 10</span>
-                <h3 class="item-title">Bhagamandala Triveni Sangam</h3>
+                <h3 class="item-title" id="place-bhagamandala-triveni-sangam">Bhagamandala Triveni Sangam</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
@@ -750,7 +750,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">08 / 10</span>
-                <h3 class="item-title">Padi Igguthappa Temple</h3>
+                <h3 class="item-title" id="place-padi-igguthappa-temple">Padi Igguthappa Temple</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
@@ -800,7 +800,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">09 / 10</span>
-                <h3 class="item-title">St. Mark's Church Museum</h3>
+                <h3 class="item-title" id="place-st-mark-s-church-museum">St. Mark's Church Museum</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
@@ -850,7 +850,7 @@
             </div>
             <div class="item-details">
                 <span class="item-index">10 / 10</span>
-                <h3 class="item-title">Angling Heritage Site (Valnur)</h3>
+                <h3 class="item-title" id="place-angling-heritage-site-valnur">Angling Heritage Site (Valnur)</h3>
 
                 <div class="history-wrapper">
                     <p class="history-base">
@@ -904,6 +904,22 @@
         }
     </script>
 
+
+    <script>
+    (function(){
+        var hash = window.location.hash;
+        if (!hash || !hash.startsWith('#place-')) return;
+        var id = hash.slice(1);
+        var el = document.getElementById(id);
+        if (!el) return;
+        setTimeout(function(){
+            el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            el.style.outline = '2px solid #D4A843';
+            el.style.outlineOffset = '4px';
+            setTimeout(function(){ el.style.outline = 'none'; }, 2500);
+        }, 400);
+    })();
+    </script>
 </body>
 
 </html>
